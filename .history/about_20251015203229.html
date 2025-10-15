@@ -1,0 +1,337 @@
+<!-- Product: YONI約妳約會服務平台 - About Page
+Version: 1.0.0
+Author: Kilo Code
+Contact: support@yoni.tw
+Website: https://yoni.tw
+License: Proprietary
+-->
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="zh-TW">
+<head>
+  <title>YONI約妳 - 品牌介紹</title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="YONI約妳約會服務平台品牌介紹 - 打造安全、真誠且具有溫度的線上交友平台" name="description"/>
+  <meta content="@yoni.tw" name="twitter:site"/>
+  <meta content="@yoni.tw" name="twitter:creator"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="YONI約妳 - 品牌介紹" name="twitter:title"/>
+  <meta content="YONI約妳約會服務平台品牌介紹 - 打造安全、真誠且具有溫度的線上交友平台" name="twitter:description"/>
+  <meta content="assets/media/app/og-image.png" name="twitter:image"/>
+  <meta content="https://yoni.tw/about" property="og:url"/>
+  <meta content="zh_TW" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="@yoni.tw" property="og:site_name"/>
+  <meta content="YONI約妳 - 品牌介紹" property="og:title"/>
+  <meta content="YONI約妳約會服務平台品牌介紹 - 打造安全、真誠且具有溫度的線上交友平台" property="og:description"/>
+  <meta content="assets/media/app/og-image.png" property="og:image"/>
+  <link href="assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="assets/media/app/favicon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+  <style>
+    .hero-bg {
+      background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+    }
+    .feature-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+      border: 1px solid #fde68a;
+    }
+    .team-card {
+      background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
+      border: 1px solid #bbf7d0;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+  </style>
+</head>
+<body class="antialiased flex h-full text-base text-foreground bg-background">
+  <!-- Theme Mode -->
+  <script>
+    const defaultThemeMode = 'light';
+    let themeMode;
+
+    if (document.documentElement) {
+      if (localStorage.getItem('kt-theme')) {
+        themeMode = localStorage.getItem('kt-theme');
+      } else if (document.documentElement.hasAttribute('data-kt-theme-mode')) {
+        themeMode = document.documentElement.getAttribute('data-kt-theme-mode');
+      } else {
+        themeMode = defaultThemeMode;
+      }
+
+      if (themeMode === 'system') {
+        themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      document.documentElement.classList.add(themeMode);
+    }
+  </script>
+  <!-- End of Theme Mode -->
+
+  <!-- Page -->
+  <div class="flex grow flex-col">
+    <!-- Header -->
+    <header class="flex items-center transition-[height] shrink-0 bg-background h-16 border-b border-border">
+      <div class="kt-container-fixed flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <a class="flex items-center shrink-0" href="home.html">
+            <img class="dark:hidden w-8 shrink-0" src="assets/media/app/default-logo.svg" alt="YONI約妳 Logo"/>
+            <img class="hidden dark:inline-block w-8 shrink-0" src="assets/media/app/default-logo-dark.svg" alt="YONI約妳 Logo Dark"/>
+          </a>
+          <h3 class="text-mono text-lg font-medium hidden md:block">YONI約妳</h3>
+        </div>
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="home.html" class="text-secondary-foreground hover:text-primary font-medium">首頁</a>
+          <a href="about.html" class="text-primary font-medium border-b-2 border-primary">品牌介紹</a>
+          <a href="terms.html" class="text-secondary-foreground hover:text-primary font-medium">使用條款</a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden kt-btn kt-btn-icon kt-btn-ghost">
+          <i class="ki-filled ki-menu text-xl"></i>
+        </button>
+      </div>
+    </header>
+    <!-- End of Header -->
+
+    <!-- Main Content -->
+    <main class="flex flex-col grow">
+      <!-- Hero Section -->
+      <section class="hero-bg py-16 md:py-24">
+        <div class="kt-container-fixed">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 rounded-full border border-amber-200">
+                <i class="ki-filled ki-heart text-amber-600"></i>
+                <span class="text-sm font-medium text-amber-800">讓愛，不再只靠緣分</span>
+              </div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                YONI約妳<br/>
+                <span class="text-amber-600">約會服務平台</span>
+              </h1>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                成立於台灣，致力於打造一個安全、真誠且具有溫度的線上交友平台。
+                我們深信，每一段關係的起點，都來自一場用心的相遇。
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button class="kt-btn kt-btn-primary px-8 py-3 text-lg">
+                  <i class="ki-filled ki-user-plus mr-2"></i>
+                  立即加入
+                </button>
+                <button class="kt-btn kt-btn-outline px-8 py-3 text-lg">
+                  <i class="ki-filled ki-information mr-2"></i>
+                  了解更多
+                </button>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="aspect-square max-w-md mx-auto">
+                <img src="assets/media/illustrations/1.svg" alt="YONI約妳插圖" class="w-full h-full object-contain"/>
+              </div>
+              <div class="absolute -top-4 -right-4 w-24 h-24 bg-amber-400 rounded-full opacity-20 animate-pulse"></div>
+              <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-400 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brand Story Section -->
+      <section class="py-16 md:py-24 bg-white">
+        <div class="kt-container-fixed">
+          <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">我們的理念</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div class="space-y-6">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                  透過科技與人性的結合，我們提供多元而精緻的配對服務，
+                  幫助用戶找到契合的靈魂伴侶、知心好友，甚至是未來的伴侶。
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                  無論是渴望穩定交往的單身族，或希望擴展生活圈的社交愛好者，
+                  皆能在平台中找到適合自己的交流空間。
+                </p>
+              </div>
+              <div class="relative">
+                <img src="assets/media/illustrations/2.svg" alt="品牌理念插圖" class="w-full max-w-sm mx-auto"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div class="kt-container-fixed">
+          <div class="text-center space-y-4 mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">我們的特色</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              以科技創新與人性關懷，為每一位用戶打造專屬的交友體驗
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- AI Matching -->
+            <div class="feature-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                <i class="ki-filled ki-ai text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">AI智能配對</h3>
+              <p class="text-gray-600 leading-relaxed">
+                結合性格分析、興趣標籤與行為數據，提升配對的準確性與互動的真實性。
+                讓科技成為愛情的催化劑，找到真正契合的對象。
+              </p>
+            </div>
+
+            <!-- Security -->
+            <div class="feature-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                <i class="ki-filled ki-shield-tick text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">安全與隱私</h3>
+              <p class="text-gray-600 leading-relaxed">
+                採用嚴謹的身分驗證機制與審核制度，防範虛假帳號與不當行為。
+                您的個人資訊受到多重保護，讓每一次互動都更安心。
+              </p>
+            </div>
+
+            <!-- Activities -->
+            <div class="feature-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6">
+                <i class="ki-filled ki-calendar-tick text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">多元活動</h3>
+              <p class="text-gray-600 leading-relaxed">
+                定期舉辦線上與線下活動，為會員創造更多自然互動的機會。
+                從線上聊天室到實體約會活動，讓緣分不再是偶然。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="py-16 md:py-24 bg-white">
+        <div class="kt-container-fixed">
+          <div class="text-center space-y-4 mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">我們的團隊</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              來自社會學、資訊工程、品牌行銷等多領域專業人士組成
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="team-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-green-200">
+                <img src="assets/media/avatars/300-1.png" alt="團隊成員" class="w-full h-full object-cover"/>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">張經理</h3>
+              <p class="text-green-600 font-medium mb-4">產品總監</p>
+              <p class="text-gray-600 leading-relaxed">
+                擁有10年以上的產品設計經驗，專注於用戶體驗優化與產品策略規劃。
+              </p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-blue-200">
+                <img src="assets/media/avatars/300-2.png" alt="團隊成員" class="w-full h-full object-cover"/>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">李工程師</h3>
+              <p class="text-blue-600 font-medium mb-4">技術總監</p>
+              <p class="text-gray-600 leading-relaxed">
+                AI與機器學習專家，負責智能配對演算法的開發與優化。
+              </p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+              <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-200">
+                <img src="assets/media/avatars/300-10.png" alt="團隊成員" class="w-full h-full object-cover"/>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">王專員</h3>
+              <p class="text-purple-600 font-medium mb-4">用戶體驗設計師</p>
+              <p class="text-gray-600 leading-relaxed">
+                專注於創造溫暖且直觀的用戶介面，讓每位用戶都能輕鬆找到真愛。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission Section -->
+      <section class="py-16 md:py-24 bg-gradient-to-r from-pink-50 to-amber-50">
+        <div class="kt-container-fixed">
+          <div class="max-w-4xl mx-auto text-center space-y-8">
+            <div class="space-y-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900">我們的使命</h2>
+              <p class="text-xl text-gray-700 leading-relaxed">
+                我們相信，愛情不該只是資料配對的結果，更是心靈交流與價值觀共鳴的展現。
+              </p>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                約妳有限公司的團隊結合對人際連結的理解與對科技的靈活運用，
+                持續優化產品體驗與服務品質，立志成為華人世界中最值得信賴的交友品牌。
+              </p>
+            </div>
+            <div class="relative">
+              <img src="assets/media/illustrations/3.svg" alt="使命插圖" class="w-full max-w-md mx-auto"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section py-16 md:py-24">
+        <div class="kt-container-fixed">
+          <div class="max-w-4xl mx-auto text-center space-y-8">
+            <div class="space-y-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-white">準備好開始你的愛情旅程了嗎？</h2>
+              <p class="text-xl text-amber-100 leading-relaxed">
+                在約妳，我們用真誠與科技，幫你遇見對的人。
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button class="kt-btn kt-btn-outline bg-white text-amber-600 border-white hover:bg-amber-50 px-8 py-3 text-lg">
+                <i class="ki-filled ki-user-plus mr-2"></i>
+                免費註冊
+              </button>
+              <button class="kt-btn kt-btn-outline bg-transparent text-white border-white hover:bg-white/10 px-8 py-3 text-lg">
+                <i class="ki-filled ki-message-text mr-2"></i>
+                聯絡我們
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-gray-900 text-white py-8">
+      <div class="kt-container-fixed">
+        <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3">
+          <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+            <span class="text-gray-400">2025©</span>
+            <a class="text-gray-300 hover:text-white" href="https://yoni.tw">YONI約妳 Inc.</a>
+          </div>
+          <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-gray-300">
+            <a class="hover:text-white" href="about.html">品牌介紹</a>
+            <a class="hover:text-white" href="terms.html">使用條款</a>
+            <a class="hover:text-white" href="#">隱私權政策</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/core.bundle.js"></script>
+  <script src="assets/vendors/ktui/ktui.min.js"></script>
+</body>
+</html>

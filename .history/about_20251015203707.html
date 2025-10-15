@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="zh-TW">
+  <head><base href="../../../">
+   <title>
+    品牌介紹 - YONI
+   </title>
+   <meta charset="utf-8"/>
+   <meta content="follow, index" name="robots"/>
+   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+   <meta content="YONI 品牌介紹" name="description"/>
+   <link href="assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+   <link href="assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+   <link href="assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+   <link href="assets/media/app/favicon.ico" rel="shortcut icon"/>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+   <link href="assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+   <link href="assets/css/styles.css" rel="stylesheet"/>
+  </head>
+  <body class="antialiased flex h-full text-base text-foreground bg-background">
+   <script>
+    const defaultThemeMode = 'light';
+ 			let themeMode;
+
+ 			if (document.documentElement) {
+ 				if (localStorage.getItem('kt-theme')) {
+ 					themeMode = localStorage.getItem('kt-theme');
+ 				} else if (
+ 					document.documentElement.hasAttribute('data-kt-theme-mode')
+ 				) {
+ 					themeMode =
+ 						document.documentElement.getAttribute('data-kt-theme-mode');
+ 				} else {
+ 					themeMode = defaultThemeMode;
+ 				}
+
+ 				if (themeMode === 'system') {
+ 					themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+ 						? 'dark'
+ 						: 'light';
+ 				}
+
+ 				document.documentElement.classList.add(themeMode);
+ 			}
+   </script>
+   <div class="flex grow flex-col">
+    <header class="flex items-center transition-[height] shrink-0 bg-background h-[78px] border-b border-border" id="header">
+     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
+      <div class="flex items-center gap-2">
+       <a class="flex items-center shrink-0" href="home.html">
+        <img class="dark:hidden w-8 shrink-0" src="assets/media/app/mini-logo-circle.svg"/>
+        <img class="hidden dark:inline-block w-8 shrink-0" src="assets/media/app/mini-logo-circle-dark.svg"/>
+       </a>
+       <h3 class="text-mono text-lg font-medium">
+        YONI
+       </h3>
+      </div>
+     </div>
+    </header>
+
+    <main class="flex flex-col grow" id="content" role="content">
+     <div class="kt-container-fixed py-10">
+      <div class="max-w-4xl mx-auto">
+       <div class="kt-card">
+        <div class="kt-card-content p-8 lg:p-12">
+         <h1 class="text-3xl font-bold text-mono mb-8 text-center">品牌介紹</h1>
+
+         <div class="prose prose-sm max-w-none space-y-6 text-foreground">
+          <p class="text-base leading-relaxed">
+           YONI約妳約會服務平台 成立於台灣，致力於打造一個安全、真誠且具有溫度的線上交友平台。我們深信，每一段關係的起點，都來自一場用心的相遇。因此，透過科技與人性的結合，我們提供多元而精緻的配對服務，幫助用戶找到契合的靈魂伴侶、知心好友，甚至是未來的伴侶。
+          </p>
+
+          <p class="text-base leading-relaxed">
+           平台以 AI 智能配對為核心，結合性格分析、興趣標籤與行為數據，提升配對的準確性與互動的真實性。無論是渴望穩定交往的單身族，或希望擴展生活圈的社交愛好者，皆能在平台中找到適合自己的交流空間。我們也特別注重用戶的隱私與安全，採用嚴謹的身分驗證機制與審核制度，防範虛假帳號與不當行為，讓每一次互動都更安心。
+          </p>
+
+          <p class="text-base leading-relaxed">
+           除了配對功能，我們亦定期舉辦線上與線下活動，為會員創造更多自然互動的機會。我們相信，愛情不該只是資料配對的結果，更是心靈交流與價值觀共鳴的展現。
+          </p>
+
+          <p class="text-base leading-relaxed">
+           約妳有限公司的團隊由來自社會學、資訊工程、品牌行銷等多領域專業人士組成，結合對人際連結的理解與對科技的靈活運用，持續優化產品體驗與服務品質，立志成為華人世界中最值得信賴的交友品牌。
+          </p>
+
+          <p class="text-base leading-relaxed font-semibold text-center">
+           讓愛，不再只靠緣分。
+          </p>
+
+          <p class="text-base leading-relaxed text-center">
+           在約妳，我們用真誠與科技，幫你遇見對的人。
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <footer class="footer mt-auto">
+      <div class="kt-container-fixed">
+       <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
+        <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+         <span class="text-muted-foreground">
+          2025©
+         </span>
+         <a class="text-secondary-foreground hover:text-primary" href="https://www.yoni.tw">
+          yoni Inc.
+         </a>
+        </div>
+        <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
+         <a class="hover:text-primary" href="about.html">
+          品牌介紹
+         </a>
+         <a class="hover:text-primary" href="terms.html">
+          使用條款
+         </a>
+         <a class="hover:text-primary" href="#">
+          隱私權政策
+         </a>
+        </nav>
+       </div>
+      </div>
+     </footer>
+    </main>
+   </div>
+
+   <script src="assets/js/core.bundle.js"></script>
+   <script src="assets/vendors/ktui/ktui.min.js"></script>
+  </body>
+ </html>

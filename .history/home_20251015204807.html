@@ -2749,39 +2749,37 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div class="kt-card mb-3.5 bg-accent/50 border border-border rounded-xl">
         <div class="px-5 py-6">
          <div class="max-w-[960px] mx-auto">
-          <form class="flex flex-col gap-3">
-           <!-- 第一行:主要篩選 -->
-           <div class="flex flex-row items-center justify-start gap-3">
-            <select name="city" id="city" class="kt-select h-10 !w-[140px] md:!w-[160px]">
-             <option>選擇縣市</option>
-            </select>
-            <select name="district" id="district" class="kt-select h-10 !w-[140px] md:!w-[160px]">
-             <option>選擇地區</option>
-            </select>
-            <select name="gender" id="gender" class="kt-select h-10 !w-[140px] md:!w-[160px]">
-             <option>喜好性別</option>
-             <option>男</option>
-             <option>女</option>
-             <option>不限</option>
-            </select>
-            <input type="text" name="nickname" placeholder="藝名 / 暱稱" class="kt-input h-10 !w-[160px] md:!w-[200px]">
-            <button type="submit" class="kt-btn kt-btn-primary btn-search shrink-0 h-10">查詢</button>
-           </div>
+          <form class="search-bar">
+         <div class="filter-row main-filters grid grid-flow-col auto-cols-max items-center justify-start gap-4 mb-2 whitespace-nowrap">
+          <select name="city" id="city" class="kt-select h-10 !w-[160px] md:!w-[180px]">
+           <option>選擇縣市</option>
+          </select>
+          <select name="district" id="district" class="kt-select h-10 w-[160px] md:w-[180px]">
+           <option>選擇地區</option>
+          </select>
+          <select name="gender" id="gender" class="kt-select h-10 !w-[160px] md:!w-[180px]">
+           <option>喜好性別</option>
+           <option>男</option>
+           <option>女</option>
+           <option>不限</option>
+          </select>
+          <input type="text" name="nickname" placeholder="藝名 / 暱稱" class="kt-input h-10 !w-[180px] md:!w-[220px]">
+          <button type="submit" class="kt-btn kt-btn-primary btn-search shrink-0 h-10">查詢</button>
+         </div>
 
-           <!-- 第二行:進階篩選 -->
-           <div class="flex flex-row items-center justify-start gap-3">
-            <select name="type" id="type" class="kt-select h-10 !w-[140px] md:!w-[160px]">
-             <option>約會類型</option>
-             <option>吃飯</option>
-             <option>看電影</option>
-             <option>運動</option>
-             <option>其他</option>
-            </select>
-            <select name="place" id="place" class="kt-select h-10 !w-[140px] md:!w-[160px]">
-             <option>約會場所</option>
-            </select>
-            <input type="text" name="address" placeholder="詳細地址" class="kt-input h-10 !w-[280px] md:!w-[360px]">
-           </div>
+         <div class="filter-row sub-filters grid grid-flow-col auto-cols-max items-center justify-start gap-4 whitespace-nowrap text-red-500 text-sm opacity-90">
+          <select name="type" id="type" class="kt-select h-9 !w-[160px] md:!w-[180px] text-red-500">
+           <option>約會類型</option>
+           <option>吃飯</option>
+           <option>看電影</option>
+           <option>運動</option>
+           <option>其他</option>
+          </select>
+          <select name="place" id="place" class="kt-select h-9 !w-[160px] md:!w-[180px] text-red-500">
+           <option>約會場所</option>
+          </select>
+          <input type="text" name="address" placeholder="詳細地址" class="kt-input h-9 !w-[300px] md:!w-[360px] text-red-500 placeholder-red-400">
+         </div>
           </form>
          </div>
         </div>
