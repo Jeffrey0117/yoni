@@ -1,0 +1,15 @@
+# VSCode 歷史記錄
+.history/
+
+# 作業系統產生的檔案
+.DS_Store
+Thumbs.db
+
+# IDE 設定檔
+.vscode/
+.idea/
+
+# 暫存檔案
+*.tmp
+*.temp
+*.log
