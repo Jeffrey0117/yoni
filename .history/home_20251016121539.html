@@ -73,7 +73,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- Main -->
   <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
    <!-- Header -->
-   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height)" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-10 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
     <!-- Container -->
     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
      <!-- Logo -->
@@ -101,8 +101,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
         <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
          <div class="flex items-center gap-2">
-<i class="ki-filled ki-profile-circle text-xl">
-        </i>          <div class="flex flex-col gap-1.5">
+          <img alt="" class="size-9 shrink-0 rounded-full border-2 border-green-500" src="assets/media/avatars/300-2.png"/>
+          <div class="flex flex-col gap-1.5">
            <span class="text-sm text-foreground font-semibold leading-none">
             暱稱
            </span>
@@ -129,8 +129,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </li>
          <li>
           <a class="kt-dropdown-menu-link" href="html/demo9/account/home/user-profile.html">
-          <i class="ki-filled ki-profile-circle text-xl">
-        </i>
+           <i class="ki-filled ki-shopping-cart">
            </i>
            訂單
           </a>
@@ -387,13 +386,257 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <!--End of Wishlist Drawer-->
       <!--End of Wishlist-->
       <!--Cart-->
- <i class="ki-filled ki-notification-on text-2xl"></i>
+      <div class="flex items-center gap-2">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-drawer-toggle="#drawers_shop_cart">
+        <i class="ki-filled ki-handcart text-xl">
+        </i>
+        <span class="kt-badge kt-badge-xs kt-badge-success rounded-full absolute -end-1 -top-0.5">
+         7
+        </span>
+       </button>
+       <!--Cart Drawer-->
+       <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[600px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_cart">
+        <div class="kt-card-header px-5">
+         <h3 class="kt-card-title">
+          Cart
+         </h3>
+         <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
+          <i class="ki-filled ki-cross text-base">
+          </i>
+         </button>
+        </div>
+        <div class="kt-card-content space-y-5 p-5 kt-scrollable-y-auto">
+         <div class="kt-card">
+          <div class="kt-card-content p-2 pe-5 flex items-center flex-wrap w-full justify-between gap-3.5">
+           <div class="flex md:items-center gap-4">
+            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+             <img alt="img" class="h-[70px]" src="assets/media/store/client/600x600/11.png"/>
+            </div>
+            <div class="flex flex-col sm:justify-end gap-2.5 -mt-1">
+             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" href="#">
+              Cloud Shift Lightweight Runner Pro Edition
+             </a>
+             <div class="flex items-center gap-2">
+              <span class="text-xs font-normal text-secondary-foreground">
+               SKU:
+               <span class="text-xs font-medium text-foreground">
+                BT-A1-YLW-8
+               </span>
+              </span>
+             </div>
+            </div>
+           </div>
+           <div class="flex sm:justify-end flex-col gap-3">
+            <div class="flex items-center sm:justify-end gap-2">
+             <select class="kt-select kt-select-sm w-[60px] bg-background" data-kt-select="true" data-kt-select-dropdown-container="body" name="kt-select">
+              <option selected="" value="1">
+               1
+              </option>
+              <option value="2">
+               3
+              </option>
+              <option value="3">
+               6
+              </option>
+              <option value="4">
+               9
+              </option>
+             </select>
+             <button class="kt-btn kt-btn-icon kt-btn-outline kt-btn-sm">
+              <i class="ki-filled ki-trash">
+              </i>
+             </button>
+            </div>
+            <div class="flex items-center sm:justify-end gap-3">
+             <span class="text-sm font-semibold text-mono">
+              $120.00
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="kt-card">
+          <div class="kt-card-content p-2 pe-5 flex items-center flex-wrap w-full justify-between gap-3.5">
+           <div class="flex md:items-center gap-4">
+            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+             <img alt="img" class="h-[70px]" src="assets/media/store/client/600x600/12.png"/>
+            </div>
+            <div class="flex flex-col sm:justify-end gap-2.5 -mt-1">
+             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" href="#">
+              Titan Edge High Impact Stability Lightweight..
+             </a>
+             <div class="flex items-center gap-2">
+              <span class="text-xs font-normal text-secondary-foreground">
+               SKU:
+               <span class="text-xs font-medium text-foreground">
+                SNK-888-RED-42
+               </span>
+              </span>
+             </div>
+            </div>
+           </div>
+           <div class="flex sm:justify-end flex-col gap-3">
+            <div class="flex items-center sm:justify-end gap-2">
+             <select class="kt-select kt-select-sm w-[60px] bg-background" data-kt-select="true" data-kt-select-dropdown-container="body" name="kt-select">
+              <option selected="" value="1">
+               1
+              </option>
+              <option value="2">
+               3
+              </option>
+              <option value="3">
+               6
+              </option>
+              <option value="4">
+               9
+              </option>
+             </select>
+             <button class="kt-btn kt-btn-icon kt-btn-outline kt-btn-sm">
+              <i class="ki-filled ki-trash">
+              </i>
+             </button>
+            </div>
+            <div class="flex items-center sm:justify-end gap-3">
+             <span class="text-sm font-semibold text-mono">
+              $99.00
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="kt-card">
+          <div class="kt-card-content p-2 pe-5 flex items-center flex-wrap w-full justify-between gap-3.5">
+           <div class="flex md:items-center gap-4">
+            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+             <img alt="img" class="h-[70px]" src="assets/media/store/client/600x600/13.png"/>
+            </div>
+            <div class="flex flex-col sm:justify-end gap-2.5 -mt-1">
+             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" href="#">
+              Cloud Shift Lightweight Runner Pro Edition
+             </a>
+             <div class="flex items-center gap-2">
+              <span class="text-xs font-normal text-secondary-foreground">
+               SKU:
+               <span class="text-xs font-medium text-foreground">
+                SD-999-TAN-38
+               </span>
+              </span>
+             </div>
+            </div>
+           </div>
+           <div class="flex sm:justify-end flex-col gap-3">
+            <div class="flex items-center sm:justify-end gap-2">
+             <select class="kt-select kt-select-sm w-[60px] bg-background" data-kt-select="true" data-kt-select-dropdown-container="body" name="kt-select">
+              <option selected="" value="1">
+               1
+              </option>
+              <option value="2">
+               3
+              </option>
+              <option value="3">
+               6
+              </option>
+              <option value="4">
+               9
+              </option>
+             </select>
+             <button class="kt-btn kt-btn-icon kt-btn-outline kt-btn-sm">
+              <i class="ki-filled ki-trash">
+              </i>
+             </button>
+            </div>
+            <div class="flex items-center sm:justify-end gap-3">
+             <span class="text-sm font-semibold text-mono">
+              $120.00
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="kt-card">
+          <div class="kt-card-content p-2 pe-5 flex items-center flex-wrap w-full justify-between gap-3.5">
+           <div class="flex md:items-center gap-4">
+            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+             <img alt="img" class="h-[70px]" src="assets/media/store/client/600x600/15.png"/>
+            </div>
+            <div class="flex flex-col sm:justify-end gap-2.5 -mt-1">
+             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" href="#">
+              Wave Strike Dynamic Boost Sneaker
+             </a>
+             <div class="flex items-center gap-2">
+              <span class="text-xs font-normal text-secondary-foreground">
+               SKU:
+               <span class="text-xs font-medium text-foreground">
+                BT-444-BRN-7
+               </span>
+              </span>
+              <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
+               save 25%
+              </span>
+             </div>
+            </div>
+           </div>
+           <div class="flex sm:justify-end flex-col gap-3">
+            <div class="flex items-center sm:justify-end gap-2">
+             <select class="kt-select kt-select-sm w-[60px] bg-background" data-kt-select="true" data-kt-select-dropdown-container="body" name="kt-select">
+              <option selected="" value="1">
+               1
+              </option>
+              <option value="2">
+               3
+              </option>
+              <option value="3">
+               6
+              </option>
+              <option value="4">
+               9
+              </option>
+             </select>
+             <button class="kt-btn kt-btn-icon kt-btn-outline kt-btn-sm">
+              <i class="ki-filled ki-trash">
+              </i>
+             </button>
+            </div>
+            <div class="flex items-center sm:justify-end gap-3">
+             <span class="text-sm font-normal text-secondary-foreground line-through">
+              $179.00
+             </span>
+             <span class="text-sm font-semibold text-mono">
+              $144.00
+             </span>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="flex items-center justify-end border-none rounded-md bg-accent/50 gap-5 py-2 px-3 !mt-[30px]">
+          <span class="text-sm font-medium text-mono">
+           Total
+          </span>
+          <span class="text-sm font-semibold text-mono">
+           $492.00
+          </span>
+         </div>
+        </div>
+        <div class="kt-card-footer p-5 flex gap-3">
+         <button class="kt-btn kt-btn-outline">
+          Clear Cart
+         </button>
+         <button class="kt-btn kt-btn-primary grow">
+          <i class="ki-filled ki-handcart">
+          </i>
+          Checkout
+         </button>
+        </div>
+       </div>
+       <!--End of Cart Drawer-->
+ <i class="ki-filled ki-notification-on"></i>
+      </div>
       <!--End of Cart-->
       <!--Product Details Drawer-->
-      <div class="kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
+      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
        <div class="kt-card-header px-5">
         <h3 class="kt-card-title">
-         安娜寶貝
+         Product Details
         </h3>
         <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
          <i class="ki-filled ki-cross text-base">
@@ -401,96 +644,120 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </button>
        </div>
        <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto">
-        <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
-         <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+        <div class="kt-card relative items-center justify-center bg-accent/50 mb-6.5 h-[280px] shadow-none">
+         <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-4 end-4 uppercase">
+          save 40%
+         </span>
+         <img alt="" class="size-80" src="assets/media/store/client/600x600/1.png"/>
+         <div class="kt-card absolute items-center justify-center bg-background w-[75px] h-[45px] overflow-hidden rounded-sm bottom-4 end-4">
+          <img alt="" class="dark:hidden" src="assets/media/brand-logos/nike-light.svg"/>
+          <img alt="" class="hidden dark:block" src="assets/media/brand-logos/nike-dark.svg"/>
+         </div>
         </div>
-       <span class="text-base font-medium text-mono">自我介紹</span>
-        <span class="text-sm font-normal text-foreground block mb-7">
-        大家好，我是小雅，我是一個模特兒，我喜歡唱歌、跳舞、畫畫、追劇
+        <span class="text-base font-medium text-mono">
+         Cloud Shift Lightweight Runner Pro Edition
         </span>
-        <!-- 影片 -->
-        <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">影片</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
-          <video class="w-full h-auto" controls>
-           <source src="https://yoni.tw/videos/main-video.mp4" type="video/mp4">
-           您的瀏覽器不支援影片標籤。
-          </video>
+        <span class="text-sm font-normal text-foreground block mb-7">
+         Lightweight and stylish, these sneakers offer all-day comfort with breathable mesh, 
+      cushioned soles, and a durable grip. Perfect for casual wear, workouts, 
+      or daily adventures. Available in multiple colors and sizes.
+        </span>
+        <div class="flex flex-col gap-2.5 lg:mb-11">
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Avaibilaty
+          </span>
+          <div>
+           <span class="kt-badge kt-badge-success kt-badge-sm">
+            In Stock
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           SKU
+          </span>
+          <div>
+           <span class="text-xs font-medium text-foreground">
+            SH-001-BLK-42
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Category
+          </span>
+          <div>
+           <span class="text-xs font-medium text-foreground">
+            Sneakers
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Rating
+          </span>
+          <div>
+           <div class="kt-rating">
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Mor Info
+          </span>
+          <div>
+           <span class="text-xs font-normal text-foreground">
+            10g powder, powder measure & water dispensing bottle (empty)
+           </span>
+          </div>
          </div>
         </div>
-
-        <!-- 生活照 -->
-        <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none mb-5">
-          <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
-         </div>
-         
-         <!-- 預約區塊 -->
-         <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
-          <!-- 約會類型 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會類型</label>
-           <select class="kt-select" id="date_type">
-            <option value="">請選擇約會類型</option>
-            <option value="dinner">吃飯</option>
-            <option value="movie">看電影</option>
-            <option value="sport">運動</option>
-            <option value="other">其他</option>
-           </select>
-          </div>
-
-          <!-- 約會場所 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會場所</label>
-           <select class="kt-select" id="date_location">
-            <option value="">請選擇約會場所</option>
-            <option value="private">私人招待所</option>
-            <option value="hotel">商旅飯局</option>
-           </select>
-          </div>
-
-          <!-- 預訂日期 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預訂日期</label>
-           <input type="date" class="kt-input" id="booking_date" />
-          </div>
-
-          <!-- 預定時長 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
-           <div class="flex items-center gap-3">
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="decreaseHours()">
-             <i class="ki-filled ki-minus"></i>
-            </button>
-            <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 80px;" />
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="increaseHours()">
-             <i class="ki-filled ki-plus"></i>
-            </button>
-           </div>
-           <span class="text-xs text-red-500 font-medium">[ 每次約會不得低於3小時 ]</span>
-          </div>
-
-          <!-- 金額顯示 -->
-          <div class="flex flex-col gap-2 p-4 bg-accent/30 rounded-lg">
-           <div class="flex justify-between items-center">
-            <span class="text-sm font-medium text-secondary-foreground">每小時</span>
-            <span class="text-base font-semibold text-mono" id="price_per_hour">1000 P</span>
-           </div>
-           <div class="border-t border-border my-2"></div>
-           <div class="flex justify-between items-center">
-            <span class="text-base font-semibold text-mono">總計</span>
-            <span class="text-xl font-bold text-primary" id="total_price">3000 P</span>
-           </div>
-          </div>
-
-          <!-- 立即約會按鈕 -->
-          <button class="kt-btn kt-btn-primary kt-btn-lg w-full justify-center">
-           <i class="ki-filled ki-calendar"></i>
-           立即約會
-          </button>
-         </div>
+        <div class="flex items-center justify-end gap-2">
+         <span class="text-base font-normal text-secondary-foreground line-through">
+          $140.00
+         </span>
+         <span class="text-lg font-medium text-mono">
+          $99.00
+         </span>
         </div>
+       </div>
+       <div class="kt-card-footer px-5">
+        <button class="kt-btn kt-btn-primary grow">
+         <i class="ki-filled ki-handcart">
+         </i>
+         Add to Cart
+        </button>
        </div>
       </div>
       <!--End of Product Details Drawer-->
@@ -860,7 +1127,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <!-- begin: Content -->
       <div class="grid grid-cols-1 gap-6">
-
        <!--Store Search-->
        <div class="kt-card mb-3.5 bg-accent/50 border border-border rounded-xl">
         <div class="px-5 py-8">
@@ -1705,7 +1971,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 離線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 離線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -1737,7 +2003,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 離線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 離線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -1769,7 +2035,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 離線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 離線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -1801,7 +2067,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 離線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #9CA3AF; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 離線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -1846,8 +2112,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 11px; white-space: nowrap; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">
-              <svg class="svg-inline--fa fa-bolt flex-shrink-0" style="width:10px;height:10px;min-width:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg><span style="overflow: hidden; text-overflow: ellipsis;">我現在有空</span>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 12px;white-space:nowrap;">
+              <svg class="svg-inline--fa fa-bolt" style="width:10px;height:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg>我現在有空
              </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
@@ -1880,8 +2146,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 11px; white-space: nowrap; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">
-              <svg class="svg-inline--fa fa-bolt flex-shrink-0" style="width:10px;height:10px;min-width:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg><span style="overflow: hidden; text-overflow: ellipsis;">我現在有空</span>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 12px;white-space:nowrap;">
+              <svg class="svg-inline--fa fa-bolt" style="width:10px;height:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg>我現在有空
              </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
@@ -1914,8 +2180,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 11px; white-space: nowrap; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">
-              <svg class="svg-inline--fa fa-bolt flex-shrink-0" style="width:10px;height:10px;min-width:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg><span style="overflow: hidden; text-overflow: ellipsis;">我現在有空</span>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 12px;white-space:nowrap;">
+              <svg class="svg-inline--fa fa-bolt" style="width:10px;height:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg>我現在有空
              </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
@@ -1948,8 +2214,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 11px; white-space: nowrap; max-width: 90px; overflow: hidden; text-overflow: ellipsis;">
-              <svg class="svg-inline--fa fa-bolt flex-shrink-0" style="width:10px;height:10px;min-width:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg><span style="overflow: hidden; text-overflow: ellipsis;">我現在有空</span>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center flex items-center justify-center gap-1" style="background-color: #43C268; color: #fff; padding: 2px 6px; font-size: 12px;white-space:nowrap;">
+              <svg class="svg-inline--fa fa-bolt" style="width:10px;height:10px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#FCD84A" d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"></path></svg>我現在有空
              </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
@@ -1995,7 +2261,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #43C268; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -2027,7 +2293,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #43C268; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -2059,7 +2325,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #43C268; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -2091,7 +2357,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
+             <div class="absolute top-2 end-2 z-10 rounded-sm text-center" style="background-color: #43C268; color: #fff; width: 40px; padding: 2px 0; font-size: 12px;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
             </div>
             <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
@@ -3536,52 +3802,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <script src="assets/vendors/ktui/ktui.min.js">
   </script>
   <script src="assets/vendors/apexcharts/apexcharts.min.js">
-  </script>
-  <script>
-   // 生活照預約功能
-   const PRICE_PER_HOUR = 1000; // 每小時價格
-   const MIN_HOURS = 3; // 最少小時數
-
-   // 設置今天日期
-   document.addEventListener('DOMContentLoaded', function() {
-     const dateInput = document.getElementById('booking_date');
-     if (dateInput) {
-       const today = new Date().toISOString().split('T')[0];
-       dateInput.value = today;
-       dateInput.min = today;
-     }
-     updateTotalPrice();
-   });
-
-   // 增加時長
-   function increaseHours() {
-     const hoursInput = document.getElementById('booking_hours');
-     if (hoursInput) {
-       hoursInput.value = parseInt(hoursInput.value) + 1;
-       updateTotalPrice();
-     }
-   }
-
-   // 減少時長
-   function decreaseHours() {
-     const hoursInput = document.getElementById('booking_hours');
-     if (hoursInput && parseInt(hoursInput.value) > MIN_HOURS) {
-       hoursInput.value = parseInt(hoursInput.value) - 1;
-       updateTotalPrice();
-     }
-   }
-
-   // 更新總價
-   function updateTotalPrice() {
-     const hoursInput = document.getElementById('booking_hours');
-     const totalPriceElement = document.getElementById('total_price');
-     
-     if (hoursInput && totalPriceElement) {
-       const hours = parseInt(hoursInput.value) || MIN_HOURS;
-       const totalPrice = hours * PRICE_PER_HOUR;
-       totalPriceElement.textContent = totalPrice.toLocaleString() + ' P';
-     }
-   }
   </script>
   <!-- End of Scripts -->
  </body>

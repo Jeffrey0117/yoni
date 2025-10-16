@@ -12,25 +12,25 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 <html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
  <head><base href="../../../">
   <title>
-   Metronic - Tailwind CSS Search Results - Grid
+   Metronic - Tailwind CSS My Orders
   </title>
   <meta charset="utf-8"/>
   <meta content="follow, index" name="robots"/>
-  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/search-results-grid" rel="canonical"/>
+  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/my-orders" rel="canonical"/>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-  <meta content="Search results grid cards layout, using Tailwind CSS" name="description"/>
+  <meta content="My Orders cards layout, using Tailwind CSS" name="description"/>
   <meta content="@keenthemes" name="twitter:site"/>
   <meta content="@keenthemes" name="twitter:creator"/>
   <meta content="summary_large_image" name="twitter:card"/>
-  <meta content="Metronic - Tailwind CSS Search Results - Grid" name="twitter:title"/>
-  <meta content="Search results grid cards layout, using Tailwind CSS" name="twitter:description"/>
+  <meta content="Metronic - Tailwind CSS My Orders" name="twitter:title"/>
+  <meta content="My Orders cards layout, using Tailwind CSS" name="twitter:description"/>
   <meta content="assets/media/app/og-image.png" name="twitter:image"/>
-  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/search-results-grid" property="og:url"/>
+  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/my-orders" property="og:url"/>
   <meta content="en_US" property="og:locale"/>
   <meta content="website" property="og:type"/>
   <meta content="@keenthemes" property="og:site_name"/>
-  <meta content="Metronic - Tailwind CSS Search Results - Grid" property="og:title"/>
-  <meta content="Search results grid cards layout, using Tailwind CSS" property="og:description"/>
+  <meta content="Metronic - Tailwind CSS My Orders" property="og:title"/>
+  <meta content="My Orders cards layout, using Tailwind CSS" property="og:description"/>
   <meta content="assets/media/app/og-image.png" property="og:image"/>
   <link href="assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
   <link href="assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -208,6 +208,16 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <!-- End of Mobile Search -->
      <!-- Topbar -->
      <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!--Store Goods Search-->
+      <div class="kt-input lg:w-[240px] me-1.5">
+       <i class="ki-filled ki-magnifier text-muted-foreground">
+       </i>
+       <input placeholder="Search Shop" type="text" value=""/>
+       <span class="kt-badge kt-badge-sm kt-badge-outline -me-1.5">
+        ⌘ K
+       </span>
+      </div>
+      <!--End of Store Goods Search-->
       <!-- User -->
       <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
        <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
@@ -894,7 +904,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
        <div class="kt-card-header px-5">
         <h3 class="kt-card-title">
-         安娜寶貝
+         Product Details
         </h3>
         <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
          <i class="ki-filled ki-cross text-base">
@@ -902,18 +912,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </button>
        </div>
        <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto">
-        <div class="kt-card relative items-center justify-center bg-accent/50 mb-6.5 h-[280px] shadow-none overflow-hidden">
-         <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-4 end-4 uppercase z-10">
-          線上
+        <div class="kt-card relative items-center justify-center bg-accent/50 mb-6.5 h-[280px] shadow-none">
+         <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-4 end-4 uppercase">
+          save 40%
          </span>
-         <img alt="" class="w-full h-full object-cover" src="assets/media/images/600x600/1.jpg"/>
+         <img alt="" class="size-80" src="assets/media/store/client/600x600/1.png"/>
+         <div class="kt-card absolute items-center justify-center bg-background w-[75px] h-[45px] overflow-hidden rounded-sm bottom-4 end-4">
+          <img alt="" class="dark:hidden" src="assets/media/brand-logos/nike-light.svg"/>
+          <img alt="" class="hidden dark:block" src="assets/media/brand-logos/nike-dark.svg"/>
+         </div>
         </div>
         <span class="text-base font-medium text-mono">
-         安娜寶貝
+         Cloud Shift Lightweight Runner Pro Edition
         </span>
         <span class="text-sm font-normal text-foreground block mb-7">
-         輕鬆自在的約會時光,提供溫暖舒適的陪伴體驗。
-      適合各種場合,讓您享受愉快的相處時光。
+         Lightweight and stylish, these sneakers offer all-day comfort with breathable mesh, 
+      cushioned soles, and a durable grip. Perfect for casual wear, workouts, 
+      or daily adventures. Available in multiple colors and sizes.
         </span>
         <div class="flex flex-col gap-2.5 lg:mb-11">
          <div class="flex items-center gap-2.5">
@@ -2094,7 +2109,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
               </span>
              </a>
             </div>
-            <div class="kt-menu-item here active">
+            <div class="kt-menu-item">
              <a class="kt-menu-link" href="html/demo9/store-client/search-results-grid.html" tabindex="0">
               <span class="kt-menu-icon">
                <i class="ki-filled ki-grid">
@@ -2195,7 +2210,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
               </span>
              </a>
             </div>
-            <div class="kt-menu-item">
+            <div class="kt-menu-item here active">
              <a class="kt-menu-link" href="html/demo9/store-client/my-orders.html" tabindex="0">
               <span class="kt-menu-icon">
                <i class="ki-filled ki-archive">
@@ -2599,7 +2614,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <div class="kt-container-fixed flex items-center justify-between flex-wrap gap-5">
        <div class="flex flex-col justify-center items-start flex-wrap gap-1 lg:gap-2">
         <h1 class="font-medium text-lg text-mono">
-         Search Results - Grid
+         My Orders
         </h1>
         <div class="flex items-center gap-1 text-sm font-normal">
          <a class="text-secondary-foreground hover:text-primary" href="html/demo9.html">
@@ -2615,7 +2630,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           /
          </span>
          <span class="text-mono">
-          Search Results - Grid
+          My Orders
          </span>
         </div>
        </div>
@@ -2738,1350 +2753,284 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <!-- End of Toolbar -->
      <!-- Container -->
      <div class="kt-container-fixed">
-      <div class="flex flex-col items-stretch gap-7">
-       <div class="flex items-center gap-3 w-full">
-        <div class="kt-input w-full">
-         <i class="ki-filled ki-magnifier">
-         </i>
-         <input placeholder="" type="text" value="Nike"/>
-         <span class="kt-badge kt-badge-outline -me-1.5">
-          ⌘ K
-         </span>
-        </div>
-        <!--Filter-->
-        <button class="kt-dropdown-toggle kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_filter">
-         <i class="ki-filled ki-filter">
-         </i>
-         Filter
-        </button>
-        <!--Product Filter-->
-        <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_filter">
-         <div class="kt-card-header ps-5 pr-2">
-          <h3 class="kt-card-title">
-           Filter
-          </h3>
-          <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
-           <i class="ki-filled ki-cross text-base">
-           </i>
-          </button>
-         </div>
-         <div class="kt-card-content px-0 pt-3.5 kt-scrollable-y-auto">
-          <div class="flex items-center gap-1 px-5 mb-3">
+      <!-- begin: grid -->
+      <div class="grid xl:grid-cols-1 gap-5 lg:gap-9">
+       <!-- begin: Card -->
+       <div class="lg:col-span-1">
+        <div class="kt-card">
+         <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Order ID
+           </span>
            <span class="text-sm font-medium text-mono">
-            Status
-           </span>
-           <span class="cursor-pointer" data-kt-tooltip="true" data-kt-tooltip-container="body">
-            <i class="ki-filled ki-information-2 text-muted-foreground">
-            </i>
-            <span class="kt-tooltip" data-kt-tooltip-content="true">
-             Specify product status.
-            </span>
+            X319330-S24
            </span>
           </div>
-          <div class="px-5">
-           <div class="kt-toggle-group flex">
-            <label class="kt-btn">
-             All
-             <input name="filter-date-range" type="radio" value="all"/>
-            </label>
-            <label class="kt-btn">
-             Sale
-             <input checked="" name="filter-date-range" type="radio" value="sale"/>
-            </label>
-            <label class="kt-btn">
-             New
-             <input name="filter-date-range" type="radio" value="new"/>
-            </label>
-            <label class="kt-btn">
-             Trend
-             <input name="filter-date-range" type="radio" value="trend"/>
-            </label>
-           </div>
-          </div>
-          <div class="border-b border-border mb-4 mt-5">
-          </div>
-          <div class="flex flex-col gap-2.5 px-5">
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Order placed
+           </span>
            <span class="text-sm font-medium text-mono">
-            Price
+            26 June, 2025
            </span>
-           <div class="kt-input-group">
-            <span class="kt-input-addon kt-input-addon-icon">
-             <i class="ki-filled ki-dollar">
-             </i>
-            </span>
-            <input class="kt-input" placeholder="" type="text" value="60">
-            </input>
-           </div>
-           <div class="kt-input-group">
-            <span class="kt-input-addon kt-input-addon-icon">
-             <i class="ki-filled ki-dollar">
-             </i>
-            </span>
-            <input class="kt-input" placeholder="" type="text" value="170">
-            </input>
-           </div>
           </div>
-          <div class="border-b border-border mb-4 mt-5">
-          </div>
-          <div class="flex flex-col gap-3 px-5">
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Total
+           </span>
            <span class="text-sm font-medium text-mono">
-            Categories
+            $512.60
            </span>
-           <div class="flex flex-wrap gap-2.5 mb-2">
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Sneakers
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Running Shoes
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Boots
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Golf
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Sandals
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Work Shoes
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Casual Wear
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Outdoor Gear
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Sportswear
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Chelsea Boots
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Loafers
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Slip-On
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Winter
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Espadrilles
-            </span>
-            <span class="kt-badge kt-badge-outline rounded-full">
-             Basketball
-            </span>
-           </div>
           </div>
-          <div class="border-b border-border mt-3 mb-4">
-          </div>
-          <div class="flex flex-col gap-3 px-5 lg:mb-10">
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Ship to
+           </span>
            <span class="text-sm font-medium text-mono">
-            Rating
+            Jeroen van Dijk
            </span>
-           <div class="flex flex-col gap-2.5">
-            <div class="flex items-center gap-2">
-             <label class="kt-form-label w-5">
-              <input checked="" class="kt-checkbox kt-checkbox-sm" name="check" type="checkbox" value="5">
-              </input>
-             </label>
-             <i class="ki-solid ki-star text-yellow-500 -mt-0.5">
-             </i>
-             <span class="text-sm font-medium text-mono">
-              5
-             </span>
-            </div>
-            <div class="flex items-center gap-2">
-             <label class="kt-form-label w-5">
-              <input class="kt-checkbox kt-checkbox-sm" name="check" type="checkbox" value="4">
-              </input>
-             </label>
-             <i class="ki-solid ki-star text-yellow-500 -mt-0.5">
-             </i>
-             <span class="text-sm font-medium text-mono">
-              4
-             </span>
-            </div>
-            <div class="flex items-center gap-2">
-             <label class="kt-form-label w-5">
-              <input class="kt-checkbox kt-checkbox-sm" name="check" type="checkbox" value="3"/>
-             </label>
-             <i class="ki-solid ki-star text-yellow-500 -mt-0.5">
-             </i>
-             <span class="text-sm font-medium text-mono">
-              3
-             </span>
-            </div>
-            <div class="flex items-center gap-2">
-             <label class="kt-form-label w-5">
-              <input class="kt-checkbox kt-checkbox-sm" name="check" type="checkbox" value="2"/>
-             </label>
-             <i class="ki-solid ki-star text-yellow-500 -mt-0.5">
-             </i>
-             <span class="text-sm font-medium text-mono">
-              2
-             </span>
-            </div>
-            <div class="flex items-center gap-2">
-             <label class="kt-form-label w-5">
-              <input class="kt-checkbox kt-checkbox-sm" name="check" type="checkbox" value="1"/>
-             </label>
-             <i class="ki-solid ki-star text-yellow-500 -mt-0.5">
-             </i>
-             <span class="text-sm font-medium text-mono">
-              1
-             </span>
-            </div>
-           </div>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Estimated Delivery
+           </span>
+           <span class="text-sm font-medium text-mono">
+            07 July, 2025
+           </span>
           </div>
          </div>
-         <div class="kt-card-footer grid grid-cols-2 gap-2.5">
-          <button class="kt-btn kt-btn-outline">
-           Reset
-          </button>
-          <button class="kt-btn kt-btn-primary">
-           Apply
-          </button>
-         </div>
-        </div>
-        <!--End of Filter Drawer-->
-        <!--End of Filter-->
-       </div>
-       <!-- begin: toolbar -->
-       <div class="flex flex-wrap items-center gap-5 justify-between mt-3">
-        <h3 class="text-sm text-mono font-medium">
-         1 - 12 over 280 results for
-         <span class="text-destructive">
-          Nike
-         </span>
-        </h3>
-        <div class="flex items-center gap-2.5">
-         <select class="kt-select w-[175px] bg-background" data-kt-select="true" name="kt-select">
-          <option selected="" value="1">
-           Price Hight to Low
-          </option>
-          <option value="2">
-           3
-          </option>
-          <option value="3">
-           6
-          </option>
-          <option value="4">
-           9
-          </option>
-         </select>
-         <div class="kt-toggle-group">
-          <label class="kt-btn">
-           Week
-           <input name="search-date-range" type="radio" value="week"/>
-          </label>
-          <label class="kt-btn">
-           Today
-           <input checked="" name="search-date-range" type="radio" value="today"/>
-          </label>
-          <label class="kt-btn">
-           Month
-           <input name="search-date-range" type="radio" value="month"/>
-          </label>
-          <label class="kt-btn">
-           All
-           <input name="search-date-range" type="radio" value="all"/>
-          </label>
-         </div>
-         <div class="kt-toggle-group" data-kt-tabs="true">
-          <a class="kt-btn kt-btn-icon active" data-kt-tab-toggle="#shop1_grids" href="#">
-           <i class="ki-filled ki-category">
-           </i>
-          </a>
-          <a class="kt-btn kt-btn-icon" data-kt-tab-toggle="#shop1_lists" href="#">
-           <i class="ki-filled ki-row-horizontal">
-           </i>
-          </a>
-         </div>
-        </div>
-       </div>
-       <!-- end: toolbar -->
-       <div class="" id="shop1_grids">
-        <!-- begin: grid -->
-        <div class="grid sm:grid-cols-4 gap-5 mb-2">
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/11.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Cloud Shift Lightweight Runner Pro Edition
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             5.0
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $99.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/12.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Titan Edge High Impact Stability Lightweight Trainers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             3.5
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $65.99
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/13.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Wave Strike Dynamic Boost Sneaker
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.7
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $120.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-2 end-2 uppercase">
-              save 40%
-             </span>
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/15.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Wave Strike Dynamic Boost Sneaker
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             3.2
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-              $179.00
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $140.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-2 end-2 uppercase">
-              save 40%
-             </span>
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/5.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Cloud Shift Lightweight Runner Pro Edition
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.1
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-              $140.00
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $99.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/3.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Titan Edge High Impact Stability Lightweight Trainers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             3.5
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $65.99
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-2 end-2 uppercase">
-              save 40%
-             </span>
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/2.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Velocity Boost Xtreme High  Shock Absorbers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.9
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-              $315.00
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $280.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/14.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Velocity Boost Xtreme High  Shock Absorbers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.9
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $110.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/8.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Cloud Shift Lightweight Runner Pro Edition
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             5.0
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $99.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <span class="kt-badge kt-badge-destructive kt-badge-sm absolute top-2 end-2 uppercase">
-              save 40%
-             </span>
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/4.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Titan Edge High Impact Stability Lightweight Trainers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             3.5
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-              $110.00
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $46.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/9.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Wave Strike Dynamic Boost Sneaker
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.7
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $120.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
-           <div class="mb-2.5">
-            <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
-             <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/10.png"/>
-            </div>
-            <a class="hover:text-primary text-sm font-medium text-mono px-2.5 leading-5.5 block" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-             Velocity Boost Xtreme High  Shock Absorbers
-            </a>
-           </div>
-           <div class="flex items-center flex-wrap justify-between gap-5 px-2.5 pb-1">
-            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-             <i class="ki-solid ki-star text-white -mt-0.5">
-             </i>
-             4.9
-            </span>
-            <div class="flex items-center flex-wrap gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $110.00
-             </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" data-kt-drawer-toggle="#drawers_shop_cart">
-              <i class="ki-filled ki-handcart">
-              </i>
-              Add
-             </button>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
-        <!-- end: grid -->
-       </div>
-       <!-- begin: list -->
-       <div class="hidden" id="shop1_lists">
-        <!-- begin: grid -->
-        <div class="grid grid-cols-1 gap-5">
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/11.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
+         <div class="kt-card-content p-5 lg:p-7.5 space-y-5">
+          <div class="kt-card">
+           <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+            <div class="flex items-center gap-3.5">
+             <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+              <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/11.png"/>
+             </div>
+             <div class="flex flex-col gap-1">
               <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Cloud Shift Lightweight Runner Pro Edition
               </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               5.0
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
+              <div class="flex items-center gap-1.5">
                <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SH-001-BLK-42
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Nike
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sneakers
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $99.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/12.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Titan Edge High Impact Stability Lightweight Trainers
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               3.5
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SNK-XY-WHT-10
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Adidas
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Running Shoes
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $65.99
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/13.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Wave Strike Dynamic Boost Sneaker
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.7
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
+                sku:
                 <span class="text-xs font-medium text-foreground">
                  BT-A1-YLW-8
                 </span>
                </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Timberland
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Boots
-                </span>
-               </span>
               </div>
              </div>
             </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $120.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
+            <div class="flex flex-col gap-1.5">
+             <span class="text-xs font-normal text-secondary-foreground text-end">
+              1 x
+             </span>
+             <div class="flex items-center flex-wrap gap-1.5">
+              <span class="text-sm font-normal text-secondary-foreground line-through">
+              </span>
+              <span class="text-sm font-semibold text-mono">
+               $120.00
+              </span>
+             </div>
+            </div>
            </div>
           </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/15.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
+          <div class="kt-card">
+           <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+            <div class="flex items-center gap-3.5">
+             <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+              <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/12.png"/>
+             </div>
+             <div class="flex flex-col gap-1">
               <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Wave Strike Dynamic Boost Sneaker
+               Titan Edge High Impact Stability Lightweight..
               </a>
-              <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
-               save %
-              </span>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               3.2
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
+              <div class="flex items-center gap-1.5">
                <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SD-Z9-BRN-39
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Birkenstock
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sandals
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-             $179.00
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $140.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/5.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Cloud Shift Lightweight Runner Pro Edition
-              </a>
-              <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
-               save %
-              </span>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.1
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 WRK-77-BLK-9
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Dr. Martens
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Work Shoes
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-             $140.00
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $99.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/3.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Titan Edge High Impact Stability Lightweight Trainers
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               3.5
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SNK-555-GRY-11
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 New Balance
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sneakers
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $65.99
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/2.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Velocity Boost Xtreme High  Shock Absorbers
-              </a>
-              <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
-               save %
-              </span>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.9
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SH-222-BLU-40
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Puma
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sneakers
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-             $315.00
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $280.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/14.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Velocity Boost Xtreme High  Shock Absorbers
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.9
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 BT-777-BLK-9
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 UGG
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Boots
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $110.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/8.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Cloud Shift Lightweight Runner Pro Edition
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               5.0
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 SD-999-TAN-38
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Crocs
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sandals
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $99.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/4.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Titan Edge High Impact Stability Lightweight Trainers
-              </a>
-              <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
-               save %
-              </span>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               3.5
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
-                <span class="text-xs font-medium text-foreground">
-                 WRK-333-GRN-10
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Caterpillar
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Work Shoes
-                </span>
-               </span>
-              </div>
-             </div>
-            </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-             $110.00
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $46.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
-           </div>
-          </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/9.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Wave Strike Dynamic Boost Sneaker
-              </a>
-             </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.7
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
-               <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
+                sku:
                 <span class="text-xs font-medium text-foreground">
                  SNK-888-RED-42
                 </span>
                </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Reebok
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Sneakers
-                </span>
-               </span>
               </div>
              </div>
             </div>
-           </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $120.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
+            <div class="flex flex-col gap-1.5">
+             <span class="text-xs font-normal text-secondary-foreground text-end">
+              1 x
+             </span>
+             <div class="flex items-center flex-wrap gap-1.5">
+              <span class="text-sm font-normal text-secondary-foreground line-through">
+              </span>
+              <span class="text-sm font-semibold text-mono">
+               $99.00
+              </span>
+             </div>
+            </div>
            </div>
           </div>
-         </div>
-         <div class="kt-card">
-          <div class="kt-card-content flex items-center flex-wrap justify-between p-2 pe-5 gap-4.5">
-           <div class="flex items-center gap-3.5">
-            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-             <img alt="img" class="h-[70px] cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/10.png"/>
-            </div>
-            <div class="flex flex-col gap-2">
-             <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
-               Velocity Boost Xtreme High  Shock Absorbers
-              </a>
+          <div class="kt-card">
+           <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+            <div class="flex items-center gap-3.5">
+             <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+              <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/13.png"/>
              </div>
-             <div class="flex items-center flex-wrap gap-3">
-              <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
-               <i class="ki-solid ki-star text-white -mt-0.5">
-               </i>
-               4.9
-              </span>
-              <div class="flex items-center flex-wrap gap-2 lg:gap-4">
+             <div class="flex flex-col gap-1">
+              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+               Cloud Shift Lightweight Runner Pro Edition
+              </a>
+              <div class="flex items-center gap-1.5">
                <span class="text-xs font-normal text-secondary-foreground uppercase">
-                SKU:
+                sku:
                 <span class="text-xs font-medium text-foreground">
-                 BT-444-BRN-7
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Columbia
-                </span>
-               </span>
-               <span class="text-xs font-normal text-secondary-foreground">
-                Category:
-                <span class="text-xs font-medium text-foreground">
-                 Hiking Boots
+                 SD-999-TAN-38
                 </span>
                </span>
               </div>
              </div>
             </div>
+            <div class="flex flex-col gap-1.5">
+             <span class="text-xs font-normal text-secondary-foreground text-end">
+              1 x
+             </span>
+             <div class="flex items-center flex-wrap gap-1.5">
+              <span class="text-sm font-normal text-secondary-foreground line-through">
+              </span>
+              <span class="text-sm font-semibold text-mono">
+               $120.00
+              </span>
+             </div>
+            </div>
            </div>
-           <div class="flex items-center gap-1.5">
-            <span class="text-xs font-normal text-secondary-foreground line-through">
-            </span>
-            <span class="text-sm font-medium text-mono">
-             $110.00
-            </span>
-            <button class="kt-btn kt-btn-outline ms-2 shrink-0" data-kt-drawer-toggle="#drawers_shop_product_details">
-             <i class="ki-filled ki-handcart">
-             </i>
-             Add to Cart
-            </button>
+          </div>
+          <div class="kt-card">
+           <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+            <div class="flex items-center gap-3.5">
+             <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+              <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/15.png"/>
+             </div>
+             <div class="flex flex-col gap-1">
+              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+               Cloud Shift Lightweight Runner Pro Edition
+              </a>
+              <div class="flex items-center gap-1.5">
+               <span class="text-xs font-normal text-secondary-foreground uppercase">
+                sku:
+                <span class="text-xs font-medium text-foreground">
+                 SD-Z9-BRN-39
+                </span>
+               </span>
+               <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
+                save 25%
+               </span>
+              </div>
+             </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+             <span class="text-xs font-normal text-secondary-foreground text-end">
+              1 x
+             </span>
+             <div class="flex items-center flex-wrap gap-1.5">
+              <span class="text-sm font-normal text-secondary-foreground line-through">
+               $179.00
+              </span>
+              <span class="text-sm font-semibold text-mono">
+               $149.00
+              </span>
+             </div>
+            </div>
            </div>
           </div>
          </div>
         </div>
-        <!-- end: grid -->
        </div>
-       <!-- end: list -->
+       <!-- end: Card -->
+       <!-- begin: Card -->
+       <div class="lg:col-span-1">
+        <div class="kt-card">
+         <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Order ID
+           </span>
+           <span class="text-sm font-medium text-mono">
+            X319330-S24
+           </span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Order placed
+           </span>
+           <span class="text-sm font-medium text-mono">
+            26 June, 2025
+           </span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Total
+           </span>
+           <span class="text-sm font-medium text-mono">
+            $512.60
+           </span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Ship to
+           </span>
+           <span class="text-sm font-medium text-mono">
+            Jeroen van Dijk
+           </span>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground">
+            Estimated Delivery
+           </span>
+           <span class="text-sm font-medium text-mono">
+            07 July, 2025
+           </span>
+          </div>
+         </div>
+         <div class="kt-card-content p-5 lg:p-7.5 space-y-5">
+          <div class="kt-card">
+           <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+            <div class="flex items-center gap-3.5">
+             <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+              <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="assets/media/store/client/600x600/11.png"/>
+             </div>
+             <div class="flex flex-col gap-1">
+              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+               Cloud Shift Lightweight Runner Pro Edition
+              </a>
+              <div class="flex items-center gap-1.5">
+               <span class="text-xs font-normal text-secondary-foreground uppercase">
+                sku:
+                <span class="text-xs font-medium text-foreground">
+                 BT-A1-YLW-8
+                </span>
+               </span>
+              </div>
+             </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+             <span class="text-xs font-normal text-secondary-foreground text-end">
+              1 x
+             </span>
+             <div class="flex items-center flex-wrap gap-1.5">
+              <span class="text-sm font-normal text-secondary-foreground line-through">
+              </span>
+              <span class="text-sm font-semibold text-mono">
+               $120.00
+              </span>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- end: Card -->
       </div>
+      <!-- end: grid -->
      </div>
      <!-- End of Container -->
      <!-- Footer -->
@@ -4130,12 +3079,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <div class="kt-modal-header py-4 px-5">
      <i class="ki-filled ki-magnifier text-muted-foreground text-xl">
      </i>
-     <input class="kt-input kt-input-ghost" name="query" placeholder="Tap to start search" type="text" value="">
-      <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-dim shrink-0" data-kt-modal-dismiss="true">
-       <i class="ki-filled ki-cross">
-       </i>
-      </button>
-     </input>
+     <input class="kt-input kt-input-ghost" name="query" placeholder="Tap to start search" type="text" value=""/>
+     <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-dim shrink-0" data-kt-modal-dismiss="true">
+      <i class="ki-filled ki-cross">
+      </i>
+     </button>
     </div>
     <div class="kt-modal-body p-0 pb-5">
      <div class="kt-tabs kt-tabs-line justify-between px-5 mb-2.5" data-kt-tabs="true">
@@ -5028,12 +3976,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </i>
       </div>
       <label class="kt-input">
-       <input type="text" value="https://metronic.com/profiles/x7g2vA3kZ5">
-        <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-ghost -me-2">
-         <i class="ki-filled ki-copy">
-         </i>
-        </button>
-       </input>
+       <input type="text" value="https://metronic.com/profiles/x7g2vA3kZ5"/>
+       <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-ghost -me-2">
+        <i class="ki-filled ki-copy">
+        </i>
+       </button>
       </label>
      </div>
      <div class="border-b border-b-border">
@@ -5048,8 +3995,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </div>
       <div class="flex flex-center gap-2.5">
        <label class="kt-input">
-        <input type="text" value="miles.turner@gmail.com">
-        </input>
+        <input type="text" value="miles.turner@gmail.com"/>
        </label>
        <button class="kt-btn kt-btn-primary">
         Share
@@ -5195,12 +4141,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </i>
       </div>
       <label class="kt-input">
-       <input type="text" value="https://metronic.com/profiles/x7g2vA3kZ5">
-        <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-ghost -me-2">
-         <i class="ki-filled ki-copy">
-         </i>
-        </button>
-       </input>
+       <input type="text" value="https://metronic.com/profiles/x7g2vA3kZ5"/>
+       <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-ghost -me-2">
+        <i class="ki-filled ki-copy">
+        </i>
+       </button>
       </label>
      </div>
      <div class="border-b border-b-border">

@@ -390,7 +390,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
  <i class="ki-filled ki-notification-on text-2xl"></i>
       <!--End of Cart-->
       <!--Product Details Drawer-->
-      <div class="kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
+      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
        <div class="kt-card-header px-5">
         <h3 class="kt-card-title">
          安娜寶貝
@@ -401,96 +401,112 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </button>
        </div>
        <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto">
-        <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
-         <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+        <div class="kt-card relative items-center justify-center bg-accent/50 mb-6.5 h-[280px] shadow-none overflow-hidden">
+         <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
+         <img alt="" class="w-full h-full object-cover" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg"/>
         </div>
-       <span class="text-base font-medium text-mono">自我介紹</span>
+        <span class="text-base font-medium text-mono">
+    自我介紹
+        </span>
         <span class="text-sm font-normal text-foreground block mb-7">
         大家好，我是小雅，我是一個模特兒，我喜歡唱歌、跳舞、畫畫、追劇
         </span>
-        <!-- 影片 -->
-        <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">影片</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
-          <video class="w-full h-auto" controls>
-           <source src="https://yoni.tw/videos/main-video.mp4" type="video/mp4">
-           您的瀏覽器不支援影片標籤。
-          </video>
+        <div class="flex flex-col gap-2.5 lg:mb-11">
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Avaibilaty
+          </span>
+          <div>
+           <span class="kt-badge kt-badge-success kt-badge-sm">
+            In Stock
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           SKU
+          </span>
+          <div>
+           <span class="text-xs font-medium text-foreground">
+            SH-001-BLK-42
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Category
+          </span>
+          <div>
+           <span class="text-xs font-medium text-foreground">
+            Sneakers
+           </span>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Rating
+          </span>
+          <div>
+           <div class="kt-rating">
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+            <div class="kt-rating-label checked">
+             <i class="kt-rating-on ki-solid ki-star text-base leading-none">
+             </i>
+             <i class="kt-rating-off ki-outline ki-star text-base leading-none">
+             </i>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="flex items-center gap-2.5">
+          <span class="text-xs font-normal text-foreground min-w-14 xl:min-w-24 shrink-0">
+           Mor Info
+          </span>
+          <div>
+           <span class="text-xs font-normal text-foreground">
+            10g powder, powder measure & water dispensing bottle (empty)
+           </span>
+          </div>
          </div>
         </div>
-
-        <!-- 生活照 -->
-        <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none mb-5">
-          <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
-         </div>
-         
-         <!-- 預約區塊 -->
-         <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
-          <!-- 約會類型 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會類型</label>
-           <select class="kt-select" id="date_type">
-            <option value="">請選擇約會類型</option>
-            <option value="dinner">吃飯</option>
-            <option value="movie">看電影</option>
-            <option value="sport">運動</option>
-            <option value="other">其他</option>
-           </select>
-          </div>
-
-          <!-- 約會場所 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會場所</label>
-           <select class="kt-select" id="date_location">
-            <option value="">請選擇約會場所</option>
-            <option value="private">私人招待所</option>
-            <option value="hotel">商旅飯局</option>
-           </select>
-          </div>
-
-          <!-- 預訂日期 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預訂日期</label>
-           <input type="date" class="kt-input" id="booking_date" />
-          </div>
-
-          <!-- 預定時長 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
-           <div class="flex items-center gap-3">
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="decreaseHours()">
-             <i class="ki-filled ki-minus"></i>
-            </button>
-            <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 80px;" />
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="increaseHours()">
-             <i class="ki-filled ki-plus"></i>
-            </button>
-           </div>
-           <span class="text-xs text-red-500 font-medium">[ 每次約會不得低於3小時 ]</span>
-          </div>
-
-          <!-- 金額顯示 -->
-          <div class="flex flex-col gap-2 p-4 bg-accent/30 rounded-lg">
-           <div class="flex justify-between items-center">
-            <span class="text-sm font-medium text-secondary-foreground">每小時</span>
-            <span class="text-base font-semibold text-mono" id="price_per_hour">1000 P</span>
-           </div>
-           <div class="border-t border-border my-2"></div>
-           <div class="flex justify-between items-center">
-            <span class="text-base font-semibold text-mono">總計</span>
-            <span class="text-xl font-bold text-primary" id="total_price">3000 P</span>
-           </div>
-          </div>
-
-          <!-- 立即約會按鈕 -->
-          <button class="kt-btn kt-btn-primary kt-btn-lg w-full justify-center">
-           <i class="ki-filled ki-calendar"></i>
-           立即約會
-          </button>
-         </div>
+        <div class="flex items-center justify-end gap-2">
+         <span class="text-base font-normal text-secondary-foreground line-through">
+          $140.00
+         </span>
+         <span class="text-lg font-medium text-mono">
+          $99.00
+         </span>
         </div>
+       </div>
+       <div class="kt-card-footer px-5">
+        <button class="kt-btn kt-btn-primary grow">
+         <i class="ki-filled ki-handcart">
+         </i>
+         Add to Cart
+        </button>
        </div>
       </div>
       <!--End of Product Details Drawer-->
@@ -860,7 +876,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <!-- begin: Content -->
       <div class="grid grid-cols-1 gap-6">
-
        <!--Store Search-->
        <div class="kt-card mb-3.5 bg-accent/50 border border-border rounded-xl">
         <div class="px-5 py-8">
@@ -3536,52 +3551,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <script src="assets/vendors/ktui/ktui.min.js">
   </script>
   <script src="assets/vendors/apexcharts/apexcharts.min.js">
-  </script>
-  <script>
-   // 生活照預約功能
-   const PRICE_PER_HOUR = 1000; // 每小時價格
-   const MIN_HOURS = 3; // 最少小時數
-
-   // 設置今天日期
-   document.addEventListener('DOMContentLoaded', function() {
-     const dateInput = document.getElementById('booking_date');
-     if (dateInput) {
-       const today = new Date().toISOString().split('T')[0];
-       dateInput.value = today;
-       dateInput.min = today;
-     }
-     updateTotalPrice();
-   });
-
-   // 增加時長
-   function increaseHours() {
-     const hoursInput = document.getElementById('booking_hours');
-     if (hoursInput) {
-       hoursInput.value = parseInt(hoursInput.value) + 1;
-       updateTotalPrice();
-     }
-   }
-
-   // 減少時長
-   function decreaseHours() {
-     const hoursInput = document.getElementById('booking_hours');
-     if (hoursInput && parseInt(hoursInput.value) > MIN_HOURS) {
-       hoursInput.value = parseInt(hoursInput.value) - 1;
-       updateTotalPrice();
-     }
-   }
-
-   // 更新總價
-   function updateTotalPrice() {
-     const hoursInput = document.getElementById('booking_hours');
-     const totalPriceElement = document.getElementById('total_price');
-     
-     if (hoursInput && totalPriceElement) {
-       const hours = parseInt(hoursInput.value) || MIN_HOURS;
-       const totalPrice = hours * PRICE_PER_HOUR;
-       totalPriceElement.textContent = totalPrice.toLocaleString() + ' P';
-     }
-   }
   </script>
   <!-- End of Scripts -->
  </body>
