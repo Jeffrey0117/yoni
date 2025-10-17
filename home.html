@@ -505,48 +505,43 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          
          <!-- 預約區塊(互動式表單) -->
          <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
-          <!-- 約會類型 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會類型</label>
-           <select class="kt-select" id="date_type">
-            <option value="">請選擇約會類型</option>
-            <option value="dinner">吃飯</option>
-            <option value="movie">看電影</option>
-            <option value="sport">運動</option>
-            <option value="other">其他</option>
-           </select>
-          </div>
-
-          <!-- 約會場所 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">約會場所</label>
-           <select class="kt-select" id="date_location">
-            <option value="">請選擇約會場所</option>
-            <option value="private">私人招待所</option>
-            <option value="hotel">商旅飯局</option>
-           </select>
-          </div>
-
-          <!-- 預訂日期 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預訂日期</label>
-           <input type="date" class="kt-input" id="booking_date" />
-          </div>
-
-          <!-- 預定時長 -->
-          <div class="flex flex-col gap-2">
-           <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
-           <div class="flex items-center gap-3">
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="decreaseHours()">
-             <i class="ki-filled ki-minus"></i>
-            </button>
-            <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 80px;" />
-            <button class="kt-btn kt-btn-icon kt-btn-outline" onclick="increaseHours()">
-             <i class="ki-filled ki-plus"></i>
-            </button>
+          <!-- 三欄橫向布局 (無論螢幕大小都是橫向) -->
+          <div class="grid grid-cols-3 gap-4">
+           <!-- 邀約類型 -->
+           <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold text-mono">邀約類型</label>
+            <select class="kt-select" id="date_type">
+             <option value="">請選擇邀約類型</option>
+             <option value="dinner">吃飯</option>
+             <option value="movie">看電影</option>
+             <option value="sport">運動</option>
+             <option value="other">其他</option>
+            </select>
            </div>
-           <span class="text-xs text-red-500 font-medium">[ 每次約會不得低於3小時 ]</span>
+
+           <!-- 預訂日期 -->
+           <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold text-mono">預訂日期</label>
+            <input type="date" class="kt-input" id="booking_date" />
+           </div>
+
+           <!-- 預定時長 -->
+           <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
+            <div class="flex items-center gap-2">
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseHours()">
+              <i class="ki-filled ki-minus"></i>
+             </button>
+             <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 60px;" />
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseHours()">
+              <i class="ki-filled ki-plus"></i>
+             </button>
+            </div>
+           </div>
           </div>
+
+          <!-- 提示訊息(紅色) -->
+          <span class="text-xs font-medium" style="color: #ef4444;">[ 每次約會不得低於3小時 ]</span>
 
           <!-- 金額顯示 -->
           <div class="flex flex-col gap-2 p-4 bg-accent/30 rounded-lg">
