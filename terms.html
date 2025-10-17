@@ -16,7 +16,7 @@
   <link href="assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
   <link href="assets/css/styles.css" rel="stylesheet"/>
  </head>
- <body class="antialiased flex h-full text-base text-foreground bg-background">
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
   <script>
    const defaultThemeMode = 'light';
 			let themeMode;
@@ -42,7 +42,7 @@
 				document.documentElement.classList.add(themeMode);
 			}
   </script>
-  <div class="flex grow flex-col">
+  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
    <!-- Header -->
    <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
     <!-- Container -->
