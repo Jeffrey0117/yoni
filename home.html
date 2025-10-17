@@ -3602,7 +3602,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
   </div>
   <!-- Lightbox 圖片預覽元件 -->
-  <div id="lightbox_overlay" class="hidden fixed top-0 left-0 w-full h-full z-[99999] bg-black/95" style="backdrop-filter: blur(4px);">
+  <div id="lightbox_overlay" class="hidden fixed top-0 left-0 w-full h-full z-[99999]" style="background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(4px);">
     <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4">
       <!-- 圖片容器(置中) -->
       <img id="lightbox_img" src="" alt="圖片預覽" class="max-w-full max-h-full w-auto h-auto object-contain select-none shadow-2xl" draggable="false" style="margin: auto;">
@@ -3810,6 +3810,12 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             }
           }
           
+          // 隱藏 header 和 navbar
+          const header = document.getElementById('header');
+          const navbar = document.getElementById('navbar');
+          if (header) header.style.display = 'none';
+          if (navbar) navbar.style.display = 'none';
+          
           overlay.classList.remove('hidden');
           document.body.style.overflow = 'hidden';
           updateImage();
@@ -3821,6 +3827,12 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         if (overlay) {
           overlay.classList.add('hidden');
           document.body.style.overflow = '';
+          
+          // 恢復顯示 header 和 navbar
+          const header = document.getElementById('header');
+          const navbar = document.getElementById('navbar');
+          if (header) header.style.display = '';
+          if (navbar) navbar.style.display = '';
         }
       }
       
