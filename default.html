@@ -991,14 +991,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <div class="kt-scrollable-x-auto">
          <div class="kt-menu gap-3" data-kt-menu="true">
           <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary here">
-           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="html/demo9/public-profile/profiles/default.html">
+           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="account">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
              帳戶資料
             </span>
            </a>
           </div>
           <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary">
-           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="html/demo9/public-profile/projects/3-columns.html">
+           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="provider">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
              服務商申請
             </span>
@@ -1056,8 +1056,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <!-- begin: grid -->
       <div class="flex">
-       <!-- 帳戶資料表單 -->
-       <div class="flex flex-col gap-5 w-full max-w-[600px] mb-12">
+       <!-- 帳戶資料表單 (預設顯示) -->
+       <div id="account-data-section" class="flex flex-col gap-5 w-full max-w-[600px] mb-12">
         <!-- 介紹人 -->
         <div class="flex items-center gap-4">
          <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">介紹人</label>
@@ -1097,10 +1097,400 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </select>
         </div>
        </div>
+
+       <!-- 服務商申請表單 (預設隱藏) -->
+       <div id="provider-application-section" class="hidden flex-col gap-5 w-full max-w-[800px] mb-12">
+        <!-- 審核狀態 -->
+        <div class="flex flex-col gap-3">
+         <h3 class="text-sm font-bold text-mono">審核狀態</h3>
+         <div class="flex flex-col gap-4 p-5 bg-white shadow-xl rounded-lg">
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">審核狀態</label>
+           <div class="flex items-center gap-3">
+            <span class="font-bold text-base" style="color: #f64696;">未審核</span>
+            <span class="text-xs text-secondary-foreground">申請時間：</span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 服務商資訊 -->
+        <div class="flex flex-col gap-3 mt-4">
+         <h3 class="text-sm font-bold text-mono">服務商資訊</h3>
+         <div class="flex flex-col gap-5 p-5 bg-white shadow-xl rounded-lg">
+          <!-- 姓名 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">姓名 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入姓名" maxlength="20" style="max-width: 400px;" />
+          </div>
+
+          <!-- 國籍 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">國籍 <span style="color: #f64696;">*</span></label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇國籍</option>
+            <option value="tw">台灣</option>
+            <option value="cn">中國</option>
+            <option value="hk">香港</option>
+            <option value="other">其他</option>
+           </select>
+          </div>
+
+          <!-- 縣市 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">縣市 <span style="color: #f64696;">*</span></label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇縣市</option>
+            <option value="taipei">台北市</option>
+            <option value="newtaipei">新北市</option>
+            <option value="taichung">台中市</option>
+           </select>
+          </div>
+
+          <!-- 地區 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">地區 <span style="color: #f64696;">*</span></label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇地區</option>
+           </select>
+          </div>
+
+          <!-- 地址 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">地址 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入地址" style="max-width: 400px;" />
+          </div>
+
+          <!-- 出生年月日 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">出生年月日 <span style="color: #f64696;">*</span></label>
+           <input type="date" class="kt-input flex-1" placeholder="請選擇生日" style="max-width: 400px;" />
+          </div>
+
+          <!-- 年齡 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">年齡 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入年齡" readonly style="max-width: 400px; background-color: #F5F7FA;" />
+          </div>
+
+          <!-- 身分證字號 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">身分證字號 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入身分證字號" style="max-width: 400px;" />
+          </div>
+
+          <!-- 身份證 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">身份證 <span style="color: #f64696;">*</span></label>
+           <div class="flex items-center justify-center h-[150px] w-[150px] border border-border rounded-lg bg-accent/50 cursor-pointer hover:bg-accent/70">
+            <i class="ki-filled ki-picture text-3xl text-muted-foreground"></i>
+           </div>
+          </div>
+
+          <!-- 第二證件 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">第二證件</label>
+           <div class="flex items-center justify-center h-[150px] w-[150px] border border-border rounded-lg bg-accent/50 cursor-pointer hover:bg-accent/70">
+            <i class="ki-filled ki-picture text-3xl text-muted-foreground"></i>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 服務商詳細資料 -->
+        <div class="flex flex-col gap-3 mt-4">
+         <h3 class="text-sm font-bold text-mono">服務商詳細資料</h3>
+         <div class="flex flex-col gap-5 p-5 bg-white shadow-xl rounded-lg">
+          <!-- 多張生活照 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">多張生活照 <span style="color: #f64696;">*</span></label>
+           <div class="flex gap-3 flex-wrap">
+            <div class="flex items-center justify-center h-[120px] w-[120px] border border-border rounded-lg bg-accent/50 cursor-pointer hover:bg-accent/70">
+             <i class="ki-filled ki-cloud-add text-2xl text-muted-foreground"></i>
+            </div>
+           </div>
+          </div>
+
+          <!-- 短視頻 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">短視頻</label>
+           <div class="flex items-center justify-center h-[150px] w-[150px] border border-border rounded-lg bg-accent/50 cursor-pointer hover:bg-accent/70">
+            <i class="ki-filled ki-cloud-add text-2xl text-muted-foreground"></i>
+           </div>
+          </div>
+
+          <!-- 藝名 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">藝名 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入藝名" style="max-width: 400px;" />
+          </div>
+
+          <!-- 身高 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">身高 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入身高" style="max-width: 400px;" />
+          </div>
+
+          <!-- 體重 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">體重 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入體重" style="max-width: 400px;" />
+          </div>
+
+          <!-- 自我介紹 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">自我介紹 <span style="color: #f64696;">*</span></label>
+           <textarea class="kt-input flex-1" rows="5" maxlength="250" placeholder="請輸入自我介紹" style="max-width: 400px; resize: none;"></textarea>
+          </div>
+
+          <!-- 約會類型 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">約會類型 <span style="color: #f64696;">*</span></label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇約會類型</option>
+            <option value="dinner">吃飯</option>
+            <option value="movie">看電影</option>
+            <option value="sport">運動</option>
+           </select>
+          </div>
+
+          <!-- 約會地點 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">約會地點 <span style="color: #f64696;">*</span></label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇約會地點</option>
+            <option value="private">私人住所</option>
+            <option value="hotel">旅館飯店</option>
+           </select>
+          </div>
+
+          <!-- 費用 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">費用 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入費用" style="max-width: 400px;" />
+          </div>
+
+          <!-- 鑽石 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">鑽石 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入鑽石" style="max-width: 400px;" />
+          </div>
+
+          <!-- 職業 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">職業</label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入職業" style="max-width: 400px;" />
+          </div>
+
+          <!-- 身材 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">身材</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇身材</option>
+            <option value="slim">纖細</option>
+            <option value="normal">一般</option>
+            <option value="athletic">運動型</option>
+           </select>
+          </div>
+
+          <!-- 罩杯 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">罩杯</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇罩杯</option>
+            <option value="A">A Cup</option>
+            <option value="B">B Cup</option>
+            <option value="C">C Cup</option>
+            <option value="D">D Cup</option>
+           </select>
+          </div>
+
+          <!-- 髮長 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">髮長</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇髮長</option>
+            <option value="short">短髮</option>
+            <option value="medium">中長髮</option>
+            <option value="long">長髮</option>
+           </select>
+          </div>
+
+          <!-- 髪色 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">髪色</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇髪色</option>
+            <option value="black">黑色</option>
+            <option value="brown">棕色</option>
+            <option value="blonde">金色</option>
+           </select>
+          </div>
+
+          <!-- 刺青 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">刺青</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇刺青</option>
+            <option value="none">無</option>
+            <option value="small">小圖(字)</option>
+            <option value="large">大圖</option>
+           </select>
+          </div>
+
+          <!-- 星座 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">星座</label>
+           <select class="kt-select flex-1" style="max-width: 400px;">
+            <option value="">請選擇星座</option>
+            <option value="aries">牡羊座</option>
+            <option value="taurus">金牛座</option>
+            <option value="gemini">雙子座</option>
+            <option value="cancer">巨蟹座</option>
+            <option value="leo">獅子座</option>
+            <option value="virgo">處女座</option>
+            <option value="libra">天秤座</option>
+            <option value="scorpio">天蠍座</option>
+            <option value="sagittarius">射手座</option>
+            <option value="capricorn">摩羯座</option>
+            <option value="aquarius">水瓶座</option>
+            <option value="pisces">雙魚座</option>
+           </select>
+          </div>
+
+          <!-- 興趣 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">興趣</label>
+           <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 flex-1" id="interests-container">
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="手機遊戲">手機遊戲</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="跳舞">跳舞</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="畫畫">畫畫</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="烹飪">烹飪</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="攝影">攝影</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="睡覺">睡覺</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="追劇">追劇</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="追星">追星</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="看書">看書</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="讀書會">讀書會</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="健身">健身</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="旅遊">旅遊</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="電腦遊戲">電腦遊戲</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="聊天">聊天</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="喝酒">喝酒</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="美食">美食</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="爬山">爬山</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="看電影">看電影</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="唱歌">唱歌</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="甜點">甜點</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="Cosplay">Cosplay</div>
+            <div class="interest-item bg-gray-200 rounded-md p-2 text-xs text-center cursor-pointer hover:bg-primary/20 transition-colors" data-value="已讀不回">已讀不回</div>
+           </div>
+          </div>
+
+          <!-- 專長 -->
+          <div class="flex items-start gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">專長</label>
+           <div class="flex flex-col gap-4 flex-1">
+            <!-- 通告任務 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">通告任務</span>
+             <div class="flex gap-2" data-skill-group="announcement">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="可接受">可接受</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="不可接受">不可接受</div>
+             </div>
+            </div>
+            <!-- 飲酒 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">飲酒</span>
+             <div class="flex gap-2" data-skill-group="drinking">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="滴酒不沾">滴酒不沾</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="可小酌">可小酌</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="可盡興">可盡興</div>
+             </div>
+            </div>
+            <!-- 唱歌 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">唱歌</span>
+             <div class="flex gap-2" data-skill-group="singing">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="會唱歌">會唱歌</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="不會唱歌">不會唱歌</div>
+             </div>
+            </div>
+            <!-- 運動 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">運動</span>
+             <div class="grid grid-cols-3 md:grid-cols-4 gap-2" data-skill-group="sports">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="高爾夫球">高爾夫球</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="有氧">有氧</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="瑜珈">瑜珈</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="潛水">潛水</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="衝浪">衝浪</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="登山">登山</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="保齡球">保齡球</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="網球">網球</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="籃球">籃球</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="羽毛球">羽毛球</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="重訓">重訓</div>
+             </div>
+            </div>
+            <!-- 陪玩遊戲 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">陪玩遊戲</span>
+             <div class="grid grid-cols-3 md:grid-cols-4 gap-2" data-skill-group="games">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="傳說對決">傳說對決</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="英雄聯盟">英雄聯盟</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="PUBG">PUBG</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="FreeFire">FreeFire</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="跑跑卡丁車">跑跑卡丁車</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="灌籃高手">灌籃高手</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="楓之谷">楓之谷</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="不可接受">不可接受</div>
+             </div>
+            </div>
+            <!-- 休閒 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">休閒</span>
+             <div class="grid grid-cols-3 md:grid-cols-4 gap-2" data-skill-group="leisure">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="電影">電影</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="逛街">逛街</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="購物">購物</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="吃飯">吃飯</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="散步">散步</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="密室逃脫">密室逃脫</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="看夜景">看夜景</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="遊艇派對">遊艇派對</div>
+             </div>
+            </div>
+            <!-- 慢搖音樂 -->
+            <div class="flex flex-col gap-2">
+             <span class="text-xs text-secondary-foreground">慢搖音樂</span>
+             <div class="flex gap-2" data-skill-group="music">
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="可接受可陪搖">可接受可陪搖</div>
+              <div class="skill-item bg-gray-200 rounded-md p-2 text-xs cursor-pointer hover:bg-primary/20 transition-colors" data-value="可接受不陪搖">可接受不陪搖</div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 提示與按鈕 -->
+        <div class="flex flex-col items-center gap-4 mt-6">
+         <div class="text-sm font-bold text-mono">*送出審核前請先儲存</div>
+         <div class="flex gap-4">
+          <button class="kt-btn kt-btn-lg rounded-full" style="background-color: #f64696; border-color: #f64696; color: white; width: 180px;">
+           儲存
+          </button>
+          <button class="kt-btn kt-btn-lg rounded-full" style="background-color: #f64696; border-color: #f64696; color: white; width: 180px;">
+           送出審核
+          </button>
+         </div>
+        </div>
+       </div>
       </div>
       
-      <!-- 儲存按鈕 (獨立於表單外,整個頁面置中) -->
-      <div class="kt-container-fixed flex justify-center">
+      <!-- 儲存按鈕 (獨立於表單外,整個頁面置中,只在帳戶資料分頁顯示) -->
+      <div id="account-save-button" class="kt-container-fixed flex justify-center">
        <button class="kt-btn kt-btn-primary rounded-full" style="background-color: #ec4899; border-color: #ec4899; width: 180px; padding: 12px 0;">
         <i class="ki-filled ki-check"></i>
         儲存
@@ -2465,6 +2855,89 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <script src="assets/vendors/apexcharts/apexcharts.min.js">
   </script>
   <script src="assets/js/widgets/general.js">
+  </script>
+  <script>
+   // 分頁切換功能
+   document.addEventListener('DOMContentLoaded', function() {
+    // 獲取所有分頁按鈕
+    const tabButtons = document.querySelectorAll('.kt-menu-item a.kt-menu-link[data-tab]');
+    const accountDataSection = document.getElementById('account-data-section');
+    const providerApplicationSection = document.getElementById('provider-application-section');
+    const accountSaveButton = document.getElementById('account-save-button');
+    
+    // 為每個分頁按鈕添加點擊事件
+    tabButtons.forEach((button) => {
+     button.addEventListener('click', function(e) {
+      // 防止預設的連結行為
+      e.preventDefault();
+      
+      // 獲取當前分頁的標籤
+      const tabType = this.getAttribute('data-tab');
+      
+      // 移除所有分頁的 active 狀態
+      tabButtons.forEach(btn => {
+       btn.parentElement.classList.remove('here');
+      });
+      
+      // 添加當前分頁的 active 狀態
+      this.parentElement.classList.add('here');
+      
+      // 根據點擊的分頁顯示對應內容
+      if (tabType === 'account') {
+       // 帳戶資料分頁
+       accountDataSection.classList.remove('hidden');
+       accountDataSection.classList.add('flex');
+       providerApplicationSection.classList.remove('flex');
+       providerApplicationSection.classList.add('hidden');
+       accountSaveButton.classList.remove('hidden');
+      } else if (tabType === 'provider') {
+       // 服務商申請分頁
+       accountDataSection.classList.remove('flex');
+       accountDataSection.classList.add('hidden');
+       providerApplicationSection.classList.remove('hidden');
+       providerApplicationSection.classList.add('flex');
+       accountSaveButton.classList.add('hidden');
+      }
+     });
+    });
+    
+    // 興趣選項互動(可多選)
+    const interestItems = document.querySelectorAll('.interest-item');
+    interestItems.forEach(item => {
+     item.addEventListener('click', function() {
+      this.classList.toggle('bg-gray-200');
+      this.classList.toggle('bg-primary');
+      this.classList.toggle('text-white');
+     });
+    });
+    
+    // 專長選項互動(每個群組單選)
+    const skillGroups = document.querySelectorAll('[data-skill-group]');
+    skillGroups.forEach(group => {
+     const groupName = group.getAttribute('data-skill-group');
+     const items = group.querySelectorAll('.skill-item');
+     
+     items.forEach(item => {
+      item.addEventListener('click', function() {
+       // 如果是運動、陪玩遊戲、休閒這類群組,支援多選
+       if (groupName === 'sports' || groupName === 'games' || groupName === 'leisure') {
+        this.classList.toggle('bg-gray-200');
+        this.classList.toggle('bg-primary');
+        this.classList.toggle('text-white');
+       } else {
+        // 其他群組為單選,先移除同組內所有選中狀態
+        items.forEach(i => {
+         i.classList.remove('bg-primary', 'text-white');
+         i.classList.add('bg-gray-200');
+        });
+        // 選中當前項目
+        this.classList.remove('bg-gray-200');
+        this.classList.add('bg-primary', 'text-white');
+       }
+      });
+     });
+    });
+   });
   </script>
   <!-- End of Scripts -->
  </body>
