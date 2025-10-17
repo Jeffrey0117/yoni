@@ -1057,7 +1057,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <!-- begin: grid -->
       <div class="flex">
        <!-- 帳戶資料表單 -->
-       <div class="flex flex-col gap-5 w-full max-w-[600px]">
+       <div class="flex flex-col gap-5 w-full max-w-[600px] mb-12">
         <!-- 介紹人 -->
         <div class="flex items-center gap-4">
          <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">介紹人</label>
@@ -1096,15 +1096,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <option value="other">其他</option>
          </select>
         </div>
-
-        <!-- 儲存按鈕 -->
-        <div class="flex justify-center mt-2">
-         <button class="kt-btn kt-btn-primary kt-btn-sm rounded-full" style="background-color: #ec4899; border-color: #ec4899; width: 250px;">
-          <i class="ki-filled ki-check"></i>
-          儲存
-         </button>
-        </div>
        </div>
+      </div>
+      
+      <!-- 儲存按鈕 (獨立於表單外,整個頁面置中) -->
+      <div class="kt-container-fixed flex justify-center">
+       <button class="kt-btn kt-btn-primary rounded-full" style="background-color: #ec4899; border-color: #ec4899; width: 180px; padding: 12px 0;">
+        <i class="ki-filled ki-check"></i>
+        儲存
+       </button>
       </div>
       <!-- end: grid -->
      </div>
