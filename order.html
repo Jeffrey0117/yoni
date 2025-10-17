@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+ <head>
+  <title>
+   約會訂單 - Yoni
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="約會訂單頁面" name="description"/>
+  <link href="./assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="./assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="./assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="./assets/media/app/favicon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="./assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
+  <link href="./assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="./assets/css/styles.css" rel="stylesheet"/>
+ </head>
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
+  <!-- Theme Mode -->
+  <script>
+   const defaultThemeMode = 'light'; // light|dark|system
+		let themeMode;
+
+		if (document.documentElement) {
+			if (localStorage.getItem('kt-theme')) {
+				themeMode = localStorage.getItem('kt-theme');
+			} else if (
+				document.documentElement.hasAttribute('data-kt-theme-mode')
+			) {
+				themeMode =
+					document.documentElement.getAttribute('data-kt-theme-mode');
+			} else {
+				themeMode = defaultThemeMode;
+			}
+
+			if (themeMode === 'system') {
+				themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dark'
+					: 'light';
+			}
+
+			document.documentElement.classList.add(themeMode);
+		}
+  </script>
+  <!-- End of Theme Mode -->
+  <!-- Page -->
+  <!-- Main -->
+  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
+   <!-- Header -->
+   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+    <!-- Container -->
+    <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
+     <!-- Logo -->
+     <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu">
+       </i>
+      </button>
+      <div class="flex items-center gap-2">
+       <a class="flex items-center shrink-0" href="html/demo9.html">
+        <img class="dark:hidden w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+       </a>
+      </div>
+     </div>
+     <!-- End of Logo -->
+     <!-- Topbar -->
+     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!-- User -->
+      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
+        <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+       </button>
+       <div class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
+        <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
+         <div class="flex items-center gap-2">
+<i class="ki-filled ki-profile-circle text-xl">
+        </i>          <div class="flex flex-col gap-1.5">
+           <span class="text-sm text-foreground font-semibold leading-none">
+            暱稱
+           </span>
+           <a class="text-xs text-secondary-foreground hover:text-primary font-medium leading-none" href="html/demo9/account/home/get-started.html">
+            會員編號
+           </a>
+          </div>
+         </div>
+         <span class="kt-badge kt-badge-sm kt-badge-primary kt-badge-outline">
+          角色
+         </span>
+        </div>
+        <ul class="kt-dropdown-menu-sub">
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="html/demo9/public-profile/profiles/default.html">
+           <i class="ki-filled ki-badge">
+           </i>
+           個人資料
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="html/demo9/account/home/user-profile.html">
+          <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+           </i>
+           訂單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-calendar">
+           </i>
+           接單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-wallet">
+           </i>
+           錢包
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-users">
+           </i>
+           邀請
+          </a>
+         </li>
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+        </ul>
+        <div class="px-2.5 pt-1.5 mb-2.5 flex flex-col gap-3.5">
+         <div class="flex items-center gap-2 justify-between">
+          <span class="flex items-center gap-2">
+           <i class="ki-filled ki-moon text-base text-muted-foreground">
+           </i>
+           <span class="font-medium text-2sm">
+            深色模式
+           </span>
+          </span>
+          <input class="kt-switch" data-kt-theme-switch-state="dark" data-kt-theme-switch-toggle="true" name="check" type="checkbox" value="1"/>
+         </div>
+         <a class="kt-btn kt-btn-outline justify-center w-full" href="html/demo9/authentication/classic/sign-in.html">
+          登出
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- End of User -->
+      <!--Wishlist-->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary">
+       <i class="ki-filled ki-heart text-xl">
+       </i>
+      </button>
+      <!--Notification-->
+ <i class="ki-filled ki-notification-on text-2xl"></i>
+     </div>
+     <!-- End of Topbar -->
+    </div>
+    <!-- End of Container -->
+   </header>
+   <!-- End of Header -->
+   <!-- Navbar -->
+   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Container -->
+    <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
+     <!-- Mega Menu -->
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="html/demo9.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         首頁
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="#">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         約會
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="#">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         快速配對
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="#">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         儲值
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
+       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         FAQ
+        </span>
+        <span class="kt-menu-arrow flex lg:hidden">
+         <span class="flex kt-menu-item-show:hidden">
+          <i class="ki-filled ki-plus text-xs text-secondary-foreground">
+          </i>
+         </span>
+         <span class="hidden kt-menu-item-show:inline-flex">
+          <i class="ki-filled ki-minus text-xs text-secondary-foreground">
+          </i>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- End of Mega Menu -->
+    </div>
+    <!-- End of Container -->
+   </div>
+   <!-- End of Navbar -->
+   <!-- Wrapper Container -->
+   <div class="container-fixed w-full flex px-0">
+    <!-- Content -->
+    <main class="flex flex-col grow" id="content" role="content">
+     <!-- Container -->
+     <div class="kt-container-fixed">
+      <div class="flex flex-col items-center justify-center min-h-[calc(100vh-300px)] py-10">
+       <!-- 進階篩選表單 -->
+       <div class="w-full max-w-[500px]">
+        <div class="kt-card">
+         <div class="kt-card-header">
+          <h3 class="kt-card-title">
+           快速配對
+          </h3>
+         </div>
+         <div class="kt-card-content px-5 py-3">
+          <div class="flex flex-col gap-2">
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             所在縣市
+            </span>
+            <select class="kt-select flex-1" id="filter_city">
+             <option value="">選縣市</option>
+             <option value="taipei">台北市</option>
+             <option value="newtaipei">新北市</option>
+             <option value="taoyuan">桃園市</option>
+             <option value="taichung">台中市</option>
+             <option value="tainan">台南市</option>
+             <option value="kaohsiung">高雄市</option>
+            </select>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             所在地區
+            </span>
+            <select class="kt-select flex-1" id="filter_district">
+             <option value="">選地區</option>
+            </select>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             喜好性別
+            </span>
+            <select class="kt-select flex-1" id="filter_gender">
+             <option value="">選擇性別</option>
+             <option value="male">男</option>
+             <option value="female">女</option>
+             <option value="other">其他</option>
+            </select>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             約會類型
+            </span>
+            <select class="kt-select flex-1" id="filter_date_type">
+             <option value="">單選</option>
+             <option value="dinner">吃飯</option>
+             <option value="movie">看電影</option>
+             <option value="sport">運動</option>
+             <option value="other">其他</option>
+            </select>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             約會場所
+            </span>
+            <select class="kt-select flex-1" id="filter_location">
+             <option value="">單選</option>
+             <option value="private">私人住所</option>
+             <option value="hotel">旅館飯店</option>
+            </select>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             預訂日期
+            </span>
+            <input type="date" class="kt-input flex-1" id="filter_booking_date" value="" placeholder="今天">
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             預定時長
+            </span>
+            <div class="flex items-center gap-2">
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseFilterHours()">
+              <i class="ki-filled ki-minus"></i>
+             </button>
+             <input type="number" class="kt-input text-center" id="filter_hours" value="3" min="3" readonly style="max-width: 60px;" />
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseFilterHours()">
+              <i class="ki-filled ki-plus"></i>
+             </button>
+            </div>
+           </div>
+           <div class="flex items-center justify-between gap-3">
+            <span class="text-sm font-medium text-mono whitespace-nowrap">
+             預算範圍
+            </span>
+            <div class="flex items-center gap-2 flex-1">
+             <div class="kt-input-group flex-1">
+              <input class="kt-input" placeholder="起步" type="text" value="">
+              <span class="kt-input-addon">P</span>
+             </div>
+             <span class="text-xs text-secondary-foreground">~</span>
+             <div class="kt-input-group flex-1">
+              <input class="kt-input" placeholder="上限" type="text" value="">
+              <span class="kt-input-addon">P</span>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="kt-card-footer grid grid-cols-2 gap-2.5">
+          <button class="kt-btn kt-btn-outline">
+           重置
+          </button>
+          <button class="kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_product_details">
+           套用
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- End of Container -->
+     <!-- Footer -->
+     <footer class="footer">
+      <!-- Container -->
+      <div class="kt-container-fixed">
+       <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
+        <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+         <span class="text-muted-foreground">
+          2025©
+         </span>
+         <a class="text-secondary-foreground hover:text-primary" href="https://keenthemes.com">
+          yoni Inc.
+         </a>
+        </div>
+        <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
+         <a class="hover:text-primary" href="about.html">
+          品牌介紹
+         </a>
+         <a class="hover:text-primary" href="terms.html">
+          使用條款
+         </a>
+         <a class="hover:text-primary" href="privacy.html">
+          隱私權政策
+         </a>
+        </nav>
+       </div>
+      </div>
+      <!-- End of Container -->
+     </footer>
+     <!-- End of Footer -->
+    </main>
+    <!-- End of Content -->
+   </div>
+   <!-- End of Wrapper Container -->
+  </div>
+  <!-- End of Main -->
+  <!--Product Details Drawer-->
+  <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
+   <div class="kt-card-header px-5">
+    <h3 class="kt-card-title">
+     安娜寶貝
+    </h3>
+    <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
+     <i class="ki-filled ki-cross text-base">
+     </i>
+    </button>
+   </div>
+   <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto">
+<div class="relative">
+     <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="封面照" class="w-full h-auto object-cover">
+     <span class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color:#43C268;color:#fff;min-width:40px;max-width:90px;padding:2px 6px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">我現在有空</span>
+    </div>
+
+   <span class="text-base font-medium text-mono">自我介紹</span>
+    <span class="text-sm font-normal text-foreground block mb-7">
+    大家好,我是小雅,我是一個模特兒,我喜歡唱歌、跳舞、畫畫、追劇
+    </span>
+
+    <!-- 影片 -->
+    <div class="mb-5">
+     <h4 class="text-sm font-medium text-mono mb-3">影片</h4>
+     <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
+      <video class="w-full h-auto" controls>
+       <source src="https://yoni.tw/videos/main-video.mp4" type="video/mp4">
+       您的瀏覽器不支援影片標籤。
+      </video>
+     </div>
+    </div>
+
+    <!-- 生活照 -->
+    <div class="mb-5">
+     <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
+     <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity">
+      <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+     </div>
+
+     <!-- 個人資料區塊(靜態文字) -->
+     <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg mb-5">
+      <h4 class="text-base font-semibold text-mono mb-2">個人資料</h4>
+      
+      <div class="grid grid-cols-2 gap-3 text-sm">
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">藝名</span>
+        <span class="text-sm font-medium text-mono">小雅</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">職業</span>
+        <span class="text-sm font-medium text-mono">模特兒</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">年齡</span>
+        <span class="text-sm font-medium text-mono">20</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">身高</span>
+        <span class="text-sm font-medium text-mono">162 CM</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">體重</span>
+        <span class="text-sm font-medium text-mono">40 KG</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">身材</span>
+        <span class="text-sm font-medium text-mono">一般</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">罩杯</span>
+        <span class="text-sm font-medium text-mono">C Cup</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">髮長</span>
+        <span class="text-sm font-medium text-mono">長髮</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">髮色</span>
+        <span class="text-sm font-medium text-mono">黑色</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">刺青</span>
+        <span class="text-sm font-medium text-mono">小圖(字)</span>
+       </div>
+       <div class="flex flex-col">
+        <span class="text-xs text-secondary-foreground mb-1">星座</span>
+        <span class="text-sm font-medium text-mono">天蠍座</span>
+       </div>
+       <div class="flex flex-col col-span-2">
+        <span class="text-xs text-secondary-foreground mb-1">可接受約會地點</span>
+        <span class="text-sm font-medium text-mono">私人招待所、商旅飯局</span>
+       </div>
+       <div class="flex flex-col col-span-2">
+        <span class="text-xs text-secondary-foreground mb-1">興趣</span>
+        <span class="text-sm font-medium text-mono">唱歌、甜點、跳舞、畫畫、追劇</span>
+       </div>
+      </div>
+
+      <!-- 專長區塊 -->
+      <div class="flex flex-col gap-2 pt-3 border-t border-border">
+       <span class="text-xs text-secondary-foreground mb-1">專長</span>
+       <div class="flex flex-col gap-1 text-sm">
+        <div><span class="text-secondary-foreground">飲酒:</span> <span class="font-medium text-mono">可小酌</span></div>
+        <div><span class="text-secondary-foreground">唱歌:</span> <span class="font-medium text-mono">會唱歌</span></div>
+        <div><span class="text-secondary-foreground">休閒:</span> <span class="font-medium text-mono">逛借、吃飯</span></div>
+        <div><span class="text-secondary-foreground">運動:</span> <span class="font-medium text-mono">網球、瑜伽</span></div>
+        <div><span class="text-secondary-foreground">陪玩遊戲:</span> <span class="font-medium text-mono">傳說對決、楓之谷</span></div>
+        <div><span class="text-secondary-foreground">通告任務:</span> <span class="font-medium text-mono">可接受</span></div>
+        <div><span class="text-secondary-foreground">慢搖音樂:</span> <span class="font-medium text-mono">可接手可陪搖</span></div>
+       </div>
+      </div>
+     </div>
+     
+     <!-- 預約區塊(互動式表單) -->
+     <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
+      <!-- 三欄橫向布局 (無論螢幕大小都是橫向) -->
+      <div class="grid grid-cols-3 gap-4">
+       <!-- 邀約類型 -->
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-mono">邀約類型</label>
+        <select class="kt-select" id="date_type">
+         <option value="">請選擇邀約類型</option>
+         <option value="dinner">吃飯</option>
+         <option value="movie">看電影</option>
+         <option value="sport">運動</option>
+         <option value="other">其他</option>
+        </select>
+       </div>
+
+       <!-- 預訂日期 -->
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-mono">預訂日期</label>
+        <input type="date" class="kt-input" id="booking_date" />
+       </div>
+
+       <!-- 預定時長 -->
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
+        <div class="flex items-center gap-2">
+         <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseHours()">
+          <i class="ki-filled ki-minus"></i>
+         </button>
+         <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 60px;" />
+         <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseHours()">
+          <i class="ki-filled ki-plus"></i>
+         </button>
+        </div>
+       </div>
+      </div>
+
+      <!-- 提示訊息(紅色) -->
+      <span class="text-xs font-medium" style="color: #ef4444;">[ 每次約會不得低於3小時 ]</span>
+
+      <!-- 金額顯示 -->
+      <div class="flex flex-col gap-2 p-4 bg-accent/30 rounded-lg">
+       <div class="flex justify-between items-center">
+        <span class="text-sm font-medium text-secondary-foreground">每小時</span>
+        <span class="text-base font-semibold text-mono" id="price_per_hour">1000 P</span>
+       </div>
+       <div class="border-t border-border my-2"></div>
+       <div class="flex justify-between items-center">
+        <span class="text-base font-semibold text-mono">總計</span>
+        <span class="text-xl font-bold text-primary" id="total_price">3000 P</span>
+       </div>
+      </div>
+
+      <!-- 立即約會按鈕 -->
+      <button class="kt-btn kt-btn-primary kt-btn-lg w-full justify-center">
+       <i class="ki-filled ki-calendar"></i>
+       立即約會
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--End of Product Details Drawer-->
+  <!-- Scripts -->
+  <script src="./assets/js/core.bundle.js">
+  </script>
+  <script src="./assets/vendors/ktui/ktui.min.js">
+  </script>
+  <script src="./assets/vendors/apexcharts/apexcharts.min.js">
+  </script>
+  <script>
+  // 預定時長增減功能
+  function increaseFilterHours() {
+    const hoursInput = document.getElementById('filter_hours');
+    let currentValue = parseInt(hoursInput.value) || 3;
+    hoursInput.value = currentValue + 1;
+  }
+
+  function decreaseFilterHours() {
+    const hoursInput = document.getElementById('filter_hours');
+    let currentValue = parseInt(hoursInput.value) || 3;
+    if (currentValue > 3) {
+      hoursInput.value = currentValue - 1;
+    }
+  }
+
+  // 抽屜內預約表單的時長增減功能
+  function increaseHours() {
+    const hoursInput = document.getElementById('booking_hours');
+    let currentValue = parseInt(hoursInput.value) || 3;
+    hoursInput.value = currentValue + 1;
+    updateTotalPrice();
+  }
+
+  function decreaseHours() {
+    const hoursInput = document.getElementById('booking_hours');
+    let currentValue = parseInt(hoursInput.value) || 3;
+    if (currentValue > 3) {
+      hoursInput.value = currentValue - 1;
+      updateTotalPrice();
+    }
+  }
+
+  // 更新總價
+  function updateTotalPrice() {
+    const hours = parseInt(document.getElementById('booking_hours').value) || 3;
+    const pricePerHour = 1000;
+    const totalPrice = hours * pricePerHour;
+    document.getElementById('total_price').textContent = totalPrice + ' P';
+  }
+
+  // 設定預訂日期預設值為今天
+  window.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('filter_booking_date');
+    if (dateInput) {
+      dateInput.value = today;
+    }
+    
+    // 設定抽屜內預訂日期預設值
+    const bookingDateInput = document.getElementById('booking_date');
+    if (bookingDateInput) {
+      bookingDateInput.value = today;
+    }
+  });
+  </script>
+  <!-- End of Scripts -->
+ </body>
+</html>
