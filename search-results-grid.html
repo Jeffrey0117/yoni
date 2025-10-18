@@ -920,22 +920,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <div class="kt-input w-full">
          <i class="ki-filled ki-magnifier">
          </i>
-         <input placeholder="" type="text" value="請輸入藝名">
-         <span class="kt-badge kt-badge-outline -me-1.5">
+         <input placeholder="" type="text" value="台中市,北屯區,女,安娜寶貝,吃飯,商務飯店,1,000–3,300
+">
+         <!-- <span class="kt-badge kt-badge-outline -me-1.5">
           ??K
-         </span>
+         </span> -->
         </div>
         <!--Filter-->
         <button class="kt-dropdown-toggle kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_filter">
          <i class="ki-filled ki-filter">
          </i>
-         進階篩選
+         喜好設定 
         </button>
         <!--Product Filter-->
         <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_filter">
          <div class="kt-card-header ps-5 pr-2">
           <h3 class="kt-card-title">
-           進階篩選
+           喜好設定 
           </h3>
           <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
            <i class="ki-filled ki-cross text-base">
@@ -948,13 +949,29 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             所在縣市
            </span>
            <select class="kt-select flex-1" id="filter_city">
-            <option value="">選縣市</option>
+            <option value="">選擇縣市</option>
             <option value="taipei">台北市</option>
             <option value="newtaipei">新北市</option>
             <option value="taoyuan">桃園市</option>
             <option value="taichung">台中市</option>
             <option value="tainan">台南市</option>
             <option value="kaohsiung">高雄市</option>
+            <option value="keelung">基隆市</option>
+            <option value="hsinchu_city">新竹市</option>
+            <option value="chiayi_city">嘉義市</option>
+            <option value="hsinchu">新竹縣</option>
+            <option value="miaoli">苗栗縣</option>
+            <option value="changhua">彰化縣</option>
+            <option value="nantou">南投縣</option>
+            <option value="yunlin">雲林縣</option>
+            <option value="chiayi">嘉義縣</option>
+            <option value="pingtung">屏東縣</option>
+            <option value="yilan">宜蘭縣</option>
+            <option value="hualien">花蓮縣</option>
+            <option value="taitung">台東縣</option>
+            <option value="penghu">澎湖縣</option>
+            <option value="kinmen">金門縣</option>
+            <option value="lienchiang">連江縣</option>
            </select>
           </div>
           <div class="border-b border-border mb-4">
@@ -964,7 +981,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             所在地區
            </span>
            <select class="kt-select flex-1" id="filter_district">
-            <option value="">選地區</option>
+            <option value="">請先選擇縣市</option>
            </select>
           </div>
           <div class="border-b border-border mb-4">
@@ -3549,6 +3566,57 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
   }
 
+  // 台灣縣市地區資料
+  const taiwanDistricts = {
+    'taipei': ['中正區', '大同區', '中山區', '松山區', '大安區', '萬華區', '信義區', '士林區', '北投區', '內湖區', '南港區', '文山區'],
+    'newtaipei': ['板橋區', '三重區', '中和區', '永和區', '新莊區', '新店區', '樹林區', '鶯歌區', '三峽區', '淡水區', '汐止區', '瑞芳區', '土城區', '蘆洲區', '五股區', '泰山區', '林口區', '深坑區', '石碇區', '坪林區', '三芝區', '石門區', '八里區', '平溪區', '雙溪區', '貢寮區', '金山區', '萬里區', '烏來區'],
+    'taoyuan': ['桃園區', '中壢區', '平鎮區', '八德區', '楊梅區', '蘆竹區', '大溪區', '龍潭區', '龜山區', '大園區', '觀音區', '新屋區', '復興區'],
+    'taichung': ['中區', '東區', '南區', '西區', '北區', '北屯區', '西屯區', '南屯區', '太平區', '大里區', '霧峰區', '烏日區', '豐原區', '后里區', '石岡區', '東勢區', '和平區', '新社區', '潭子區', '大雅區', '神岡區', '大肚區', '沙鹿區', '龍井區', '梧棲區', '清水區', '大甲區', '外埔區', '大安區'],
+    'tainan': ['中西區', '東區', '南區', '北區', '安平區', '安南區', '永康區', '歸仁區', '新化區', '左鎮區', '玉井區', '楠西區', '南化區', '仁德區', '關廟區', '龍崎區', '官田區', '麻豆區', '佳里區', '西港區', '七股區', '將軍區', '學甲區', '北門區', '新營區', '後壁區', '白河區', '東山區', '六甲區', '下營區', '柳營區', '鹽水區', '善化區', '大內區', '山上區', '新市區', '安定區'],
+    'kaohsiung': ['楠梓區', '左營區', '鼓山區', '三民區', '鹽埕區', '前金區', '新興區', '苓雅區', '前鎮區', '旗津區', '小港區', '鳳山區', '大寮區', '鳥松區', '林園區', '仁武區', '大樹區', '大社區', '岡山區', '路竹區', '橋頭區', '梓官區', '彌陀區', '永安區', '燕巢區', '田寮區', '阿蓮區', '茄萣區', '湖內區', '旗山區', '美濃區', '內門區', '杉林區', '甲仙區', '六龜區', '茂林區', '桃源區', '那瑪夏區'],
+    'keelung': ['中正區', '七堵區', '暖暖區', '仁愛區', '中山區', '安樂區', '信義區'],
+    'hsinchu_city': ['東區', '北區', '香山區'],
+    'chiayi_city': ['東區', '西區'],
+    'hsinchu': ['竹北市', '竹東鎮', '新埔鎮', '關西鎮', '湖口鄉', '新豐鄉', '峨眉鄉', '寶山鄉', '北埔鄉', '芎林鄉', '橫山鄉', '尖石鄉', '五峰鄉'],
+    'miaoli': ['苗栗市', '頭份市', '竹南鎮', '後龍鎮', '通霄鎮', '苑裡鎮', '卓蘭鎮', '造橋鄉', '西湖鄉', '頭屋鄉', '公館鄉', '銅鑼鄉', '三義鄉', '大湖鄉', '獅潭鄉', '三灣鄉', '南庄鄉', '泰安鄉'],
+    'changhua': ['彰化市', '員林市', '和美鎮', '鹿港鎮', '溪湖鎮', '二林鎮', '田中鎮', '北斗鎮', '花壇鄉', '芬園鄉', '大村鄉', '永靖鄉', '伸港鄉', '線西鄉', '福興鄉', '秀水鄉', '埔心鄉', '埔鹽鄉', '大城鄉', '芳苑鄉', '竹塘鄉', '社頭鄉', '二水鄉', '田尾鄉', '埤頭鄉', '溪州鄉'],
+    'nantou': ['南投市', '埔里鎮', '草屯鎮', '竹山鎮', '集集鎮', '名間鄉', '鹿谷鄉', '中寮鄉', '魚池鄉', '國姓鄉', '水里鄉', '信義鄉', '仁愛鄉'],
+    'yunlin': ['斗六市', '斗南鎮', '虎尾鎮', '西螺鎮', '土庫鎮', '北港鎮', '古坑鄉', '大埤鄉', '莿桐鄉', '林內鄉', '二崙鄉', '崙背鄉', '麥寮鄉', '東勢鄉', '褒忠鄉', '台西鄉', '元長鄉', '四湖鄉', '口湖鄉', '水林鄉'],
+    'chiayi': ['太保市', '朴子市', '布袋鎮', '大林鎮', '民雄鄉', '溪口鄉', '新港鄉', '六腳鄉', '東石鄉', '義竹鄉', '鹿草鄉', '水上鄉', '中埔鄉', '竹崎鄉', '梅山鄉', '番路鄉', '大埔鄉', '阿里山鄉'],
+    'pingtung': ['屏東市', '潮州鎮', '東港鎮', '恆春鎮', '萬丹鄉', '長治鄉', '麟洛鄉', '九如鄉', '里港鄉', '鹽埔鄉', '高樹鄉', '萬巒鄉', '內埔鄉', '竹田鄉', '新埤鄉', '枋寮鄉', '新園鄉', '崁頂鄉', '林邊鄉', '南州鄉', '佳冬鄉', '琉球鄉', '車城鄉', '滿州鄉', '枋山鄉', '三地門鄉', '霧台鄉', '瑪家鄉', '泰武鄉', '來義鄉', '春日鄉', '獅子鄉', '牡丹鄉'],
+    'yilan': ['宜蘭市', '羅東鎮', '蘇澳鎮', '頭城鎮', '礁溪鄉', '壯圍鄉', '員山鄉', '冬山鄉', '五結鄉', '三星鄉', '大同鄉', '南澳鄉'],
+    'hualien': ['花蓮市', '鳳林鎮', '玉里鎮', '新城鄉', '吉安鄉', '壽豐鄉', '光復鄉', '豐濱鄉', '瑞穗鄉', '富里鄉', '秀林鄉', '萬榮鄉', '卓溪鄉'],
+    'taitung': ['台東市', '成功鎮', '關山鎮', '卑南鄉', '鹿野鄉', '池上鄉', '東河鄉', '長濱鄉', '太麻里鄉', '大武鄉', '綠島鄉', '海端鄉', '延平鄉', '金峰鄉', '達仁鄉', '蘭嶼鄉'],
+    'penghu': ['馬公市', '湖西鄉', '白沙鄉', '西嶼鄉', '望安鄉', '七美鄉'],
+    'kinmen': ['金城鎮', '金湖鎮', '金沙鎮', '金寧鄉', '烈嶼鄉', '烏坵鄉'],
+    'lienchiang': ['南竿鄉', '北竿鄉', '莒光鄉', '東引鄉']
+  };
+
+  // 縣市選擇變更時更新地區選單
+  function updateDistricts() {
+    const citySelect = document.getElementById('filter_city');
+    const districtSelect = document.getElementById('filter_district');
+    
+    if (!citySelect || !districtSelect) return;
+    
+    const selectedCity = citySelect.value;
+    
+    // 清空地區選單
+    districtSelect.innerHTML = '<option value="">請選擇地區</option>';
+    
+    // 如果有選擇縣市,則填入對應的地區
+    if (selectedCity && taiwanDistricts[selectedCity]) {
+      taiwanDistricts[selectedCity].forEach(district => {
+        const option = document.createElement('option');
+        option.value = district;
+        option.textContent = district;
+        districtSelect.appendChild(option);
+      });
+    } else {
+      districtSelect.innerHTML = '<option value="">請先選擇縣市</option>';
+    }
+  }
+
   // 設定預訂日期預設值為今天
   window.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];
@@ -3556,7 +3624,84 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     if (dateInput) {
       dateInput.value = today;
     }
-  });
+    
+    // 綁定縣市選單變更事件
+      const citySelect = document.getElementById('filter_city');
+      if (citySelect) {
+        citySelect.addEventListener('change', updateDistricts);
+      }
+      
+      // 綁定套用按鈕事件
+      const applyFilterBtn = document.querySelector('#drawers_shop_filter .kt-btn-primary');
+      if (applyFilterBtn) {
+        applyFilterBtn.addEventListener('click', applyFilters);
+      }
+    });
+  
+    // 套用篩選條件到搜尋框
+    function applyFilters() {
+      const filterParts = [];
+      
+      // 取得所在縣市
+      const citySelect = document.getElementById('filter_city');
+      if (citySelect && citySelect.value) {
+        const cityText = citySelect.options[citySelect.selectedIndex].text;
+        filterParts.push(cityText);
+      }
+      
+      // 取得所在地區
+      const districtSelect = document.getElementById('filter_district');
+      if (districtSelect && districtSelect.value) {
+        filterParts.push(districtSelect.value);
+      }
+      
+      // 取得喜好性別
+      const genderSelect = document.getElementById('filter_gender');
+      if (genderSelect && genderSelect.value) {
+        const genderText = genderSelect.options[genderSelect.selectedIndex].text;
+        filterParts.push(genderText);
+      }
+      
+      // 取得約會類型
+      const dateTypeSelect = document.getElementById('filter_date_type');
+      if (dateTypeSelect && dateTypeSelect.value) {
+        const dateTypeText = dateTypeSelect.options[dateTypeSelect.selectedIndex].text;
+        filterParts.push(dateTypeText);
+      }
+      
+      // 取得約會場所
+      const locationSelect = document.getElementById('filter_location');
+      if (locationSelect && locationSelect.value) {
+        const locationText = locationSelect.options[locationSelect.selectedIndex].text;
+        filterParts.push(locationText);
+      }
+      
+      // 取得預算範圍
+      const minBudget = document.querySelector('#drawers_shop_filter input[placeholder="XXX"]').value;
+      const maxBudget = document.querySelectorAll('#drawers_shop_filter input[placeholder="XXX"]')[1].value;
+      if (minBudget && maxBudget) {
+        filterParts.push(`${minBudget}–${maxBudget}`);
+      } else if (minBudget) {
+        filterParts.push(`${minBudget}起`);
+      } else if (maxBudget) {
+        filterParts.push(`${maxBudget}內`);
+      }
+      
+      // 更新搜尋框內容
+      const searchInput = document.querySelector('.kt-input input[type="text"]');
+      if (searchInput) {
+        searchInput.value = filterParts.join(',');
+      }
+      
+      // 關閉喜好設定面板
+      const drawer = document.getElementById('drawers_shop_filter');
+      if (drawer && window.KTDrawer) {
+        const drawerInstance = window.KTDrawer.getInstance(drawer);
+        if (drawerInstance) {
+          drawerInstance.hide();
+        }
+      }
+    }
   </script>
   <!-- End of Scripts -->
  </body>
