@@ -1026,9 +1026,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            </a>
           </div>
           <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary">
-           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="html/demo9/public-profile/activity.html">
+           <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="receiving">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
-             提單
+             接單
             </span>
            </a>
           </div>
@@ -1343,14 +1343,41 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
 
        <!-- 訂單分頁內容 (預設隱藏) -->
-       <div id="orders-section" class="hidden w-full mb-12">
-        <div class="flex justify-center">
-         <div class="lg:col-span-1">
-          <div class="kt-card">
-           <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
+       <div id="orders-section" class="hidden flex-col w-full mb-12">
+        <!-- 訂單狀態篩選分頁 (全寬, 置中) -->
+        <div class="w-full mb-5">
+         <div class="flex items-center justify-center border-b border-border overflow-x-auto">
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-order-status="all">
+           全部
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="pending">
+           待確認
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="confirmed">
+           待執行
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="inprogress">
+           進行中
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="completed">
+           已結束
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="cancelled">
+           取消
+          </button>
+          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="refunded">
+           退單
+          </button>
+         </div>
+        </div>
+
+        <!-- 訂單列表 (全寬) -->
+        <div class="w-full">
+         <div class="kt-card">
+          <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              Order ID
+              訂單編號
              </span>
              <span class="text-sm font-medium text-mono">
               X319330-S24
@@ -1358,7 +1385,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              Order placed
+              邀約日期
              </span>
              <span class="text-sm font-medium text-mono">
               26 June, 2025
@@ -1366,7 +1393,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              Total
+              出席費
              </span>
              <span class="text-sm font-medium text-mono">
               $512.60
@@ -1374,7 +1401,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              Ship to
+              約會地址
              </span>
              <span class="text-sm font-medium text-mono">
               Jeroen van Dijk
@@ -1382,7 +1409,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              Estimated Delivery
+              預約日期/時間
              </span>
              <span class="text-sm font-medium text-mono">
               07 July, 2025
@@ -1537,9 +1564,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
 
        <!-- 服務商申請表單 (預設隱藏) -->
-       <div id="provider-application-section" class="hidden flex-col gap-5 w-full max-w-[800px] mb-12">
-        <!-- 審核狀態 -->
-        <div class="flex flex-col gap-3">
+       <div id="provider-application-section" class="hidden flex-col gap-5 w-full mb-12">
+        <div class="flex justify-center">
+         <div class="flex flex-col gap-5 w-full max-w-[800px]">
+          <!-- 審核狀態 -->
+          <div class="flex flex-col gap-3">
          <h3 class="text-sm font-bold text-mono">審核狀態</h3>
          <div class="flex flex-col gap-4 p-5 bg-white shadow-xl rounded-lg">
           <!-- 最新申請時間 -->
@@ -1941,9 +1970,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </button>
          </div>
         </div>
+         </div>
+        </div>
        </div>
-      </div>
-      
       <!-- 儲存按鈕 (獨立於表單外,整個頁面置中,只在帳戶資料分頁顯示) -->
       <div id="account-save-button" class="kt-container-fixed flex justify-center">
        <button class="kt-btn kt-btn-primary rounded-full" style="background-color: #ec4899; border-color: #ec4899; width: 180px; padding: 12px 0;">
@@ -3321,6 +3350,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     const invitationSection = document.getElementById('invitation-section');
     const followingSection = document.getElementById('following-section');
     const ordersSection = document.getElementById('orders-section');
+    const receivingSection = document.getElementById('receiving-section');
     const accountSaveButton = document.getElementById('account-save-button');
     
     // 為每個分頁按鈕添加點擊事件
@@ -3353,6 +3383,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        followingSection.classList.add('hidden');
        ordersSection.classList.remove('flex');
        ordersSection.classList.add('hidden');
+       receivingSection.classList.remove('flex');
+       receivingSection.classList.add('hidden');
+       // 顯示帳戶資料的儲存按鈕
        accountSaveButton.classList.remove('hidden');
       } else if (tabType === 'provider') {
        // 服務商申請分頁
@@ -3366,6 +3399,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        followingSection.classList.add('hidden');
        ordersSection.classList.remove('flex');
        ordersSection.classList.add('hidden');
+       receivingSection.classList.remove('flex');
+       receivingSection.classList.add('hidden');
+       // 隱藏帳戶資料的儲存按鈕
        accountSaveButton.classList.add('hidden');
       } else if (tabType === 'invitation') {
        // 邀請分頁
@@ -3379,6 +3415,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        followingSection.classList.add('hidden');
        ordersSection.classList.remove('flex');
        ordersSection.classList.add('hidden');
+       receivingSection.classList.remove('flex');
+       receivingSection.classList.add('hidden');
        accountSaveButton.classList.add('hidden');
       } else if (tabType === 'following') {
        // 關注分頁
@@ -3405,6 +3443,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        followingSection.classList.add('hidden');
        ordersSection.classList.remove('hidden');
        ordersSection.classList.add('flex');
+       document.getElementById('receiving-section').classList.remove('flex');
+       document.getElementById('receiving-section').classList.add('hidden');
+       accountSaveButton.classList.add('hidden');
+      } else if (tabType === 'receiving') {
+       // 接單分頁
+       accountDataSection.classList.remove('flex');
+       accountDataSection.classList.add('hidden');
+       providerApplicationSection.classList.remove('flex');
+       providerApplicationSection.classList.add('hidden');
+       invitationSection.classList.remove('flex');
+       invitationSection.classList.add('hidden');
+       followingSection.classList.remove('flex');
+       followingSection.classList.add('hidden');
+       ordersSection.classList.remove('flex');
+       ordersSection.classList.add('hidden');
+       document.getElementById('receiving-section').classList.remove('hidden');
+       document.getElementById('receiving-section').classList.add('flex');
        accountSaveButton.classList.add('hidden');
       }
      });
@@ -3476,6 +3531,56 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         this.classList.add('bg-primary', 'text-white');
        }
       });
+     });
+    });
+    
+    // 訂單狀態篩選分頁切換功能
+    const orderStatusTabs = document.querySelectorAll('.order-status-tab');
+    orderStatusTabs.forEach(tab => {
+     tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 移除所有分頁的選中狀態
+      orderStatusTabs.forEach(t => {
+       t.classList.remove('border-primary', 'text-primary');
+       t.classList.add('border-transparent', 'text-secondary-foreground');
+      });
+      
+      // 添加當前分頁的選中狀態
+      this.classList.remove('border-transparent', 'text-secondary-foreground');
+      this.classList.add('border-primary', 'text-primary');
+      
+      // 獲取選中的狀態
+      const selectedStatus = this.getAttribute('data-order-status');
+      console.log('選中的訂單狀態:', selectedStatus);
+      
+      // TODO: 根據選中的狀態篩選訂單列表
+      // 這裡可以添加訂單篩選邏輯
+     });
+    });
+    
+    // 接單狀態篩選分頁切換功能
+    const receivingStatusTabs = document.querySelectorAll('.receiving-status-tab');
+    receivingStatusTabs.forEach(tab => {
+     tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 移除所有分頁的選中狀態
+      receivingStatusTabs.forEach(t => {
+       t.classList.remove('border-primary', 'text-primary');
+       t.classList.add('border-transparent', 'text-secondary-foreground');
+      });
+      
+      // 添加當前分頁的選中狀態
+      this.classList.remove('border-transparent', 'text-secondary-foreground');
+      this.classList.add('border-primary', 'text-primary');
+      
+      // 獲取選中的狀態
+      const selectedStatus = this.getAttribute('data-receiving-status');
+      console.log('選中的接單狀態:', selectedStatus);
+      
+      // TODO: 根據選中的狀態篩選接單列表
+      // 這裡可以添加接單篩選邏輯
      });
     });
    });
