@@ -1,0 +1,852 @@
+<!--
+Product: Metronic is a toolkit of UI components built with Tailwind CSS for developing scalable web applications quickly and efficiently
+Version: v9.2.9
+Author: Keenthemes
+Contact: support@keenthemes.com
+Website: https://www.keenthemes.com
+Support: https://devs.keenthemes.com
+Follow: https://www.twitter.com/keenthemes
+License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
+-->
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+ <head>
+  <title>
+   Metronic - Tailwind CSS Checkout
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/checkout" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="Checkout page with store client management, powered by Tailwind CSS" name="description"/>
+  <meta content="@keenthemes" name="twitter:site"/>
+  <meta content="@keenthemes" name="twitter:creator"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Metronic - Tailwind CSS Checkout" name="twitter:title"/>
+  <meta content="Checkout page with store client management, powered by Tailwind CSS" name="twitter:description"/>
+  <meta content="./assets/media/app/og-image.png" name="twitter:image"/>
+  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/checkout" property="og:url"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="@keenthemes" property="og:site_name"/>
+  <meta content="Metronic - Tailwind CSS Checkout" property="og:title"/>
+  <meta content="Checkout page with store client management, powered by Tailwind CSS" property="og:description"/>
+  <meta content="./assets/media/app/og-image.png" property="og:image"/>
+  <link href="./assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="./assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="./assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="./assets/media/app/favicon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="./assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
+  <link href="./assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="./assets/css/styles.css" rel="stylesheet"/>
+  <!-- Element Plus CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css"/>
+ </head>
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
+  <!-- Theme Mode -->
+  <script>
+   const defaultThemeMode = 'light'; // light|dark|system
+		let themeMode;
+
+		if (document.documentElement) {
+			if (localStorage.getItem('kt-theme')) {
+				themeMode = localStorage.getItem('kt-theme');
+			} else if (
+				document.documentElement.hasAttribute('data-kt-theme-mode')
+			) {
+				themeMode =
+					document.documentElement.getAttribute('data-kt-theme-mode');
+			} else {
+				themeMode = defaultThemeMode;
+			}
+
+			if (themeMode === 'system') {
+				themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dark'
+					: 'light';
+			}
+
+			document.documentElement.classList.add(themeMode);
+		}
+  </script>
+  <!-- End of Theme Mode -->
+  <!-- Page -->
+  <!-- Main -->
+  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
+   <!-- Header -->
+   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+    <!-- Container -->
+    <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
+     <!-- Logo -->
+     <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu">
+       </i>
+      </button>
+      <div class="flex items-center gap-2">
+       <a class="flex items-center shrink-0" href="html/demo9.html">
+        <img class="dark:hidden w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+       </a>
+      </div>
+     </div>
+     <!-- End of Logo -->
+     <!-- Topbar -->
+     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!-- User -->
+      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
+        <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+       </button>
+       <div class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
+        <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
+         <div class="flex items-center gap-2">
+<i class="ki-filled ki-profile-circle text-xl">
+        </i>          <div class="flex flex-col gap-1.5">
+           <span class="text-sm text-foreground font-semibold leading-none">
+            暱稱
+           </span>
+           <a class="text-xs text-secondary-foreground hover:text-primary font-medium leading-none" href="html/demo9/account/home/get-started.html">
+            會員編號
+           </a>
+          </div>
+         </div>
+         <span class="kt-badge kt-badge-sm kt-badge-primary kt-badge-outline">
+          角色
+         </span>
+        </div>
+        <ul class="kt-dropdown-menu-sub">
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="html/demo9/public-profile/profiles/default.html">
+           <i class="ki-filled ki-badge">
+           </i>
+           個人資料
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="html/demo9/account/home/user-profile.html">
+          <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+           </i>
+           訂單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-calendar">
+           </i>
+           接單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-wallet">
+           </i>
+           錢包
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-users">
+           </i>
+           邀請
+          </a>
+         </li>
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+        </ul>
+        <div class="px-2.5 pt-1.5 mb-2.5 flex flex-col gap-3.5">
+         <div class="flex items-center gap-2 justify-between">
+          <span class="flex items-center gap-2">
+           <i class="ki-filled ki-moon text-base text-muted-foreground">
+           </i>
+           <span class="font-medium text-2sm">
+            深色模式
+           </span>
+          </span>
+          <input class="kt-switch" data-kt-theme-switch-state="dark" data-kt-theme-switch-toggle="true" name="check" type="checkbox" value="1"/>
+         </div>
+         <a class="kt-btn kt-btn-outline justify-center w-full" href="html/demo9/authentication/classic/sign-in.html">
+          登出
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- End of User -->
+      <!--Wishlist-->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-drawer-toggle="#drawers_shop_wishlist">
+       <i class="ki-filled ki-heart text-xl">
+       </i>
+      </button>
+      <!--End of Wishlist-->
+      <!--Cart-->
+ <i class="ki-filled ki-notification-on text-2xl"></i>
+      <!--End of Cart-->
+      <!-- End of Topbar -->
+     </div>
+    </div>
+    <!-- End of Container -->
+   </header>
+   <!-- End of Header -->
+   <!-- Navbar -->
+   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Container -->
+    <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
+     <!-- Mega Menu -->
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="home.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         首頁
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         約會
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="order.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         快速配對
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="#">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         儲值
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
+       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         FAQ
+        </span>
+        <span class="kt-menu-arrow flex lg:hidden">
+         <span class="flex kt-menu-item-show:hidden">
+          <i class="ki-filled ki-plus text-xs text-secondary-foreground">
+          </i>
+         </span>
+         <span class="hidden kt-menu-item-show:inline-flex">
+          <i class="ki-filled ki-minus text-xs text-secondary-foreground">
+          </i>
+         </span>
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- End of Mega Menu -->
+    </div>
+    <!-- End of Container -->
+   </div>
+   <!-- End of Navbar -->
+   <!-- Wrapper Container -->
+   <div class="container-fixed w-full flex px-0">
+    <!-- Content -->
+    <main class="flex flex-col grow" id="content" role="content">
+     <!-- Toolbar -->
+     <div class="mb-5 lg:mb-7.5">
+      <!-- Container -->
+      <div class="kt-container-fixed flex items-center justify-between flex-wrap gap-5">
+       <div class="flex flex-col justify-center items-start flex-wrap gap-1 lg:gap-2">
+        <h1 class="font-medium text-lg text-mono">
+         Order Placed
+        </h1>
+        <div class="flex items-center gap-1 text-sm font-normal">
+         <a class="text-secondary-foreground hover:text-primary" href="html/demo9.html">
+          Home
+         </a>
+         <span class="text-muted-foreground text-sm">
+          /
+         </span>
+         <span class="text-secondary-foreground">
+          Store - Client
+         </span>
+         <span class="text-muted-foreground text-sm">
+          /
+         </span>
+         <span class="text-secondary-foreground">
+          Checkout
+         </span>
+         <span class="text-muted-foreground text-sm">
+          /
+         </span>
+         <span class="text-mono">
+          Order Placed
+         </span>
+        </div>
+       </div>
+       <div class="flex items-center flex-wrap gap-1.5 lg:gap-3.5">
+        <a class="kt-btn kt-btn-sm kt-btn-outline" href="html/demo9/account/home/get-started.html">
+         <i class="ki-filled ki-exit-down">
+         </i>
+         Export
+        </a>
+        <div class="kt-menu kt-menu-default" data-kt-menu="true">
+         <div class="kt-menu-item kt-menu-item-dropdown" data-kt-menu-item-offset="0, 0" data-kt-menu-item-placement="bottom-end" data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="hover">
+          <button class="kt-menu-toggle kt-btn kt-btn-outline flex-nowrap">
+           <span class="flex items-center me-1">
+            <i class="ki-filled ki-calendar text-base!">
+            </i>
+           </span>
+           <span class="hidden md:inline text-nowrap">
+            September, 2024
+           </span>
+           <span class="inline md:hidden text-nowrap">
+            Sep, 2024
+           </span>
+           <span class="flex items-center lg:ms-4">
+            <i class="ki-filled ki-down text-xs!">
+            </i>
+           </span>
+          </button>
+          <div class="kt-menu-dropdown w-48 py-2 kt-scrollable-y max-h-[250px]" style="">
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              January, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              February, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item active">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              March, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              April, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              May, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              June, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              July, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              August, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              September, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              October, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              November, 2024
+             </span>
+            </a>
+           </div>
+           <div class="kt-menu-item">
+            <a class="kt-menu-link" href="#">
+             <span class="kt-menu-title">
+              December, 2024
+             </span>
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- End of Container -->
+     </div>
+     <!-- End of Toolbar -->
+     <!-- Container -->
+     <div class="kt-container-fixed">
+      <div class="flex items-center justify-center flex-wrap lg:flex-nowrap gap-8 lg:gap-1.5 pt-5 mb-12">
+       <!-- Step Button -->
+       <div class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30">
+        <!-- Completed -->
+        <i class="ki-solid ki-check-circle text-green-500 absolute -top-1 -end-1 text-base">
+        </i>
+        <!-- Icon -->
+        <span class="kt-step-icon">
+         <i class="ki-filled ki-subtitle text-base">
+         </i>
+        </span>
+        <!-- Step Title -->
+        Order Summary
+       </div>
+       <div class="hidden lg:block w-12 h-px border-t border-dashed border-zinc-300 dark:border-zinc-600">
+       </div>
+       <!-- Step Button -->
+       <div class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary">
+        <!-- Icon -->
+        <span class="kt-step-icon">
+         <i class="ki-filled ki-cheque text-base">
+         </i>
+        </span>
+        <!-- Step Title -->
+        Order Placed
+       </div>
+      </div>
+     </div>
+     <!-- End of Container -->
+     <!-- Container -->
+     <div class="kt-container-fixed">
+      <!-- begin: grid -->
+      <div class="grid xl:grid-cols-3 gap-5 lg:gap-9">
+       <div class="lg:col-span-2 space-y-5">
+        <div data-v-28b78ac8="" class="el-table--fit el-table--enable-row-hover el-table--enable-row-transition el-table el-table--layout-fixed is-scrolling-none" data-prefix="el" style="width: 100%;">
+         <div class="el-table__inner-wrapper">
+          <div class="hidden-columns">
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+          </div>
+          <div class="el-table__header-wrapper">
+           <table class="el-table__header" border="0" cellpadding="0" cellspacing="0" style="width: 1118px;">
+            <colgroup>
+             <col name="el-table_1_column_1" width="80">
+             <col name="el-table_1_column_2" width="180">
+             <col name="el-table_1_column_3" width="214">
+             <col name="el-table_1_column_4" width="100">
+             <col name="el-table_1_column_5" width="80">
+             <col name="el-table_1_column_6" width="250">
+             <col name="el-table_1_column_7" width="214">
+            </colgroup>
+            <thead class="">
+             <tr class="">
+              <th class="el-table_1_column_1 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">服務商<!----></div>
+              </th>
+              <th class="el-table_1_column_2 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">暱稱<!----></div>
+              </th>
+              <th class="el-table_1_column_3 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">種類<!----></div>
+              </th>
+              <th class="el-table_1_column_4 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">單價<!----></div>
+              </th>
+              <th class="el-table_1_column_5 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">時長<!----></div>
+              </th>
+              <th class="el-table_1_column_6 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">預約時間<!----></div>
+              </th>
+              <th class="el-table_1_column_7 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">總價<!----></div>
+              </th>
+             </tr>
+            </thead>
+           </table>
+          </div>
+          <div class="el-table__body-wrapper">
+           <div class="el-scrollbar">
+            <div class="el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+             <div class="el-scrollbar__view" style="display: inline-block; vertical-align: middle;">
+              <table class="el-table__body" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed; width: 1118px;">
+               <colgroup>
+                <col name="el-table_1_column_1" width="80">
+                <col name="el-table_1_column_2" width="180">
+                <col name="el-table_1_column_3" width="214">
+                <col name="el-table_1_column_4" width="100">
+                <col name="el-table_1_column_5" width="80">
+                <col name="el-table_1_column_6" width="250">
+                <col name="el-table_1_column_7" width="214">
+               </colgroup>
+               <tbody tabindex="-1">
+                <tr class="el-table__row">
+                 <td colspan="1" rowspan="1" class="el-table_1_column_1 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="h-[60px] w-[60px] rounded-full overflow-hidden">
+                    <img data-v-28b78ac8="" class="h-full w-full object-cover" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="">
+                   </div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_2 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="font-bold">安娜寶貝</div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_3 el-table__cell">
+                  <div class="cell">共享美食</div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_4 el-table__cell">
+                  <div class="cell">1000</div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_5 el-table__cell">
+                  <div class="cell">1 / 小時 </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_6 el-table__cell">
+                  <div class="cell">
+                   <div class="el-input el-input--prefix el-input--suffix el-date-editor el-date-editor--datetime el-tooltip__trigger el-tooltip__trigger">
+                    <div class="el-input__wrapper" tabindex="-1">
+                     <span class="el-input__prefix">
+                      <span class="el-input__prefix-inner">
+                       <i class="el-icon el-input__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                         <path fill="currentColor" d="M512 896a384 384 0 1 0 0-768 384 384 0 0 0 0 768m0 64a448 448 0 1 1 0-896 448 448 0 0 1 0 896"></path>
+                         <path fill="currentColor" d="M480 256a32 32 0 0 1 32 32v256a32 32 0 0 1-64 0V288a32 32 0 0 1 32-32"></path>
+                         <path fill="currentColor" d="M480 512h256q32 0 32 32t-32 32H480q-32 0-32-32t32-32"></path>
+                        </svg>
+                       </i>
+                      </span>
+                     </span>
+                     <input class="el-input__inner" aria-controls="el-id-6146-236" aria-expanded="false" aria-haspopup="dialog" type="text" autocomplete="off" tabindex="0" placeholder="請選擇預約時間" role="combobox" id="el-id-6146-237">
+                     <span class="el-input__suffix">
+                      <span class="el-input__suffix-inner"></span>
+                     </span>
+                    </div>
+                   </div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_7 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="font-bold text-[18px]">2000</div>
+                  </div>
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal" style="display: none;">
+             <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical" style="display: none;">
+             <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="el-table__column-resize-proxy" style="display: none;"></div>
+        </div>
+        <div class="kt-card mt-5">
+         <div class="kt-card-header px-5 lg:px-7.5 py-5">
+          <h3 class="kt-card-title text-lg font-semibold">下單須知</h3>
+         </div>
+         <div class="kt-card-content px-5 lg:px-7.5 pb-7.5">
+          <ol class="text-sm text-secondary-foreground space-y-3 list-decimal list-inside leading-relaxed">
+           <li class="pl-2">
+            預訂後需等待服務商確定接受訂單,若服務商拒絕預訂或未同意承接,系統將自動把款項退還至您的 Goingout 帳戶。詳情請參閱服務條款中的付款政策。
+           </li>
+           <li class="pl-2">
+            若服務商在24小時內未回覆您的預訂,或在行程開始前1小時預定仍未獲得確認,系統將自動取消訂單。
+           </li>
+           <li class="pl-2">
+            完成預定即表示您同意遵守 Goingout 的服務條款、社群政策、服務商守則及相關規範。
+           </li>
+           <li class="pl-2">
+            在與服務商互動時,請秉持互相尊重、包容的態度,確保雙方有良好的交流體驗,避免造成任何不適或尷尬的情況。
+           </li>
+           <li class="pl-2">
+            您向服務商預定完成後,並與服務商進行預訂確認後,若活動期間產生額外開支(如餐飲、門票、場地費用等),這些費用應由您自行承擔,因服務商已投入相應的時間與準備成本。該預定之活動時,於該預定活動過程中所衍生出來的額外費用,包括但不限於如餐水、票卷、場所等費用,因服務商為參與您的活動已投入種種成本,顧您同意皆應由您負擔。
+           </li>
+          </ol>
+          
+          <div class="kt-card bg-primary/5 border border-primary/20 mt-5 mb-5">
+           <div class="kt-card-content p-4">
+            <div class="flex items-start gap-2">
+             <i class="ki-filled ki-information-2 text-primary text-lg mt-0.5"></i>
+             <p class="text-sm font-medium text-primary leading-relaxed">
+              預定發送後需等待服務商同意,才會建立訂單
+             </p>
+            </div>
+           </div>
+          </div>
+
+          <div class="flex flex-col gap-4">
+           <label class="flex items-center gap-2.5 cursor-pointer group">
+            <input type="checkbox" class="kt-checkbox" id="agree-terms">
+            <span class="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+             我同意以上條款
+            </span>
+           </label>
+           
+           <div class="flex justify-end">
+            <button type="button" class="kt-btn kt-btn-lg" style="background-color: #f64696; border-color: #f64696; color: white; min-width: 200px;">
+             <span class="font-medium">付款</span>
+            </button>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="lg:col-span-1">
+        <div class="space-y-5">
+         <!-- begin: Card -->
+         <!-- begin: Filter Card -->
+         <div class="kt-card">
+          <div class="kt-card-content px-0 pt-3.5 kt-scrollable-y-auto">
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             所在縣市
+            </span>
+            <select class="kt-select flex-1" id="filter_city">
+             <option value="">選擇縣市</option>
+             <option value="taipei">台北市</option>
+             <option value="newtaipei">新北市</option>
+             <option value="taoyuan">桃園市</option>
+             <option value="taichung">台中市</option>
+             <option value="tainan">台南市</option>
+             <option value="kaohsiung">高雄市</option>
+             <option value="keelung">基隆市</option>
+             <option value="hsinchu_city">新竹市</option>
+             <option value="chiayi_city">嘉義市</option>
+             <option value="hsinchu">新竹縣</option>
+             <option value="miaoli">苗栗縣</option>
+             <option value="changhua">彰化縣</option>
+             <option value="nantou">南投縣</option>
+             <option value="yunlin">雲林縣</option>
+             <option value="chiayi">嘉義縣</option>
+             <option value="pingtung">屏東縣</option>
+             <option value="yilan">宜蘭縣</option>
+             <option value="hualien">花蓮縣</option>
+             <option value="taitung">台東縣</option>
+             <option value="penghu">澎湖縣</option>
+             <option value="kinmen">金門縣</option>
+             <option value="lienchiang">連江縣</option>
+            </select>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             所在地區
+            </span>
+            <select class="kt-select flex-1" id="filter_district">
+             <option value="">請先選擇縣市</option>
+            </select>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             喜好性別
+            </span>
+            <select class="kt-select flex-1" id="filter_gender">
+             <option value="">選擇性別</option>
+             <option value="male">男</option>
+             <option value="female">女</option>
+             <option value="other">其他</option>
+            </select>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             約會類型
+            </span>
+            <select class="kt-select flex-1" id="filter_date_type">
+             <option value="">單選</option>
+             <option value="dinner">吃飯</option>
+             <option value="movie">看電影</option>
+             <option value="sport">運動</option>
+             <option value="other">其他</option>
+            </select>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             約會場所
+            </span>
+            <select class="kt-select flex-1" id="filter_location">
+             <option value="">單選</option>
+             <option value="private">私人住所</option>
+             <option value="hotel">旅館飯店</option>
+            </select>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             預訂日期
+            </span>
+            <input type="date" class="kt-input flex-1" id="filter_booking_date" value="" placeholder="今天">
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             預定時長
+            </span>
+            <div class="flex items-center gap-2 flex-1">
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseFilterHours()">
+              <i class="ki-filled ki-minus"></i>
+             </button>
+             <input type="number" class="kt-input text-center" id="filter_hours" value="3" min="3" readonly="" style="max-width: 60px;">
+             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseFilterHours()">
+              <i class="ki-filled ki-plus"></i>
+             </button>
+            </div>
+           </div>
+           <div class="border-b border-border mb-4"></div>
+           <div class="flex flex-col gap-2.5 px-5 lg:mb-10">
+            <span class="text-sm font-medium text-mono">
+             預算範圍(每小時)
+            </span>
+            <div class="flex items-center gap-2">
+             <span class="text-xs text-secondary-foreground min-w-[40px]">起步</span>
+             <div class="kt-input-group flex-1">
+              <input class="kt-input" placeholder="XXX" type="text" value="">
+              <span class="kt-input-addon">P</span>
+             </div>
+            </div>
+            <div class="flex items-center gap-2">
+             <span class="text-xs text-secondary-foreground min-w-[40px]">上限</span>
+             <div class="kt-input-group flex-1">
+              <input class="kt-input" placeholder="XXX" type="text" value="">
+              <span class="kt-input-addon">P</span>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <!-- end: Filter Card -->
+          <!-- begin: Card -->
+         <div class="kt-card bg-accent/50">
+          <div class="kt-card-header px-5">
+           <h3 class="kt-card-title">
+            Order Summary
+           </h3>
+          </div>
+          <div class="kt-card-content px-5 py-4 space-y-2">
+           <h4 class="text-sm font-medium text-mono mb-3.5">
+            Price Details
+           </h4>
+           <div class="flex justify-between items-center">
+            <span class="text-sm font-normal text-secondary-foreground">
+             Subtotal
+            </span>
+            <span class="text-sm font-medium text-mono">
+             $492.0
+            </span>
+           </div>
+           <div class="flex justify-between items-center">
+            <span class="text-sm font-normal text-secondary-foreground">
+             Shipping
+            </span>
+            <span class="text-sm font-medium text-mono">
+             $0.0
+            </span>
+           </div>
+           <div class="flex justify-between items-center">
+            <span class="text-sm font-normal text-secondary-foreground">
+             VAT
+            </span>
+            <span class="text-sm font-medium text-mono">
+             $0.0
+            </span>
+           </div>
+          </div>
+          <div class="kt-card-footer flex justify-between items-center px-5">
+           <span class="text-sm font-normal text-secondary-foreground">
+            Total
+           </span>
+           <span class="text-base font-semibold text-mono">
+            $492.00
+           </span>
+          </div>
+         </div>
+         <!-- end: Card -->
+        </div>
+       </div>
+      </div>
+      <!-- end: grid -->
+     </div>
+     <!-- End of Container -->
+     <!-- Footer -->
+     <footer class="footer">
+      <!-- Container -->
+      <div class="kt-container-fixed">
+       <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
+        <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+         <span class="text-muted-foreground">
+          2025©
+         </span>
+         <a class="text-secondary-foreground hover:text-primary" href="https://keenthemes.com">
+          yoni Inc.
+         </a>
+        </div>
+        <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
+         <a class="hover:text-primary" href="about.html">
+          品牌介紹
+         </a>
+         <a class="hover:text-primary" href="terms.html">
+          使用條款
+         </a>
+         <a class="hover:text-primary" href="privacy.html">
+          隱私權政策
+         </a>
+        </nav>
+       </div>
+      </div>
+      <!-- End of Container -->
+     </footer>
+     <!-- End of Footer -->
+    </main>
+    <!-- End of Content -->
+   </div>
+   <!-- End of Wrapper Container -->
+  </div>
+  <!-- End of Main -->
+  <!-- End of Page -->
+  <!-- Scripts -->
+  <script src="./assets/js/core.bundle.js">
+  </script>
+  <script src="./assets/vendors/ktui/ktui.min.js">
+  </script>
+  <script src="./assets/vendors/apexcharts/apexcharts.min.js">
+  </script>
+  <!-- Element Plus JS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/element-plus"></script>
+  <!-- End of Scripts -->
+ </body>
+</html>
