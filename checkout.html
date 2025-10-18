@@ -263,40 +263,29 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <div class="kt-container-fixed flex items-center justify-between flex-wrap gap-5">
        <div class="flex flex-col justify-center items-start flex-wrap gap-1 lg:gap-2">
         <h1 class="font-medium text-lg text-mono">
-         Order Placed
+         確認訂單
         </h1>
         <div class="flex items-center gap-1 text-sm font-normal">
-         <a class="text-secondary-foreground hover:text-primary" href="html/demo9.html">
-          Home
+         <a class="text-secondary-foreground hover:text-primary" href="home.html">
+          首頁
          </a>
          <span class="text-muted-foreground text-sm">
           /
          </span>
          <span class="text-secondary-foreground">
-          Store - Client
-         </span>
-         <span class="text-muted-foreground text-sm">
-          /
-         </span>
-         <span class="text-secondary-foreground">
-          Checkout
+          約會
          </span>
          <span class="text-muted-foreground text-sm">
           /
          </span>
          <span class="text-mono">
-          Order Placed
+          確認訂單
          </span>
         </div>
        </div>
-       <div class="flex items-center flex-wrap gap-1.5 lg:gap-3.5">
-        <a class="kt-btn kt-btn-sm kt-btn-outline" href="html/demo9/account/home/get-started.html">
-         <i class="ki-filled ki-exit-down">
-         </i>
-         Export
-        </a>
+       <div class="flex items-center flex-wrap gap-1.5 lg:gap-3.5" style="display: none;">
         <div class="kt-menu kt-menu-default" data-kt-menu="true">
-         <div class="kt-menu-item kt-menu-item-dropdown" data-kt-menu-item-offset="0, 0" data-kt-menu-item-placement="bottom-end" data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="hover">
+         <div class="kt-menu-item kt-menu-item-dropdown" data-kt-menu-item-offset="0, 0" data-kt-menu-item-placement="bottom-end" data-kt-menu-item-toggle="dropdown" data-kt-menu-item-trigger="hover" style="display: none;">
           <button class="kt-menu-toggle kt-btn kt-btn-outline flex-nowrap">
            <span class="flex items-center me-1">
             <i class="ki-filled ki-calendar text-base!">
@@ -410,29 +399,26 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <div class="flex items-center justify-center flex-wrap lg:flex-nowrap gap-8 lg:gap-1.5 pt-5 mb-12">
        <!-- Step Button -->
-       <div class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30">
-        <!-- Completed -->
-        <i class="ki-solid ki-check-circle text-green-500 absolute -top-1 -end-1 text-base">
-        </i>
+       <div id="step-fee-detail" class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary">
         <!-- Icon -->
         <span class="kt-step-icon">
          <i class="ki-filled ki-subtitle text-base">
          </i>
         </span>
         <!-- Step Title -->
-        Order Summary
+         費用明細
        </div>
        <div class="hidden lg:block w-12 h-px border-t border-dashed border-zinc-300 dark:border-zinc-600">
        </div>
        <!-- Step Button -->
-       <div class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary">
+       <div id="step-confirm-order" class="text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30">
         <!-- Icon -->
         <span class="kt-step-icon">
          <i class="ki-filled ki-cheque text-base">
          </i>
         </span>
         <!-- Step Title -->
-        Order Placed
+         確認訂單
        </div>
       </div>
      </div>
@@ -441,8 +427,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <!-- begin: grid -->
       <div class="grid xl:grid-cols-3 gap-5 lg:gap-9">
-       <div class="lg:col-span-2 space-y-5">
-        <div data-v-28b78ac8="" class="el-table--fit el-table--enable-row-hover el-table--enable-row-transition el-table el-table--layout-fixed is-scrolling-none" data-prefix="el" style="width: 100%;">
+       <!-- 費用明細頁面內容 -->
+       <div id="fee-detail-content" class="lg:col-span-2 space-y-5">
+        <div class="overflow-x-auto">
+         <div data-v-28b78ac8="" class="el-table--fit el-table--enable-row-hover el-table--enable-row-transition el-table el-table--layout-fixed is-scrolling-none" data-prefix="el" style="min-width: 100%;">
          <div class="el-table__inner-wrapper">
           <div class="hidden-columns">
            <div data-v-28b78ac8=""></div>
@@ -456,13 +444,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="el-table__header-wrapper">
            <table class="el-table__header" border="0" cellpadding="0" cellspacing="0" style="width: 1118px;">
             <colgroup>
-             <col name="el-table_1_column_1" width="80">
-             <col name="el-table_1_column_2" width="180">
-             <col name="el-table_1_column_3" width="214">
-             <col name="el-table_1_column_4" width="100">
+             <col name="el-table_1_column_1" width="70">
+             <col name="el-table_1_column_2" width="120">
+             <col name="el-table_1_column_3" width="100">
+             <col name="el-table_1_column_4" width="80">
              <col name="el-table_1_column_5" width="80">
-             <col name="el-table_1_column_6" width="250">
-             <col name="el-table_1_column_7" width="214">
+             <col name="el-table_1_column_6" width="350">
+             <col name="el-table_1_column_7" width="318">
             </colgroup>
             <thead class="">
              <tr class="">
@@ -497,13 +485,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <div class="el-scrollbar__view" style="display: inline-block; vertical-align: middle;">
               <table class="el-table__body" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed; width: 1118px;">
                <colgroup>
-                <col name="el-table_1_column_1" width="80">
-                <col name="el-table_1_column_2" width="180">
-                <col name="el-table_1_column_3" width="214">
-                <col name="el-table_1_column_4" width="100">
+                <col name="el-table_1_column_1" width="70">
+                <col name="el-table_1_column_2" width="120">
+                <col name="el-table_1_column_3" width="100">
+                <col name="el-table_1_column_4" width="80">
                 <col name="el-table_1_column_5" width="80">
-                <col name="el-table_1_column_6" width="250">
-                <col name="el-table_1_column_7" width="214">
+                <col name="el-table_1_column_6" width="350">
+                <col name="el-table_1_column_7" width="318">
                </colgroup>
                <tbody tabindex="-1">
                 <tr class="el-table__row">
@@ -571,6 +559,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </div>
          </div>
          <div class="el-table__column-resize-proxy" style="display: none;"></div>
+         </div>
         </div>
         <div class="kt-card mt-5">
          <div class="kt-card-header px-5 lg:px-7.5 py-5">
@@ -615,7 +604,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            </label>
            
            <div class="flex justify-end">
-            <button type="button" class="kt-btn kt-btn-lg" style="background-color: #f64696; border-color: #f64696; color: white; min-width: 200px;">
+            <button type="button" id="payment-btn" class="kt-btn kt-btn-lg" style="background-color: #f64696; border-color: #f64696; color: white; min-width: 200px;">
              <span class="font-medium">付款</span>
             </button>
            </div>
@@ -623,127 +612,178 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </div>
         </div>
        </div>
-       <div class="lg:col-span-1">
+       
+       <!-- 確認訂單頁面內容 (與費用明細相同) -->
+       <div id="confirm-order-content" class="lg:col-span-2 space-y-5" style="display: none;">
+        <div class="overflow-x-auto">
+         <div data-v-28b78ac8="" class="el-table--fit el-table--enable-row-hover el-table--enable-row-transition el-table el-table--layout-fixed is-scrolling-none" data-prefix="el" style="min-width: 100%;">
+         <div class="el-table__inner-wrapper">
+          <div class="hidden-columns">
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+           <div data-v-28b78ac8=""></div>
+          </div>
+          <div class="el-table__header-wrapper">
+           <table class="el-table__header" border="0" cellpadding="0" cellspacing="0" style="width: 1118px;">
+            <colgroup>
+             <col name="el-table_1_column_1" width="70">
+             <col name="el-table_1_column_2" width="120">
+             <col name="el-table_1_column_3" width="100">
+             <col name="el-table_1_column_4" width="80">
+             <col name="el-table_1_column_5" width="80">
+             <col name="el-table_1_column_6" width="350">
+             <col name="el-table_1_column_7" width="318">
+            </colgroup>
+            <thead class="">
+             <tr class="">
+              <th class="el-table_1_column_1 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">服務商<!----></div>
+              </th>
+              <th class="el-table_1_column_2 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">暱稱<!----></div>
+              </th>
+              <th class="el-table_1_column_3 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">種類<!----></div>
+              </th>
+              <th class="el-table_1_column_4 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">單價<!----></div>
+              </th>
+              <th class="el-table_1_column_5 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">時長<!----></div>
+              </th>
+              <th class="el-table_1_column_6 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">預約時間<!----></div>
+              </th>
+              <th class="el-table_1_column_7 is-leaf el-table__cell" colspan="1" rowspan="1">
+               <div class="cell">總價<!----></div>
+              </th>
+             </tr>
+            </thead>
+           </table>
+          </div>
+          <div class="el-table__body-wrapper">
+           <div class="el-scrollbar">
+            <div class="el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+             <div class="el-scrollbar__view" style="display: inline-block; vertical-align: middle;">
+              <table class="el-table__body" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed; width: 1118px;">
+               <colgroup>
+                <col name="el-table_1_column_1" width="70">
+                <col name="el-table_1_column_2" width="120">
+                <col name="el-table_1_column_3" width="100">
+                <col name="el-table_1_column_4" width="80">
+                <col name="el-table_1_column_5" width="80">
+                <col name="el-table_1_column_6" width="350">
+                <col name="el-table_1_column_7" width="318">
+               </colgroup>
+               <tbody tabindex="-1">
+                <tr class="el-table__row">
+                 <td colspan="1" rowspan="1" class="el-table_1_column_1 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="h-[60px] w-[60px] rounded-full overflow-hidden">
+                    <img data-v-28b78ac8="" class="h-full w-full object-cover" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="">
+                   </div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_2 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="font-bold">安娜寶貝</div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_3 el-table__cell">
+                  <div class="cell">共享美食</div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_4 el-table__cell">
+                  <div class="cell">1000</div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_5 el-table__cell">
+                  <div class="cell">1 / 小時 </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_6 el-table__cell">
+                  <div class="cell">
+                   <div class="text-sm text-foreground" id="confirm-booking-time-display">請選擇預約時間</div>
+                  </div>
+                 </td>
+                 <td colspan="1" rowspan="1" class="el-table_1_column_7 el-table__cell">
+                  <div class="cell">
+                   <div data-v-28b78ac8="" class="font-bold text-[18px]">2000</div>
+                  </div>
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+            </div>
+            <div class="el-scrollbar__bar is-horizontal" style="display: none;">
+             <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
+            </div>
+            <div class="el-scrollbar__bar is-vertical" style="display: none;">
+             <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="el-table__column-resize-proxy" style="display: none;"></div>
+         </div>
+        </div>
+       </div>
+       
+       <div class="lg:col-span-1 flex justify-center">
+        <div class="w-full max-w-md">
         <div class="space-y-5">
          <!-- begin: Card -->
          <!-- begin: Filter Card -->
          <div class="kt-card">
-          <div class="kt-card-content px-0 pt-3.5 kt-scrollable-y-auto">
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             所在縣市
-            </span>
-            <select class="kt-select flex-1" id="filter_city">
-             <option value="">選擇縣市</option>
-             <option value="taipei">台北市</option>
-             <option value="newtaipei">新北市</option>
-             <option value="taoyuan">桃園市</option>
-             <option value="taichung">台中市</option>
-             <option value="tainan">台南市</option>
-             <option value="kaohsiung">高雄市</option>
-             <option value="keelung">基隆市</option>
-             <option value="hsinchu_city">新竹市</option>
-             <option value="chiayi_city">嘉義市</option>
-             <option value="hsinchu">新竹縣</option>
-             <option value="miaoli">苗栗縣</option>
-             <option value="changhua">彰化縣</option>
-             <option value="nantou">南投縣</option>
-             <option value="yunlin">雲林縣</option>
-             <option value="chiayi">嘉義縣</option>
-             <option value="pingtung">屏東縣</option>
-             <option value="yilan">宜蘭縣</option>
-             <option value="hualien">花蓮縣</option>
-             <option value="taitung">台東縣</option>
-             <option value="penghu">澎湖縣</option>
-             <option value="kinmen">金門縣</option>
-             <option value="lienchiang">連江縣</option>
-            </select>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             所在地區
-            </span>
-            <select class="kt-select flex-1" id="filter_district">
-             <option value="">請先選擇縣市</option>
-            </select>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             喜好性別
-            </span>
-            <select class="kt-select flex-1" id="filter_gender">
-             <option value="">選擇性別</option>
-             <option value="male">男</option>
-             <option value="female">女</option>
-             <option value="other">其他</option>
-            </select>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             約會類型
-            </span>
-            <select class="kt-select flex-1" id="filter_date_type">
-             <option value="">單選</option>
-             <option value="dinner">吃飯</option>
-             <option value="movie">看電影</option>
-             <option value="sport">運動</option>
-             <option value="other">其他</option>
-            </select>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             約會場所
-            </span>
-            <select class="kt-select flex-1" id="filter_location">
-             <option value="">單選</option>
-             <option value="private">私人住所</option>
-             <option value="hotel">旅館飯店</option>
-            </select>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             預訂日期
-            </span>
-            <input type="date" class="kt-input flex-1" id="filter_booking_date" value="" placeholder="今天">
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex items-center gap-2.5 px-5 mb-4">
-            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
-             預定時長
-            </span>
-            <div class="flex items-center gap-2 flex-1">
-             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseFilterHours()">
-              <i class="ki-filled ki-minus"></i>
-             </button>
-             <input type="number" class="kt-input text-center" id="filter_hours" value="3" min="3" readonly="" style="max-width: 60px;">
-             <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseFilterHours()">
-              <i class="ki-filled ki-plus"></i>
-             </button>
+          <div class="kt-card-header px-5">
+           <h3 class="kt-card-title">約會地點.</h3>
+          </div>
+          <div class="kt-card-content px-0 pt-0">
+           <div class="divide-y">
+            <!-- 約會場所 -->
+            <div class="flex justify-between items-center px-5 py-3 gap-3">
+             <span class="text-sm font-medium text-mono flex-shrink-0">約會場所</span>
+             <select class="kt-select text-sm flex-1" style="max-width: 160px;">
+              <option value="">請選擇約會場所</option>
+              <option value="restaurant">餐廳</option>
+              <option value="cafe">咖啡廳</option>
+              <option value="hotel">飯店</option>
+              <option value="outdoor">戶外景點</option>
+              <option value="other">其他</option>
+             </select>
             </div>
-           </div>
-           <div class="border-b border-border mb-4"></div>
-           <div class="flex flex-col gap-2.5 px-5 lg:mb-10">
-            <span class="text-sm font-medium text-mono">
-             預算範圍(每小時)
-            </span>
-            <div class="flex items-center gap-2">
-             <span class="text-xs text-secondary-foreground min-w-[40px]">起步</span>
-             <div class="kt-input-group flex-1">
-              <input class="kt-input" placeholder="XXX" type="text" value="">
-              <span class="kt-input-addon">P</span>
-             </div>
+            <!-- 所在縣市 -->
+            <div class="flex justify-between items-center px-5 py-3 gap-3">
+             <span class="text-sm font-medium text-mono flex-shrink-0">所在縣市</span>
+             <select class="kt-select text-sm flex-1" style="max-width: 160px;">
+              <option value="">選擇縣市</option>
+              <option value="taipei">台北市</option>
+              <option value="new-taipei">新北市</option>
+              <option value="taoyuan">桃園市</option>
+              <option value="taichung">台中市</option>
+              <option value="tainan">台南市</option>
+              <option value="kaohsiung">高雄市</option>
+             </select>
             </div>
-            <div class="flex items-center gap-2">
-             <span class="text-xs text-secondary-foreground min-w-[40px]">上限</span>
-             <div class="kt-input-group flex-1">
-              <input class="kt-input" placeholder="XXX" type="text" value="">
-              <span class="kt-input-addon">P</span>
-             </div>
+            <!-- 所在地區 -->
+            <div class="flex justify-between items-center px-5 py-3 gap-3">
+             <span class="text-sm font-medium text-mono flex-shrink-0">所在地區</span>
+             <select class="kt-select text-sm flex-1" style="max-width: 160px;">
+              <option value="">選擇地區</option>
+              <option value="">請先選擇縣市</option>
+             </select>
+            </div>
+            <!-- 詳細地址 -->
+            <div class="flex justify-between items-center px-5 py-3 gap-3">
+             <span class="text-sm font-medium text-mono flex-shrink-0">詳細地址</span>
+             <input type="text" class="kt-input text-sm flex-1" placeholder="填寫詳細地址" style="max-width: 160px;">
+            </div>
+            <!-- 約會說明 -->
+            <div class="px-5 py-3">
+             <div class="text-sm font-medium text-mono mb-2">約會說明</div>
+             <textarea class="kt-input text-sm" rows="4" placeholder="請輸入約會說明..." style="width: 100%; resize: vertical;"></textarea>
             </div>
            </div>
           </div>
@@ -753,48 +793,49 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <div class="kt-card bg-accent/50">
           <div class="kt-card-header px-5">
            <h3 class="kt-card-title">
-            Order Summary
+            費用明細
            </h3>
           </div>
           <div class="kt-card-content px-5 py-4 space-y-2">
            <h4 class="text-sm font-medium text-mono mb-3.5">
-            Price Details
+            價格明細
            </h4>
            <div class="flex justify-between items-center">
             <span class="text-sm font-normal text-secondary-foreground">
-             Subtotal
+             小計
             </span>
             <span class="text-sm font-medium text-mono">
-             $492.0
+             2000 P
             </span>
            </div>
            <div class="flex justify-between items-center">
             <span class="text-sm font-normal text-secondary-foreground">
-             Shipping
+             服務費
             </span>
             <span class="text-sm font-medium text-mono">
-             $0.0
+             0 P
             </span>
            </div>
            <div class="flex justify-between items-center">
             <span class="text-sm font-normal text-secondary-foreground">
-             VAT
+             稅金
             </span>
             <span class="text-sm font-medium text-mono">
-             $0.0
+             0 P
             </span>
            </div>
           </div>
           <div class="kt-card-footer flex justify-between items-center px-5">
            <span class="text-sm font-normal text-secondary-foreground">
-            Total
+            總計
            </span>
            <span class="text-base font-semibold text-mono">
-            $492.00
+            2000 P
            </span>
           </div>
          </div>
          <!-- end: Card -->
+        </div>
         </div>
        </div>
       </div>
@@ -847,6 +888,68 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- Element Plus JS -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/element-plus"></script>
+  
+  <!-- Checkout Logic -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const paymentBtn = document.getElementById('payment-btn');
+    const backBtn = document.getElementById('back-btn');
+    const feeDetailContent = document.getElementById('fee-detail-content');
+    const confirmOrderContent = document.getElementById('confirm-order-content');
+    const stepFeeDetail = document.getElementById('step-fee-detail');
+    const stepConfirmOrder = document.getElementById('step-confirm-order');
+    const agreeTermsCheckbox = document.getElementById('agree-terms');
+    
+    // 付款按鈕點擊事件
+    paymentBtn.addEventListener('click', function() {
+     // 檢查是否同意條款
+     if (!agreeTermsCheckbox.checked) {
+      alert('請先同意條款');
+      return;
+     }
+     
+     // 收集預約時間並顯示在確認頁面
+     const bookingTime = document.getElementById('el-id-6146-237').value;
+     document.getElementById('confirm-booking-time-display').textContent = bookingTime || '請選擇預約時間';
+     
+     // 切換頁面
+     feeDetailContent.style.display = 'none';
+     confirmOrderContent.style.display = 'block';
+     
+     // 更新步驟狀態
+     stepFeeDetail.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30';
+     stepFeeDetail.innerHTML = '<i class="ki-solid ki-check-circle text-green-500 absolute -top-1 -end-1 text-base"></i>' + stepFeeDetail.innerHTML;
+     
+     stepConfirmOrder.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary';
+     
+     // 滾動到頂部
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // 返回按鈕點擊事件
+    backBtn.addEventListener('click', function() {
+     // 切換回費用明細頁面
+     confirmOrderContent.style.display = 'none';
+     feeDetailContent.style.display = 'block';
+     
+     // 更新步驟狀態
+     stepFeeDetail.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary';
+     const checkIcon = stepFeeDetail.querySelector('.ki-check-circle');
+     if (checkIcon) checkIcon.remove();
+     
+     stepConfirmOrder.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30';
+     
+     // 滾動到頂部
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // 確認付款按鈕點擊事件
+    document.getElementById('confirm-payment-btn').addEventListener('click', function() {
+     alert('付款功能尚未實作');
+     // 這裡可以加入實際的付款流程
+    });
+   });
+  </script>
   <!-- End of Scripts -->
  </body>
 </html>
