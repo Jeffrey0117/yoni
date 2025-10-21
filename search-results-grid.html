@@ -3658,6 +3658,55 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    <!-- End of Wrapper Container -->
   </div>
   <!-- End of Main -->
+  <!-- Welcome Message Modal (auto show on page load) -->
+  <div class="kt-modal kt-modal-center" data-kt-modal="true" id="modal_welcome_message">
+   <div class="kt-modal-content max-w-[500px] w-full">
+    <div class="kt-modal-header justify-end border-0 pt-5">
+     <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-outline" data-kt-modal-dismiss="true">
+      <i class="ki-filled ki-cross"></i>
+     </button>
+    </div>
+    <div class="kt-modal-body flex flex-col items-center pt-0 pb-10">
+     <div class="mb-10">
+      <img alt="image" class="dark:hidden max-h-[100px]" src="https://yoni.tw/assets/logo-WfWQfKK6.png">
+      <img alt="image" class="light:hidden max-h-[140px]" src="./assets/media/illustrations/21-dark.svg">
+      </img>
+      </img>
+     </div>
+     <h3 class="text-lg font-medium text-mono text-center mb-3">
+      歡迎來到 YONI交友配對服務平台！
+     </h3>
+     <div class="text-sm text-center text-secondary-foreground mb-7">
+      很高興您加入我們的交友配對平台，<br/>
+      期待陪您一起展開專屬於您的緣分旅程！<br/>
+      請記得先設定好您的喜好，<br/>
+      讓我們更容易配對到您心儀的對象
+     </div>
+     <div class="flex justify-center mb-2">
+      <a class="kt-btn kt-btn-primary flex justify-center" href="search-results-grid.html">
+       設定我的個人喜好
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+     try {
+       const el = KTDom.getElement('#modal_welcome_message');
+       if (!el) return;
+       let modal = KTModal.getInstance(el);
+       if (!modal && typeof KTModal === 'function') {
+         modal = new KTModal(el);
+       }
+       if (modal && typeof modal.show === 'function') {
+         modal.show();
+       }
+     } catch (e) {
+       // no-op
+     }
+   });
+  </script>
   <div class="kt-modal" data-kt-modal="true" id="search_modal">
    <div class="kt-modal-content max-w-[600px] top-[15%]">
     <div class="kt-modal-header py-4 px-5">
