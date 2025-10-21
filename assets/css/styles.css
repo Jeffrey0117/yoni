@@ -12131,3 +12131,43 @@
 .lightbox-next:hover {
   opacity: 0.7;
 }
+
+/* 自適應放大時移除縮圖卡片灰底與邊線（不影響有明確底色/框線的卡片）
+   - 僅拿掉陰影
+   - 只有在沒有指定 bg-* 時，才透明背景
+   - 只有在沒有指定 border* 時，才移除邊線 */
+.kt-card.shadow-none {
+  box-shadow: none !important;
+}
+.kt-card.shadow-none:not([class*="bg-"]) {
+  background-color: transparent !important;
+}
+.kt-card.shadow-none:not([class*="border"]) {
+  border: 0 !important;
+}
+/* 保持狀態徽章在卡片內定位（RWD） */
+.kt-card.shadow-none.relative { position: relative !important; }
+@media (max-width: 640px){
+  .kt-card.shadow-none.relative > .absolute {
+    top: 0.5rem;
+    inset-inline-end: 0.5rem; /* 支援 LTR/RTL */
+  }
+}
+/* 針對縮圖用的卡片：移除灰底（bg-accent/50, /60）但不影響粉紅區塊等設計色 */
+.kt-card.shadow-none.bg-accent\/50,
+.kt-card.shadow-none.bg-accent\/60 {
+  background-color: transparent !important;
+}
+
+/* 保證內層卡片是定位容器，並固定右上角狀態徽章（RWD 一致） */
+.kt-card.shadow-none.relative { position: relative !important; }
+.kt-card.shadow-none.relative > .absolute {
+  top: 0.5rem !important;
+  right: 0.5rem !important; /* 直接鎖定右上角，覆蓋 top-2 / end-2 等類別 */
+}
+
+/* 內層縮圖卡片不需要邊線與陰影 */
+.kt-card.shadow-none { 
+  border: 0 !important; 
+  box-shadow: none !important; 
+}
