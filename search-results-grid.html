@@ -193,7 +193,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </div>
       <!-- End of User -->
       <!--Wishlist-->
-      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-drawer-toggle="#drawers_shop_wishlist">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" onclick="window.location.href='default.html?tab=following'">
        <i class="ki-filled ki-heart text-xl">
        </i>
       </button>
@@ -747,12 +747,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <main class="flex flex-col grow" id="content" role="content">
      <!-- Breadcrumb -->
      <div class="kt-container-fixed mb-5 lg:mb-7.5">
-      <nav aria-label="breadcrumb">
-       <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item"><a href="search-results-grid.html">首頁</a></li>
-        <li class="breadcrumb-item active" aria-current="page">約會</li>
-       </ol>
-      </nav>
      </div>
      <!-- End of Breadcrumb -->
      <!-- Toolbar -->
@@ -775,11 +769,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </span> -->
         </div>
         <!--Filter-->
-        <button class="kt-dropdown-toggle kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_filter">
-         <i class="ki-filled ki-filter">
-         </i>
-         喜好設定 
-        </button>
         <!--Product Filter-->
         <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_filter">
          <div class="kt-card-header ps-5 pr-2">
@@ -844,6 +833,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <option value="female">女</option>
             <option value="other">其他</option>
            </select>
+          </div>
+          <div class="border-b border-border mb-4">
+          </div>
+          <div class="flex items-center gap-2.5 px-5 mb-4">
+           <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+            搜尋藝名
+           </span>
+           <input type="text" class="kt-input flex-1" id="filter_stage_name" placeholder="輸入藝名關鍵字" value="">
           </div>
           <div class="border-b border-border mb-4">
           </div>
@@ -950,16 +947,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </option>
          </select>
 
-         <div class="kt-toggle-group" data-kt-tabs="true">
-          <a class="kt-btn kt-btn-icon active" data-kt-tab-toggle="#shop1_grids" href="#">
-           <i class="ki-filled ki-category">
-           </i>
-          </a>
-          <a class="kt-btn kt-btn-icon" data-kt-tab-toggle="#shop1_lists" href="#">
-           <i class="ki-filled ki-row-horizontal">
-           </i>
-          </a>
-         </div>
+         <button class="kt-dropdown-toggle kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_filter">
+          <i class="ki-filled ki-filter"></i>
+          喜好設定
+         </button>
         </div>
        </div>
        <!-- end: toolbar -->
@@ -5344,6 +5335,12 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         const genderText = genderSelect.options[genderSelect.selectedIndex].text;
         filterParts.push(genderText);
       }
+
+      // 取得搜尋藝名
+      const stageNameInput = document.getElementById('filter_stage_name');
+      if (stageNameInput && stageNameInput.value.trim()) {
+        filterParts.push(stageNameInput.value.trim());
+      }
       
       // 取得約會類型
       const dateTypeSelect = document.getElementById('filter_date_type');
@@ -5385,42 +5382,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         }
       }
     }
-  </script>
-  <script>
-    // 自動為商品卡片標號並將 1/11/21/31/41/51 設為純粉色
-    (function () {
-      const targetIndices = new Set([1, 11, 21, 31, 41, 51]);
-      const allCards = document.querySelectorAll('div.grid.sm\\:grid-cols-2.xl\\:grid-cols-4.gap-5.mb-2 > div.kt-card');
-
-      let i = 0;
-      allCards.forEach((card) => {
-        i += 1;
-        // 僅處理前 60 張
-        if (i > 60) return;
-
-        // 設定連續 id，供人工對照/標號
-        card.id = 'kt-card-' + i;
-        card.classList.add('relative');
-
-        // 角落顯示序號，方便檢視與對照
-        const badge = document.createElement('div');
-        badge.textContent = String(i);
-        badge.style.cssText = 'position:absolute;top:6px;left:6px;background:#111827;color:#fff;border-radius:6px;padding:2px 6px;font-size:12px;line-height:1;z-index:10;';
-        
-        // 若需粉色，清空內容並改為實心粉色背景
-        if (targetIndices.has(i)) {
-          card.innerHTML = '';
-          card.style.background = '#f472b6'; // 粉色
-          card.style.minHeight = '240px';
-          card.style.borderRadius = '12px';
-          card.style.boxShadow = 'none';
-          card.appendChild(badge);
-        } else {
-          // 非粉色也加上序號方便對照
-          card.appendChild(badge);
-        }
-      });
-    })();
   </script>
   <!-- End of Scripts -->
  </body>

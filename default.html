@@ -878,12 +878,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    <!-- End of Navbar -->
    <!-- Breadcrumb -->
    <div class="kt-container-fixed mb-5 lg:mb-7.5">
-    <nav aria-label="breadcrumb">
-     <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a href="search-results-grid.html">首頁</a></li>
-      <li class="breadcrumb-item active" aria-current="page">個人資料</li>
-     </ol>
-    </nav>
    </div>
    <!-- End of Breadcrumb -->
    <!-- Wrapper Container -->
@@ -3425,6 +3419,17 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       // 這裡可以添加接單篩選邏輯
      });
     });
+
+    // URL 參數預設分頁切換：?tab=following -> 切到關注
+    const params = new URLSearchParams(window.location.search);
+    const initialTab = params.get('tab');
+    if (initialTab === 'following') {
+     const followingBtn = document.querySelector('.kt-menu-item a.kt-menu-link[data-tab="following"]');
+     if (followingBtn) {
+      followingBtn.click();
+     }
+    }
+
    });
   </script>
   <!-- End of Scripts -->
