@@ -1417,15 +1417,89 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            <textarea class="kt-input flex-1" rows="5" maxlength="250" placeholder="請輸入自我介紹" style="max-width: 400px; resize: none;"></textarea>
           </div>
 
-          <!-- 約會類型 -->
+          <!-- 約會類型/費用/時數/鑽石 表格 -->
+          <div class="flex flex-col gap-4">
+           <div class="flex items-start gap-4">
+            <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">約會服務設定 <span style="color: #f64696;">*</span></label>
+            <div class="flex-1">
+             <div class="text-xs text-secondary-foreground mb-2">若該項目未填寫費用，則表示您不支援此服務</div>
+             <div class="overflow-x-auto">
+              <table class="w-full border border-border rounded-lg overflow-hidden">
+               <thead class="bg-muted/70">
+                <tr>
+                 <th class="text-left text-sm font-semibold text-mono p-3 border-b border-border">約會類型</th>
+                 <th class="text-left text-sm font-semibold text-mono p-3 border-b border-border">費用 <span style="color: #f64696;">*</span></th>
+                 <th class="text-left text-sm font-semibold text-mono p-3 border-b border-border">最低時數 <span style="color: #f64696;">*</span></th>
+                 <th class="text-left text-sm font-semibold text-mono p-3 border-b border-border">當前匯率</th>
+                 <th class="text-left text-sm font-semibold text-mono p-3 border-b border-border">鑽石</th>
+                </tr>
+               </thead>
+               <tbody>
+                <!-- 吃飯 -->
+                <tr class="border-b border-border">
+                 <td class="p-3 text-sm text-mono">吃飯</td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入費用" data-date-type="dinner" data-field="price" min="0" />
+                 </td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入最低時數" data-date-type="dinner" data-field="hours" min="1" />
+                 </td>
+                 <td class="p-3 text-sm text-mono text-center">30</td>
+                 <td class="p-3">
+                  <input type="text" class="kt-input w-full bg-accent/50" placeholder="自動計算" data-date-type="dinner" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                 </td>
+                </tr>
+                <!-- 看電影 -->
+                <tr class="border-b border-border">
+                 <td class="p-3 text-sm text-mono">看電影</td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入費用" data-date-type="movie" data-field="price" min="0" />
+                 </td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入最低時數" data-date-type="movie" data-field="hours" min="1" />
+                 </td>
+                 <td class="p-3 text-sm text-mono text-center">30</td>
+                 <td class="p-3">
+                  <input type="text" class="kt-input w-full bg-accent/50" placeholder="自動計算" data-date-type="movie" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                 </td>
+                </tr>
+                <!-- 運動 -->
+                <tr>
+                 <td class="p-3 text-sm text-mono">運動</td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入費用" data-date-type="sport" data-field="price" min="0" />
+                 </td>
+                 <td class="p-3">
+                  <input type="number" class="kt-input w-full" placeholder="請輸入最低時數" data-date-type="sport" data-field="hours" min="1" />
+                 </td>
+                 <td class="p-3 text-sm text-mono text-center">30</td>
+                 <td class="p-3">
+                  <input type="text" class="kt-input w-full bg-accent/50" placeholder="自動計算" data-date-type="sport" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+             </div>
+            </div>
+           </div>
+          </div>
+
+          <!-- 費用 -->
           <div class="flex items-center gap-4">
-           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">約會類型 <span style="color: #f64696;">*</span></label>
-           <select class="kt-select flex-1" style="max-width: 400px;">
-            <option value="">請選擇約會類型</option>
-            <option value="dinner">吃飯</option>
-            <option value="movie">看電影</option>
-            <option value="sport">運動</option>
-           </select>
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">費用 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="請輸入費用" style="max-width: 400px;" id="price-input" />
+          </div>
+
+          <!-- 最低時數 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">最低時數 <span style="color: #f64696;">*</span></label>
+           <input type="number" class="kt-input flex-1" placeholder="請輸入最低時數" style="max-width: 400px;" id="hours-input" min="1" />
+          </div>
+
+          <!-- 鑽石 -->
+          <div class="flex items-center gap-4">
+           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">鑽石 <span style="color: #f64696;">*</span></label>
+           <input type="text" class="kt-input flex-1" placeholder="自動計算" style="max-width: 400px; background-color: #F5F7FA;" id="diamond-input" readonly />
           </div>
 
           <!-- 約會地點 -->
@@ -1436,18 +1510,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <option value="private">私人住所</option>
             <option value="hotel">旅館飯店</option>
            </select>
-          </div>
-
-          <!-- 費用 -->
-          <div class="flex items-center gap-4">
-           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">費用 <span style="color: #f64696;">*</span></label>
-           <input type="text" class="kt-input flex-1" placeholder="請輸入費用" style="max-width: 400px;" />
-          </div>
-
-          <!-- 鑽石 -->
-          <div class="flex items-center gap-4">
-           <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">鑽石 <span style="color: #f64696;">*</span></label>
-           <input type="text" class="kt-input flex-1" placeholder="請輸入鑽石" style="max-width: 400px;" />
           </div>
 
           <!-- 職業 -->
@@ -3511,6 +3573,72 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      });
     });
    });
+  // 服務商申請 - 費用/時數/鑽石自動計算
+  document.addEventListener('DOMContentLoaded', function() {
+    const EXCHANGE_RATE = 30;
+    
+    // 單獨欄位的計算邏輯(1487-1503行)
+    const priceInput = document.getElementById('price-input');
+    const hoursInput = document.getElementById('hours-input');
+    const diamondInput = document.getElementById('diamond-input');
+
+    // 計算鑽石函數
+    function calculateDiamond() {
+      if (!priceInput || !hoursInput || !diamondInput) return;
+
+      const price = parseFloat(priceInput.value) || 0;
+      const hours = parseFloat(hoursInput.value) || 0;
+
+      // 若費用或時數為空,清空鑽石欄位
+      if (price === 0 || hours === 0) {
+        diamondInput.value = '';
+        return;
+      }
+
+      // 計算鑽石: (費用 × 最低時數) ÷ 匯率(30)
+      const diamond = Math.round((price * hours) / EXCHANGE_RATE);
+      diamondInput.value = diamond + ' P';
+    }
+
+    // 監聽費用和時數輸入變化
+    if (priceInput) {
+      priceInput.addEventListener('input', calculateDiamond);
+    }
+
+    if (hoursInput) {
+      hoursInput.addEventListener('input', calculateDiamond);
+    }
+
+    // 表格中的連動計算邏輯(1420-1485行)
+    const dateTypes = ['dinner', 'movie', 'sport'];
+    
+    dateTypes.forEach(dateType => {
+      const priceField = document.querySelector(`input[data-date-type="${dateType}"][data-field="price"]`);
+      const hoursField = document.querySelector(`input[data-date-type="${dateType}"][data-field="hours"]`);
+      const diamondField = document.querySelector(`input[data-date-type="${dateType}"][data-field="diamond"]`);
+
+      if (!priceField || !hoursField || !diamondField) return;
+
+      function calculateTableDiamond() {
+        const price = parseFloat(priceField.value) || 0;
+        const hours = parseFloat(hoursField.value) || 0;
+
+        // 若費用為空,清空鑽石欄位(表示不支援此服務)
+        if (price === 0 || hours === 0) {
+          diamondField.value = '';
+          return;
+        }
+
+        // 計算鑽石: (費用 × 最低時數) ÷ 匯率(30)
+        const diamond = Math.round((price * hours) / EXCHANGE_RATE);
+        diamondField.value = diamond + ' P';
+      }
+
+      // 監聽費用和時數輸入變化
+      priceField.addEventListener('input', calculateTableDiamond);
+      hoursField.addEventListener('input', calculateTableDiamond);
+    });
+  });
   </script>
 
  </body>
