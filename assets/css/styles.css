@@ -6428,7 +6428,7 @@
   }
 }
 :root {
-  --background: var(--color-white);
+  --background: #FFF9F9;
   --foreground: var(--color-zinc-950);
   --card: var(--color-white);
   --card-foreground: var(--color-zinc-950);
