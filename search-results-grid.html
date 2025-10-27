@@ -1045,6 +1045,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
+             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
             </div>
@@ -1086,6 +1087,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
+             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
             </div>
@@ -1123,10 +1125,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            </div>
           </div>
          </div>
-                  <div class="kt-card" id="card-7">
+                 <div class="kt-card" id="card-7">
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
+             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
             </div>
@@ -1164,10 +1167,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            </div>
           </div>
          </div>
-                  <div class="kt-card" id="card-8">
+                 <div class="kt-card" id="card-8">
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full h-[180px] mb-4 shadow-none">
+             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="h-[180px] shrink-0 cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
             </div>
@@ -3586,7 +3590,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       讓我們更容易配對到您心儀的對象
      </div>
      <div class="flex justify-center mb-2">
-      <a class="kt-btn kt-btn-primary flex justify-center" href="search-results-grid.html">
+      <a class="kt-btn kt-btn-primary flex justify-center" href="javascript:void(0);" onclick="openPreferenceSettings()">
        設定我的個人喜好
       </a>
      </div>
@@ -3609,6 +3613,34 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        // no-op
      }
    });
+   
+   // 開啟喜好設定功能
+   function openPreferenceSettings() {
+     try {
+       // 關閉歡迎訊息彈窗
+       const welcomeModal = KTDom.getElement('#modal_welcome_message');
+       if (welcomeModal) {
+         const modalInstance = KTModal.getInstance(welcomeModal);
+         if (modalInstance && typeof modalInstance.hide === 'function') {
+           modalInstance.hide();
+         }
+       }
+       
+       // 打開喜好設定抽屜
+       const filterDrawer = KTDom.getElement('#drawers_shop_filter');
+       if (filterDrawer && typeof KTDrawer !== 'undefined') {
+         let drawerInstance = KTDrawer.getInstance(filterDrawer);
+         if (!drawerInstance && typeof KTDrawer === 'function') {
+           drawerInstance = new KTDrawer(filterDrawer);
+         }
+         if (drawerInstance && typeof drawerInstance.show === 'function') {
+           drawerInstance.show();
+         }
+       }
+     } catch (e) {
+       console.error('開啟喜好設定時發生錯誤:', e);
+     }
+   }
   </script>
   <div class="kt-modal" data-kt-modal="true" id="search_modal">
    <div class="kt-modal-content max-w-[600px] top-[15%]">
