@@ -823,6 +823,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </div>
           <div class="border-b border-border mb-4">
           </div>
+           <div class="flex items-center gap-2.5 px-5 mb-4">
+            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+             藝名
+            </span>
+            <input type="text" class="kt-input flex-1" id="filter_stage_name" placeholder="輸入藝名" value="">
+           </div>
+           <div class="border-b border-border mb-4">
+           </div>
           <div class="flex items-center gap-2.5 px-5 mb-4">
            <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
             約會類型
@@ -5184,6 +5192,34 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
   }
 
+  // 根據邀約類型自動調整預定時長
+  function updateHoursByDateType() {
+    const dateTypeSelect = document.getElementById('filter_date_type');
+    const hoursInput = document.getElementById('filter_hours');
+    
+    if (!dateTypeSelect || !hoursInput) return;
+    
+    const selectedType = dateTypeSelect.value;
+    
+    // 根據不同類型設定預設時長
+    switch(selectedType) {
+      case 'movie':    // 看電影
+        hoursInput.value = 4;
+        break;
+      case 'sport':    // 運動
+        hoursInput.value = 5;
+        break;
+      case 'other':    // 其他
+        hoursInput.value = 3;
+        break;
+      case 'dinner':   // 吃飯
+        hoursInput.value = 3;
+        break;
+      default:         // 未選擇
+        hoursInput.value = 3;
+    }
+  }
+
   // 台灣縣市地區資料
   const taiwanDistricts = {
     'taipei': ['中正區', '大同區', '中山區', '松山區', '大安區', '萬華區', '信義區', '士林區', '北投區', '內湖區', '南港區', '文山區'],
@@ -5247,6 +5283,12 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       const citySelect = document.getElementById('filter_city');
       if (citySelect) {
         citySelect.addEventListener('change', updateDistricts);
+      }
+      
+      // 綁定邀約類型變更事件
+      const dateTypeSelect = document.getElementById('filter_date_type');
+      if (dateTypeSelect) {
+        dateTypeSelect.addEventListener('change', updateHoursByDateType);
       }
       
       // 綁定套用按鈕事件
