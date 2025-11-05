@@ -1171,8 +1171,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </div>
         </div>
 
-        <!-- 訂單列表 (全寬) -->
-        <div class="w-full">
+        <!-- 訂單列表容器 (全寬) -->
+        <div class="w-full flex flex-col gap-4" id="orders-list-container">
          <div class="kt-card">
           <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
             <div class="flex flex-col gap-1.5">
@@ -3564,6 +3564,182 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     
     // 訂單狀態篩選分頁切換功能
     const orderStatusTabs = document.querySelectorAll('.order-status-tab');
+    
+    // 模擬訂單資料 (實際應從 API 獲取)
+    // 訂單編號格式: 年月日(8位) + 五碼流水號 + 轉單號(可選)
+    const mockOrders = [
+     {
+      id: '20250626-00001',
+      status: 'pending',
+      inviteDate: '2025-06-26',
+      fee: '3000 P',
+      address: '台北市信義區',
+      bookingDate: '2025-07-07',
+      providerName: '安娜寶貝',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 5.0
+     },
+     {
+      id: '20250625-00002',
+      status: 'confirmed',
+      inviteDate: '2025-06-25',
+      fee: '4000 P',
+      address: '台北市大安區',
+      bookingDate: '2025-07-08',
+      providerName: '小雅',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 4.8
+     },
+     {
+      id: '20250624-00003',
+      status: 'inprogress',
+      inviteDate: '2025-06-24',
+      fee: '3500 P',
+      address: '新北市板橋區',
+      bookingDate: '2025-07-06',
+      providerName: '美美',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 4.9
+     },
+     {
+      id: '20250624-00003-T00001',
+      status: 'completed',
+      inviteDate: '2025-06-24',
+      fee: '5000 P',
+      address: '台北市中山區',
+      bookingDate: '2025-07-05',
+      providerName: '琪琪',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 5.0
+     },
+     {
+      id: '20250622-00004',
+      status: 'cancelled',
+      inviteDate: '2025-06-22',
+      fee: '2800 P',
+      address: '台中市西屯區',
+      bookingDate: '2025-07-04',
+      providerName: '娜娜',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 4.7
+     },
+     {
+      id: '20250621-00005',
+      status: 'refunded',
+      inviteDate: '2025-06-21',
+      fee: '3200 P',
+      address: '高雄市前鎮區',
+      bookingDate: '2025-07-03',
+      providerName: '莉莉',
+      providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
+      rating: 4.6
+     }
+    ];
+    
+    // 渲染訂單列表
+    function renderOrdersList(status = 'all') {
+     const container = document.getElementById('orders-list-container');
+     if (!container) return;
+     
+     // 篩選訂單
+     const filteredOrders = status === 'all'
+       ? mockOrders
+       : mockOrders.filter(order => order.status === status);
+     
+     // 清空容器
+     container.innerHTML = '';
+     
+     // 如果沒有訂單,顯示空狀態
+     if (filteredOrders.length === 0) {
+      container.innerHTML = `
+       <div class="flex flex-col items-center justify-center py-12 gap-4">
+        <i class="ki-filled ki-file text-6xl text-muted-foreground"></i>
+        <p class="text-sm text-secondary-foreground">目前沒有${status === 'all' ? '' : OrderStatusManager.statusMap[status].text}訂單</p>
+       </div>
+      `;
+      return;
+     }
+     
+     // 生成訂單卡片
+     filteredOrders.forEach(order => {
+      const statusInfo = OrderStatusManager.statusMap[order.status];
+      const orderCard = document.createElement('div');
+      orderCard.className = 'kt-card';
+      orderCard.innerHTML = `
+       <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
+        <div class="flex flex-col gap-1.5">
+         <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
+         <span class="text-sm font-medium text-mono">${order.id}</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+         <span class="text-xs font-normal text-secondary-foreground">邀約日期</span>
+         <span class="text-sm font-medium text-mono">${order.inviteDate}</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+         <span class="text-xs font-normal text-secondary-foreground">出席費</span>
+         <span class="text-sm font-medium text-mono">${order.fee}</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+         <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
+         <span class="text-sm font-medium text-mono">${order.address}</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+         <span class="text-xs font-normal text-secondary-foreground">預約日期/時間</span>
+         <span class="text-sm font-medium text-mono">${order.bookingDate}</span>
+        </div>
+       </div>
+       <div class="kt-card-content p-5 lg:p-7.5 space-y-5">
+        <div class="kt-card">
+         <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
+          <div class="flex items-center gap-3.5">
+           <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
+            <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="${order.providerImg}">
+           </div>
+           <div class="flex flex-col gap-1">
+            <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             ${order.providerName}
+            </a>
+            <div class="flex items-center gap-1.5">
+             <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
+              <i class="ki-solid ki-star text-white -mt-0.5"></i>
+              ${order.rating}
+             </span>
+            </div>
+           </div>
+          </div>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-xs font-normal text-secondary-foreground text-end">1&nbsp;x</span>
+           <div class="flex items-center flex-wrap gap-1.5">
+            <span class="text-sm font-semibold text-mono">
+             <i class="ki-solid ki-tag"></i> ${order.fee}
+            </span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="kt-card-footer px-5 py-4 bg-muted/30">
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+         <div class="flex items-center gap-2">
+          <span class="text-xs font-medium text-secondary-foreground">訂單狀態：</span>
+          <span class="kt-badge ${statusInfo.badge} kt-badge-sm">${statusInfo.text}</span>
+         </div>
+         <div class="flex items-center gap-2 flex-wrap" data-order-actions-${order.id}></div>
+        </div>
+       </div>
+      `;
+      
+      container.appendChild(orderCard);
+      
+      // 更新操作按鈕
+      const actionsContainer = orderCard.querySelector(`[data-order-actions-${order.id}]`);
+      OrderStatusManager.updateActionButtons(actionsContainer, 'member', order.status, order.id);
+     });
+    }
+    
+    // 初始渲染全部訂單
+    renderOrdersList('all');
+    
     orderStatusTabs.forEach(tab => {
      tab.addEventListener('click', function(e) {
       e.preventDefault();
@@ -3578,12 +3754,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       this.classList.remove('border-transparent', 'text-secondary-foreground');
       this.classList.add('border-primary', 'text-primary');
       
-      // 獲取選中的狀態
+      // 獲取選中的狀態並重新渲染
       const selectedStatus = this.getAttribute('data-order-status');
-      console.log('選中的訂單狀態:', selectedStatus);
-      
-      // TODO: 根據選中的狀態篩選訂單列表
-      // 這裡可以添加訂單篩選邏輯
+      renderOrdersList(selectedStatus);
      });
     });
     
@@ -3701,15 +3874,16 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     getAvailableActions: function(role, status) {
       const actions = {
         member: {
-          pending: ['requestRefund', 'cancelOrder'],
-          confirmed: ['requestRefund', 'cancelOrder'],
-          inprogress: ['confirmStart', 'requestRefund', 'confirmEnd'],
-          completed: ['confirmResult']
+          pending: ['requestRefund'],
+          confirmed: ['requestRefund'],
+          inprogress: ['requestRefund', 'requestRenewal'],
+          completed: ['requestRenewal']
         },
         provider: {
-          pending: ['confirmRefund', 'requestRefund', 'cancelOrder'],
-          confirmed: ['confirmReceived', 'requestRefund'],
-          inprogress: ['confirmArrival', 'requestRefund']
+          pending: ['confirmOrder'],
+          confirmed: ['confirmArrival'],
+          inprogress: ['confirmRenewal', 'helpClientRenewal'],
+          completed: []
         }
       };
       
@@ -3736,45 +3910,38 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       
       const availableActions = this.getAvailableActions(role, status);
       const buttonConfigs = {
-        confirmRefund: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認退單' 
+        // 會員(客人)按鈕
+        requestRefund: {
+          class: 'kt-btn-outline kt-btn-destructive',
+          icon: 'ki-information-2',
+          text: '我要退單'
         },
-        requestRefund: { 
-          class: 'kt-btn-outline kt-btn-destructive', 
-          icon: 'ki-information-2', 
-          text: '我要退單' 
+        requestRenewal: {
+          class: 'kt-btn-primary',
+          icon: 'ki-time',
+          text: '我要續約'
         },
-        cancelOrder: { 
-          class: 'kt-btn-outline kt-btn-destructive', 
-          icon: 'ki-cross-circle', 
-          text: '取消訂單' 
+        
+        // 服務商按鈕
+        confirmOrder: {
+          class: 'kt-btn-primary',
+          icon: 'ki-check',
+          text: '確認接單'
         },
-        confirmReceived: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認收到' 
+        confirmArrival: {
+          class: 'kt-btn-primary',
+          icon: 'ki-geolocation',
+          text: '確認報到'
         },
-        confirmStart: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認開始' 
+        confirmRenewal: {
+          class: 'kt-btn-primary',
+          icon: 'ki-check',
+          text: '確認續約'
         },
-        confirmEnd: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認結束' 
-        },
-        confirmArrival: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認人到場' 
-        },
-        confirmResult: { 
-          class: 'kt-btn-primary', 
-          icon: 'ki-check', 
-          text: '確認結果' 
+        helpClientRenewal: {
+          class: 'kt-btn-outline kt-btn-primary',
+          icon: 'ki-user',
+          text: '幫客人續約'
         }
       };
       
@@ -3807,21 +3974,26 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       console.log('Action clicked:', action, 'Order ID:', orderId, 'Role:', role);
       
       switch(action) {
+        // 會員(客人)操作
         case 'requestRefund':
           openRefundRequestModal(orderId);
           break;
-        case 'cancelOrder':
-          handleCancelOrder(orderId);
+        case 'requestRenewal':
+          handleRequestRenewal(orderId);
           break;
-        case 'confirmRefund':
-          handleConfirmRefund(orderId);
+          
+        // 服務商操作
+        case 'confirmOrder':
+          handleConfirmOrder(orderId);
           break;
-        case 'confirmReceived':
-        case 'confirmStart':
-        case 'confirmEnd':
         case 'confirmArrival':
-        case 'confirmResult':
-          handleConfirmAction(action, orderId);
+          handleConfirmArrival(orderId);
+          break;
+        case 'confirmRenewal':
+          handleConfirmRenewal(orderId);
+          break;
+        case 'helpClientRenewal':
+          handleHelpClientRenewal(orderId);
           break;
       }
     }
@@ -3879,52 +4051,59 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     closeRefundRequestModal();
   }
   
-  // 處理取消訂單
-  function handleCancelOrder(orderId) {
-    if (!confirm('確定要取消此訂單嗎？取消後將無法退款。')) {
+  // 會員申請續約
+  function handleRequestRenewal(orderId) {
+    if (!confirm('確定要申請續約此訂單嗎？')) {
       return;
     }
     
     // TODO: 發送 API 請求
-    console.log('取消訂單:', orderId);
-    alert('訂單已取消');
+    console.log('會員申請續約:', orderId);
+    alert('續約申請已送出，等待服務商確認');
   }
   
-  // 處理確認退單（服務商）
-  function handleConfirmRefund(orderId) {
-    if (!confirm('確定要確認此訂單退單嗎？')) {
+  // 服務商確認接單
+  function handleConfirmOrder(orderId) {
+    if (!confirm('確定要接受此訂單嗎？')) {
       return;
     }
     
     // TODO: 發送 API 請求
-    console.log('確認退單:', orderId);
-    alert('已確認退單，將交由後台管理員處理退款');
+    console.log('服務商確認接單:', orderId);
+    alert('已確認接單，請準時赴約');
   }
   
-  // 處理其他確認操作
-  function handleConfirmAction(action, orderId) {
-    const actionText = {
-      confirmReceived: '確認收到',
-      confirmStart: '確認開始',
-      confirmEnd: '確認結束',
-      confirmArrival: '確認人到場',
-      confirmResult: '確認結果'
-    }[action] || '確認';
-    
-    if (!confirm(`確定要${actionText}嗎？`)) {
+  // 服務商確認報到
+  function handleConfirmArrival(orderId) {
+    if (!confirm('確定已到達約會地點嗎？')) {
       return;
     }
     
     // TODO: 發送 API 請求
-    console.log(actionText + ':', orderId);
-    
-    // 如果是確認開始或確認結束，需要記錄時間以計算小時數
-    if (action === 'confirmStart' || action === 'confirmEnd') {
-      console.log('記錄時間:', new Date().toISOString());
-      // TODO: 如果是確認結束，計算時間差並產生新訂單
+    console.log('服務商確認報到:', orderId);
+    alert('已確認報到，開始計時');
+  }
+  
+  // 服務商確認續約
+  function handleConfirmRenewal(orderId) {
+    if (!confirm('確定要確認此續約申請嗎？')) {
+      return;
     }
     
-    alert(`已${actionText}`);
+    // TODO: 發送 API 請求
+    console.log('服務商確認續約:', orderId);
+    alert('已確認續約，繼續服務');
+  }
+  
+  // 服務商幫客人續約
+  function handleHelpClientRenewal(orderId) {
+    if (!confirm('確定要幫客人申請續約嗎？')) {
+      return;
+    }
+    
+    // TODO: 發送 API 請求
+    console.log('服務商幫客人續約:', orderId);
+    alert('已幫客人送出續約申請');
   }
   
   // 點擊背景關閉退單彈窗
