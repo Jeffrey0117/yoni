@@ -550,7 +550,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
  <i class="ki-filled ki-notification-on text-2xl"></i>
       <!--End of Cart-->
       <!--Product Details Drawer-->
-      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
+      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details" style="min-width: 520px; max-width: 520px; width: 520px !important;">
        <div class="kt-card-header px-5">
         <h3 class="kt-card-title">
          安娜寶貝
@@ -560,9 +560,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </i>
         </button>
        </div>
-       <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto">
-<div class="relative">
-         <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="封面照" class="w-full h-auto object-cover">
+       <div class="kt-card-content flex flex-col space-y-3 p-5 kt-scrollable-y-auto" style="overflow-x: hidden; overflow-y: auto; word-wrap: break-word; max-width: 100%;">
+<div class="relative" style="width: 100%; max-width: 100%; overflow: hidden;">
+         <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="封面照" class="w-full h-auto object-cover" style="max-width: 100%; height: auto; display: block;">
          <span class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color:#43C268;color:#fff;min-width:40px;max-width:90px;padding:2px 6px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">我現在有空</span>
         </div>
 
@@ -585,18 +585,18 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <!-- 生活照 -->
         <div class="mb-5">
          <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity" onclick="openLightbox(0); if(window.KTDrawer){window.KTDrawer.getInstance(document.querySelector('#drawers_shop_product_details')).hide();}">
-          <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+         <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity" onclick="openLightbox(0); if(window.KTDrawer){window.KTDrawer.getInstance(document.querySelector('#drawers_shop_product_details')).hide();}" style="width: 100%; max-width: 100%;">
+          <img src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover" style="max-width: 100%; height: auto; display: block;">
          </div>
 
          <!-- 個人資料區塊(靜態文字) -->
          <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg mb-5">
           <h4 class="text-base font-semibold text-mono mb-2">個人資料</h4>
           
-          <div class="grid grid-cols-2 gap-3 text-sm">
-           <div class="flex flex-col">
+          <div class="grid grid-cols-2 gap-3 text-sm" style="max-width: 100%;">
+           <div class="flex flex-col" style="min-width: 0;">
             <span class="text-xs text-secondary-foreground mb-1">藝名</span>
-            <span class="text-sm font-medium text-mono">小雅</span>
+            <span class="text-sm font-medium text-mono" style="word-break: break-word; overflow-wrap: break-word;">小雅</span>
            </div>
            <div class="flex flex-col">
             <span class="text-xs text-secondary-foreground mb-1">職業</span>
@@ -1249,6 +1249,26 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
            </div>
           </div>
+          <!-- 訂單操作按鈕區 --><div class="kt-card-footer px-5 py-4 bg-muted/30">
+           <div class="flex items-center justify-between gap-3 flex-wrap">
+            <!-- 狀態徽章 -->
+            <div class="flex items-center gap-2">
+             <span class="text-xs font-medium text-secondary-foreground">訂單狀態：</span>
+             <span class="kt-badge kt-badge-warning kt-badge-sm" data-order-status-badge>待確認</span>
+            </div>
+            <!-- 操作按鈕 -->
+            <div class="flex items-center gap-2 flex-wrap" data-order-actions>
+             <button class="kt-btn kt-btn-sm kt-btn-outline kt-btn-destructive" data-action="requestRefund">
+              <i class="ki-filled ki-information-2"></i>
+              我要退單
+             </button>
+             <button class="kt-btn kt-btn-sm kt-btn-outline kt-btn-destructive" data-action="cancelOrder">
+              <i class="ki-filled ki-cross-circle"></i>
+              取消訂單
+             </button>
+            </div>
+           </div>
+          </div>
          </div>
         </div>
        </div>
@@ -1829,6 +1849,31 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                </div>
               </div>
              </div>
+            </div>
+           </div>
+          </div>
+          <!-- 接單操作按鈕區 -->
+          <div class="kt-card-footer px-5 py-4 bg-muted/30">
+           <div class="flex items-center justify-between gap-3 flex-wrap">
+            <!-- 狀態徽章 -->
+            <div class="flex items-center gap-2">
+             <span class="text-xs font-medium text-secondary-foreground">訂單狀態：</span>
+             <span class="kt-badge kt-badge-warning kt-badge-sm" data-receiving-status-badge>待確認</span>
+            </div>
+            <!-- 操作按鈕 -->
+            <div class="flex items-center gap-2 flex-wrap" data-receiving-actions>
+             <button class="kt-btn kt-btn-sm kt-btn-primary" data-action="confirmOrder">
+              <i class="ki-filled ki-check"></i>
+              確認退單
+             </button>
+             <button class="kt-btn kt-btn-sm kt-btn-outline kt-btn-destructive" data-action="requestRefund">
+              <i class="ki-filled ki-information-2"></i>
+              我要退單
+             </button>
+             <button class="kt-btn kt-btn-sm kt-btn-outline kt-btn-destructive" data-action="cancelOrder">
+              <i class="ki-filled ki-cross-circle"></i>
+              取消訂單
+             </button>
             </div>
            </div>
           </div>
@@ -2930,6 +2975,91 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     </div>
    </div>
   </div>
+  <!-- 退單申請彈窗 -->
+  <div id="refund-request-modal" class="el-overlay" style="z-index: 2026; display: none;">
+   <div role="dialog" aria-modal="true" aria-label="退單申請" class="el-overlay-dialog" style="display: flex;">
+    <div class="el-dialog is-align-center" tabindex="-1" style="--el-dialog-width: 600px;">
+     <header class="el-dialog__header show-close">
+      <span role="heading" aria-level="2" class="el-dialog__title">退單申請</span>
+      <button aria-label="Close this dialog" class="el-dialog__headerbtn" type="button" onclick="closeRefundRequestModal()">
+       <i class="el-icon el-dialog__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+         <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+        </svg>
+       </i>
+      </button>
+     </header>
+     <div class="el-dialog__body">
+      <div class="flex flex-col gap-5">
+       <!-- 訂單資訊 -->
+       <div class="flex flex-col gap-3 p-4 bg-accent/30 border border-border rounded-lg">
+        <h4 class="text-sm font-semibold text-mono">訂單資訊</h4>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">訂單編號</span>
+          <span class="text-sm font-medium text-mono" id="refund-order-id">X319330-S24</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">訂單狀態</span>
+          <span class="kt-badge kt-badge-warning kt-badge-sm" id="refund-order-status">待確認</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">服務商</span>
+          <span class="text-sm font-medium text-mono" id="refund-provider-name">安娜寶貝</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">出席費</span>
+          <span class="text-sm font-medium text-mono" id="refund-order-amount">3000 P</span>
+         </div>
+        </div>
+       </div>
+
+       <!-- 退單原因 -->
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-mono">退單原因 <span class="text-destructive">*</span></label>
+        <select class="kt-select" id="refund-reason">
+         <option value="">請選擇退單原因</option>
+         <option value="schedule_conflict">時間衝突</option>
+         <option value="personal_reason">個人因素</option>
+         <option value="service_issue">服務問題</option>
+         <option value="other">其他原因</option>
+        </select>
+       </div>
+
+       <!-- 留言訊息 -->
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold text-mono">留言訊息 <span class="text-destructive">*</span></label>
+        <textarea class="kt-input" rows="4" id="refund-message" placeholder="請詳細說明退單原因..."></textarea>
+       </div>
+
+       <!-- 提示訊息 -->
+       <div class="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+        <div class="flex items-start gap-2">
+         <i class="ki-filled ki-information-2 text-yellow-600 text-lg"></i>
+         <div class="flex flex-col gap-1 text-xs text-yellow-800">
+          <span class="font-semibold">退單注意事項：</span>
+          <span>1. 送出退單申請後，將由後台管理員進行審核</span>
+          <span>2. 審核通過後將進行退款處理</span>
+          <span>3. 退款金額將退回至您的帳戶餘額</span>
+         </div>
+        </div>
+       </div>
+
+       <!-- 按鈕區 -->
+       <div class="flex items-center gap-3 justify-end">
+        <button class="kt-btn kt-btn-outline" onclick="closeRefundRequestModal()">
+         取消
+        </button>
+        <button class="kt-btn kt-btn-primary" onclick="submitRefundRequest()">
+         <i class="ki-filled ki-check"></i>
+         送出申請
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
   <!-- End of Share Profile Modal -->
   <div class="kt-modal" data-kt-modal="true" id="give_award_modal">
    <div class="kt-modal-content max-w-[500px] top-[15%]">
@@ -3554,6 +3684,279 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
    });
 
+  
+  // 訂單狀態管理系統
+  const OrderStatusManager = {
+    // 訂單狀態映射
+    statusMap: {
+      'pending': { badge: 'kt-badge-warning', text: '待確認' },
+      'confirmed': { badge: 'kt-badge-info', text: '待執行' },
+      'inprogress': { badge: 'kt-badge-primary', text: '進行中' },
+      'completed': { badge: 'kt-badge-success', text: '已結束' },
+      'cancelled': { badge: 'kt-badge-secondary', text: '取消' },
+      'refunded': { badge: 'kt-badge-destructive', text: '退單' }
+    },
+    
+    // 根據角色和狀態獲取可用操作
+    getAvailableActions: function(role, status) {
+      const actions = {
+        member: {
+          pending: ['requestRefund', 'cancelOrder'],
+          confirmed: ['requestRefund', 'cancelOrder'],
+          inprogress: ['confirmStart', 'requestRefund', 'confirmEnd'],
+          completed: ['confirmResult']
+        },
+        provider: {
+          pending: ['confirmRefund', 'requestRefund', 'cancelOrder'],
+          confirmed: ['confirmReceived', 'requestRefund'],
+          inprogress: ['confirmArrival', 'requestRefund']
+        }
+      };
+      
+      return actions[role]?.[status] || [];
+    },
+    
+    // 更新訂單狀態徽章
+    updateStatusBadge: function(badgeElement, status) {
+      if (!badgeElement || !this.statusMap[status]) return;
+      
+      // 移除所有狀態 class
+      Object.values(this.statusMap).forEach(s => {
+        badgeElement.classList.remove(s.badge);
+      });
+      
+      // 添加新狀態 class 和文字
+      badgeElement.classList.add(this.statusMap[status].badge);
+      badgeElement.textContent = this.statusMap[status].text;
+    },
+    
+    // 更新操作按鈕
+    updateActionButtons: function(actionsContainer, role, status, orderId) {
+      if (!actionsContainer) return;
+      
+      const availableActions = this.getAvailableActions(role, status);
+      const buttonConfigs = {
+        confirmRefund: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認退單' 
+        },
+        requestRefund: { 
+          class: 'kt-btn-outline kt-btn-destructive', 
+          icon: 'ki-information-2', 
+          text: '我要退單' 
+        },
+        cancelOrder: { 
+          class: 'kt-btn-outline kt-btn-destructive', 
+          icon: 'ki-cross-circle', 
+          text: '取消訂單' 
+        },
+        confirmReceived: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認收到' 
+        },
+        confirmStart: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認開始' 
+        },
+        confirmEnd: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認結束' 
+        },
+        confirmArrival: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認人到場' 
+        },
+        confirmResult: { 
+          class: 'kt-btn-primary', 
+          icon: 'ki-check', 
+          text: '確認結果' 
+        }
+      };
+      
+      // 清空容器
+      actionsContainer.innerHTML = '';
+      
+      // 生成按鈕
+      availableActions.forEach(action => {
+        const config = buttonConfigs[action];
+        if (!config) return;
+        
+        const button = document.createElement('button');
+        button.className = `kt-btn kt-btn-sm ${config.class}`;
+        button.setAttribute('data-action', action);
+        button.setAttribute('data-order-id', orderId);
+        button.innerHTML = `
+          <i class="ki-filled ${config.icon}"></i>
+          ${config.text}
+        `;
+        
+        // 綁定點擊事件
+        button.addEventListener('click', () => this.handleActionClick(action, orderId, role));
+        
+        actionsContainer.appendChild(button);
+      });
+    },
+    
+    // 處理按鈕點擊
+    handleActionClick: function(action, orderId, role) {
+      console.log('Action clicked:', action, 'Order ID:', orderId, 'Role:', role);
+      
+      switch(action) {
+        case 'requestRefund':
+          openRefundRequestModal(orderId);
+          break;
+        case 'cancelOrder':
+          handleCancelOrder(orderId);
+          break;
+        case 'confirmRefund':
+          handleConfirmRefund(orderId);
+          break;
+        case 'confirmReceived':
+        case 'confirmStart':
+        case 'confirmEnd':
+        case 'confirmArrival':
+        case 'confirmResult':
+          handleConfirmAction(action, orderId);
+          break;
+      }
+    }
+  };
+  
+  // 開啟退單申請彈窗
+  function openRefundRequestModal(orderId) {
+    const modal = document.getElementById('refund-request-modal');
+    if (!modal) return;
+    
+    // TODO: 從 API 獲取訂單資訊
+    // 這裡暫時使用靜態資料示範
+    document.getElementById('refund-order-id').textContent = orderId || 'X319330-S24';
+    
+    modal.style.display = 'block';
+  }
+  
+  // 關閉退單申請彈窗
+  function closeRefundRequestModal() {
+    const modal = document.getElementById('refund-request-modal');
+    if (!modal) return;
+    
+    // 清空表單
+    document.getElementById('refund-reason').value = '';
+    document.getElementById('refund-message').value = '';
+    
+    modal.style.display = 'none';
+  }
+  
+  // 送出退單申請
+  function submitRefundRequest() {
+    const reason = document.getElementById('refund-reason').value;
+    const message = document.getElementById('refund-message').value;
+    const orderId = document.getElementById('refund-order-id').textContent;
+    
+    // 驗證表單
+    if (!reason) {
+      alert('請選擇退單原因');
+      return;
+    }
+    
+    if (!message.trim()) {
+      alert('請填寫留言訊息');
+      return;
+    }
+    
+    // TODO: 發送 API 請求
+    console.log('退單申請:', {
+      orderId: orderId,
+      reason: reason,
+      message: message
+    });
+    
+    alert('退單申請已送出，請等待後台管理員審核');
+    closeRefundRequestModal();
+  }
+  
+  // 處理取消訂單
+  function handleCancelOrder(orderId) {
+    if (!confirm('確定要取消此訂單嗎？取消後將無法退款。')) {
+      return;
+    }
+    
+    // TODO: 發送 API 請求
+    console.log('取消訂單:', orderId);
+    alert('訂單已取消');
+  }
+  
+  // 處理確認退單（服務商）
+  function handleConfirmRefund(orderId) {
+    if (!confirm('確定要確認此訂單退單嗎？')) {
+      return;
+    }
+    
+    // TODO: 發送 API 請求
+    console.log('確認退單:', orderId);
+    alert('已確認退單，將交由後台管理員處理退款');
+  }
+  
+  // 處理其他確認操作
+  function handleConfirmAction(action, orderId) {
+    const actionText = {
+      confirmReceived: '確認收到',
+      confirmStart: '確認開始',
+      confirmEnd: '確認結束',
+      confirmArrival: '確認人到場',
+      confirmResult: '確認結果'
+    }[action] || '確認';
+    
+    if (!confirm(`確定要${actionText}嗎？`)) {
+      return;
+    }
+    
+    // TODO: 發送 API 請求
+    console.log(actionText + ':', orderId);
+    
+    // 如果是確認開始或確認結束，需要記錄時間以計算小時數
+    if (action === 'confirmStart' || action === 'confirmEnd') {
+      console.log('記錄時間:', new Date().toISOString());
+      // TODO: 如果是確認結束，計算時間差並產生新訂單
+    }
+    
+    alert(`已${actionText}`);
+  }
+  
+  // 點擊背景關閉退單彈窗
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('refund-request-modal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeRefundRequestModal();
+        }
+      });
+    }
+    
+    // 初始化訂單狀態管理（示範）
+    // 實際使用時應該根據從 API 獲取的訂單資料來初始化
+    const orderStatusBadge = document.querySelector('[data-order-status-badge]');
+    const orderActions = document.querySelector('[data-order-actions]');
+    
+    if (orderStatusBadge && orderActions) {
+      // 示範：更新訂單狀態為「待確認」，會員角色
+      OrderStatusManager.updateActionButtons(orderActions, 'member', 'pending', 'X319330-S24');
+    }
+    
+    // 初始化接單狀態管理（示範）
+    const receivingStatusBadge = document.querySelector('[data-receiving-status-badge]');
+    const receivingActions = document.querySelector('[data-receiving-actions]');
+    
+    if (receivingStatusBadge && receivingActions) {
+      // 示範：更新接單狀態為「待確認」，服務商角色
+      OrderStatusManager.updateActionButtons(receivingActions, 'provider', 'pending', 'X319330-S24');
+    }
+  });
    // 興趣選項點擊切換
    document.querySelectorAll('.interest-item').forEach(item => {
     item.addEventListener('click', function() {
