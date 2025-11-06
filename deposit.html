@@ -1,0 +1,926 @@
+<!--
+Product: Metronic is a toolkit of UI components built with Tailwind CSS for developing scalable web applications quickly and efficiently
+Version: v9.2.9
+Author: Keenthemes
+Contact: support@keenthemes.com
+Website: https://www.keenthemes.com
+Support: https://devs.keenthemes.com
+Follow: https://www.twitter.com/keenthemes
+License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
+-->
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+ <head>
+  <title>
+   儲值
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/deposit" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="Deposit page for yoni platform" name="description"/>
+  <meta content="@keenthemes" name="twitter:site"/>
+  <meta content="@keenthemes" name="twitter:creator"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Metronic - Tailwind CSS Deposit" name="twitter:title"/>
+  <meta content="Deposit page powered by Tailwind CSS" name="twitter:description"/>
+  <meta content="./assets/media/app/og-image.png" name="twitter:image"/>
+  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/deposit" property="og:url"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="@keenthemes" property="og:site_name"/>
+  <meta content="Metronic - Tailwind CSS Deposit" property="og:title"/>
+  <meta content="Deposit page powered by Tailwind CSS" property="og:description"/>
+  <meta content="./assets/media/app/og-image.png" property="og:image"/>
+  <link href="./yoni_icon.ico" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="./yoni_icon.ico" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="./yoni_icon.ico" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="./yoni_icon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="./assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
+  <link href="./assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="./assets/css/styles.css" rel="stylesheet"/>
+ </head>
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
+  <!-- Theme Mode -->
+  <script>
+   const defaultThemeMode = 'light'; // light|dark|system
+			let themeMode;
+
+			if (document.documentElement) {
+				if (localStorage.getItem('kt-theme')) {
+					themeMode = localStorage.getItem('kt-theme');
+				} else if (
+					document.documentElement.hasAttribute('data-kt-theme-mode')
+				) {
+					themeMode =
+						document.documentElement.getAttribute('data-kt-theme-mode');
+				} else {
+					themeMode = defaultThemeMode;
+				}
+
+				if (themeMode === 'system') {
+					themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light';
+				}
+
+				document.documentElement.classList.add(themeMode);
+			}
+  </script>
+  <!-- End of Theme Mode -->
+  <!-- Page -->
+  <!-- Main -->
+  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
+   <!-- Header -->
+   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+    <!-- Container -->
+    <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
+     <!-- Logo -->
+     <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu">
+       </i>
+      </button>
+      <div class="flex items-center gap-2">
+       <a class="flex items-center shrink-0" href="search-results-grid.html">
+        <img class="dark:hidden w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.tw/assets/logo-WfWQfKK6.png"/>
+       </a>
+      </div>
+     </div>
+     <!-- End of Logo -->
+     <!-- Topbar -->
+     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!-- User -->
+      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
+        <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+       </button>
+       <div class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
+        <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
+         <div class="flex items-center gap-2">
+          <i class="ki-filled ki-profile-circle text-xl">
+          </i>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-sm text-foreground font-semibold leading-none">
+            暱稱
+           </span>
+           <a class="text-xs text-secondary-foreground hover:text-primary font-medium leading-none" href="html/demo9/account/home/get-started.html">
+            會員編號
+           </a>
+          </div>
+         </div>
+         <span class="kt-badge kt-badge-sm kt-badge-primary kt-badge-outline">
+          角色
+         </span>
+        </div>
+        <ul class="kt-dropdown-menu-sub">
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="default.html">
+           <i class="ki-filled ki-badge">
+           </i>
+           個人資料
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-office-bag">
+           </i>
+           服務商申請
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-users">
+           </i>
+           邀請
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-heart">
+           </i>
+           關注
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-profile-circle text-xl">
+           </i>
+           訂單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-calendar">
+           </i>
+           接單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-wallet">
+           </i>
+           收益
+          </a>
+         </li>
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+        </ul>
+        <div class="px-2.5 pt-1.5 mb-2.5 flex flex-col gap-3.5">
+         <div class="flex items-center gap-2 justify-between">
+          <span class="flex items-center gap-2">
+           <i class="ki-filled ki-moon text-base text-muted-foreground">
+           </i>
+           <span class="font-medium text-2sm">
+            深色模式
+           </span>
+          </span>
+          <input class="kt-switch" data-kt-theme-switch-state="dark" data-kt-theme-switch-toggle="true" name="check" type="checkbox" value="1"/>
+         </div>
+         <a class="kt-btn kt-btn-outline justify-center w-full" href="html/demo9/authentication/classic/sign-in.html">
+          登出
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- End of User -->
+      <!--Wishlist-->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-drawer-toggle="#drawers_shop_wishlist">
+       <i class="ki-filled ki-heart text-xl">
+       </i>
+      </button>
+      <!--Notification-->
+      <i class="ki-filled ki-notification-on text-2xl"></i>
+      <!-- End of Topbar -->
+     </div>
+    </div>
+    <!-- End of Container -->
+   </header>
+   <!-- End of Header -->
+   <!-- Navbar -->
+   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Container -->
+    <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
+     <!-- Mega Menu -->
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         首頁
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="order.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         快速配對
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono here" href="deposit.html" id="deposit-nav-link">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         儲值
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
+       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         FAQ
+        </span>
+        <span class="kt-menu-arrow flex lg:hidden">
+         <span class="flex kt-menu-item-show:hidden">
+          <i class="ki-filled ki-plus text-xs text-secondary-foreground">
+          </i>
+         </span>
+         <span class="hidden kt-menu-item-show:inline-flex">
+          <i class="ki-filled ki-minus text-xs text-secondary-foreground">
+          </i>
+         </span>
+        </span>
+       </div>
+       <div class="kt-menu-dropdown w-full gap-0 lg:max-w-[900px]">
+        <div class="pt-4 pb-2 lg:p-7.5">
+         <div class="grid lg:grid-cols-2 gap-5 lg:gap-10">
+          <div class="kt-menu kt-menu-default kt-menu-fit flex-col">
+           <h3 class="text-sm text-foreground font-semibold leading-none ps-2.5 mb-2 lg:mb-5">
+            常見問題
+           </h3>
+           <div class="grid lg:grid-cols-2 lg:gap-5">
+            <div class="flex flex-col gap-0.5">
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-question-2">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                如何使用平台?
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-wallet">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                儲值相關問題
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-shield-tick">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                安全與隱私
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-calendar">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                約會流程
+               </span>
+              </a>
+             </div>
+            </div>
+            <div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-message-text">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                聯絡客服
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-information">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                帳戶問題
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-star">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                評價系統
+               </span>
+              </a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- End of Mega Menu -->
+    </div>
+    <!-- End of Container -->
+   </div>
+   <!-- End of Navbar -->
+   <!-- Main Content -->
+   <main class="flex flex-col grow" id="content" role="content">
+    <!-- Container -->
+    <div class="kt-container-fixed">
+     <div class="flex flex-col gap-5 lg:gap-7.5">
+      <!-- Page Title -->
+      <div class="flex flex-col gap-3">
+       <h1 class="text-2xl font-bold text-mono">儲值中心</h1>
+       <p class="text-sm text-secondary-foreground">管理您的儲值與交易紀錄</p>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="border-b border-border">
+       <nav class="flex gap-5">
+        <button class="tab-btn pb-3 px-1 border-b-2 border-primary text-primary font-medium text-sm" data-tab="deposit">
+         儲值
+        </button>
+        <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="transactions">
+         交易紀錄
+        </button>
+        <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="diamonds">
+         鑽石紀錄
+        </button>
+       </nav>
+      </div>
+
+      <!-- Tab Content: Deposit -->
+      <div class="tab-content" id="deposit-content">
+       <div class="flex flex-col gap-6">
+        <!-- 儲值方式 -->
+        <div class="flex flex-col gap-3">
+         <h3 class="text-base font-semibold text-mono">儲值方式</h3>
+         <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+           <input type="checkbox" id="self_transfer" class="kt-checkbox" checked disabled>
+           <label for="self_transfer" class="text-sm font-medium">自行匯款</label>
+          </div>
+          <!-- 銀行資訊 -->
+          <div class="flex flex-col gap-2 ps-6 text-sm">
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">銀行代號:</span>
+            <span class="font-semibold text-mono">玉山銀行 808</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">帳號:</span>
+            <span class="font-semibold text-mono">1234567890123</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">戶名:</span>
+            <span class="font-semibold text-mono">約你股份有限公司</span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 選擇儲值金額 -->
+        <div class="flex flex-col gap-3">
+         <h3 class="text-base font-semibold text-mono">選擇儲值金額</h3>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- 方案 1: $3000 -->
+          <label class="amount-option flex flex-col gap-3 p-5 border-2 border-border rounded-lg cursor-pointer hover:border-primary transition-colors">
+           <input type="radio" name="deposit_amount" value="3000" class="hidden amount-radio" data-diamonds="42000" data-bonus="1500">
+           <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-primary">42,000</span>
+            <span class="text-sm text-secondary-foreground">P</span>
+           </div>
+           <div class="text-xs text-success font-medium">+ 贈送 1,500 P</div>
+           <div class="border-t border-border pt-2">
+            <span class="text-lg font-semibold text-mono">NT$ 3,000</span>
+           </div>
+          </label>
+
+          <!-- 方案 2: $5000 -->
+          <label class="amount-option flex flex-col gap-3 p-5 border-2 border-border rounded-lg cursor-pointer hover:border-primary transition-colors">
+           <input type="radio" name="deposit_amount" value="5000" class="hidden amount-radio" data-diamonds="70000" data-bonus="3000">
+           <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-primary">70,000</span>
+            <span class="text-sm text-secondary-foreground">P</span>
+           </div>
+           <div class="text-xs text-success font-medium">+ 贈送 3,000 P</div>
+           <div class="border-t border-border pt-2">
+            <span class="text-lg font-semibold text-mono">NT$ 5,000</span>
+           </div>
+          </label>
+
+          <!-- 方案 3: $10000 -->
+          <label class="amount-option flex flex-col gap-3 p-5 border-2 border-border rounded-lg cursor-pointer hover:border-primary transition-colors">
+           <input type="radio" name="deposit_amount" value="10000" class="hidden amount-radio" data-diamonds="140000" data-bonus="8000">
+           <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-primary">140,000</span>
+            <span class="text-sm text-secondary-foreground">P</span>
+           </div>
+           <div class="text-xs text-success font-medium">+ 贈送 8,000 P</div>
+           <div class="border-t border-border pt-2">
+            <span class="text-lg font-semibold text-mono">NT$ 10,000</span>
+           </div>
+          </label>
+
+          <!-- 方案 4: $20000 -->
+          <label class="amount-option flex flex-col gap-3 p-5 border-2 border-border rounded-lg cursor-pointer hover:border-primary transition-colors">
+           <input type="radio" name="deposit_amount" value="20000" class="hidden amount-radio" data-diamonds="280000" data-bonus="20000">
+           <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-primary">280,000</span>
+            <span class="text-sm text-secondary-foreground">P</span>
+           </div>
+           <div class="text-xs text-success font-medium">+ 贈送 20,000 P</div>
+           <div class="border-t border-border pt-2">
+            <span class="text-lg font-semibold text-mono">NT$ 20,000</span>
+           </div>
+          </label>
+
+          <!-- 方案 5: $50000 -->
+          <label class="amount-option flex flex-col gap-3 p-5 border-2 border-border rounded-lg cursor-pointer hover:border-primary transition-colors">
+           <input type="radio" name="deposit_amount" value="50000" class="hidden amount-radio" data-diamonds="700000" data-bonus="62500">
+           <div class="flex items-baseline gap-2">
+            <span class="text-2xl font-bold text-primary">700,000</span>
+            <span class="text-sm text-secondary-foreground">P</span>
+           </div>
+           <div class="text-xs text-success font-medium">+ 贈送 62,500 P</div>
+           <div class="border-t border-border pt-2">
+            <span class="text-lg font-semibold text-mono">NT$ 50,000</span>
+           </div>
+          </label>
+         </div>
+        </div>
+
+        <!-- 應付金額 -->
+        <div class="flex items-center gap-2">
+         <span class="text-base font-medium text-mono">應付金額</span>
+         <span class="text-xl font-bold text-mono" id="display_total">NT$ 0</span>
+        </div>
+
+        <!-- 發票資訊 -->
+        <div class="flex items-center gap-3">
+         <span class="text-base font-medium text-mono">發票資訊</span>
+         <span class="text-base text-mono" id="invoice_email_display">dinjseo@gmail.com</span>
+         <input type="email" class="kt-input hidden" id="invoice_email_input" value="dinjseo@gmail.com" style="max-width: 300px;">
+         <button class="kt-btn kt-btn-sm kt-btn-outline" id="edit_invoice_btn" style="border-color: #ec4899; color: #ec4899;">
+          修改
+         </button>
+         <button class="kt-btn kt-btn-sm kt-btn-primary hidden" id="save_invoice_btn">
+          保存
+         </button>
+         <button class="kt-btn kt-btn-sm kt-btn-outline hidden" id="cancel_invoice_btn">
+          取消
+         </button>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="flex flex-col gap-2 text-xs text-secondary-foreground">
+         <p>1. 海外儲值可能會產生一些手續費</p>
+         <p>2. 若需匯款可先聯繫客服人員</p>
+         <p class="text-danger">**建議您：與藍勾他人進行轉帳交易時可能會遇到詐騙風險，與藍心心人士進行轉帳交易至少可能會遇到詐騙或欺騙，請務必小心謹慎交易！</p>
+        </div>
+
+        <!-- 立即支付按鈕 -->
+        <div class="flex justify-center">
+         <button class="kt-btn kt-btn-primary kt-btn-lg max-w-md justify-center" id="confirm_deposit">
+          <i class="ki-filled ki-wallet"></i>
+          立即支付
+         </button>
+        </div>
+       </div>
+      </div>
+      <!-- End of Tab Content: Deposit -->
+
+      <!-- Tab Content: Transactions -->
+      <div class="tab-content hidden" id="transactions-content">
+       <div class="flex flex-col gap-4">
+        <!-- Table -->
+        <div class="overflow-x-auto">
+         <table class="w-full">
+          <thead>
+           <tr class="border-b border-border">
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易時間</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易編號</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">應付金額</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易方式</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">備註</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-15 14:23:45</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501151423</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 3,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 3000P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-13 18:30:11</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501131830</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 1,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 1000P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-10 09:15:22</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501100915</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 5,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 5000P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-08 20:15:30</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501082015</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 10,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 10000P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-05 15:30:12</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501051530</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 500</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 500P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-03 11:45:20</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501031145</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 2,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 2000P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2024-12-28 16:20:15</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202412281620</td>
+            <td class="py-3 px-4 text-sm text-mono">NT$ 1,000</td>
+            <td class="py-3 px-4 text-sm text-mono">自行匯款</td>
+            <td class="py-3 px-4 text-sm text-mono">儲值 1000P</td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-between">
+         <div class="text-sm text-secondary-foreground">
+          顯示 1-7 筆，共 23 筆交易紀錄
+         </div>
+         <div class="flex gap-2">
+          <button class="kt-btn kt-btn-sm kt-btn-outline" disabled>
+           <i class="ki-filled ki-left"></i>
+          </button>
+          <button class="kt-btn kt-btn-sm kt-btn-primary">1</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">2</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">3</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">4</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">
+           <i class="ki-filled ki-right"></i>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- End of Tab Content: Transactions -->
+
+      <!-- Tab Content: Diamonds -->
+      <div class="tab-content hidden" id="diamonds-content">
+       <div class="flex flex-col gap-4">
+        <!-- Account Info -->
+        <div class="flex flex-col gap-2 p-4 bg-muted/30 rounded-lg">
+         <div class="flex items-center gap-2">
+          <span class="text-sm text-secondary-foreground">帳號:</span>
+          <span class="text-sm font-medium text-mono">12432141231</span>
+         </div>
+         <div class="flex items-center gap-2">
+          <span class="text-sm text-secondary-foreground">鑽石:</span>
+          <span class="text-xl font-bold text-primary">1000000 P</span>
+         </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+         <table class="w-full">
+          <thead>
+           <tr class="border-b border-border">
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易時間</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">訂單編號</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易編號</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">鑽石數量</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">剩餘鑽石</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-15 14:23:45</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501151423</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501151423</td>
+            <td class="py-3 px-4 text-sm font-semibold text-success">+3,000 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">10,300 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-14 09:15:22</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501140915</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501140915</td>
+            <td class="py-3 px-4 text-sm font-semibold text-danger">-500 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">7,300 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-13 18:30:11</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501131830</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501131830</td>
+            <td class="py-3 px-4 text-sm font-semibold text-success">+1,000 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">7,800 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-12 16:45:33</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501121645</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501121645</td>
+            <td class="py-3 px-4 text-sm font-semibold text-success">+300 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">6,800 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-10 11:20:05</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501101120</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501101120</td>
+            <td class="py-3 px-4 text-sm font-semibold text-danger">-1,200 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">6,500 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-08 20:15:30</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501082015</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501082015</td>
+            <td class="py-3 px-4 text-sm font-semibold text-success">+5,000 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">7,700 P</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
+            <td class="py-3 px-4 text-sm text-mono">2025-01-05 15:30:12</td>
+            <td class="py-3 px-4 text-sm text-mono">ORD202501051530</td>
+            <td class="py-3 px-4 text-sm text-mono">TXN202501051530</td>
+            <td class="py-3 px-4 text-sm font-semibold text-danger">-800 P</td>
+            <td class="py-3 px-4 text-sm font-medium text-mono">2,700 P</td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-between">
+         <div class="text-sm text-secondary-foreground">
+          顯示 1-7 筆，共 35 筆鑽石紀錄
+         </div>
+         <div class="flex gap-2">
+          <button class="kt-btn kt-btn-sm kt-btn-outline" disabled>
+           <i class="ki-filled ki-left"></i>
+          </button>
+          <button class="kt-btn kt-btn-sm kt-btn-primary">1</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">2</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">3</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">4</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">5</button>
+          <button class="kt-btn kt-btn-sm kt-btn-outline">
+           <i class="ki-filled ki-right"></i>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- End of Tab Content: Diamonds -->
+
+     </div>
+    </div>
+    <!-- End of Container -->
+   </main>
+   <!-- End of Main Content -->
+   <!-- Footer -->
+   <footer class="footer">
+    <!-- Container -->
+    <div class="kt-container-fixed">
+     <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
+      <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+       <span class="text-muted-foreground">
+        2025©
+       </span>
+       <a class="text-secondary-foreground hover:text-primary" href="https://keenthemes.com">
+        yoni Inc.
+       </a>
+      </div>
+      <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
+       <a class="hover:text-primary" href="about.html">
+        品牌介紹
+       </a>
+       <a class="hover:text-primary" href="terms.html">
+        使用條款
+       </a>
+       <a class="hover:text-primary" href="privacy.html">
+        隱私權政策
+       </a>
+      </nav>
+     </div>
+    </div>
+    <!-- End of Container -->
+   </footer>
+   <!-- End of Footer -->
+  </div>
+  <!-- End of Main -->
+  <!-- End of Page -->
+  <!-- Tab Switching Script -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    // Handle deposit nav link - switch to deposit tab if already on deposit page
+    const depositNavLink = document.getElementById('deposit-nav-link');
+    if (depositNavLink) {
+     depositNavLink.addEventListener('click', function(e) {
+      // Check if we're already on deposit.html
+      const currentPage = window.location.pathname;
+      if (currentPage.includes('deposit.html') || currentPage.endsWith('deposit')) {
+       e.preventDefault(); // Prevent page reload
+
+       // Switch to deposit tab
+       const depositTab = document.querySelector('.tab-btn[data-tab="deposit"]');
+       if (depositTab) {
+        depositTab.click();
+       }
+
+       // Scroll to top
+       window.scrollTo(0, 0);
+      }
+     });
+    }
+
+    // Tab Switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+     button.addEventListener('click', function() {
+      const tabName = this.getAttribute('data-tab');
+
+      // Remove active state from all buttons
+      tabButtons.forEach(btn => {
+       btn.classList.remove('border-primary', 'text-primary');
+       btn.classList.add('border-transparent', 'text-secondary-foreground');
+      });
+
+      // Add active state to clicked button
+      this.classList.remove('border-transparent', 'text-secondary-foreground');
+      this.classList.add('border-primary', 'text-primary');
+
+      // Hide all tab contents
+      tabContents.forEach(content => {
+       content.classList.add('hidden');
+      });
+
+      // Show selected tab content
+      const selectedContent = document.getElementById(tabName + '-content');
+      if (selectedContent) {
+       selectedContent.classList.remove('hidden');
+      }
+     });
+    });
+
+    // Amount Selection and Calculation
+    const amountOptions = document.querySelectorAll('.amount-option');
+    const amountRadios = document.querySelectorAll('.amount-radio');
+    const displayTotal = document.getElementById('display_total');
+
+    amountRadios.forEach((radio, index) => {
+     radio.addEventListener('change', function() {
+      // 清除所有選項的選中樣式
+      amountOptions.forEach(option => {
+       option.classList.remove('border-primary', 'bg-primary/5');
+       option.classList.add('border-border');
+      });
+
+      if (this.checked) {
+       // 添加選中樣式到當前選項
+       const parentLabel = amountOptions[index];
+       parentLabel.classList.remove('border-border');
+       parentLabel.classList.add('border-primary', 'bg-primary/5');
+
+       // Update display amount
+       const amount = parseInt(this.value);
+       displayTotal.textContent = 'NT$ ' + amount.toLocaleString();
+      }
+     });
+    });
+
+    // Invoice Email Edit/Save/Cancel
+    const invoiceEmailDisplay = document.getElementById('invoice_email_display');
+    const invoiceEmailInput = document.getElementById('invoice_email_input');
+    const editInvoiceBtn = document.getElementById('edit_invoice_btn');
+    const saveInvoiceBtn = document.getElementById('save_invoice_btn');
+    const cancelInvoiceBtn = document.getElementById('cancel_invoice_btn');
+    let originalEmail = invoiceEmailInput.value;
+
+    // Edit button - show input field
+    editInvoiceBtn.addEventListener('click', function() {
+     originalEmail = invoiceEmailInput.value; // Save current value
+     invoiceEmailDisplay.classList.add('hidden');
+     invoiceEmailInput.classList.remove('hidden');
+     editInvoiceBtn.classList.add('hidden');
+     saveInvoiceBtn.classList.remove('hidden');
+     cancelInvoiceBtn.classList.remove('hidden');
+    });
+
+    // Save button - validate and save
+    saveInvoiceBtn.addEventListener('click', function() {
+     const email = invoiceEmailInput.value.trim();
+
+     if (!email) {
+      alert('請輸入發票信箱');
+      return;
+     }
+
+     // Validate email format
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (!emailRegex.test(email)) {
+      alert('請輸入有效的 Email 格式');
+      return;
+     }
+
+     // Update display and hide input
+     invoiceEmailDisplay.textContent = email;
+     invoiceEmailDisplay.classList.remove('hidden');
+     invoiceEmailInput.classList.add('hidden');
+     editInvoiceBtn.classList.remove('hidden');
+     saveInvoiceBtn.classList.add('hidden');
+     cancelInvoiceBtn.classList.add('hidden');
+
+     alert('發票信箱已更新: ' + email);
+     console.log('Invoice Email Updated:', email);
+    });
+
+    // Cancel button - revert changes
+    cancelInvoiceBtn.addEventListener('click', function() {
+     invoiceEmailInput.value = originalEmail; // Restore original value
+     invoiceEmailDisplay.classList.remove('hidden');
+     invoiceEmailInput.classList.add('hidden');
+     editInvoiceBtn.classList.remove('hidden');
+     saveInvoiceBtn.classList.add('hidden');
+     cancelInvoiceBtn.classList.add('hidden');
+    });
+
+    // Confirm Deposit Button
+    const confirmDepositBtn = document.getElementById('confirm_deposit');
+    confirmDepositBtn.addEventListener('click', function() {
+     const depositAmount = document.querySelector('input[name="deposit_amount"]:checked');
+     const selfTransfer = document.getElementById('self_transfer').checked;
+
+     if (!depositAmount) {
+      alert('請選擇儲值金額');
+      return;
+     }
+
+     // Here you can add the logic to proceed with the deposit
+     const amount = parseInt(depositAmount.value);
+     const diamonds = parseInt(depositAmount.getAttribute('data-diamonds'));
+     const bonus = parseInt(depositAmount.getAttribute('data-bonus'));
+     const totalDiamonds = diamonds + bonus;
+
+     console.log('Deposit Amount:', amount);
+     console.log('Diamonds:', diamonds);
+     console.log('Bonus:', bonus);
+     console.log('Total Diamonds:', totalDiamonds);
+     console.log('Self Transfer:', selfTransfer);
+
+     alert('儲值資訊已確認！\n金額: NT$ ' + amount.toLocaleString() + '\n基礎 P: ' + diamonds.toLocaleString() + '\n贈送 P: ' + bonus.toLocaleString() + '\n總計: ' + totalDiamonds.toLocaleString() + ' P');
+    });
+   });
+  </script>
+  <!-- Scripts -->
+  <script src="assets/js/core.bundle.js">
+  </script>
+  <script src="assets/vendors/ktui/ktui.min.js">
+  </script>
+  <script src="assets/vendors/apexcharts/apexcharts.min.js">
+  </script>
+  <script src="assets/js/widgets/general.js">
+  </script>
+  <!-- End of Scripts -->
+ </body>
+</html>

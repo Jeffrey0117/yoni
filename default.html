@@ -692,7 +692,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseHours()">
               <i class="ki-filled ki-minus"></i>
              </button>
-             <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 60px;" />
+             <input type="number" class="kt-input text-center" id="booking_hours" value="3" min="3" readonly style="max-width: 60px; cursor: default;" />
              <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseHours()">
               <i class="ki-filled ki-plus"></i>
              </button>
@@ -753,7 +753,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </a>
       </div>
       <div class="kt-menu-item">
-       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="#">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="deposit.html">
         <span class="kt-menu-title font-medium text-foreground text-sm">
          儲值
         </span>
@@ -3123,7 +3123,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseRenewalHours()">
             <i class="ki-filled ki-minus"></i>
            </button>
-           <input type="number" class="kt-input text-center" id="renewal_booking_hours" value="3" min="3" readonly style="max-width: 60px;">
+           <input type="number" class="kt-input text-center" id="renewal_booking_hours" value="3" min="3" readonly style="max-width: 60px; cursor: default;">
            <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseRenewalHours()">
             <i class="ki-filled ki-plus"></i>
            </button>
@@ -4298,13 +4298,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   
   // 服務商幫客人續約
   function handleHelpClientRenewal(orderId) {
-    if (!confirm('確定要幫客人申請續約嗎？')) {
-      return;
-    }
-    
-    // TODO: 發送 API 請求
-    console.log('服務商幫客人續約:', orderId);
-    alert('已幫客人送出續約申請');
+    // 打開續約申請彈窗
+    openRenewalRequestModal(orderId);
   }
   
   // 點擊背景關閉退單彈窗
@@ -4322,7 +4317,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     const renewalModal = document.getElementById('renewal-request-modal');
     if (renewalModal) {
       renewalModal.addEventListener('click', function(e) {
-        if (e.target === this) {
+        // 點擊 overlay 或 overlay-dialog 時關閉（但不包括 dialog 內容）
+        if (e.target.classList.contains('el-overlay') ||
+            e.target.classList.contains('el-overlay-dialog')) {
           closeRenewalRequestModal();
         }
       });
