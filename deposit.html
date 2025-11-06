@@ -896,19 +896,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       return;
      }
 
-     // Here you can add the logic to proceed with the deposit
+     // Get deposit data
      const amount = parseInt(depositAmount.value);
      const diamonds = parseInt(depositAmount.getAttribute('data-diamonds'));
      const bonus = parseInt(depositAmount.getAttribute('data-bonus'));
-     const totalDiamonds = diamonds + bonus;
 
-     console.log('Deposit Amount:', amount);
-     console.log('Diamonds:', diamonds);
-     console.log('Bonus:', bonus);
-     console.log('Total Diamonds:', totalDiamonds);
-     console.log('Self Transfer:', selfTransfer);
-
-     alert('儲值資訊已確認！\n金額: NT$ ' + amount.toLocaleString() + '\n基礎 P: ' + diamonds.toLocaleString() + '\n贈送 P: ' + bonus.toLocaleString() + '\n總計: ' + totalDiamonds.toLocaleString() + ' P');
+     // Redirect to deposit-next.html with data
+     window.location.href = 'deposit-next.html?amount=' + amount + '&diamonds=' + diamonds + '&bonus=' + bonus;
     });
    });
   </script>
