@@ -3060,6 +3060,105 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     </div>
    </div>
   </div>
+
+  <!-- 續約申請彈窗 -->
+  <div id="renewal-request-modal" class="el-overlay" style="z-index: 2026; display: none;">
+   <div role="dialog" aria-modal="true" aria-label="續約申請" class="el-overlay-dialog" style="display: flex;">
+    <div class="el-dialog is-align-center" tabindex="-1" style="--el-dialog-width: 600px;">
+     <header class="el-dialog__header show-close">
+      <span role="heading" aria-level="2" class="el-dialog__title">續約申請</span>
+      <button aria-label="Close this dialog" class="el-dialog__headerbtn" type="button" onclick="closeRenewalRequestModal()">
+       <i class="el-icon el-dialog__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+         <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+        </svg>
+       </i>
+      </button>
+     </header>
+     <div class="el-dialog__body">
+      <div class="flex flex-col gap-5">
+       <!-- 訂單資訊 -->
+       <div class="flex flex-col gap-3 p-4 bg-accent/30 border border-border rounded-lg">
+        <h4 class="text-sm font-semibold text-mono">訂單資訊</h4>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">訂單編號</span>
+          <span class="text-sm font-medium text-mono" id="renewal-order-id">20250625-00002</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">訂單狀態</span>
+          <span class="kt-badge kt-badge-primary kt-badge-sm" id="renewal-order-status">進行中</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">服務商</span>
+          <span class="text-sm font-medium text-mono" id="renewal-provider-name">安娜寶貝</span>
+         </div>
+         <div class="flex flex-col">
+          <span class="text-xs text-secondary-foreground mb-1">出席費</span>
+          <span class="text-sm font-medium text-mono" id="renewal-order-amount">3000 P</span>
+         </div>
+        </div>
+       </div>
+
+       <!-- 預約表單區塊 -->
+       <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
+        <!-- 三欄橫向布局 (無論螢幕大小都是橫向) -->
+        <div class="grid grid-cols-3 gap-4">
+         <!-- 邀約類型 -->
+         <div class="flex flex-col gap-2">
+          <label class="text-sm font-semibold text-mono">邀約類型</label>
+          <input type="text" class="kt-input" id="renewal_date_type" value="吃飯" readonly style="background-color: #F5F7FA;">
+         </div>
+
+         <!-- 預訂日期 -->
+         <div class="flex flex-col gap-2">
+          <label class="text-sm font-semibold text-mono">預訂日期</label>
+          <input type="date" class="kt-input" id="renewal_booking_date" value="2025-11-06" readonly style="background-color: #F5F7FA;">
+         </div>
+
+         <!-- 預定時長 -->
+         <div class="flex flex-col gap-2">
+          <label class="text-sm font-semibold text-mono">預定時長 (小時)</label>
+          <div class="flex items-center gap-2">
+           <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="decreaseRenewalHours()">
+            <i class="ki-filled ki-minus"></i>
+           </button>
+           <input type="number" class="kt-input text-center" id="renewal_booking_hours" value="3" min="3" readonly style="max-width: 60px;">
+           <button class="kt-btn kt-btn-icon kt-btn-sm kt-btn-outline" onclick="increaseRenewalHours()">
+            <i class="ki-filled ki-plus"></i>
+           </button>
+          </div>
+         </div>
+        </div>
+
+        <!-- 提示訊息(紅色) -->
+        <span class="text-xs font-medium" style="color: #ef4444;">[ 每次約會不得低於3小時 ]</span>
+
+        <!-- 金額顯示 -->
+        <div class="flex flex-col gap-2 p-4 bg-accent/30 rounded-lg">
+         <div class="flex justify-between items-center">
+          <span class="text-sm font-medium text-secondary-foreground">每小時</span>
+          <span class="text-base font-semibold text-mono" id="renewal_price_per_hour">1000 P</span>
+         </div>
+         <div class="border-t border-border my-2"></div>
+         <div class="flex justify-between items-center">
+          <span class="text-base font-semibold text-mono">總計</span>
+          <span class="text-xl font-bold text-primary" id="renewal_total_price">3,000 P</span>
+         </div>
+        </div>
+
+        <!-- 立即續約按鈕 -->
+        <button class="kt-btn kt-btn-primary kt-btn-lg w-full justify-center" onclick="submitRenewalRequest()">
+         <i class="ki-filled ki-calendar"></i>
+         立即續約
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
   <!-- End of Share Profile Modal -->
   <div class="kt-modal" data-kt-modal="true" id="give_award_modal">
    <div class="kt-modal-content max-w-[500px] top-[15%]">
@@ -3876,7 +3975,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         member: {
           pending: ['requestRefund'],
           confirmed: ['requestRefund'],
-          inprogress: ['requestRefund', 'requestRenewal'],
+          inprogress: ['requestRefund', 'requestRenewal', 'helpClientRenewal'],
           completed: ['requestRenewal']
         },
         provider: {
@@ -4053,13 +4152,115 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   
   // 會員申請續約
   function handleRequestRenewal(orderId) {
-    if (!confirm('確定要申請續約此訂單嗎？')) {
+    openRenewalRequestModal(orderId);
+  }
+
+  // 開啟續約申請彈窗
+  function openRenewalRequestModal(orderId) {
+    const modal = document.getElementById('renewal-request-modal');
+    if (!modal) return;
+
+    // TODO: 從 API 獲取訂單資訊
+    // 這裡暫時使用靜態資料示範
+    document.getElementById('renewal-order-id').textContent = orderId || '20250625-00002';
+
+    modal.style.display = 'block';
+  }
+
+  // 關閉續約申請彈窗
+  function closeRenewalRequestModal() {
+    const modal = document.getElementById('renewal-request-modal');
+    if (!modal) return;
+
+    // 清空表單
+    document.getElementById('renewal_date_type').value = '吃飯';
+    document.getElementById('renewal_booking_date').value = '2025-11-06';
+    document.getElementById('renewal_booking_hours').value = '3';
+    updateRenewalTotalPrice();
+
+    modal.style.display = 'none';
+  }
+
+  // 減少續約時數
+  function decreaseRenewalHours() {
+    const hoursInput = document.getElementById('renewal_booking_hours');
+    if (!hoursInput) return;
+
+    let currentHours = parseInt(hoursInput.value) || 3;
+    
+    // 最低為3小時
+    if (currentHours > 3) {
+      currentHours--;
+      hoursInput.value = currentHours;
+      updateRenewalTotalPrice();
+    }
+  }
+
+  // 增加續約時數
+  function increaseRenewalHours() {
+    const hoursInput = document.getElementById('renewal_booking_hours');
+    if (!hoursInput) return;
+
+    let currentHours = parseInt(hoursInput.value) || 3;
+    currentHours++;
+    hoursInput.value = currentHours;
+    updateRenewalTotalPrice();
+  }
+
+  // 更新續約總價
+  function updateRenewalTotalPrice() {
+    const hours = parseInt(document.getElementById('renewal_booking_hours').value) || 3;
+
+    // 假設單價為 1000 P (可根據實際需求調整)
+    const pricePerHour = 1000;
+
+    // 計算總價 (時數 * 單價)
+    const totalPrice = hours * pricePerHour;
+
+    // 更新顯示
+    const pricePerHourElement = document.getElementById('renewal_price_per_hour');
+    const totalPriceElement = document.getElementById('renewal_total_price');
+
+    if (pricePerHourElement) {
+      pricePerHourElement.textContent = pricePerHour + ' P';
+    }
+
+    if (totalPriceElement) {
+      totalPriceElement.textContent = totalPrice.toLocaleString() + ' P';
+    }
+  }
+
+  // 送出續約申請
+  function submitRenewalRequest() {
+    const orderId = document.getElementById('renewal-order-id').textContent;
+    const dateType = document.getElementById('renewal_date_type').value;
+    const bookingDate = document.getElementById('renewal_booking_date').value;
+    const bookingHours = document.getElementById('renewal_booking_hours').value;
+
+    // 驗證時數是否不低於3小時
+    if (parseInt(bookingHours) < 3) {
+      alert('⚠️ 每次約會不得低於3小時！');
       return;
     }
-    
+
+    // 驗證必填欄位
+    if (!dateType || !bookingDate) {
+      alert('⚠️ 請填寫所有必填欄位！');
+      return;
+    }
+
     // TODO: 發送 API 請求
-    console.log('會員申請續約:', orderId);
-    alert('續約申請已送出，等待服務商確認');
+    const renewalData = {
+      orderId: orderId,
+      dateType: dateType,
+      bookingDate: bookingDate,
+      bookingHours: bookingHours,
+      totalPrice: parseInt(bookingHours) * 1000
+    };
+
+    console.log('續約申請資料:', renewalData);
+    alert('✅ 續約申請已送出,等待服務商確認');
+    closeRenewalRequestModal();
   }
   
   // 服務商確認接單
@@ -4108,13 +4309,55 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   
   // 點擊背景關閉退單彈窗
   document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('refund-request-modal');
-    if (modal) {
-      modal.addEventListener('click', function(e) {
+    const refundModal = document.getElementById('refund-request-modal');
+    if (refundModal) {
+      refundModal.addEventListener('click', function(e) {
         if (e.target === this) {
           closeRefundRequestModal();
         }
       });
+    }
+
+    // 點擊背景關閉續約彈窗
+    const renewalModal = document.getElementById('renewal-request-modal');
+    if (renewalModal) {
+      renewalModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeRenewalRequestModal();
+        }
+      });
+    }
+
+    // 添加時數輸入框的即時驗證和樣式
+    const hoursInputs = [
+      'renewal-hours-start',
+      'renewal-hours-plan',
+      'renewal-hours-estimate'
+    ];
+
+    hoursInputs.forEach(inputId => {
+      const input = document.getElementById(inputId);
+      if (input) {
+        input.addEventListener('input', function() {
+          const value = parseInt(this.value) || 0;
+
+          // 檢查是否為3的倍數
+          if (value % 3 !== 0 && value !== 0) {
+            this.style.borderColor = '#ef4444'; // 紅色邊框
+          } else {
+            this.style.borderColor = ''; // 恢復默認
+          }
+
+          // 更新總價
+          updateRenewalTotalPrice();
+        });
+      }
+    });
+
+    // 租金輸入框變動時也更新總價
+    const rentInput = document.getElementById('renewal-rent');
+    if (rentInput) {
+      rentInput.addEventListener('input', updateRenewalTotalPrice);
     }
     
     // 初始化訂單狀態管理（示範）
