@@ -1068,9 +1068,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <div class="kt-container-fixed">
       <!-- 角色切換器 -->
       <div class="flex justify-center py-3 px-4">
-       <div class="inline-flex items-center gap-2 sm:gap-3 bg-card border border-border rounded-lg px-3 sm:px-4 py-2">
-        <span class="text-xs sm:text-sm font-medium text-secondary-foreground">角色：</span>
-        <select id="role-selector" class="kt-select text-sm" style="min-width: 100px;">
+       <div class="flex items-center gap-3 bg-card border border-border rounded-lg px-4 py-2.5">
+        <span class="text-sm font-medium text-secondary-foreground whitespace-nowrap">目前角色</span>
+        <select id="role-selector" class="kt-select text-sm" style="min-width: 120px;">
          <option value="member">客人</option>
          <option value="provider">服務商</option>
         </select>
@@ -1308,24 +1308,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <div class="w-full flex flex-col gap-4 px-2 sm:px-4" id="orders-list-container">
          <div class="kt-card">
           <div class="kt-card-header bg-muted/70 h-auto py-3 sm:py-5">
-           <div class="flex flex-col gap-3 w-full">
-            <div class="flex flex-col gap-1.5">
+           <div class="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-4 w-full">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
              <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors break-words" onclick="openOrderDetails('20250626-00001')">20250626-00001</span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">下單時間</span>
              <span class="text-sm font-medium text-mono">2025-06-26 14:30:00</span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">出席費</span>
              <span class="text-sm font-medium text-mono">$512.60</span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">邀約時間</span>
              <span class="text-sm font-medium text-mono">2025-07-07 18:30</span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
              <span class="text-sm font-medium text-mono break-words">Jeroen van Dijk
              </span>
@@ -1551,11 +1551,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
           <!-- 約會類型/費用/時數/鑽石 表格 -->
           <div class="flex flex-col gap-4">
-           <div class="flex items-start gap-4">
-            <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px; margin-top: 8px;">約會服務設定 <span style="color: #f64696;">*</span></label>
+           <div class="flex flex-col lg:flex-row lg:items-start gap-4">
+            <label class="text-sm font-semibold text-mono whitespace-nowrap lg:min-w-[120px] lg:mt-2">約會服務設定 <span style="color: #f64696;">*</span></label>
             <div class="flex-1">
-             <div class="text-xs text-secondary-foreground mb-2">若該項目未填寫費用，則表示您不支援此服務</div>
-             <div class="overflow-x-auto">
+             <div class="text-xs text-secondary-foreground mb-3">若該項目未填寫費用，則表示您不支援此服務</div>
+
+             <!-- 桌面版：表格佈局 -->
+             <div class="hidden lg:block overflow-x-auto">
               <table class="w-full border border-border rounded-lg overflow-hidden">
                <thead class="bg-muted/70">
                 <tr>
@@ -1567,7 +1569,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                 </tr>
                </thead>
                <tbody>
-                <!-- 吃飯 -->
                 <tr class="border-b border-border">
                  <td class="p-3 text-sm text-mono">吃飯</td>
                  <td class="p-3">
@@ -1581,7 +1582,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                   <input type="text" class="kt-input w-full bg-accent/50" placeholder="自動計算" data-date-type="dinner" data-field="diamond" readonly style="background-color: #F5F7FA;" />
                  </td>
                 </tr>
-                <!-- 看電影 -->
                 <tr class="border-b border-border">
                  <td class="p-3 text-sm text-mono">看電影</td>
                  <td class="p-3">
@@ -1595,7 +1595,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                   <input type="text" class="kt-input w-full bg-accent/50" placeholder="自動計算" data-date-type="movie" data-field="diamond" readonly style="background-color: #F5F7FA;" />
                  </td>
                 </tr>
-                <!-- 運動 -->
                 <tr>
                  <td class="p-3 text-sm text-mono">運動</td>
                  <td class="p-3">
@@ -1611,6 +1610,78 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                 </tr>
                </tbody>
               </table>
+             </div>
+
+             <!-- 手機版：卡片式佈局 -->
+             <div class="flex flex-col gap-4 lg:hidden">
+              <!-- 吃飯 -->
+              <div class="border border-border rounded-lg p-4 bg-background">
+               <h4 class="text-sm font-semibold text-mono mb-3">吃飯</h4>
+               <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">費用 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入費用" data-date-type="dinner" data-field="price" min="0" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">最低時數 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入時數" data-date-type="dinner" data-field="hours" min="1" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">當前匯率</label>
+                 <input type="text" class="kt-input" value="30" readonly style="background-color: #F5F7FA;" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">鑽石</label>
+                 <input type="text" class="kt-input" placeholder="自動計算" data-date-type="dinner" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                </div>
+               </div>
+              </div>
+
+              <!-- 看電影 -->
+              <div class="border border-border rounded-lg p-4 bg-background">
+               <h4 class="text-sm font-semibold text-mono mb-3">看電影</h4>
+               <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">費用 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入費用" data-date-type="movie" data-field="price" min="0" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">最低時數 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入時數" data-date-type="movie" data-field="hours" min="1" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">當前匯率</label>
+                 <input type="text" class="kt-input" value="30" readonly style="background-color: #F5F7FA;" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">鑽石</label>
+                 <input type="text" class="kt-input" placeholder="自動計算" data-date-type="movie" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                </div>
+               </div>
+              </div>
+
+              <!-- 運動 -->
+              <div class="border border-border rounded-lg p-4 bg-background">
+               <h4 class="text-sm font-semibold text-mono mb-3">運動</h4>
+               <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">費用 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入費用" data-date-type="sport" data-field="price" min="0" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">最低時數 <span style="color: #f64696;">*</span></label>
+                 <input type="number" class="kt-input" placeholder="請輸入時數" data-date-type="sport" data-field="hours" min="1" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">當前匯率</label>
+                 <input type="text" class="kt-input" value="30" readonly style="background-color: #F5F7FA;" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                 <label class="text-xs text-secondary-foreground">鑽石</label>
+                 <input type="text" class="kt-input" placeholder="自動計算" data-date-type="sport" data-field="diamond" readonly style="background-color: #F5F7FA;" />
+                </div>
+               </div>
+              </div>
              </div>
             </div>
            </div>
@@ -3927,24 +3998,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       orderCard.className = 'kt-card';
       orderCard.innerHTML = `
        <div class="kt-card-header bg-muted/70 h-auto py-3 sm:py-5">
-        <div class="flex flex-col gap-3 w-full">
-         <div class="flex flex-col gap-1.5">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-4 w-full">
+         <div class="flex flex-col gap-1.5 min-w-0">
           <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
           <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors break-words" onclick="openOrderDetails('${order.id}')">${order.id}</span>
          </div>
-         <div class="flex flex-col gap-1.5">
+         <div class="flex flex-col gap-1.5 min-w-0">
           <span class="text-xs font-normal text-secondary-foreground">下單時間</span>
           <span class="text-sm font-medium text-mono">${order.orderTime}</span>
          </div>
-         <div class="flex flex-col gap-1.5">
+         <div class="flex flex-col gap-1.5 min-w-0">
           <span class="text-xs font-normal text-secondary-foreground">出席費</span>
           <span class="text-sm font-medium text-mono">${order.fee}</span>
          </div>
-         <div class="flex flex-col gap-1.5">
+         <div class="flex flex-col gap-1.5 min-w-0">
           <span class="text-xs font-normal text-secondary-foreground">邀約時間</span>
           <span class="text-sm font-medium text-mono">${order.bookingTime}</span>
          </div>
-         <div class="flex flex-col gap-1.5">
+         <div class="flex flex-col gap-1.5 min-w-0">
           <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
           <span class="text-sm font-medium text-mono break-words">${order.address}</span>
          </div>

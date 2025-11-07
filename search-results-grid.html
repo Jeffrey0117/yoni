@@ -92,6 +92,63 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      <!-- End of Logo -->
      <!-- Topbar -->
      <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!-- 背景切換器 -->
+      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-trigger="click">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true" title="背景顏色">
+        <i class="ki-filled ki-colors-square text-xl">
+        </i>
+       </button>
+       <div class="kt-dropdown-menu w-[280px]" data-kt-dropdown-menu="true">
+        <div class="px-3 py-2">
+         <h4 class="text-sm font-semibold text-mono mb-2">選擇背景顏色</h4>
+         <div class="flex flex-col gap-2">
+          <button class="bg-color-option flex items-center gap-2 px-3 py-2 rounded hover:bg-accent/50 transition-colors" onclick="changeBackground('gradient1')">
+           <div class="w-8 h-8 rounded border border-border" style="background: linear-gradient(135deg, #ffe0ef 0%, #e9d6ff 100%);"></div>
+           <span class="text-sm">粉紫斜角</span>
+          </button>
+          <button class="bg-color-option flex items-center gap-2 px-3 py-2 rounded hover:bg-accent/50 transition-colors" onclick="changeBackground('gradient2')">
+           <div class="w-8 h-8 rounded border border-border" style="background: linear-gradient(180deg, #f5c7e9 0%, #d6b7ff 100%);"></div>
+           <span class="text-sm">粉紫垂直</span>
+          </button>
+          <button class="bg-color-option flex items-center gap-2 px-3 py-2 rounded hover:bg-accent/50 transition-colors" onclick="changeBackground('gradient3')">
+           <div class="w-8 h-8 rounded border border-border" style="background: linear-gradient(90deg, #fff0f8 0%, #f2e6ff 100%);"></div>
+           <span class="text-sm">粉紫橫向</span>
+          </button>
+          <div class="border-t border-border my-1"></div>
+          <div class="px-2 py-2">
+           <label class="text-xs font-medium text-secondary-foreground mb-2 block">自訂漸層顏色</label>
+           <div class="flex items-center gap-2 mb-2">
+            <label class="flex items-center gap-1.5 flex-1">
+             <span class="text-xs text-secondary-foreground">顏色1:</span>
+             <input type="color" id="custom-color-1" value="#ffe0ef" class="w-full h-8 rounded border border-border cursor-pointer">
+            </label>
+            <label class="flex items-center gap-1.5 flex-1">
+             <span class="text-xs text-secondary-foreground">顏色2:</span>
+             <input type="color" id="custom-color-2" value="#e9d6ff" class="w-full h-8 rounded border border-border cursor-pointer">
+            </label>
+           </div>
+           <div class="flex items-center gap-2 mb-2">
+            <label class="text-xs text-secondary-foreground">方向:</label>
+            <select id="custom-gradient-direction" class="kt-select text-xs flex-1">
+             <option value="135deg">斜角</option>
+             <option value="180deg">垂直</option>
+             <option value="90deg">橫向</option>
+            </select>
+           </div>
+           <button class="kt-btn kt-btn-sm kt-btn-primary w-full justify-center" onclick="applyCustomGradient()">
+            <i class="ki-filled ki-check"></i>
+            套用自訂顏色
+           </button>
+          </div>
+          <div class="border-t border-border my-1"></div>
+          <button class="bg-color-option flex items-center gap-2 px-3 py-2 rounded hover:bg-accent/50 transition-colors" onclick="changeBackground('default')">
+           <div class="w-8 h-8 rounded border border-border bg-background"></div>
+           <span class="text-sm">恢復預設</span>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
       <!-- User -->
       <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
        <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
@@ -742,7 +799,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
    <!-- End of Navbar -->
    <!-- Wrapper Container -->
-   <div class="container-fixed w-full flex px-0">
+   <div class="container-fixed w-full flex px-0" id="main-wrapper">
     <!-- Content -->
     <main class="flex flex-col grow" id="content" role="content">
      <!-- Breadcrumb -->
@@ -5594,6 +5651,160 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       })
     };
   })();
+
+  // ===== 背景顏色切換功能 =====
+  function changeBackground(bgType, customGradient = null) {
+    const html = document.documentElement;
+    const body = document.body;
+    const header = document.getElementById('header');
+    const navbar = document.getElementById('navbar');
+    const mainWrapper = document.getElementById('main-wrapper');
+
+    // 根據選擇套用新背景
+    let backgroundValue = '';
+
+    if (customGradient) {
+      // 使用自訂漸層
+      backgroundValue = customGradient;
+    } else {
+      switch(bgType) {
+        case 'gradient1':
+          backgroundValue = 'linear-gradient(135deg, #ffe0ef 0%, #e9d6ff 100%)';
+          break;
+        case 'gradient2':
+          backgroundValue = 'linear-gradient(180deg, #f5c7e9 0%, #d6b7ff 100%)';
+          break;
+        case 'gradient3':
+          backgroundValue = 'linear-gradient(90deg, #fff0f8 0%, #f2e6ff 100%)';
+          break;
+        case 'default':
+        default:
+          backgroundValue = '';
+          break;
+      }
+    }
+
+    // 套用到 html 元素，這樣整個頁面都會有背景
+    if (backgroundValue) {
+      html.style.background = backgroundValue;
+      html.style.minHeight = '100vh';
+
+      // 讓 body 透明
+      body.classList.remove('bg-background');
+      body.style.setProperty('background', 'transparent', 'important');
+
+      // 讓 header 和 navbar 透明，顯示底層的漸層背景
+      if (header) {
+        header.style.setProperty('background', 'transparent', 'important');
+        header.classList.remove('bg-background');
+        header.classList.add('backdrop-blur-sm');
+      }
+      if (navbar) {
+        navbar.style.setProperty('background', 'transparent', 'important');
+        navbar.classList.remove('bg-muted');
+        navbar.classList.add('backdrop-blur-sm');
+      }
+      // 讓 main-wrapper 也透明
+      if (mainWrapper) {
+        mainWrapper.style.setProperty('background', 'transparent', 'important');
+      }
+
+      // 添加全域樣式讓所有 kt-container-fixed 透明
+      let styleTag = document.getElementById('custom-bg-style');
+      if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'custom-bg-style';
+        document.head.appendChild(styleTag);
+      }
+      styleTag.textContent = `
+        .kt-container-fixed {
+          background: transparent !important;
+        }
+      `;
+    } else {
+      html.style.background = '';
+      html.style.minHeight = '';
+
+      // 恢復 body 背景
+      body.style.background = '';
+      body.classList.add('bg-background');
+
+      // 恢復 header 和 navbar 的原始背景
+      if (header) {
+        header.style.background = '';
+        header.classList.add('bg-background');
+        header.classList.remove('backdrop-blur-sm');
+      }
+      if (navbar) {
+        navbar.style.background = '';
+        navbar.classList.add('bg-muted');
+        navbar.classList.remove('backdrop-blur-sm');
+      }
+      // 恢復 main-wrapper 背景
+      if (mainWrapper) {
+        mainWrapper.style.background = '';
+      }
+
+      // 移除全域樣式
+      const styleTag = document.getElementById('custom-bg-style');
+      if (styleTag) {
+        styleTag.remove();
+      }
+    }
+
+    // 儲存選擇到 localStorage
+    if (customGradient) {
+      localStorage.setItem('homepage-background', 'custom');
+      localStorage.setItem('homepage-background-custom', customGradient);
+    } else {
+      localStorage.setItem('homepage-background', bgType);
+      localStorage.removeItem('homepage-background-custom');
+    }
+
+    console.log('背景已切換為:', customGradient || bgType);
+  }
+
+  // 套用自訂漸層顏色
+  function applyCustomGradient() {
+    const color1 = document.getElementById('custom-color-1').value;
+    const color2 = document.getElementById('custom-color-2').value;
+    const direction = document.getElementById('custom-gradient-direction').value;
+
+    const customGradient = `linear-gradient(${direction}, ${color1} 0%, ${color2} 100%)`;
+    changeBackground('custom', customGradient);
+
+    console.log('自訂漸層已套用:', customGradient);
+  }
+
+  // 頁面載入時恢復之前的背景選擇
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedBackground = localStorage.getItem('homepage-background');
+    const customGradient = localStorage.getItem('homepage-background-custom');
+
+    if (savedBackground === 'custom' && customGradient) {
+      changeBackground('custom', customGradient);
+
+      // 嘗試從儲存的漸層中提取顏色值並設定回 color picker
+      const gradientMatch = customGradient.match(/linear-gradient\((\d+deg),\s*(#[0-9a-fA-F]{6})\s*0%,\s*(#[0-9a-fA-F]{6})\s*100%\)/);
+      if (gradientMatch) {
+        const direction = gradientMatch[1];
+        const color1 = gradientMatch[2];
+        const color2 = gradientMatch[3];
+
+        setTimeout(() => {
+          const picker1 = document.getElementById('custom-color-1');
+          const picker2 = document.getElementById('custom-color-2');
+          const directionSelect = document.getElementById('custom-gradient-direction');
+
+          if (picker1) picker1.value = color1;
+          if (picker2) picker2.value = color2;
+          if (directionSelect) directionSelect.value = direction;
+        }, 100);
+      }
+    } else if (savedBackground && savedBackground !== 'default') {
+      changeBackground(savedBackground);
+    }
+  });
   </script>
   <!-- End of Scripts -->
  </body>
