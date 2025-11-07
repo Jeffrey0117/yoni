@@ -9,7 +9,7 @@ Follow: https://www.twitter.com/keenthemes
 License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 -->
 <!DOCTYPE html>
-<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+<html class="h-full max-w-full overflow-x-hidden" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
  <head>
   <title>
    首頁
@@ -188,7 +188,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    }
   </style>
  </head>
- <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px] max-w-full overflow-x-hidden">
   <!-- Theme Mode -->
   <script>
    const defaultThemeMode = 'light'; // light|dark|system
@@ -1005,14 +1005,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
    <!-- End of Breadcrumb -->
    <!-- Wrapper Container -->
-   <div class="container-fixed w-full flex px-0">
+   <div class="container-fixed w-full max-w-full flex px-0">
     <!-- Content -->
     <main class="flex flex-col grow" id="content" role="content">
     <!-- End of Navbar -->
    <!-- Wrapper Container -->
-   <div class="container-fixed w-full flex px-0">
+   <div class="container-fixed w-full max-w-full flex px-0">
     <!-- Content -->
-    <main class="flex flex-col grow" id="content" role="content">
+    <main class="flex flex-col grow max-w-full overflow-x-hidden" id="content" role="content">
      <style>
       .hero-bg {
 		background-image: url('assets/media/images/2600x1200/bg-1.png');
@@ -1280,71 +1280,54 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div id="orders-section" class="hidden flex-col w-full mb-12">
         <!-- 訂單狀態篩選分頁 (全寬, 置中) -->
         <div class="w-full mb-5">
-         <div class="flex items-center justify-center border-b border-border overflow-x-auto">
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-order-status="all">
-           全部
-          </button>
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="pending">
-           待確認
-          </button>
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="confirmed">
-           待執行
-          </button>
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="inprogress">
-           進行中
-          </button>
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="completed">
-           已結束
-          </button>
-          <button class="order-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="refunded">
-           退單
-          </button>
+         <div class="overflow-x-auto">
+          <div class="flex items-center justify-center border-b border-border px-2">
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-order-status="all">
+            全部
+           </button>
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="pending">
+            待確認
+           </button>
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="confirmed">
+            待執行
+           </button>
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="inprogress">
+            進行中
+           </button>
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="completed">
+            已結束
+           </button>
+           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="refunded">
+            退單
+           </button>
+          </div>
          </div>
         </div>
 
         <!-- 訂單列表容器 (全寬) -->
-        <div class="w-full flex flex-col gap-4" id="orders-list-container">
+        <div class="w-full flex flex-col gap-4 px-2 sm:px-4" id="orders-list-container">
          <div class="kt-card">
-          <div class="kt-card-header bg-muted/70 h-auto py-5">
-           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full">
+          <div class="kt-card-header bg-muted/70 h-auto py-3 sm:py-5">
+           <div class="flex flex-col gap-3 w-full">
             <div class="flex flex-col gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground">
-              訂單編號
-             </span>
-             <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors" onclick="openOrderDetails('20250626-00001')">
-              20250626-00001
-             </span>
+             <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
+             <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors break-words" onclick="openOrderDetails('20250626-00001')">20250626-00001</span>
             </div>
             <div class="flex flex-col gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground">
-              下單時間
-             </span>
-             <span class="text-sm font-medium text-mono">
-              2025-06-26 14:30:00
-             </span>
+             <span class="text-xs font-normal text-secondary-foreground">下單時間</span>
+             <span class="text-sm font-medium text-mono">2025-06-26 14:30:00</span>
             </div>
             <div class="flex flex-col gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground">
-              出席費
-             </span>
-             <span class="text-sm font-medium text-mono">
-              $512.60
-             </span>
+             <span class="text-xs font-normal text-secondary-foreground">出席費</span>
+             <span class="text-sm font-medium text-mono">$512.60</span>
             </div>
             <div class="flex flex-col gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground">
-              邀約時間
-             </span>
-             <span class="text-sm font-medium text-mono">
-              2025-07-07 18:30
-             </span>
+             <span class="text-xs font-normal text-secondary-foreground">邀約時間</span>
+             <span class="text-sm font-medium text-mono">2025-07-07 18:30</span>
             </div>
             <div class="flex flex-col gap-1.5">
-             <span class="text-xs font-normal text-secondary-foreground">
-              約會地址
-             </span>
-             <span class="text-sm font-medium text-mono">
-              Jeroen van Dijk
+             <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
+             <span class="text-sm font-medium text-mono break-words">Jeroen van Dijk
              </span>
             </div>
            </div>
@@ -1878,50 +1861,52 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div id="receiving-section" class="hidden flex-col w-full mb-12">
         <!-- 接單狀態篩選分頁 (全寬, 置中) -->
         <div class="w-full mb-5">
-         <div class="flex items-center justify-center border-b border-border overflow-x-auto">
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-receiving-status="all">
-           全部
-          </button>
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="pending">
-           待確認
-          </button>
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="confirmed">
-           待執行
-          </button>
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="inprogress">
-           進行中
-          </button>
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="completed">
-           已結束
-          </button>
-          <button class="receiving-status-tab px-4 py-3 font-medium text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="refunded">
-           退單
-          </button>
+         <div class="overflow-x-auto">
+          <div class="flex items-center justify-center border-b border-border min-w-max px-2">
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-receiving-status="all">
+            全部
+           </button>
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="pending">
+            待確認
+           </button>
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="confirmed">
+            待執行
+           </button>
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="inprogress">
+            進行中
+           </button>
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="completed">
+            已結束
+           </button>
+           <button class="receiving-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-receiving-status="refunded">
+            退單
+           </button>
+          </div>
          </div>
         </div>
 
         <!-- 接單列表 (全寬) -->
-        <div class="w-full">
+        <div class="w-full px-2 sm:px-4">
          <div class="kt-card">
-          <div class="kt-card-header bg-muted/70 h-auto py-5">
-           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full">
-            <div class="flex flex-col gap-1.5">
+          <div class="kt-card-header bg-muted/70 h-auto py-3 sm:py-5">
+           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 w-full">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">
               訂單編號
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="text-sm font-medium text-mono break-all">
               20250626-00001
              </span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">
               下單時間
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="text-sm font-medium text-mono break-words">
               2025-06-26 14:30:25
              </span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">
               出席費
              </span>
@@ -1929,19 +1914,19 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
               3000 P
              </span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">
               邀約時間
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="text-sm font-medium text-mono break-words">
               2025-07-07 18:30
              </span>
             </div>
-            <div class="flex flex-col gap-1.5">
+            <div class="flex flex-col gap-1.5 min-w-0">
              <span class="text-xs font-normal text-secondary-foreground">
               約會地址
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="text-sm font-medium text-mono break-words">
               台北市信義區
              </span>
             </div>
@@ -3941,11 +3926,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       const orderCard = document.createElement('div');
       orderCard.className = 'kt-card';
       orderCard.innerHTML = `
-       <div class="kt-card-header bg-muted/70 h-auto py-5">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full">
+       <div class="kt-card-header bg-muted/70 h-auto py-3 sm:py-5">
+        <div class="flex flex-col gap-3 w-full">
          <div class="flex flex-col gap-1.5">
           <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
-          <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors" onclick="openOrderDetails('${order.id}')">${order.id}</span>
+          <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors break-words" onclick="openOrderDetails('${order.id}')">${order.id}</span>
          </div>
          <div class="flex flex-col gap-1.5">
           <span class="text-xs font-normal text-secondary-foreground">下單時間</span>
@@ -3961,7 +3946,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </div>
          <div class="flex flex-col gap-1.5">
           <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
-          <span class="text-sm font-medium text-mono">${order.address}</span>
+          <span class="text-sm font-medium text-mono break-words">${order.address}</span>
          </div>
         </div>
        </div>
