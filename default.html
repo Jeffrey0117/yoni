@@ -726,6 +726,130 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
       </div>
       <!--End of Product Details Drawer-->
+
+      <!--Order Details Drawer-->
+      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_order_details" style="min-width: 520px; max-width: 520px; width: 520px !important;">
+       <div class="kt-card-header px-5">
+        <h3 class="kt-card-title">
+         訂單詳情
+        </h3>
+        <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
+         <i class="ki-filled ki-cross text-base">
+         </i>
+        </button>
+       </div>
+       <div class="kt-card-content flex flex-col space-y-5 p-5 kt-scrollable-y-auto" style="overflow-x: hidden; overflow-y: auto;">
+
+        <!-- 訂單資訊 -->
+        <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg">
+         <h4 class="text-base font-semibold text-mono mb-2">訂單資訊</h4>
+
+         <div class="flex flex-col gap-3 text-sm">
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">訂單編號</span>
+           <span class="font-medium text-mono" id="order-detail-id">-</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">下單時間</span>
+           <span class="font-medium text-mono" id="order-detail-order-time">-</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">邀約時間</span>
+           <span class="font-medium text-mono" id="order-detail-booking-time">-</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">出席費</span>
+           <span class="font-medium text-mono" id="order-detail-fee">-</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">訂單狀態</span>
+           <span class="kt-badge kt-badge-sm" id="order-detail-status">-</span>
+          </div>
+         </div>
+        </div>
+
+        <!-- 服務商資訊 -->
+        <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg">
+         <h4 class="text-base font-semibold text-mono mb-2">服務商資訊</h4>
+
+         <div class="flex items-center gap-3">
+          <div class="h-[60px] w-[60px] rounded-full overflow-hidden shrink-0">
+           <img id="order-detail-provider-img" src="" alt="服務商照片" class="h-full w-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1">
+           <span class="font-medium text-mono" id="order-detail-provider-name">-</span>
+           <div class="flex items-center gap-1.5">
+            <span class="kt-badge kt-badge-warning kt-badge-sm rounded-full gap-1">
+             <i class="ki-solid ki-star text-white -mt-0.5"></i>
+             <span id="order-detail-provider-rating">5.0</span>
+            </span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 約會地點 -->
+        <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg">
+         <h4 class="text-base font-semibold text-mono mb-2">約會地點</h4>
+
+         <div class="flex flex-col gap-3 text-sm">
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">約會場所</span>
+           <span class="font-medium text-mono" id="order-detail-venue">未選擇</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">所在縣市</span>
+           <span class="font-medium text-mono" id="order-detail-city">未選擇</span>
+          </div>
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">所在地區</span>
+           <span class="font-medium text-mono" id="order-detail-district">未選擇</span>
+          </div>
+          <div class="flex flex-col gap-2 pt-2 border-t border-border">
+           <span class="text-secondary-foreground">詳細地址</span>
+           <span class="font-medium text-mono" id="order-detail-address">未填寫</span>
+          </div>
+          <div class="flex flex-col gap-2 pt-2 border-t border-border">
+           <span class="text-secondary-foreground">約會說明</span>
+           <span class="font-medium text-mono text-sm leading-relaxed" id="order-detail-description">未填寫</span>
+          </div>
+         </div>
+        </div>
+
+        <!-- 付款資訊 -->
+        <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg">
+         <h4 class="text-base font-semibold text-mono mb-2">付款資訊</h4>
+
+         <div class="flex flex-col gap-3 text-sm">
+          <div class="flex justify-between items-center">
+           <span class="text-secondary-foreground">付款方式</span>
+           <span class="font-medium text-mono" id="order-detail-payment">未選擇</span>
+          </div>
+         </div>
+        </div>
+
+        <!-- 費用明細 -->
+        <div class="kt-card bg-accent/50">
+         <div class="kt-card-header px-5">
+          <h3 class="kt-card-title">費用明細</h3>
+         </div>
+         <div class="kt-card-content px-5 py-4 space-y-2">
+          <h4 class="text-sm font-medium text-mono mb-3.5">價格明細</h4>
+          <div class="flex justify-between items-center">
+           <span class="text-sm font-normal text-secondary-foreground">小計</span>
+           <span class="text-sm font-medium text-mono" id="order-detail-subtotal">-</span>
+          </div>
+         </div>
+         <div class="kt-card-footer flex justify-between items-center px-5">
+          <span class="text-sm font-normal text-secondary-foreground">總計</span>
+          <span class="text-base font-semibold text-mono" id="order-detail-total">-</span>
+         </div>
+        </div>
+
+       </div>
+      </div>
+      <!--End of Order Details Drawer-->
+
       <!-- End of Topbar -->
      </div>
     </div>
@@ -1179,16 +1303,16 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <span class="text-xs font-normal text-secondary-foreground">
               訂單編號
              </span>
-             <span class="text-sm font-medium text-mono">
-              X319330-S24
+             <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors" onclick="openOrderDetails('20250626-00001')">
+              20250626-00001
              </span>
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              邀約日期
+              下單時間
              </span>
              <span class="text-sm font-medium text-mono">
-              26 June, 2025
+              2025-06-26 14:30:00
              </span>
             </div>
             <div class="flex flex-col gap-1.5">
@@ -1201,18 +1325,18 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              約會地址
+              邀約時間
              </span>
              <span class="text-sm font-medium text-mono">
-              Jeroen van Dijk
+              2025-07-07 18:30
              </span>
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              預約日期/時間
+              約會地址
              </span>
              <span class="text-sm font-medium text-mono">
-              07 July, 2025
+              Jeroen van Dijk
              </span>
             </div>
            </div>
@@ -1221,10 +1345,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
               <div class="flex items-center gap-3.5">
                <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-                <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
+                <img alt="img" class="cursor-pointer h-[70px]" onclick="openOrderDetails('20250626-00001')" src="https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg">
                </div>
                <div class="flex flex-col gap-1">
-                <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+                <a class="hover:text-primary text-sm font-medium text-mono leading-5.5 cursor-pointer" onclick="openOrderDetails('20250626-00001')" href="javascript:void(0);">
                  安娜寶貝
                 </a>
                 <div class="flex items-center gap-1.5">
@@ -1788,10 +1912,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              邀約日期
+              下單時間
              </span>
              <span class="text-sm font-medium text-mono">
-              26 June, 2025
+              2025-06-26 14:30:00
              </span>
             </div>
             <div class="flex flex-col gap-1.5">
@@ -1804,18 +1928,18 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              約會地址
+              邀約時間
              </span>
              <span class="text-sm font-medium text-mono">
-              Jeroen van Dijk
+              2025-07-07 18:30
              </span>
             </div>
             <div class="flex flex-col gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground">
-              預約日期/時間
+              約會地址
              </span>
              <span class="text-sm font-medium text-mono">
-              07 July, 2025
+              Jeroen van Dijk
              </span>
             </div>
            </div>
@@ -3662,29 +3786,40 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     });
     
     // 訂單狀態篩選分頁切換功能
-    const orderStatusTabs = document.querySelectorAll('.order-status-tab');
-    
-    // 模擬訂單資料 (實際應從 API 獲取)
-    // 訂單編號格式: 年月日(8位) + 五碼流水號 + 轉單號(可選)
-    const mockOrders = [
+     const orderStatusTabs = document.querySelectorAll('.order-status-tab');
+     
+     // 模擬訂單資料 (實際應從 API 獲取)
+     // 訂單編號格式: 年月日(8位) + 五碼流水號 + 轉單號(可選)
+     // 將 mockOrders 宣告為全域變數，讓 openOrderDetails 函數可以存取
+     window.mockOrders = [
      {
       id: '20250626-00001',
       status: 'pending',
-      inviteDate: '2025-06-26',
+      orderTime: '2025-06-26 14:30:25',
       fee: '3000 P',
       address: '台北市信義區',
-      bookingDate: '2025-07-07',
+      bookingTime: '2025-07-07 18:30',
       providerName: '安娜寶貝',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 5.0
+      rating: 5.0,
+      venue: '餐廳',
+      city: '台北市',
+      district: '信義區',
+      detailAddress: '信義路五段7號',
+      description: '想約個晚餐，聊聊天',
+      payment: '鑽石 3000 P',
+      subtotal: '3000 P',
+      serviceFee: '0 P',
+      tax: '0 P',
+      total: '3000 P'
      },
      {
       id: '20250625-00002',
       status: 'confirmed',
-      inviteDate: '2025-06-25',
+      orderTime: '2025-06-25 10:15:42',
       fee: '4000 P',
       address: '台北市大安區',
-      bookingDate: '2025-07-08',
+      bookingTime: '2025-07-08 20:00',
       providerName: '小雅',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
       rating: 4.8
@@ -3692,10 +3827,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      {
       id: '20250624-00003',
       status: 'inprogress',
-      inviteDate: '2025-06-24',
+      orderTime: '2025-06-24 16:45:18',
       fee: '3500 P',
       address: '新北市板橋區',
-      bookingDate: '2025-07-06',
+      bookingTime: '2025-07-06 19:10',
       providerName: '美美',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
       rating: 4.9
@@ -3703,10 +3838,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      {
       id: '20250624-00003-T00001',
       status: 'completed',
-      inviteDate: '2025-06-24',
+      orderTime: '2025-06-24 09:22:56',
       fee: '5000 P',
       address: '台北市中山區',
-      bookingDate: '2025-07-05',
+      bookingTime: '2025-07-05 15:40',
       providerName: '琪琪',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
       rating: 5.0
@@ -3714,10 +3849,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      {
       id: '20250622-00004',
       status: 'cancelled',
-      inviteDate: '2025-06-22',
+      orderTime: '2025-06-22 12:08:33',
       fee: '2800 P',
       address: '台中市西屯區',
-      bookingDate: '2025-07-04',
+      bookingTime: '2025-07-04 13:20',
       providerName: '娜娜',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
       rating: 4.7
@@ -3725,10 +3860,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      {
       id: '20250621-00005',
       status: 'refunded',
-      inviteDate: '2025-06-21',
+      orderTime: '2025-06-21 18:55:07',
       fee: '3200 P',
       address: '高雄市前鎮區',
-      bookingDate: '2025-07-03',
+      bookingTime: '2025-07-03 21:50',
       providerName: '莉莉',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
       rating: 4.6
@@ -3768,23 +3903,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div class="kt-card-header justify-start bg-muted/70 gap-9 h-auto py-5">
         <div class="flex flex-col gap-1.5">
          <span class="text-xs font-normal text-secondary-foreground">訂單編號</span>
-         <span class="text-sm font-medium text-mono">${order.id}</span>
+         <span class="text-sm font-medium text-mono cursor-pointer hover:text-primary transition-colors" onclick="openOrderDetails('${order.id}')">${order.id}</span>
         </div>
         <div class="flex flex-col gap-1.5">
-         <span class="text-xs font-normal text-secondary-foreground">邀約日期</span>
-         <span class="text-sm font-medium text-mono">${order.inviteDate}</span>
+         <span class="text-xs font-normal text-secondary-foreground">下單時間</span>
+         <span class="text-sm font-medium text-mono">${order.orderTime}</span>
         </div>
         <div class="flex flex-col gap-1.5">
          <span class="text-xs font-normal text-secondary-foreground">出席費</span>
          <span class="text-sm font-medium text-mono">${order.fee}</span>
         </div>
         <div class="flex flex-col gap-1.5">
-         <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
-         <span class="text-sm font-medium text-mono">${order.address}</span>
+         <span class="text-xs font-normal text-secondary-foreground">邀約時間</span>
+         <span class="text-sm font-medium text-mono">${order.bookingTime}</span>
         </div>
         <div class="flex flex-col gap-1.5">
-         <span class="text-xs font-normal text-secondary-foreground">預約日期/時間</span>
-         <span class="text-sm font-medium text-mono">${order.bookingDate}</span>
+         <span class="text-xs font-normal text-secondary-foreground">約會地址</span>
+         <span class="text-sm font-medium text-mono">${order.address}</span>
         </div>
        </div>
        <div class="kt-card-content p-5 lg:p-7.5 space-y-5">
@@ -3792,10 +3927,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <div class="kt-card-content flex items-center flex-wrap justify-between gap-4.5 p-2 pe-5">
           <div class="flex items-center gap-3.5">
            <div class="kt-card flex items-center justify-center bg-accent/50 h-[70px] w-[90px] shadow-none">
-            <img alt="img" class="cursor-pointer h-[70px]" data-kt-drawer-toggle="#drawers_shop_product_details" src="${order.providerImg}">
+            <img alt="img" class="cursor-pointer h-[70px]" onclick="openOrderDetails('${order.id}')" src="${order.providerImg}">
            </div>
            <div class="flex flex-col gap-1">
-            <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+            <a class="hover:text-primary text-sm font-medium text-mono leading-5.5 cursor-pointer" onclick="openOrderDetails('${order.id}')" href="javascript:void(0);">
              ${order.providerName}
             </a>
             <div class="flex items-center gap-1.5">
@@ -3829,6 +3964,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       `;
       
       container.appendChild(orderCard);
+      
+      // 為訂單卡片內的所有觸發元素添加點擊事件
+      orderCard.querySelectorAll('.order-detail-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          const orderId = this.getAttribute('data-order-id');
+          openOrderDetails(orderId);
+        });
+      });
       
       // 更新操作按鈕
       const actionsContainer = orderCard.querySelector(`[data-order-actions-${order.id}]`);
@@ -4097,7 +4241,84 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       }
     }
   };
-  
+
+  // 開啟訂單詳情側邊視窗
+  window.openOrderDetails = function(orderId) {
+    console.log('openOrderDetails 被調用，訂單編號:', orderId);
+
+    // 從 mockOrders 中找到對應的訂單
+    const order = window.mockOrders.find(o => o.id === orderId);
+
+    if (!order) {
+      console.error('找不到訂單:', orderId);
+      alert('找不到訂單資料，訂單編號: ' + orderId);
+      return;
+    }
+
+    console.log('找到訂單:', order);
+
+    // 填充訂單資訊
+    document.getElementById('order-detail-id').textContent = order.id || '-';
+    document.getElementById('order-detail-order-time').textContent = order.orderTime || '-';
+    document.getElementById('order-detail-booking-time').textContent = order.bookingTime || '-';
+    document.getElementById('order-detail-fee').textContent = order.fee || '-';
+
+    // 設置訂單狀態徽章
+    const statusInfo = OrderStatusManager.statusMap[order.status];
+    const statusBadge = document.getElementById('order-detail-status');
+    statusBadge.textContent = statusInfo.text;
+    statusBadge.className = `kt-badge ${statusInfo.badge} kt-badge-sm`;
+
+    // 填充服務商資訊
+    document.getElementById('order-detail-provider-img').src = order.providerImg || '';
+    document.getElementById('order-detail-provider-name').textContent = order.providerName || '-';
+    document.getElementById('order-detail-provider-rating').textContent = order.rating || '5.0';
+
+    // 填充約會地點資訊
+    document.getElementById('order-detail-venue').textContent = order.venue || '未選擇';
+    document.getElementById('order-detail-city').textContent = order.city || '未選擇';
+    document.getElementById('order-detail-district').textContent = order.district || '未選擇';
+    document.getElementById('order-detail-address').textContent = order.detailAddress || '未填寫';
+    document.getElementById('order-detail-description').textContent = order.description || '未填寫';
+
+    // 填充付款資訊
+    document.getElementById('order-detail-payment').textContent = order.payment || '未選擇';
+
+    // 填充費用明細
+    document.getElementById('order-detail-subtotal').textContent = order.subtotal || order.fee || '-';
+    document.getElementById('order-detail-total').textContent = order.total || order.fee || '-';
+
+    // 打開側邊視窗
+    const drawer = document.getElementById('drawers_order_details');
+    console.log('找到側邊視窗元素:', drawer);
+    console.log('KTDrawer 可用:', window.KTDrawer);
+
+    if (drawer) {
+      if (window.KTDrawer) {
+        let drawerInstance = window.KTDrawer.getInstance(drawer);
+        console.log('KTDrawer 實例:', drawerInstance);
+
+        // 如果實例不存在，手動初始化
+        if (!drawerInstance) {
+          console.log('初始化 KTDrawer 實例');
+          drawerInstance = new window.KTDrawer(drawer);
+        }
+
+        if (drawerInstance) {
+          console.log('顯示側邊視窗');
+          drawerInstance.show();
+        }
+      } else {
+        // 如果 KTDrawer 不可用，使用簡單的顯示方式
+        console.log('KTDrawer 不可用，使用簡單顯示方式');
+        drawer.classList.remove('hidden');
+        drawer.style.display = 'flex';
+      }
+    } else {
+      console.error('找不到側邊視窗元素 #drawers_order_details');
+    }
+  }
+
   // 開啟退單申請彈窗
   function openRefundRequestModal(orderId) {
     const modal = document.getElementById('refund-request-modal');

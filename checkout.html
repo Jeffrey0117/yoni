@@ -844,8 +844,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="kt-card-content px-0 pt-0">
              <div class="divide-y">
               <div class="flex justify-between items-center px-5 py-3 gap-3">
-               <span class="text-sm font-medium text-mono flex-shrink-0">選擇付款</span>
-               <span class="text-sm text-foreground" id="confirm-payment-display">未選擇</span>
+               <select class="kt-select text-sm" style="max-width: 160px;" disabled>
+                <option value="diamond" selected>鑽石</option>
+               </select>
+               <span class="text-sm font-medium text-mono" id="confirm-payment-display">2000 P</span>
               </div>
              </div>
             </div>
@@ -862,29 +864,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
               <span class="text-sm font-normal text-secondary-foreground">小計</span>
               <span class="text-sm font-medium text-mono">2000 P</span>
              </div>
-             <div class="flex justify-between items-center">
-              <span class="text-sm font-normal text-secondary-foreground">服務費</span>
-              <span class="text-sm font-medium text-mono">0 P</span>
-             </div>
-             <div class="flex justify-between items-center">
-              <span class="text-sm font-normal text-secondary-foreground">稅金</span>
-              <span class="text-sm font-medium text-mono">0 P</span>
-             </div>
             </div>
             <div class="kt-card-footer flex justify-between items-center px-5">
              <span class="text-sm font-normal text-secondary-foreground">總計</span>
              <span class="text-base font-semibold text-mono">2000 P</span>
             </div>
-           </div>
-           
-           <!-- 確認付款按鈕 -->
-           <div class="flex gap-3">
-            <button type="button" id="back-btn" class="kt-btn kt-btn-lg kt-btn-outline flex-1">
-             <span class="font-medium">返回</span>
-            </button>
-            <button type="button" id="confirm-payment-btn" class="kt-btn kt-btn-lg flex-1" style="background-color: #f64696; border-color: #f64696; color: white;">
-             <span class="font-medium">確認付款</span>
-            </button>
            </div>
           </div>
          </div>
@@ -951,14 +935,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              </select>
             </div>
             <!-- 詳細地址 -->
-            <div class="flex justify-between items-center px-5 py-3 gap-3">
-             <span class="text-sm font-medium text-mono flex-shrink-0">詳細地址</span>
-             <input type="text" class="kt-input text-sm flex-1" id="address-input" placeholder="填寫詳細地址" style="max-width: 160px;">
+            <div class="px-5 py-3">
+             <div class="text-sm font-medium text-mono mb-2">詳細地址</div>
+             <textarea class="kt-input text-sm" id="address-input" rows="2" placeholder="填寫詳細地址..." style="width: 100%; resize: vertical;"></textarea>
             </div>
             <!-- 約會說明 -->
             <div class="px-5 py-3">
              <div class="text-sm font-medium text-mono mb-2">約會說明</div>
-             <textarea class="kt-input text-sm" id="description-textarea" rows="4" placeholder="請輸入約會說明..." style="width: 100%; resize: vertical;"></textarea>
+             <textarea class="kt-input text-sm" id="description-textarea" rows="8" placeholder="請輸入約會說明..." style="width: 100%; resize: vertical;"></textarea>
             </div>
            </div>
           </div>
@@ -972,14 +956,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content px-0 pt-0">
            <div class="divide-y">
             <div class="flex justify-between items-center px-5 py-3 gap-3">
-             <span class="text-sm font-medium text-mono flex-shrink-0">選擇付款</span>
-             <select class="kt-select text-sm flex-1" id="payment-select" style="max-width: 160px;">
-              <option value="">請選擇付款方式</option>
-              <option value="diamond-2000">鑽石 2000 P</option>
-              <option value="diamond-5000">鑽石 5000 P</option>
-              <option value="diamond-10000">鑽石 10000 P</option>
-              <option value="diamond-20000">鑽石 20000 P</option>
+             <select class="kt-select text-sm" style="max-width: 160px;" disabled>
+              <option value="diamond" selected>鑽石</option>
              </select>
+             <span class="text-sm font-medium text-mono" id="payment-amount">2000 P</span>
             </div>
            </div>
           </div>
@@ -1002,22 +982,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </span>
             <span class="text-sm font-medium text-mono">
              2000 P
-            </span>
-           </div>
-           <div class="flex justify-between items-center">
-            <span class="text-sm font-normal text-secondary-foreground">
-             服務費
-            </span>
-            <span class="text-sm font-medium text-mono">
-             0 P
-            </span>
-           </div>
-           <div class="flex justify-between items-center">
-            <span class="text-sm font-normal text-secondary-foreground">
-             稅金
-            </span>
-            <span class="text-sm font-medium text-mono">
-             0 P
             </span>
            </div>
           </div>
@@ -1149,7 +1113,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
     
     const paymentBtn = document.getElementById('payment-btn');
-    const backBtn = document.getElementById('back-btn');
     const feeDetailContent = document.getElementById('fee-detail-content');
     const confirmOrderContent = document.getElementById('confirm-order-content');
     const stepFeeDetail = document.getElementById('step-fee-detail');
@@ -1170,8 +1133,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      const districtSelect = document.getElementById('checkout_district');
      const addressInput = document.getElementById('address-input');
      const descriptionTextarea = document.getElementById('description-textarea');
-     const paymentSelect = document.getElementById('payment-select');
-     
+
      // 更新確認頁面的顯示內容
      document.getElementById('confirm-venue-display').textContent =
        venueSelect.options[venueSelect.selectedIndex].text || '未選擇';
@@ -1183,8 +1145,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        addressInput.value.trim() || '未填寫';
      document.getElementById('confirm-description-display').textContent =
        descriptionTextarea.value.trim() || '未填寫';
-     document.getElementById('confirm-payment-display').textContent =
-       paymentSelect.options[paymentSelect.selectedIndex].text || '未選擇';
      
      // 切換頁面
      feeDetailContent.style.display = 'none';
@@ -1201,29 +1161,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // 返回按鈕點擊事件
-    backBtn.addEventListener('click', function() {
-     // 切換回費用明細頁面
-     confirmOrderContent.style.display = 'none';
-     feeDetailContent.style.display = 'block';
-     document.getElementById('fee-detail-sidebar').style.display = 'flex';
-     
-     // 更新步驟狀態
-     stepFeeDetail.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border font-medium border-primary/10 bg-primary/10 text-primary [&_.kt-step-icon]:text-primary';
-     const checkIcon = stepFeeDetail.querySelector('.ki-check-circle');
-     if (checkIcon) checkIcon.remove();
-     
-     stepConfirmOrder.className = 'text-2sm leading-none relative flex items-center gap-1.5 px-3 h-8.5 rounded-full border border-border text-foreground [&_.kt-step-icon]:text-muted-foreground bg-muted/30';
-     
-     // 滾動到頂部
-     window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // 確認付款按鈕點擊事件
-    document.getElementById('confirm-payment-btn').addEventListener('click', function() {
-     alert('付款功能尚未實作');
-     // 這裡可以加入實際的付款流程
-    });
    });
   </script>
   <!-- End of Scripts -->
