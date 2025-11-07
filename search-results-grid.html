@@ -5686,12 +5686,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
     // 套用到 html 元素，這樣整個頁面都會有背景
     if (backgroundValue) {
-      html.style.background = backgroundValue;
-      html.style.minHeight = '100vh';
+      html.style.setProperty('background', backgroundValue, 'important');
+      html.style.setProperty('min-height', '100vh', 'important');
+      html.style.setProperty('background-attachment', 'fixed', 'important');
 
-      // 讓 body 透明
+      // 讓 body 透明並延伸到整個頁面
       body.classList.remove('bg-background');
       body.style.setProperty('background', 'transparent', 'important');
+      body.style.setProperty('min-height', '100vh', 'important');
 
       // 讓 header 和 navbar 透明，顯示底層的漸層背景
       if (header) {
@@ -5717,7 +5719,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         document.head.appendChild(styleTag);
       }
       styleTag.textContent = `
+        html {
+          background: ${backgroundValue} !important;
+          background-attachment: fixed !important;
+          min-height: 100vh !important;
+        }
         body,
+        body > div,
         .kt-container-fixed,
         .container-fixed,
         #content,
