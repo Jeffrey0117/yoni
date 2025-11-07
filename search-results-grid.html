@@ -5688,6 +5688,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     if (backgroundValue) {
       html.style.setProperty('background', backgroundValue, 'important');
       html.style.setProperty('min-height', '100vh', 'important');
+      html.style.setProperty('background-attachment', 'fixed', 'important');
 
       // 讓 body 透明並延伸到整個頁面
       body.classList.remove('bg-background');
@@ -5720,6 +5721,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       styleTag.textContent = `
         html {
           background: ${backgroundValue} !important;
+          background-attachment: fixed !important;
           min-height: 100vh !important;
         }
         body,
