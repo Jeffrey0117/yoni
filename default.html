@@ -1066,6 +1066,17 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      </div>
      <!-- Container -->
      <div class="kt-container-fixed">
+      <!-- 角色切換器 -->
+      <div class="flex justify-center py-4">
+       <div class="inline-flex items-center gap-3 bg-card border border-border rounded-lg px-4 py-2.5">
+        <span class="text-sm font-medium text-secondary-foreground">當前角色：</span>
+        <select id="role-selector" class="kt-select" style="width: 150px;">
+         <option value="member">客人</option>
+         <option value="provider">服務商</option>
+        </select>
+       </div>
+      </div>
+
       <div class="flex items-center flex-wrap md:flex-nowrap lg:items-end justify-between border-b border-b-border gap-3 lg:gap-6 mb-5 lg:mb-10">
        <div class="grid">
         <div class="kt-scrollable-x-auto">
@@ -1105,14 +1116,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </span>
            </a>
           </div>
-          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary">
+          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary provider-only-tab" style="display: none;">
            <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="receiving">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
              接單
             </span>
            </a>
           </div>
-          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary">
+          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary provider-only-tab" style="display: none;">
            <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="revenue">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
              收益
@@ -3773,7 +3784,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     
     // 訂單狀態篩選分頁切換功能
      const orderStatusTabs = document.querySelectorAll('.order-status-tab');
-     
+
+     // 當前角色（預設為客人）
+     let currentRole = 'member';
+
      // 模擬訂單資料 (實際應從 API 獲取)
      // 訂單編號格式: 年月日(8位) + 五碼流水號 + 轉單號(可選)
      // 將 mockOrders 宣告為全域變數，讓 openOrderDetails 函數可以存取
@@ -4009,7 +4023,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
       // 更新操作按鈕
       const actionsContainer = orderCard.querySelector(`[data-order-actions-${order.id}]`);
-      OrderStatusManager.updateActionButtons(actionsContainer, 'member', order.status, order.id);
+      OrderStatusManager.updateActionButtons(actionsContainer, currentRole, order.status, order.id);
 
       // 如果訂單是進行中且已開始計時，啟動計時器更新
       if (order.status === 'inprogress' && order.timerStarted) {
@@ -4020,7 +4034,31 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     
     // 初始渲染全部訂單
     renderOrdersList('all');
-    
+
+    // 角色選擇器事件監聽
+    const roleSelector = document.getElementById('role-selector');
+    if (roleSelector) {
+     roleSelector.addEventListener('change', function(e) {
+      currentRole = e.target.value;
+      console.log('角色切換為:', currentRole);
+
+      // 顯示/隱藏服務商專屬分頁（接單、收益）
+      const providerOnlyTabs = document.querySelectorAll('.provider-only-tab');
+      providerOnlyTabs.forEach(tab => {
+       if (currentRole === 'provider') {
+        tab.style.display = '';
+       } else {
+        tab.style.display = 'none';
+       }
+      });
+
+      // 重新渲染訂單列表以更新按鈕
+      const activeTab = document.querySelector('.order-status-tab.border-primary');
+      const currentStatus = activeTab ? activeTab.getAttribute('data-order-status') : 'all';
+      renderOrdersList(currentStatus);
+     });
+    }
+
     orderStatusTabs.forEach(tab => {
      tab.addEventListener('click', function(e) {
       e.preventDefault();
