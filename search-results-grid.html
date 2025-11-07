@@ -5730,8 +5730,18 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         .container-fixed,
         #content,
         main,
-        .flex.grow.flex-col {
+        .flex.grow.flex-col,
+        .kt-card,
+        .kt-card-content,
+        .kt-card-header,
+        .bg-white,
+        .bg-background,
+        .bg-card {
           background: transparent !important;
+        }
+        .kt-card {
+          border: 1px solid rgba(255, 255, 255, 0.3) !important;
+          backdrop-filter: blur(10px) !important;
         }
       `;
     } else {
