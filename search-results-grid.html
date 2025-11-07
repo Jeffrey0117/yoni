@@ -5724,17 +5724,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           background-attachment: fixed !important;
           min-height: 100vh !important;
         }
-        * {
-          background-color: transparent !important;
-          background-image: none !important;
-        }
-        html {
-          background: ${backgroundValue} !important;
-          background-attachment: fixed !important;
+        body,
+        body > div,
+        .kt-container-fixed,
+        .container-fixed,
+        #content,
+        main,
+        .flex.grow.flex-col,
+        .kt-card,
+        .kt-card-content,
+        .kt-card-header,
+        .bg-white,
+        .bg-background,
+        .bg-card {
+          background: transparent !important;
         }
         .kt-card {
-          border: 1px solid rgba(255, 255, 255, 0.2) !important;
-          backdrop-filter: blur(5px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.3) !important;
+          backdrop-filter: blur(10px) !important;
         }
       `;
     } else {
