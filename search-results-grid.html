@@ -5709,7 +5709,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         mainWrapper.style.setProperty('background', 'transparent', 'important');
       }
 
-      // 添加全域樣式讓所有 kt-container-fixed 透明
+      // 添加全域樣式讓所有容器透明
       let styleTag = document.getElementById('custom-bg-style');
       if (!styleTag) {
         styleTag = document.createElement('style');
@@ -5717,7 +5717,12 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         document.head.appendChild(styleTag);
       }
       styleTag.textContent = `
-        .kt-container-fixed {
+        body,
+        .kt-container-fixed,
+        .container-fixed,
+        #content,
+        main,
+        .flex.grow.flex-col {
           background: transparent !important;
         }
       `;
