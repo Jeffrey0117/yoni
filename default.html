@@ -3822,7 +3822,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       bookingTime: '2025-07-08 20:00',
       providerName: '小雅',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 4.8
+      rating: 4.8,
+      venue: '電影院',
+      city: '台北市',
+      district: '大安區',
+      detailAddress: '大安區忠孝東路四段50號',
+      description: '一起看電影',
+      payment: '鑽石 4000 P',
+      subtotal: '4000 P',
+      total: '4000 P'
      },
      {
       id: '20250624-00003',
@@ -3833,7 +3841,16 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       bookingTime: '2025-07-06 19:10',
       providerName: '美美',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 4.9
+      rating: 4.9,
+      duration: 2,
+      venue: '咖啡廳',
+      city: '新北市',
+      district: '板橋區',
+      detailAddress: '板橋區文化路一段123號',
+      description: '想找人聊天喝咖啡',
+      payment: '鑽石 3500 P',
+      subtotal: '3500 P',
+      total: '3500 P'
      },
      {
       id: '20250624-00003-T00001',
@@ -3844,18 +3861,34 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       bookingTime: '2025-07-05 15:40',
       providerName: '琪琪',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 5.0
+      rating: 5.0,
+      venue: 'KTV',
+      city: '台北市',
+      district: '中山區',
+      detailAddress: '中山區林森北路100號',
+      description: '唱歌聊天',
+      payment: '鑽石 5000 P',
+      subtotal: '5000 P',
+      total: '5000 P'
      },
      {
       id: '20250622-00004',
-      status: 'cancelled',
+      status: 'refunded',
       orderTime: '2025-06-22 12:08:33',
       fee: '2800 P',
       address: '台中市西屯區',
       bookingTime: '2025-07-04 13:20',
       providerName: '娜娜',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 4.7
+      rating: 4.7,
+      venue: '購物中心',
+      city: '台中市',
+      district: '西屯區',
+      detailAddress: '西屯區台灣大道三段301號',
+      description: '逛街購物',
+      payment: '鑽石 2800 P',
+      subtotal: '2800 P',
+      total: '2800 P'
      },
      {
       id: '20250621-00005',
@@ -3866,7 +3899,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       bookingTime: '2025-07-03 21:50',
       providerName: '莉莉',
       providerImg: 'https://yoni.tw/assets/sweet-2-WWnhKb-y.jpg',
-      rating: 4.6
+      rating: 4.6,
+      venue: '酒吧',
+      city: '高雄市',
+      district: '前鎮區',
+      detailAddress: '前鎮區成功二路88號',
+      description: '小酌聊天',
+      payment: '鑽石 3200 P',
+      subtotal: '3200 P',
+      total: '3200 P'
      }
     ];
     
@@ -3957,14 +3998,20 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <div class="flex items-center gap-2">
           <span class="text-xs font-medium text-secondary-foreground">訂單狀態：</span>
           <span class="kt-badge ${statusInfo.badge} kt-badge-sm">${statusInfo.text}</span>
+          ${order.status === 'inprogress' && order.timerStarted ? `
+           <div class="flex items-center gap-1.5 ml-3">
+            <i class="ki-filled ki-time text-primary"></i>
+            <span class="text-sm font-medium text-mono" id="timer-${order.id}">計算中...</span>
+           </div>
+          ` : ''}
          </div>
          <div class="flex items-center gap-2 flex-wrap" data-order-actions-${order.id}></div>
         </div>
        </div>
       `;
-      
+
       container.appendChild(orderCard);
-      
+
       // 為訂單卡片內的所有觸發元素添加點擊事件
       orderCard.querySelectorAll('.order-detail-trigger').forEach(trigger => {
         trigger.addEventListener('click', function(e) {
@@ -3973,10 +4020,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           openOrderDetails(orderId);
         });
       });
-      
+
       // 更新操作按鈕
       const actionsContainer = orderCard.querySelector(`[data-order-actions-${order.id}]`);
       OrderStatusManager.updateActionButtons(actionsContainer, 'member', order.status, order.id);
+
+      // 如果訂單是進行中且已開始計時，啟動計時器更新
+      if (order.status === 'inprogress' && order.timerStarted) {
+        startTimerDisplay(order.id, order.startTime, order.duration || 2);
+      }
      });
     }
     
@@ -4074,6 +4126,88 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
   </div>
 
+  <!-- 退單申請彈窗 -->
+  <div id="refund-request-modal" class="el-overlay" style="z-index: 2026; display: none;">
+   <div role="dialog" aria-modal="true" aria-label="退單申請" class="el-overlay-dialog" style="display: flex;">
+    <div class="el-dialog is-align-center" tabindex="-1" style="--el-dialog-width: 500px;">
+     <header class="el-dialog__header show-close">
+      <span role="heading" aria-level="2" class="el-dialog__title">退單申請</span>
+      <button aria-label="Close this dialog" class="el-dialog__headerbtn" type="button" onclick="closeRefundRequestModal()">
+       <i class="el-icon el-dialog__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+         <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+        </svg>
+       </i>
+      </button>
+     </header>
+     <div class="el-dialog__body">
+      <div class="flex flex-col gap-4 p-4">
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-medium">退單原因</label>
+        <select id="refund-reason" class="kt-select">
+         <option value="">請選擇退單原因</option>
+         <option value="provider_no_response">服務商未回應</option>
+         <option value="emergency">臨時有事</option>
+         <option value="quality_issue">服務品質不佳</option>
+         <option value="other">其他原因</option>
+        </select>
+       </div>
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-medium">詳細說明（選填）</label>
+        <textarea id="refund-description" class="kt-input" rows="4" placeholder="請描述詳細原因..."></textarea>
+       </div>
+       <div class="flex gap-3 justify-end mt-4">
+        <button type="button" class="kt-btn kt-btn-outline" onclick="closeRefundRequestModal()">
+         <span>取消</span>
+        </button>
+        <button type="button" class="kt-btn kt-btn-destructive" onclick="submitRefundRequest()">
+         <span>確認送出</span>
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- 續約申請彈窗 -->
+  <div id="renewal-modal" class="el-overlay" style="z-index: 2026; display: none;">
+   <div role="dialog" aria-modal="true" aria-label="續約申請" class="el-overlay-dialog" style="display: flex;">
+    <div class="el-dialog is-align-center" tabindex="-1" style="--el-dialog-width: 500px;">
+     <header class="el-dialog__header show-close">
+      <span role="heading" aria-level="2" class="el-dialog__title" id="renewal-modal-title">續約申請</span>
+      <button aria-label="Close this dialog" class="el-dialog__headerbtn" type="button" onclick="closeRenewalModal()">
+       <i class="el-icon el-dialog__close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+         <path fill="currentColor" d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+        </svg>
+       </i>
+      </button>
+     </header>
+     <div class="el-dialog__body">
+      <div class="flex flex-col gap-4 p-4">
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-medium">續約時數</label>
+        <input type="number" id="renewal-hours" class="kt-input" min="1" value="1" placeholder="請輸入續約時數">
+       </div>
+       <div class="flex flex-col gap-2">
+        <label class="text-sm font-medium">預估扣除點數</label>
+        <div class="text-lg font-semibold text-mono" id="renewal-total-points">3000 P</div>
+       </div>
+       <div class="flex gap-3 justify-end mt-4">
+        <button type="button" class="kt-btn kt-btn-outline" onclick="closeRenewalModal()">
+         <span>取消</span>
+        </button>
+        <button type="button" class="kt-btn kt-btn-primary" onclick="submitRenewalRequest()">
+         <span>確認續約</span>
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
   <script>
    // 顯示加入會員彈窗
    function showJoinMemberModal() {
@@ -4100,7 +4234,281 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
    });
 
-  
+   // ========== 退單申請 Modal 相關函數 ==========
+   let currentRefundOrderId = null;
+
+   // 開啟退單申請彈窗
+   function openRefundRequestModal(orderId) {
+    currentRefundOrderId = orderId;
+    document.getElementById('refund-reason').value = '';
+    document.getElementById('refund-description').value = '';
+    document.getElementById('refund-request-modal').style.display = 'block';
+   }
+
+   // 關閉退單申請彈窗
+   function closeRefundRequestModal() {
+    document.getElementById('refund-request-modal').style.display = 'none';
+    currentRefundOrderId = null;
+   }
+
+   // 提交退單申請
+   function submitRefundRequest() {
+    const reason = document.getElementById('refund-reason').value;
+    const description = document.getElementById('refund-description').value;
+
+    if (!reason) {
+     alert('請選擇退單原因');
+     return;
+    }
+
+    console.log('提交退單申請:', {
+     orderId: currentRefundOrderId,
+     reason: reason,
+     description: description
+    });
+
+    // 模擬退單申請
+    const order = window.mockOrders.find(o => o.id === currentRefundOrderId);
+    if (order) {
+     order.status = 'refunded';
+     alert('退單申請已送出，等待後台審核');
+     closeRefundRequestModal();
+     // 重新渲染訂單列表
+     renderOrdersList('all');
+    }
+   }
+
+   // 點擊背景關閉退單彈窗
+   document.getElementById('refund-request-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+     closeRefundRequestModal();
+    }
+   });
+
+   // ========== 續約 Modal 相關函數 ==========
+   let currentRenewalOrderId = null;
+   let currentRenewalRole = null;
+
+   // 開啟續約彈窗
+   function openRenewalModal(orderId, role) {
+    currentRenewalOrderId = orderId;
+    currentRenewalRole = role;
+
+    const order = window.mockOrders.find(o => o.id === orderId);
+    if (!order) return;
+
+    // 設定 modal 標題
+    const title = role === 'member' ? '立即續約' : '幫客人續約';
+    document.getElementById('renewal-modal-title').textContent = title;
+
+    // 重置表單
+    document.getElementById('renewal-hours').value = '1';
+    updateRenewalTotalPoints();
+
+    document.getElementById('renewal-modal').style.display = 'block';
+   }
+
+   // 關閉續約彈窗
+   function closeRenewalModal() {
+    document.getElementById('renewal-modal').style.display = 'none';
+    currentRenewalOrderId = null;
+    currentRenewalRole = null;
+   }
+
+   // 更新續約總點數
+   function updateRenewalTotalPoints() {
+    const hours = parseInt(document.getElementById('renewal-hours').value) || 1;
+    const order = window.mockOrders.find(o => o.id === currentRenewalOrderId);
+    if (!order) return;
+
+    // 假設每小時 3000 P（實際應從訂單資料取得費率）
+    const pointsPerHour = 3000;
+    const totalPoints = hours * pointsPerHour;
+    document.getElementById('renewal-total-points').textContent = totalPoints + ' P';
+   }
+
+   // 監聽續約時數變化
+   document.addEventListener('DOMContentLoaded', function() {
+    const renewalHoursInput = document.getElementById('renewal-hours');
+    if (renewalHoursInput) {
+     renewalHoursInput.addEventListener('input', updateRenewalTotalPoints);
+    }
+   });
+
+   // 提交續約申請
+   function submitRenewalRequest() {
+    const hours = parseInt(document.getElementById('renewal-hours').value) || 1;
+
+    if (hours < 1) {
+     alert('續約時數必須大於 0');
+     return;
+    }
+
+    const order = window.mockOrders.find(o => o.id === currentRenewalOrderId);
+    if (!order) return;
+
+    // 生成續約訂單編號
+    const renewalOrderId = generateRenewalOrderId(currentRenewalOrderId);
+
+    console.log('提交續約申請:', {
+     originalOrderId: currentRenewalOrderId,
+     renewalOrderId: renewalOrderId,
+     hours: hours,
+     role: currentRenewalRole
+    });
+
+    // 創建續約訂單
+    const renewalOrder = {
+     ...order,
+     id: renewalOrderId,
+     status: 'pending',
+     orderTime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+     isRenewal: true,
+     parentOrderId: currentRenewalOrderId
+    };
+
+    window.mockOrders.unshift(renewalOrder);
+
+    alert('續約訂單已建立：' + renewalOrderId);
+    closeRenewalModal();
+    renderOrdersList('all');
+   }
+
+   // 生成續約訂單編號
+   function generateRenewalOrderId(originalOrderId) {
+    // 檢查是否已經是續約單
+    if (originalOrderId.includes('-T')) {
+     // 取得轉單號並遞增
+     const parts = originalOrderId.split('-T');
+     const baseId = parts[0];
+     const currentNumber = parseInt(parts[1]);
+     const newNumber = (currentNumber + 1).toString().padStart(5, '0');
+     return `${baseId}-T${newNumber}`;
+    } else {
+     // 首次續約
+     return `${originalOrderId}-T00001`;
+    }
+   }
+
+   // 點擊背景關閉續約彈窗
+   document.getElementById('renewal-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+     closeRenewalModal();
+    }
+   });
+
+   // ========== 訂單操作處理函數 ==========
+
+   // 開始計時
+   function handleStartTimer(orderId) {
+    const order = window.mockOrders.find(o => o.id === orderId);
+    if (!order) return;
+
+    console.log('開始計時:', orderId);
+    order.timerStarted = true;
+    order.startTime = new Date().toISOString();
+
+    alert('計時已開始');
+    renderOrdersList('all');
+   }
+
+   // 確認結束
+   function handleConfirmEnd(orderId) {
+    const order = window.mockOrders.find(o => o.id === orderId);
+    if (!order) return;
+
+    console.log('確認結束:', orderId);
+    alert('訂單已確認結束');
+
+    // 實際應該呼叫 API 更新狀態
+    // 這裡暫時不改變狀態，因為 completed 狀態應由系統自動設定
+   }
+
+   // 確認接單
+   function handleConfirmOrder(orderId) {
+    const order = window.mockOrders.find(o => o.id === orderId);
+    if (!order) return;
+
+    console.log('確認接單:', orderId);
+    order.status = 'confirmed';
+
+    alert('已確認接單，訂單狀態變更為「待執行」');
+    renderOrdersList('all');
+   }
+
+   // 確認報到
+   function handleConfirmArrival(orderId) {
+    const order = window.mockOrders.find(o => o.id === orderId);
+    if (!order) return;
+
+    console.log('確認報到:', orderId);
+    order.status = 'inprogress';
+
+    alert('已確認報到，訂單狀態變更為「進行中」');
+    renderOrdersList('all');
+   }
+
+   // ========== 計時器相關函數 ==========
+   const activeTimers = {};
+
+   // 啟動計時器顯示
+   function startTimerDisplay(orderId, startTime, durationHours) {
+    // 清除舊的計時器
+    if (activeTimers[orderId]) {
+     clearInterval(activeTimers[orderId]);
+    }
+
+    // 計算結束時間
+    const start = new Date(startTime);
+    const end = new Date(start.getTime() + durationHours * 60 * 60 * 1000);
+
+    // 更新計時器函數
+    function updateTimer() {
+     const now = new Date();
+     const remaining = end - now;
+
+     const timerElement = document.getElementById(`timer-${orderId}`);
+     if (!timerElement) {
+      // 元素不存在，清除計時器
+      clearInterval(activeTimers[orderId]);
+      delete activeTimers[orderId];
+      return;
+     }
+
+     if (remaining <= 0) {
+      // 時間到了
+      timerElement.textContent = '時間已到';
+      timerElement.classList.add('text-destructive');
+      clearInterval(activeTimers[orderId]);
+      delete activeTimers[orderId];
+
+      // 自動將訂單標記為已結束
+      const order = window.mockOrders.find(o => o.id === orderId);
+      if (order) {
+       order.status = 'completed';
+       setTimeout(() => {
+        renderOrdersList('all');
+        alert('訂單 ' + orderId + ' 時間已到，自動結束');
+       }, 1000);
+      }
+     } else {
+      // 顯示剩餘時間
+      const hours = Math.floor(remaining / (1000 * 60 * 60));
+      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+      timerElement.textContent = `剩餘 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+     }
+    }
+
+    // 立即更新一次
+    updateTimer();
+
+    // 每秒更新
+    activeTimers[orderId] = setInterval(updateTimer, 1000);
+   }
+
+
   // 訂單狀態管理系統
   const OrderStatusManager = {
     // 訂單狀態映射
@@ -4109,7 +4517,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       'confirmed': { badge: 'kt-badge-info', text: '待執行' },
       'inprogress': { badge: 'kt-badge-primary', text: '進行中' },
       'completed': { badge: 'kt-badge-success', text: '已結束' },
-      'cancelled': { badge: 'kt-badge-secondary', text: '取消' },
       'refunded': { badge: 'kt-badge-destructive', text: '退單' }
     },
     
@@ -4119,17 +4526,19 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         member: {
           pending: ['requestRefund'],
           confirmed: ['requestRefund'],
-          inprogress: ['requestRefund', 'requestRenewal', 'helpClientRenewal'],
-          completed: ['requestRenewal']
+          inprogress: ['startTimer', 'requestRefund', 'requestRenewal'],
+          completed: ['confirmEnd'],
+          refunded: []
         },
         provider: {
-          pending: ['confirmOrder'],
-          confirmed: ['confirmArrival'],
-          inprogress: ['confirmRenewal', 'helpClientRenewal'],
-          completed: []
+          pending: ['confirmOrder', 'requestRefund'],
+          confirmed: ['confirmArrival', 'requestRefund'],
+          inprogress: ['helpClientRenewal'],
+          completed: [],
+          refunded: []
         }
       };
-      
+
       return actions[role]?.[status] || [];
     },
     
@@ -4160,11 +4569,21 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           text: '我要退單'
         },
         requestRenewal: {
-          class: 'kt-btn-primary',
+          class: 'kt-btn-outline kt-btn-primary',
           icon: 'ki-time',
-          text: '我要續約'
+          text: '立即續約'
         },
-        
+        startTimer: {
+          class: 'kt-btn-primary',
+          icon: 'ki-play',
+          text: '開始'
+        },
+        confirmEnd: {
+          class: 'kt-btn-primary',
+          icon: 'ki-check',
+          text: '確認結束'
+        },
+
         // 服務商按鈕
         confirmOrder: {
           class: 'kt-btn-primary',
@@ -4175,11 +4594,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           class: 'kt-btn-primary',
           icon: 'ki-geolocation',
           text: '確認報到'
-        },
-        confirmRenewal: {
-          class: 'kt-btn-primary',
-          icon: 'ki-check',
-          text: '確認續約'
         },
         helpClientRenewal: {
           class: 'kt-btn-outline kt-btn-primary',
@@ -4215,16 +4629,22 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     // 處理按鈕點擊
     handleActionClick: function(action, orderId, role) {
       console.log('Action clicked:', action, 'Order ID:', orderId, 'Role:', role);
-      
+
       switch(action) {
         // 會員(客人)操作
         case 'requestRefund':
           openRefundRequestModal(orderId);
           break;
         case 'requestRenewal':
-          handleRequestRenewal(orderId);
+          openRenewalModal(orderId, 'member');
           break;
-          
+        case 'startTimer':
+          handleStartTimer(orderId);
+          break;
+        case 'confirmEnd':
+          handleConfirmEnd(orderId);
+          break;
+
         // 服務商操作
         case 'confirmOrder':
           handleConfirmOrder(orderId);
@@ -4232,11 +4652,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         case 'confirmArrival':
           handleConfirmArrival(orderId);
           break;
-        case 'confirmRenewal':
-          handleConfirmRenewal(orderId);
-          break;
         case 'helpClientRenewal':
-          handleHelpClientRenewal(orderId);
+          openRenewalModal(orderId, 'provider');
           break;
       }
     }
