@@ -5664,7 +5664,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       styleTag.textContent = `
         html {
           background: ${backgroundValue} !important;
-          background-attachment: fixed !important;
+          min-height: 100vh !important;
+        }
+        body {
           min-height: 100vh !important;
         }
         body,
