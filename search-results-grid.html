@@ -530,8 +530,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          
          <!-- 預約區塊(互動式表單) -->
          <div class="flex flex-col gap-4 p-5 bg-card border border-border rounded-lg">
-          <!-- 三欄橫向布局 (無論螢幕大小都是橫向) -->
-          <div class="grid grid-cols-3 gap-4">
+          <!-- 響應式表單布局：移動版單欄、平板/桌面版雙欄 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
            <!-- 邀約類型 -->
            <div class="flex flex-col gap-2">
             <label class="text-sm font-semibold text-mono">邀約類型</label>
@@ -548,6 +548,50 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            <div class="flex flex-col gap-2">
             <label class="text-sm font-semibold text-mono">預訂日期</label>
             <input type="date" class="kt-input" id="booking_date" />
+           </div>
+
+           <!-- 邀約時間 -->
+           <div class="flex flex-col gap-2">
+            <label class="text-sm font-semibold text-mono">邀約時間</label>
+            <div class="flex items-center gap-1">
+             <select class="kt-select" id="booking_hour" style="flex: 1;">
+              <option value="">時</option>
+              <option value="1">01</option>
+              <option value="2">02</option>
+              <option value="3">03</option>
+              <option value="4">04</option>
+              <option value="5">05</option>
+              <option value="6">06</option>
+              <option value="7">07</option>
+              <option value="8">08</option>
+              <option value="9">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+             </select>
+             <span class="text-xs">:</span>
+             <select class="kt-select" id="booking_minute" style="flex: 1;">
+              <option value="">分</option>
+              <option value="00">00</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+             </select>
+            </div>
            </div>
 
            <!-- 預定時長 -->
@@ -5005,7 +5049,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    const PRICE_PER_HOUR = 1000; // 每小時價格
    const MIN_HOURS = 3; // 最少小時數
 
-   // 設置今天日期
+   // 設置今天日期和當前時間
    document.addEventListener('DOMContentLoaded', function() {
      const dateInput = document.getElementById('booking_date');
      if (dateInput) {
@@ -5013,6 +5057,38 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        dateInput.value = today;
        dateInput.min = today;
      }
+
+     // 設定預設時間（當前時間往後進位）
+     const now = new Date();
+     let hour = now.getHours();
+     let minute = now.getMinutes();
+
+     // 分鐘進位到下一個 10 的倍數
+     minute = Math.ceil(minute / 10) * 10;
+
+     // 如果分鐘到達 60，則進位到下一小時
+     if (minute >= 60) {
+       minute = 0;
+       hour += 1;
+     }
+
+     // 如果小時超過 24，設為 1
+     if (hour > 24) {
+       hour = 1;
+     }
+
+     // 設定小時下拉選單
+     const hourSelect = document.getElementById('booking_hour');
+     if (hourSelect) {
+       hourSelect.value = hour.toString();
+     }
+
+     // 設定分鐘下拉選單
+     const minuteSelect = document.getElementById('booking_minute');
+     if (minuteSelect) {
+       minuteSelect.value = minute.toString().padStart(2, '0');
+     }
+
      updateTotalPrice();
    });
 
@@ -5038,7 +5114,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    function updateTotalPrice() {
      const hoursInput = document.getElementById('booking_hours');
      const totalPriceElement = document.getElementById('total_price');
-     
+
      if (hoursInput && totalPriceElement) {
        const hours = parseInt(hoursInput.value) || MIN_HOURS;
        const totalPrice = hours * PRICE_PER_HOUR;

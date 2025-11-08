@@ -3324,6 +3324,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </div>
         </div>
 
+        <!-- 點數計算顯示 -->
+        <div class="flex flex-col gap-2 p-4 bg-card border border-border rounded-lg">
+         <div class="flex justify-between items-center">
+          <span class="text-sm font-medium text-secondary-foreground">現有點數</span>
+          <span class="text-base font-semibold text-mono" id="renewal_current_points">10000 P</span>
+         </div>
+         <div class="flex justify-between items-center">
+          <span class="text-sm font-medium text-secondary-foreground">扣除點數</span>
+          <span class="text-base font-semibold text-destructive" id="renewal_deduct_points">-3000 P</span>
+         </div>
+         <div class="border-t border-border my-1"></div>
+         <div class="flex justify-between items-center">
+          <span class="text-base font-semibold text-mono">剩餘點數</span>
+          <span class="text-xl font-bold text-primary" id="renewal_remaining_points">7000 P</span>
+         </div>
+        </div>
+
         <!-- 立即續約按鈕 -->
         <button class="kt-btn kt-btn-primary kt-btn-lg w-full justify-center" onclick="submitRenewalRequest()">
          <i class="ki-filled ki-calendar"></i>
@@ -4276,6 +4293,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <label class="text-sm font-medium">預估扣除點數</label>
         <div class="text-lg font-semibold text-mono" id="renewal-total-points">3000 P</div>
        </div>
+
+       <!-- 點數計算顯示 -->
+       <div class="flex flex-col gap-2 p-4 bg-card border border-border rounded-lg">
+        <div class="flex justify-between items-center">
+         <span class="text-sm font-medium text-secondary-foreground">現有點數</span>
+         <span class="text-base font-semibold text-mono" id="renewal-modal-current-points">10000 P</span>
+        </div>
+        <div class="flex justify-between items-center">
+         <span class="text-sm font-medium text-secondary-foreground">扣除點數</span>
+         <span class="text-base font-semibold text-destructive" id="renewal-modal-deduct-points">-3000 P</span>
+        </div>
+        <div class="border-t border-border my-1"></div>
+        <div class="flex justify-between items-center">
+         <span class="text-base font-semibold text-mono">剩餘點數</span>
+         <span class="text-xl font-bold text-primary" id="renewal-modal-remaining-points">7000 P</span>
+        </div>
+       </div>
+
        <div class="flex gap-3 justify-end mt-4">
         <button type="button" class="kt-btn kt-btn-outline" onclick="closeRenewalModal()">
          <span>取消</span>
@@ -4397,7 +4432,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     currentRenewalRole = null;
    }
 
-   // 更新續約總點數
+   // 更新續約總點數和點數計算
    function updateRenewalTotalPoints() {
     const hours = parseInt(document.getElementById('renewal-hours').value) || 1;
     const order = window.mockOrders.find(o => o.id === currentRenewalOrderId);
@@ -4407,6 +4442,36 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     const pointsPerHour = 3000;
     const totalPoints = hours * pointsPerHour;
     document.getElementById('renewal-total-points').textContent = totalPoints + ' P';
+
+    // 更新點數計算（假設用戶現有點數為 10000 P，實際應從後端獲取）
+    const currentPoints = 10000;
+    const deductPoints = totalPoints;
+    const remainingPoints = currentPoints - deductPoints;
+
+    const currentPointsElement = document.getElementById('renewal-modal-current-points');
+    const deductPointsElement = document.getElementById('renewal-modal-deduct-points');
+    const remainingPointsElement = document.getElementById('renewal-modal-remaining-points');
+
+    if (currentPointsElement) {
+      currentPointsElement.textContent = currentPoints.toLocaleString() + ' P';
+    }
+
+    if (deductPointsElement) {
+      deductPointsElement.textContent = '-' + deductPoints.toLocaleString() + ' P';
+    }
+
+    if (remainingPointsElement) {
+      remainingPointsElement.textContent = remainingPoints.toLocaleString() + ' P';
+
+      // 如果點數不足，顯示紅色警告
+      if (remainingPoints < 0) {
+        remainingPointsElement.classList.add('text-destructive');
+        remainingPointsElement.classList.remove('text-primary');
+      } else {
+        remainingPointsElement.classList.add('text-primary');
+        remainingPointsElement.classList.remove('text-destructive');
+      }
+    }
    }
 
    // 監聽續約時數變化
@@ -4927,7 +4992,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     updateRenewalTotalPrice();
   }
 
-  // 更新續約總價
+  // 更新續約總價和點數計算
   function updateRenewalTotalPrice() {
     const hours = parseInt(document.getElementById('renewal_booking_hours').value) || 3;
 
@@ -4947,6 +5012,36 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
     if (totalPriceElement) {
       totalPriceElement.textContent = totalPrice.toLocaleString() + ' P';
+    }
+
+    // 更新點數計算（假設用戶現有點數為 10000 P，實際應從後端獲取）
+    const currentPoints = 10000;
+    const deductPoints = totalPrice;
+    const remainingPoints = currentPoints - deductPoints;
+
+    const currentPointsElement = document.getElementById('renewal_current_points');
+    const deductPointsElement = document.getElementById('renewal_deduct_points');
+    const remainingPointsElement = document.getElementById('renewal_remaining_points');
+
+    if (currentPointsElement) {
+      currentPointsElement.textContent = currentPoints.toLocaleString() + ' P';
+    }
+
+    if (deductPointsElement) {
+      deductPointsElement.textContent = '-' + deductPoints.toLocaleString() + ' P';
+    }
+
+    if (remainingPointsElement) {
+      remainingPointsElement.textContent = remainingPoints.toLocaleString() + ' P';
+
+      // 如果點數不足，顯示紅色警告
+      if (remainingPoints < 0) {
+        remainingPointsElement.classList.add('text-destructive');
+        remainingPointsElement.classList.remove('text-primary');
+      } else {
+        remainingPointsElement.classList.add('text-primary');
+        remainingPointsElement.classList.remove('text-destructive');
+      }
     }
   }
 
