@@ -1186,6 +1186,37 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <option value="other">其他</option>
          </select>
         </div>
+
+        <!-- 第三方註冊 -->
+        <div class="flex items-center gap-4">
+         <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">第三方註冊</label>
+         <div class="flex items-center gap-3 flex-1">
+          <div class="flex items-center gap-2">
+           <img src="https://i.pravatar.cc/100?img=12" alt="LINE頭像" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+           <span class="text-sm text-mono">鳳瑋~資訊建築🦁️</span>
+          </div>
+          <button class="kt-btn kt-btn-sm kt-btn-outline" onclick="handleLineUnbind()">
+           解除
+          </button>
+         </div>
+        </div>
+
+        <!-- 訂閱通知 -->
+        <div class="flex items-center gap-4">
+         <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">訂閱通知</label>
+         <div class="flex items-center gap-3 flex-1">
+          <div class="flex items-center gap-2">
+           <div class="flex items-center justify-center" style="width: 32px; height: 32px; background-color: #06C755; border-radius: 50%;">
+            <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path fill="white" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+           </div>
+          </div>
+          <button class="kt-btn kt-btn-sm" id="notification-btn" onclick="handleNotificationToggle()" style="background-color: #3b82f6; color: white; border-color: #3b82f6;">
+           開啟
+          </button>
+         </div>
+        </div>
        </div>
 
        <!-- 邀請分頁內容 (預設隱藏) -->
@@ -4342,6 +4373,38 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     input.select();
     document.execCommand('copy');
     alert('已複製邀請連結！');
+   }
+
+   // 處理LINE解除綁定
+   function handleLineUnbind() {
+    if (confirm('確定要解除LINE綁定嗎？')) {
+     // 這裡應該呼叫後端API解除綁定
+     alert('LINE綁定已解除');
+     // 可以在這裡更新UI，例如隱藏LINE圖標和帳號名稱
+    }
+   }
+
+   // 處理通知開關按鈕
+   let notificationEnabled = true; // 預設開啟
+   function handleNotificationToggle() {
+    const btn = document.getElementById('notification-btn');
+    notificationEnabled = !notificationEnabled;
+
+    if (notificationEnabled) {
+     btn.textContent = '開啟';
+     btn.style.backgroundColor = '#3b82f6'; // 藍色
+     btn.style.borderColor = '#3b82f6';
+     btn.style.color = 'white';
+     // 這裡應該呼叫後端API開啟通知
+     console.log('通知已開啟');
+    } else {
+     btn.textContent = '關閉';
+     btn.style.backgroundColor = '#6b7280'; // 灰色
+     btn.style.borderColor = '#6b7280';
+     btn.style.color = 'white';
+     // 這裡應該呼叫後端API關閉通知
+     console.log('通知已關閉');
+    }
    }
 
    // 點擊背景關閉彈窗
