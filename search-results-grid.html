@@ -799,7 +799,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div class="flex items-center gap-3 w-full">
         <!--Filter-->
         <!--Product Filter-->
-        <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_filter">
+        <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_filter">
          <div class="kt-card-header ps-5 pr-2">
           <h3 class="kt-card-title">
            喜好設定 
@@ -954,6 +954,87 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </div>
         <!--End of Filter Drawer-->
         <!--End of Filter-->
+
+        <!--Work Schedule Drawer-->
+        <div class="hidden kt-drawer kt-drawer-end card flex-col max-w-[90%] w-[320px] top-5 bottom-5 end-5 rounded-xl border border-border" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_work_schedule">
+         <div class="kt-card-header ps-5 pr-2">
+          <h3 class="kt-card-title">
+           上班設定
+          </h3>
+          <button class="kt-btn kt-btn-sm kt-btn-icon kt-btn-ghost shrink-0" data-kt-drawer-dismiss="true">
+           <i class="ki-filled ki-cross text-base">
+           </i>
+          </button>
+         </div>
+         <div class="kt-card-content px-0 pt-3.5 kt-scrollable-y-auto">
+          <div class="flex items-center gap-2.5 px-5 mb-4">
+           <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+            所在縣市
+           </span>
+           <select class="kt-select flex-1" id="work_city">
+            <option value="">請選擇縣市</option>
+            <option value="taipei">台北市</option>
+            <option value="newtaipei">新北市</option>
+            <option value="taoyuan">桃園市</option>
+            <option value="taichung">台中市</option>
+            <option value="tainan">台南市</option>
+            <option value="kaohsiung">高雄市</option>
+            <option value="keelung">基隆市</option>
+            <option value="hsinchu_city">新竹市</option>
+            <option value="chiayi_city">嘉義市</option>
+            <option value="hsinchu">新竹縣</option>
+            <option value="miaoli">苗栗縣</option>
+            <option value="changhua">彰化縣</option>
+            <option value="nantou">南投縣</option>
+            <option value="yunlin">雲林縣</option>
+            <option value="chiayi">嘉義縣</option>
+            <option value="pingtung">屏東縣</option>
+            <option value="yilan">宜蘭縣</option>
+            <option value="hualien">花蓮縣</option>
+            <option value="taitung">台東縣</option>
+            <option value="penghu">澎湖縣</option>
+            <option value="kinmen">金門縣</option>
+            <option value="lienchiang">連江縣</option>
+           </select>
+          </div>
+          <div class="border-b border-border mb-4">
+          </div>
+          <div class="flex items-center gap-2.5 px-5 mb-4">
+           <span class="text-sm font-medium text-mono whitespace-nowrap min-w-[80px]">
+            所在地區
+           </span>
+           <select class="kt-select flex-1" id="work_district">
+            <option value="">請選擇地區</option>
+           </select>
+          </div>
+          <div class="border-b border-border mb-4">
+          </div>
+          <div class="flex flex-col gap-2.5 px-5 mb-4">
+           <span class="text-sm font-medium text-mono">
+            上班狀態
+           </span>
+           <div class="flex items-center gap-4 mt-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+             <input type="radio" name="work_status" value="working" class="kt-radio" checked>
+             <span class="text-sm">上班</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+             <input type="radio" name="work_status" value="off_work" class="kt-radio">
+             <span class="text-sm">下班</span>
+            </label>
+           </div>
+          </div>
+         </div>
+         <div class="kt-card-footer grid grid-cols-2 gap-2.5">
+          <button class="kt-btn kt-btn-outline" data-kt-drawer-dismiss="true">
+           取消
+          </button>
+          <button class="kt-btn kt-btn-primary" onclick="saveWorkSchedule()">
+           確認
+          </button>
+         </div>
+        </div>
+        <!--End of Work Schedule Drawer-->
        </div>
        <!-- begin: toolbar -->
        <div class="flex flex-wrap items-center gap-5 justify-between mt-3">
@@ -979,6 +1060,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <button class="kt-dropdown-toggle kt-btn kt-btn-primary" data-kt-drawer-toggle="#drawers_shop_filter">
           <i class="ki-filled ki-filter"></i>
           喜好設定
+         </button>
+
+         <button class="kt-dropdown-toggle kt-btn" style="background-color: #8B2500; color: white;" data-kt-drawer-toggle="#drawers_work_schedule">
+          <i class="ki-filled ki-timer"></i>
+          上班設定
          </button>
         </div>
        </div>
@@ -5396,6 +5482,96 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     }
   }
 
+  // 上班設定 - 縣市選擇變更時更新地區選單
+  function updateWorkDistricts() {
+    const citySelect = document.getElementById('work_city');
+    const districtSelect = document.getElementById('work_district');
+
+    if (!citySelect || !districtSelect) return;
+
+    const selectedCity = citySelect.value;
+
+    // 清空地區選單
+    districtSelect.innerHTML = '<option value="">請選擇地區</option>';
+
+    // 如果有選擇縣市,則填入對應的地區
+    if (selectedCity && taiwanDistricts[selectedCity]) {
+      taiwanDistricts[selectedCity].forEach(district => {
+        const option = document.createElement('option');
+        option.value = district;
+        option.textContent = district;
+        districtSelect.appendChild(option);
+      });
+    }
+  }
+
+  // 儲存上班設定
+  function saveWorkSchedule() {
+    const citySelect = document.getElementById('work_city');
+    const districtSelect = document.getElementById('work_district');
+    const workStatus = document.querySelector('input[name="work_status"]:checked');
+
+    const workScheduleData = {
+      city: citySelect.value,
+      cityText: citySelect.options[citySelect.selectedIndex]?.text || '',
+      district: districtSelect.value,
+      status: workStatus?.value || 'working'
+    };
+
+    // 儲存到 localStorage
+    localStorage.setItem('workSchedule', JSON.stringify(workScheduleData));
+
+    console.log('上班設定已儲存:', workScheduleData);
+
+    // 關閉抽屜
+    const drawer = document.getElementById('drawers_work_schedule');
+    if (drawer && window.KTDrawer) {
+      const drawerInstance = window.KTDrawer.getInstance(drawer);
+      if (drawerInstance) {
+        drawerInstance.hide();
+      }
+    }
+
+    // 顯示成功訊息（可選）
+    alert('上班設定已儲存！');
+  }
+
+  // 載入儲存的上班設定
+  function loadWorkSchedule() {
+    try {
+      const savedData = localStorage.getItem('workSchedule');
+      if (savedData) {
+        const data = JSON.parse(savedData);
+
+        // 設定縣市
+        const citySelect = document.getElementById('work_city');
+        if (citySelect && data.city) {
+          citySelect.value = data.city;
+          // 觸發地區更新
+          updateWorkDistricts();
+
+          // 設定地區
+          setTimeout(() => {
+            const districtSelect = document.getElementById('work_district');
+            if (districtSelect && data.district) {
+              districtSelect.value = data.district;
+            }
+          }, 100);
+        }
+
+        // 設定上班狀態
+        if (data.status) {
+          const statusRadio = document.querySelector(`input[name="work_status"][value="${data.status}"]`);
+          if (statusRadio) {
+            statusRadio.checked = true;
+          }
+        }
+      }
+    } catch (e) {
+      console.error('載入上班設定時發生錯誤:', e);
+    }
+  }
+
   // 設定預訂日期預設值為今天
   window.addEventListener('DOMContentLoaded', function() {
     const today = new Date().toISOString().split('T')[0];
@@ -5403,24 +5579,33 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     if (dateInput) {
       dateInput.value = today;
     }
-    
+
     // 綁定縣市選單變更事件
       const citySelect = document.getElementById('filter_city');
       if (citySelect) {
         citySelect.addEventListener('change', updateDistricts);
       }
-      
+
       // 綁定邀約類型變更事件
       const dateTypeSelect = document.getElementById('filter_date_type');
       if (dateTypeSelect) {
         dateTypeSelect.addEventListener('change', updateHoursByDateType);
       }
-      
+
       // 綁定套用按鈕事件
       const applyFilterBtn = document.querySelector('#drawers_shop_filter .kt-btn-primary');
       if (applyFilterBtn) {
         applyFilterBtn.addEventListener('click', applyFilters);
       }
+
+      // 綁定上班設定相關事件
+      const workCitySelect = document.getElementById('work_city');
+      if (workCitySelect) {
+        workCitySelect.addEventListener('change', updateWorkDistricts);
+      }
+
+      // 載入儲存的上班設定
+      loadWorkSchedule();
     });
   
     // 套用篩選條件到搜尋框

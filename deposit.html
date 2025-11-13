@@ -373,6 +373,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="diamonds">
          鑽石紀錄
         </button>
+        <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="withdraw">
+         提領
+        </button>
        </nav>
       </div>
 
@@ -711,6 +714,135 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </div>
       <!-- End of Tab Content: Diamonds -->
 
+      <!-- Tab Content: Withdraw -->
+      <div class="tab-content hidden" id="withdraw-content">
+       <div class="flex flex-col gap-6">
+        <!-- 第一區塊 - 審核狀態 -->
+        <div class="flex flex-col gap-4">
+         <h3 class="text-base font-semibold text-mono">審核狀態：</h3>
+         <div class="p-5 border border-border rounded-lg bg-muted/30">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">最新申請時間：</span>
+            <span class="font-medium text-mono">2025-11-10 22:29:25</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">審核狀態：</span>
+            <span class="font-medium text-success">審核通過</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">審核時間：</span>
+            <span class="font-medium text-mono">2025-11-12 22:29:25</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">提領點數：</span>
+            <span class="font-medium text-mono">180000 P</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">換算金額：</span>
+            <span class="font-medium text-mono">10000 NT</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">手續費用：</span>
+            <span class="font-medium text-mono">-211 NT</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">實領金額：</span>
+            <span class="font-medium text-primary">99789 NT</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">提領方式：</span>
+            <span class="font-medium text-mono">匯款</span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- 第二區塊 - 申請提領 -->
+        <div class="flex flex-col gap-4">
+         <h3 class="text-base font-semibold text-mono">申請提領：</h3>
+
+         <!-- 現有點數與申請提領 -->
+         <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+           <span class="text-sm text-secondary-foreground">現有點數：</span>
+           <span class="text-base font-semibold text-primary">160000 P</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+           <span class="text-sm text-secondary-foreground">申請提領：</span>
+           <input type="number" id="withdraw_amount" class="kt-input" value="160000" style="max-width: 200px;">
+           <span class="text-sm">P</span>
+          </div>
+         </div>
+
+         <!-- 計算結果 -->
+         <div class="p-4 border border-border rounded-lg bg-muted/30">
+          <div class="flex flex-col gap-2 text-sm">
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">提領點數：</span>
+            <span class="font-medium text-mono" id="withdraw_points">180000 P</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">換算金額：</span>
+            <span class="font-medium text-mono" id="withdraw_nt">10000 NT</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">手續費用：</span>
+            <span class="font-medium text-mono" id="withdraw_fee">-211 NT</span>
+           </div>
+           <div class="flex items-center gap-2">
+            <span class="text-secondary-foreground">實領金額：</span>
+            <span class="font-medium text-primary text-base" id="withdraw_total">99789 NT</span>
+           </div>
+          </div>
+         </div>
+
+         <!-- 提領方式 -->
+         <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-4">
+           <span class="text-sm font-medium text-mono">提領方式：</span>
+           <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="withdraw_method" value="cash" class="kt-radio">
+            <span class="text-sm">臨櫃</span>
+           </label>
+           <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="withdraw_method" value="bank" class="kt-radio" checked>
+            <span class="text-sm">匯款</span>
+           </label>
+          </div>
+
+          <!-- 匯款表單 -->
+          <div id="bank_form" class="flex items-start gap-2">
+           <span class="text-sm text-secondary-foreground">匯款：</span>
+           <div class="flex flex-wrap items-center gap-2">
+            <input type="text" class="kt-input" placeholder="填寫銀行列" style="max-width: 150px;">
+            <input type="text" class="kt-input" placeholder="填寫帳號" style="max-width: 150px;">
+            <input type="text" class="kt-input" placeholder="填寫戶名" style="max-width: 150px;">
+            <button class="kt-btn kt-btn-sm kt-btn-outline">上傳封面存摺</button>
+            <input type="file" id="bank_passbook" class="hidden" accept="image/*">
+           </div>
+          </div>
+
+          <!-- 臨櫃資訊 -->
+          <div id="cash_info" class="hidden flex items-start gap-2">
+           <span class="text-sm text-secondary-foreground">臨櫃：</span>
+           <span class="text-sm font-medium text-mono">台中市南屯區永春東七路883號( 請於上班時間前往 )</span>
+          </div>
+         </div>
+
+         <!-- 提交按鈕 -->
+         <div class="flex justify-center mt-4">
+          <button class="kt-btn kt-btn-primary kt-btn-lg max-w-md justify-center" id="submit_withdraw">
+           <i class="ki-filled ki-wallet"></i>
+           提交申請
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- End of Tab Content: Withdraw -->
+
      </div>
     </div>
     <!-- End of Container -->
@@ -904,6 +1036,116 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      // Redirect to deposit-next.html with data
      window.location.href = 'deposit-next.html?amount=' + amount + '&diamonds=' + diamonds + '&bonus=' + bonus;
     });
+
+    // Withdraw functionality
+    const withdrawMethodRadios = document.querySelectorAll('input[name="withdraw_method"]');
+    const bankForm = document.getElementById('bank_form');
+    const cashInfo = document.getElementById('cash_info');
+    const withdrawAmountInput = document.getElementById('withdraw_amount');
+    const withdrawPointsDisplay = document.getElementById('withdraw_points');
+    const withdrawNtDisplay = document.getElementById('withdraw_nt');
+    const withdrawFeeDisplay = document.getElementById('withdraw_fee');
+    const withdrawTotalDisplay = document.getElementById('withdraw_total');
+    const passbookFileInput = document.getElementById('bank_passbook');
+
+    // Toggle between bank form and cash info
+    withdrawMethodRadios.forEach(radio => {
+     radio.addEventListener('change', function() {
+      if (this.value === 'bank') {
+       bankForm.classList.remove('hidden');
+       cashInfo.classList.add('hidden');
+      } else {
+       bankForm.classList.add('hidden');
+       cashInfo.classList.remove('hidden');
+      }
+     });
+    });
+
+    // Handle upload button click
+    const uploadBtn = bankForm.querySelector('.kt-btn-outline');
+    if (uploadBtn && passbookFileInput) {
+     uploadBtn.addEventListener('click', function() {
+      passbookFileInput.click();
+     });
+
+     passbookFileInput.addEventListener('change', function() {
+      if (this.files.length > 0) {
+       uploadBtn.textContent = '已選擇: ' + this.files[0].name;
+      } else {
+       uploadBtn.textContent = '上傳封面存摺';
+      }
+     });
+    }
+
+    // Calculate withdraw amounts
+    function calculateWithdraw() {
+     const amount = parseInt(withdrawAmountInput.value) || 0;
+     const exchangeRate = 16; // 匯率 1/16
+
+     // 計算換算金額
+     const ntAmount = Math.floor(amount / exchangeRate);
+
+     // 計算手續費 (假設為 2.11%)
+     const fee = Math.floor(ntAmount * 0.0211);
+
+     // 計算實領金額
+     const total = ntAmount - fee;
+
+     // 更新顯示
+     withdrawPointsDisplay.textContent = amount.toLocaleString() + ' P';
+     withdrawNtDisplay.textContent = ntAmount.toLocaleString() + ' NT';
+     withdrawFeeDisplay.textContent = '-' + fee.toLocaleString() + ' NT';
+     withdrawTotalDisplay.textContent = total.toLocaleString() + ' NT';
+    }
+
+    // Listen to input changes
+    if (withdrawAmountInput) {
+     withdrawAmountInput.addEventListener('input', calculateWithdraw);
+     // Initial calculation
+     calculateWithdraw();
+    }
+
+    // Submit withdraw button
+    const submitWithdrawBtn = document.getElementById('submit_withdraw');
+    if (submitWithdrawBtn) {
+     submitWithdrawBtn.addEventListener('click', function() {
+      const withdrawAmount = parseInt(withdrawAmountInput.value) || 0;
+      const withdrawMethod = document.querySelector('input[name="withdraw_method"]:checked').value;
+
+      if (withdrawAmount <= 0) {
+       alert('請輸入有效的提領點數');
+       return;
+      }
+
+      if (withdrawMethod === 'bank') {
+       // Validate bank form fields
+       const bankInputs = bankForm.querySelectorAll('input[type="text"]');
+
+       let hasEmpty = false;
+       bankInputs.forEach(input => {
+        if (!input.value.trim()) {
+         hasEmpty = true;
+        }
+       });
+
+       if (hasEmpty) {
+        alert('請填寫完整的銀行資訊');
+        return;
+       }
+
+       if (!passbookFileInput.files.length) {
+        alert('請上傳封面存摺');
+        return;
+       }
+      }
+
+      alert('提領申請已提交！\n提領點數: ' + withdrawAmount.toLocaleString() + ' P\n提領方式: ' + (withdrawMethod === 'bank' ? '匯款' : '臨櫃'));
+      console.log('Withdraw submitted:', {
+       amount: withdrawAmount,
+       method: withdrawMethod
+      });
+     });
+    }
    });
   </script>
   <!-- Scripts -->
