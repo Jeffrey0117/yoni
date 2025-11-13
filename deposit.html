@@ -813,13 +813,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </div>
 
           <!-- 匯款表單 -->
-          <div id="bank_form" class="flex items-start gap-2">
-           <span class="text-sm text-secondary-foreground">匯款：</span>
-           <div class="flex flex-wrap items-center gap-2">
-            <input type="text" class="kt-input" placeholder="填寫銀行列" style="max-width: 150px;">
-            <input type="text" class="kt-input" placeholder="填寫帳號" style="max-width: 150px;">
-            <input type="text" class="kt-input" placeholder="填寫戶名" style="max-width: 150px;">
-            <button class="kt-btn kt-btn-sm kt-btn-outline">上傳封面存摺</button>
+          <div id="bank_form" class="flex flex-col gap-3">
+           <div class="flex flex-col gap-2">
+            <label class="text-sm text-secondary-foreground">匯款：</label>
+            <textarea id="bank_info" class="kt-input" rows="3" placeholder="請輸入銀行資訊（銀行名稱、帳號、戶名等）"></textarea>
+           </div>
+           <div class="flex items-center gap-2">
+            <button class="kt-btn kt-btn-sm kt-btn-outline" type="button">上傳封面存摺</button>
+            <span id="passbook_filename" class="text-xs text-secondary-foreground"></span>
             <input type="file" id="bank_passbook" class="hidden" accept="image/*">
            </div>
           </div>
@@ -1063,6 +1064,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
     // Handle upload button click
     const uploadBtn = bankForm.querySelector('.kt-btn-outline');
+    const passbookFilename = document.getElementById('passbook_filename');
     if (uploadBtn && passbookFileInput) {
      uploadBtn.addEventListener('click', function() {
       passbookFileInput.click();
@@ -1070,9 +1072,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
      passbookFileInput.addEventListener('change', function() {
       if (this.files.length > 0) {
-       uploadBtn.textContent = '已選擇: ' + this.files[0].name;
+       passbookFilename.textContent = '已選擇: ' + this.files[0].name;
       } else {
-       uploadBtn.textContent = '上傳封面存摺';
+       passbookFilename.textContent = '';
       }
      });
     }
@@ -1119,17 +1121,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
       if (withdrawMethod === 'bank') {
        // Validate bank form fields
-       const bankInputs = bankForm.querySelectorAll('input[type="text"]');
+       const bankInfoTextarea = document.getElementById('bank_info');
 
-       let hasEmpty = false;
-       bankInputs.forEach(input => {
-        if (!input.value.trim()) {
-         hasEmpty = true;
-        }
-       });
-
-       if (hasEmpty) {
-        alert('請填寫完整的銀行資訊');
+       if (!bankInfoTextarea.value.trim()) {
+        alert('請填寫匯款資訊');
         return;
        }
 
