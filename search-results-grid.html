@@ -438,8 +438,19 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <!-- 生活照 -->
         <div class="mb-5">
          <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
-         <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity" onclick="openLightbox(0); if(window.KTDrawer){window.KTDrawer.getInstance(document.querySelector('#drawers_shop_product_details')).hide();}">
-          <img src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+         <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity mb-3" onclick="openMainPhoto()">
+          <img id="mainPhoto" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
+         </div>
+         <div class="grid grid-cols-3 gap-2">
+          <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer" style="height:70px" onclick="switchPhoto(0)">
+           <img src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg" class="w-full h-full object-cover" id="thumb0">
+          </div>
+          <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer" style="height:70px" onclick="switchPhoto(1)">
+           <img src="https://yoni.dinj.co/assets/banner-1-BFdURGQy.jpg" class="w-full h-full object-cover" id="thumb1">
+          </div>
+          <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer" style="height:70px" onclick="switchPhoto(2)">
+           <img src="https://yoni.dinj.co/assets/banner-2-LiMQRUBb.jpg" class="w-full h-full object-cover" id="thumb2">
+          </div>
          </div>
 
          <!-- 個人資料區塊(靜態文字) -->
@@ -6033,6 +6044,49 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   document.addEventListener('DOMContentLoaded', function() {
     // 直接套用粉紫垂直背景
     changeBackground('gradient3');
+  });
+  </script>
+
+  <!-- 生活照輪播功能 -->
+  <script>
+  const photoImages = [
+    'https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg',
+    'https://yoni.dinj.co/assets/banner-1-BFdURGQy.jpg',
+    'https://yoni.dinj.co/assets/banner-2-LiMQRUBb.jpg'
+  ];
+  let currentPhotoIndex = 0;
+
+  function switchPhoto(index) {
+    currentPhotoIndex = index;
+    const mainPhoto = document.getElementById('mainPhoto');
+    if (mainPhoto) {
+      mainPhoto.src = photoImages[index];
+    }
+
+    // Update thumbnail opacity
+    for (let i = 0; i < 3; i++) {
+      const thumb = document.getElementById('thumb' + i);
+      if (thumb) {
+        thumb.style.opacity = (i === index) ? '1' : '0.6';
+      }
+    }
+  }
+
+  function openMainPhoto() {
+    if (typeof openLightbox === 'function') {
+      openLightbox(currentPhotoIndex);
+    }
+    if (window.KTDrawer) {
+      const drawer = window.KTDrawer.getInstance(document.querySelector('#drawers_shop_product_details'));
+      if (drawer) {
+        drawer.hide();
+      }
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    switchPhoto(0);
   });
   </script>
   <!-- End of Scripts -->
