@@ -1,0 +1,1328 @@
+<!--
+Product: Metronic is a toolkit of UI components built with Tailwind CSS for developing scalable web applications quickly and efficiently
+Version: v9.2.9
+Author: Keenthemes
+Contact: support@keenthemes.com
+Website: https://www.keenthemes.com
+Support: https://devs.keenthemes.com
+Follow: https://www.twitter.com/keenthemes
+License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
+-->
+<!DOCTYPE html>
+<html class="h-full" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+ <head>
+  <title>
+   聊天室
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="follow, index" name="robots"/>
+  <link href="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/deposit" rel="canonical"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <meta content="Deposit page for yoni platform" name="description"/>
+  <meta content="@keenthemes" name="twitter:site"/>
+  <meta content="@keenthemes" name="twitter:creator"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Metronic - Tailwind CSS Deposit" name="twitter:title"/>
+  <meta content="Deposit page powered by Tailwind CSS" name="twitter:description"/>
+  <meta content="./assets/media/app/og-image.png" name="twitter:image"/>
+  <meta content="https://127.0.0.1:8001/metronic-tailwind-html/demo9/store-client/deposit" property="og:url"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="website" property="og:type"/>
+  <meta content="@keenthemes" property="og:site_name"/>
+  <meta content="Metronic - Tailwind CSS Deposit" property="og:title"/>
+  <meta content="Deposit page powered by Tailwind CSS" property="og:description"/>
+  <meta content="./assets/media/app/og-image.png" property="og:image"/>
+  <link href="./yoni_icon.ico" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="./yoni_icon.ico" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="./yoni_icon.ico" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="./yoni_icon.ico" rel="shortcut icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="./assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
+  <link href="./assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
+  <link href="./assets/css/styles.css" rel="stylesheet"/>
+  <style>
+   /* Chat Interface Styles */
+   .chat-item.active {
+    background-color: rgba(236, 72, 153, 0.05);
+    border-left: 3px solid #ec4899;
+   }
+
+   #messages-container {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-behavior: smooth;
+   }
+
+  .bg-danger {
+   background-color: #ef4444 !important;
+   color: #fff !important;
+  }
+
+  /* Gift Dialog Scrollbar - Always Visible */
+  #gift-scroll-area {
+   scrollbar-width: thin;
+   scrollbar-color: #f64696 #e5e5e5;
+  }
+  #gift-scroll-area::-webkit-scrollbar {
+   width: 8px;
+  }
+  #gift-scroll-area::-webkit-scrollbar-track {
+   background: #e5e5e5;
+   border-radius: 4px;
+  }
+  #gift-scroll-area::-webkit-scrollbar-thumb {
+   background: #f64696;
+   border-radius: 4px;
+  }
+  #gift-scroll-area::-webkit-scrollbar-thumb:hover {
+   background: #d63580;
+  }
+
+  /* Mobile Chat List Toggle */
+  .chat-list-sidebar {
+   transition: transform 0.3s ease-in-out;
+  }
+
+  @media (max-width: 1023px) {
+   .chat-list-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    width: 100%;
+    max-width: 320px;
+    background-color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+   }
+
+   .chat-list-sidebar.active {
+    transform: translateX(0);
+   }
+
+   .chat-list-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+   }
+
+   .chat-list-overlay.active {
+    opacity: 1;
+    visibility: visible;
+   }
+  }
+
+  /* Mobile toggle button animation */
+  .mobile-toggle-btn {
+   transition: transform 0.2s ease;
+  }
+  .mobile-toggle-btn:active {
+   transform: scale(0.95);
+  }
+  </style>
+ </head>
+ <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
+  <!-- Theme Mode -->
+  <script>
+   const defaultThemeMode = 'light'; // light|dark|system
+			let themeMode;
+
+			if (document.documentElement) {
+				if (localStorage.getItem('kt-theme')) {
+					themeMode = localStorage.getItem('kt-theme');
+				} else if (
+					document.documentElement.hasAttribute('data-kt-theme-mode')
+				) {
+					themeMode =
+						document.documentElement.getAttribute('data-kt-theme-mode');
+				} else {
+					themeMode = defaultThemeMode;
+				}
+
+				if (themeMode === 'system') {
+					themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light';
+				}
+
+				document.documentElement.classList.add(themeMode);
+			}
+  </script>
+  <!-- End of Theme Mode -->
+  <!-- Page -->
+  <!-- Main -->
+  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
+   <!-- Header -->
+   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+    <!-- Container -->
+    <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
+     <!-- Logo -->
+     <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu">
+       </i>
+      </button>
+      <div class="flex items-center gap-2">
+       <a class="flex items-center shrink-0" href="search-results-grid.html">
+        <img class="dark:hidden w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+       </a>
+      </div>
+     </div>
+     <!-- End of Logo -->
+     <!-- Topbar -->
+     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+      <!-- User -->
+      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
+       <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
+        <i class="ki-filled ki-profile-circle text-xl">
+        </i>
+       </button>
+       <div class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
+        <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
+         <div class="flex items-center gap-2">
+          <i class="ki-filled ki-profile-circle text-xl">
+          </i>
+          <div class="flex flex-col gap-1.5">
+           <span class="text-sm text-foreground font-semibold leading-none">
+            暱稱
+           </span>
+           <a class="text-xs text-secondary-foreground hover:text-primary font-medium leading-none" href="html/demo9/account/home/get-started.html">
+            會員編號
+           </a>
+          </div>
+         </div>
+         <span class="kt-badge kt-badge-sm kt-badge-primary kt-badge-outline">
+          角色
+         </span>
+        </div>
+        <ul class="kt-dropdown-menu-sub">
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="default.html">
+           <i class="ki-filled ki-badge">
+           </i>
+           個人資料
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-office-bag">
+           </i>
+           服務商申請
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-users">
+           </i>
+           邀請
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-heart">
+           </i>
+           關注
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-profile-circle text-xl">
+           </i>
+           訂單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-calendar">
+           </i>
+           接單
+          </a>
+         </li>
+         <li>
+          <a class="kt-dropdown-menu-link" href="#">
+           <i class="ki-filled ki-wallet">
+           </i>
+           收益
+          </a>
+         </li>
+         <li>
+          <div class="kt-dropdown-menu-separator">
+          </div>
+         </li>
+        </ul>
+        <div class="px-2.5 pt-1.5 mb-2.5 flex flex-col gap-3.5">
+         <div class="flex items-center gap-2 justify-between">
+          <span class="flex items-center gap-2">
+           <i class="ki-filled ki-moon text-base text-muted-foreground">
+           </i>
+           <span class="font-medium text-2sm">
+            深色模式
+           </span>
+          </span>
+          <input class="kt-switch" data-kt-theme-switch-state="dark" data-kt-theme-switch-toggle="true" name="check" type="checkbox" value="1"/>
+         </div>
+         <a class="kt-btn kt-btn-outline justify-center w-full" href="html/demo9/authentication/classic/sign-in.html">
+          登出
+         </a>
+        </div>
+       </div>
+      </div>
+      <!-- End of User -->
+      <!--Wishlist-->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-drawer-toggle="#drawers_shop_wishlist">
+       <i class="ki-filled ki-heart text-xl">
+       </i>
+      </button>
+      <!--Notification-->
+      <i class="ki-filled ki-notification-on text-2xl"></i>
+      <!-- End of Topbar -->
+     </div>
+    </div>
+    <!-- End of Container -->
+   </header>
+   <!-- End of Header -->
+   <!-- Navbar -->
+   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Container -->
+    <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
+     <!-- Mega Menu -->
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         首頁
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="order.html">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         快速配對
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="deposit.html" id="deposit-nav-link">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         儲值
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
+       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
+        <span class="kt-menu-title font-medium text-foreground text-sm">
+         FAQ
+        </span>
+        <span class="kt-menu-arrow flex lg:hidden">
+         <span class="flex kt-menu-item-show:hidden">
+          <i class="ki-filled ki-plus text-xs text-secondary-foreground">
+          </i>
+         </span>
+         <span class="hidden kt-menu-item-show:inline-flex">
+          <i class="ki-filled ki-minus text-xs text-secondary-foreground">
+          </i>
+         </span>
+        </span>
+       </div>
+       <div class="kt-menu-dropdown w-full gap-0 lg:max-w-[900px]">
+        <div class="pt-4 pb-2 lg:p-7.5">
+         <div class="grid lg:grid-cols-2 gap-5 lg:gap-10">
+          <div class="kt-menu kt-menu-default kt-menu-fit flex-col">
+           <h3 class="text-sm text-foreground font-semibold leading-none ps-2.5 mb-2 lg:mb-5">
+            常見問題
+           </h3>
+           <div class="grid lg:grid-cols-2 lg:gap-5">
+            <div class="flex flex-col gap-0.5">
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-question-2">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                如何使用平台?
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-wallet">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                儲值相關問題
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-shield-tick">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                安全與隱私
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-calendar">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                約會流程
+               </span>
+              </a>
+             </div>
+            </div>
+            <div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-message-text">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                聯絡客服
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-information">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                帳戶問題
+               </span>
+              </a>
+             </div>
+             <div class="kt-menu-item">
+              <a class="kt-menu-link" href="#" tabindex="0">
+               <span class="kt-menu-icon">
+                <i class="ki-filled ki-star">
+                </i>
+               </span>
+               <span class="kt-menu-title grow-0">
+                評價系統
+               </span>
+              </a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- End of Mega Menu -->
+    </div>
+    <!-- End of Container -->
+   </div>
+   <!-- End of Navbar -->
+   <!-- Main Content -->
+   <main class="flex flex-col grow overflow-x-hidden" id="content" role="content">
+    <!-- Container -->
+    <div class="kt-container-fixed h-full overflow-x-hidden">
+     <!-- Mobile overlay for chat list -->
+     <div class="chat-list-overlay lg:hidden" id="chat-list-overlay"></div>
+
+     <div class="flex h-full flex-col lg:flex-row gap-5 lg:gap-7.5">
+
+      <!-- Left Sidebar: Chat List -->
+      <div class="chat-list-sidebar lg:flex lg:w-1/3 flex-col border border-border rounded-lg bg-card overflow-hidden" id="chat-list-sidebar">
+       <!-- Header -->
+       <div class="p-5 border-b border-border">
+        <h2 class="text-xl font-bold text-mono">聊天室</h2>
+       </div>
+
+       <!-- Chat List -->
+       <div style="height: calc(100vh - 200px); overflow-y: scroll !important;">
+        <!-- Chat Item 1 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer active" data-chat-id="1">
+         <div class="flex items-center gap-3">
+          <!-- Avatar -->
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+
+          <!-- Info -->
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <div class="flex items-center gap-2">
+             <span class="font-semibold text-sm text-mono">Mical Clark</span>
+             <span class="kt-badge kt-badge-sm" style="background-color: #ef4444; color: white;">官方</span>
+            </div>
+            <span class="text-xs text-secondary-foreground">2020/10/20 10:00</span>
+           </div>
+           <div class="flex items-center justify-between">
+            <span class="kt-badge kt-badge-sm kt-badge-success">我現在有空</span>
+            <span class="size-6 rounded-full bg-danger flex items-center justify-center text-xs text-white font-semibold">10+</span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 2 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="2">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Colin Nathan</span>
+            <span class="text-xs text-secondary-foreground">2020/10/19 15:30</span>
+           </div>
+           <div class="flex items-center justify-between">
+            <span class="text-xs text-secondary-foreground truncate">最後訊息預覽...</span>
+            <span class="size-5 rounded-full bg-danger flex items-center justify-center text-xs text-white font-semibold">3</span>
+           </div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 3 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="3">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Sarah Johnson</span>
+            <span class="text-xs text-secondary-foreground">2020/10/18 20:15</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">嗨！你好</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 4 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="4">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <div class="flex items-center gap-2">
+             <span class="font-semibold text-sm text-mono">Emma Wilson</span>
+             <span class="kt-badge kt-badge-sm" style="background-color: #ef4444; color: white;">官方</span>
+            </div>
+            <span class="text-xs text-secondary-foreground">2020/10/17 11:20</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">謝謝你的訊息</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 5 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="5">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">David Chen</span>
+            <span class="text-xs text-secondary-foreground">2020/10/16 09:30</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">明天見面嗎？</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 6 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="6">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Amy Liu</span>
+            <span class="text-xs text-secondary-foreground">2020/10/15 18:45</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">好的沒問題</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 7 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="7">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Kevin Wang</span>
+            <span class="text-xs text-secondary-foreground">2020/10/14 14:20</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">週末有空嗎？</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 8 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="8">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Lisa Zhang</span>
+            <span class="text-xs text-secondary-foreground">2020/10/13 10:00</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">收到！</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 9 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="9">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Tom Lee</span>
+            <span class="text-xs text-secondary-foreground">2020/10/12 16:30</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">等你回覆</div>
+          </div>
+         </div>
+        </div>
+
+        <!-- Chat Item 10 -->
+        <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer" data-chat-id="10">
+         <div class="flex items-center gap-3">
+          <div class="relative">
+           <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <i class="ki-filled ki-profile-circle text-2xl text-primary"></i>
+           </div>
+          </div>
+          <div class="flex-1 min-w-0">
+           <div class="flex items-center justify-between mb-1">
+            <span class="font-semibold text-sm text-mono">Jenny Wu</span>
+            <span class="text-xs text-secondary-foreground">2020/10/11 08:15</span>
+           </div>
+           <div class="text-xs text-secondary-foreground truncate">早安！</div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <!-- Right: Chat Area -->
+      <div class="flex flex-1 flex-col border border-border rounded-lg bg-card overflow-hidden" id="chat-area">
+       <!-- Chat Header -->
+       <div class="p-3 md:p-4 border-b border-border">
+        <div class="flex items-center justify-between gap-2 mb-2 md:mb-0">
+         <div class="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+          <!-- Mobile Toggle Button -->
+          <button class="lg:hidden mobile-toggle-btn kt-btn kt-btn-icon kt-btn-sm kt-btn-ghost shrink-0" id="mobile-chat-list-toggle">
+           <i class="ki-filled ki-burger-menu-2 text-lg"></i>
+          </button>
+
+          <div class="size-10 md:size-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <i class="ki-filled ki-profile-circle text-xl md:text-2xl text-primary"></i>
+          </div>
+          <div class="min-w-0 flex-1">
+           <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-sm md:text-base text-mono truncate" id="chat-name">Mical Clark</span>
+            <span class="kt-badge kt-badge-sm shrink-0" style="background-color: #ef4444; color: white;">官方</span>
+           </div>
+           <div class="flex items-center gap-2 text-xs text-secondary-foreground">
+            <span class="kt-badge kt-badge-sm kt-badge-success">我現在有空</span>
+            <span class="hidden sm:inline">2020/10/20 10:00</span>
+           </div>
+          </div>
+         </div>
+
+         <!-- Action Buttons - Responsive -->
+         <div class="flex items-center gap-1 md:gap-2 shrink-0">
+          <button class="kt-btn kt-btn-sm kt-btn-outline hidden md:inline-flex">
+           <i class="ki-filled ki-heart"></i>
+           <span class="hidden lg:inline">關注</span>
+          </button>
+          <button class="kt-btn kt-btn-sm kt-btn-primary">
+           <i class="ki-filled ki-purchase"></i>
+           <span class="hidden sm:inline">下單</span>
+          </button>
+          <button class="kt-btn kt-btn-sm hidden sm:inline-flex" style="background-color: #10b981; color: white;">
+           <i class="ki-filled ki-message-text"></i>
+           <span class="hidden md:inline">免費發話 9次</span>
+          </button>
+         </div>
+        </div>
+       </div>
+
+       <!-- Messages Area -->
+       <div class="overflow-y-auto overflow-x-hidden p-3 md:p-5 bg-muted/10" id="messages-container" style="height: calc(100vh - 350px);">
+        <div class="flex flex-col gap-4">
+
+         <!-- Message from other (left) -->
+         <div class="flex gap-2 items-start group">
+          <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <i class="ki-filled ki-profile-circle text-lg text-primary"></i>
+          </div>
+          <div class="flex flex-col gap-1 max-w-full sm:max-w-md">
+           <div class="bg-blue-50 border border-border/50 shadow-sm rounded-2xl rounded-tl-none px-3 py-2 text-sm break-words">
+            <p class="text-sm text-mono">你好！很高興認識你</p>
+           </div>
+           <span class="text-xs text-secondary-foreground px-2">20:00</span>
+          </div>
+          <div class="flex items-center gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0">
+           <button type="button" aria-label="複製訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-copy text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="回覆訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-reply text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="刪除訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-trash text-sm text-secondary-foreground"></i>
+           </button>
+          </div>
+         </div>
+
+         <!-- Message from me (right) -->
+         <div class="flex gap-2 justify-end items-start group relative">
+          <div class="flex items-center gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 absolute right-14 top-0">
+           <button type="button" aria-label="複製訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-copy text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="回覆訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-reply text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="刪除訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-trash text-sm text-secondary-foreground"></i>
+           </button>
+          </div>
+          <div class="flex flex-col gap-1 max-w-full sm:max-w-md items-end">
+           <div class="rounded-2xl rounded-tr-none px-3 py-2 shadow-sm text-sm break-words" style="background-color: rgba(236, 72, 153, 0.9); color: white;">
+            <p class="text-sm">嗨！我也很高興認識你</p>
+           </div>
+           <span class="text-xs text-secondary-foreground px-2">20:01</span>
+          </div>
+          <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <i class="ki-filled ki-profile-circle text-lg text-primary"></i>
+          </div>
+         </div>
+
+         <!-- Message from other -->
+         <div class="flex gap-2 items-start group">
+          <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <i class="ki-filled ki-profile-circle text-lg text-primary"></i>
+          </div>
+          <div class="flex flex-col gap-1 max-w-full sm:max-w-md">
+           <div class="bg-blue-50 border border-border/50 shadow-sm rounded-2xl rounded-tl-none px-3 py-2 text-sm break-words">
+            <p class="text-sm text-mono">你今天過得怎麼樣？</p>
+           </div>
+           <span class="text-xs text-secondary-foreground px-2">20:02</span>
+          </div>
+          <div class="flex items-center gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0">
+           <button type="button" aria-label="複製訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-copy text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="回覆訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-reply text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="刪除訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-trash text-sm text-secondary-foreground"></i>
+           </button>
+          </div>
+         </div>
+
+         <!-- Message from me -->
+         <div class="flex gap-2 justify-end items-start group relative">
+          <div class="flex items-center gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 absolute right-14 top-0">
+           <button type="button" aria-label="複製訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-copy text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="回覆訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-reply text-sm text-secondary-foreground"></i>
+           </button>
+           <button type="button" aria-label="刪除訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+            <i class="ki-filled ki-trash text-sm text-secondary-foreground"></i>
+           </button>
+          </div>
+          <div class="flex flex-col gap-1 max-w-full sm:max-w-md items-end">
+           <div class="rounded-2xl rounded-tr-none px-3 py-2 shadow-sm text-sm break-words" style="background-color: rgba(236, 72, 153, 0.9); color: white;">
+            <p class="text-sm">還不錯！謝謝關心</p>
+           </div>
+           <span class="text-xs text-secondary-foreground px-2">20:03</span>
+          </div>
+          <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <i class="ki-filled ki-profile-circle text-lg text-primary"></i>
+          </div>
+         </div>
+
+        </div>
+       </div>
+
+       <!-- Input Area -->
+       <div class="border-t border-border p-3 md:p-4">
+        <!-- Quick Message Tags -->
+        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4 overflow-x-auto">
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">你好嗎？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">要吃飯嗎？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">你什麼時候有空？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">你是什麼星座？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">要約出來嗎？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">你可以嗎？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">你真美</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">認識嗎？</button>
+         <button class="quick-reply-btn inline-flex items-center gap-1 bg-primary/10 text-primary text-xs md:text-sm font-semibold px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:bg-primary/20 transition-colors duration-150 shadow-sm whitespace-nowrap">有空嗎？</button>
+        </div>
+
+        <!-- Input Box Container -->
+        <div class="mt-2 md:mt-3">
+         <div class="flex items-center gap-1.5 md:gap-2 w-full">
+          <div class="flex-1 bg-[#F7F9FB] rounded-xl p-2 md:p-3">
+           <textarea id="message-input" rows="1" class="w-full bg-[#F7F9FB] text-sm text-gray-900 placeholder:text-gray-400 resize-none outline-none border-0 focus:ring-0 min-h-[40px] md:min-h-[48px] max-h-[200px]" placeholder="說點什麼..."></textarea>
+          </div>
+
+          <button class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white hover:opacity-90 transition-opacity cursor-pointer shrink-0" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);" id="gift-btn" title="送禮">
+           <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M190.5 68.8L225.3 128l-1.3 0-72 0c-22.1 0-40-17.9-40-40s17.9-40 40-40l2.2 0c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40L32 128c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-41.6 0c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88l-2.2 0c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0L152 0C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40l-72 0-1.3 0 34.8-59.2C329.1 55.9 342.9 48 357.8 48l2.2 0c22.1 0 40 17.9 40 40zM32 288l0 176c0 26.5 21.5 48 48 48l144 0 0-224L32 288zM288 512l144 0c26.5 0 48-21.5 48-48l0-176-192 0 0 224z"></path>
+           </svg>
+          </button>
+
+          <button class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white hover:opacity-90 transition-opacity cursor-pointer shrink-0" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);" id="upload-image-btn" title="上傳圖片">
+           <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6l96 0 32 0 208 0c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"></path>
+           </svg>
+          </button>
+
+          <button class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white hover:opacity-90 transition-opacity cursor-pointer shrink-0" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);" id="send-message-btn" title="送出">
+           <svg class="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path>
+           </svg>
+          </button>
+         </div>
+        </div>
+       </div>
+      </div>
+
+     </div>
+    </div>
+    <!-- End of Container -->
+   </main>
+   <!-- End of Main Content -->
+   <!-- Footer -->
+   <footer class="footer">
+    <!-- Container -->
+    <div class="kt-container-fixed">
+     <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
+      <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
+       <span class="text-muted-foreground">
+        2025©
+       </span>
+       <a class="text-secondary-foreground hover:text-primary" href="https://keenthemes.com">
+        yoni Inc.
+       </a>
+      </div>
+      <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
+       <a class="hover:text-primary" href="about.html">
+        品牌介紹
+       </a>
+       <a class="hover:text-primary" href="terms.html">
+        使用條款
+       </a>
+       <a class="hover:text-primary" href="privacy.html">
+        隱私權政策
+       </a>
+      </nav>
+     </div>
+    </div>
+    <!-- End of Container -->
+   </footer>
+   <!-- End of Footer -->
+  </div>
+  <!-- End of Main -->
+  <!-- Gift Dialog -->
+  <div id="gift-dialog" class="fixed z-[2069] opacity-0 invisible transition-all duration-300 flex items-center justify-center p-2 md:p-4" style="background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; right: 0; bottom: 0;">
+   <div class="bg-white rounded-lg shadow-xl w-full max-w-[95vw] md:max-w-[800px] max-h-[90vh] md:max-h-[85vh] overflow-hidden relative transform scale-95 transition-transform duration-300 flex flex-col" id="gift-dialog-content" onclick="event.stopPropagation()">
+     <!-- Header -->
+     <header class="flex items-center justify-between py-3 md:py-4 border-b border-border shrink-0 px-4 md:px-8">
+      <h2 class="text-lg md:text-xl font-semibold text-mono">送禮方案</h2>
+      <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors" id="close-gift-dialog">
+       <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <path d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
+       </svg>
+      </button>
+     </header>
+
+     <!-- Body -->
+     <div id="gift-scroll-area" class="flex-1 overflow-y-auto overflow-x-hidden px-4 md:px-8 py-3 md:py-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 pt-2 pb-4">
+       <!-- Gift Card 1 -->
+       <div class="gift-card border-2 border-[#f64696] rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg transition-shadow" data-selected="true">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/coffee.png" alt="咖啡" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">100 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">100 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 2 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/memory-card.png" alt="記憶卡" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">200 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">200 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 3 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/camera.png" alt="單眼相機" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">300 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">300 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 4 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/coffee.png" alt="咖啡" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">500 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">500 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 5 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/coffee.png" alt="咖啡" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">800 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">800 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 6 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/camera.png" alt="單眼相機" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">1000 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">1000 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+
+       <!-- Gift Card 7 -->
+       <div class="gift-card border-2 border-gray-200 rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg hover:border-[#f64696] transition-all" data-selected="false">
+                <div class="flex items-center justify-center px-4">
+         <img class="object-contain h-[120px]" src="./assets/media/gifts/camera.png" alt="單眼相機" onerror="this.src='https://img.icons8.com/color/150/coffee-to-go.png'">
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4">
+         <div class="font-bold mb-2 text-base text-gray-800">2000 鑽石</div>
+         <div class="flex items-center justify-center gap-2 mb-2">
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); decreaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64"></path></svg>
+          </button>
+          <input type="number" class="w-16 text-center border border-gray-300 rounded px-2 py-1 text-sm" value="1" min="1" max="99" readonly>
+          <button class="w-8 h-8 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors" onclick="event.stopPropagation(); increaseQuantity(this)">
+           <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 1024 1024"><path d="M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64z"></path></svg>
+          </button>
+         </div>
+         <span class="text-[#f64696] text-xs font-medium">2000 鑽石</span>
+        </div>
+        <button type="button" class="mt-3 px-5 py-1.5 rounded text-white text-sm font-medium hover:opacity-90 transition-opacity mx-auto block" style="background-color: #f64696;" onclick="event.stopPropagation();">確定送禮</button>
+       </div>
+      </div>
+     </div>
+
+     <!-- Footer -->
+     <footer class="border-t border-border py-3 md:py-4 flex justify-end gap-2 md:gap-3 bg-white shrink-0 px-4 md:px-8">
+      <button type="button" class="px-4 md:px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm font-medium transition-colors" id="cancel-gift-dialog">取消</button>
+      <button type="button" class="px-4 md:px-6 py-2 rounded-lg text-white text-sm font-medium hover:opacity-90 transition-opacity" style="background-color: #f64696;" id="confirm-gift-dialog">確認</button>
+     </footer>
+    </div>
+  </div>
+  <!-- End of Gift Dialog -->
+
+  <!-- End of Page -->
+  <!-- Chat Interface Script -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    // Mobile chat list toggle
+    const mobileChatListToggle = document.getElementById('mobile-chat-list-toggle');
+    const chatListSidebar = document.getElementById('chat-list-sidebar');
+    const chatListOverlay = document.getElementById('chat-list-overlay');
+
+    function openChatList() {
+     chatListSidebar.classList.add('active');
+     chatListOverlay.classList.add('active');
+     document.body.style.overflow = 'hidden';
+    }
+
+    function closeChatList() {
+     chatListSidebar.classList.remove('active');
+     chatListOverlay.classList.remove('active');
+     document.body.style.overflow = '';
+    }
+
+    if (mobileChatListToggle) {
+     mobileChatListToggle.addEventListener('click', openChatList);
+    }
+
+    if (chatListOverlay) {
+     chatListOverlay.addEventListener('click', closeChatList);
+    }
+
+    // Chat switching functionality
+    const chatItems = document.querySelectorAll('.chat-item');
+    const messagesContainer = document.getElementById('messages-container');
+    const chatName = document.getElementById('chat-name');
+    const messageInput = document.getElementById('message-input');
+    const sendMessageBtn = document.getElementById('send-message-btn');
+    const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
+    const uploadImageBtn = document.getElementById('upload-image-btn');
+    const giftBtn = document.getElementById('gift-btn');
+
+    // Switch chat room
+    chatItems.forEach(item => {
+     item.addEventListener('click', function() {
+      // Remove active state from all items
+      chatItems.forEach(i => i.classList.remove('active', 'bg-muted/30'));
+
+      // Add active state to clicked item
+      this.classList.add('active', 'bg-muted/30');
+
+      // Get chat data
+      const chatId = this.getAttribute('data-chat-id');
+      const name = this.querySelector('.font-semibold').textContent;
+
+      // Update chat header
+      chatName.textContent = name;
+
+      // Clear unread badge
+      const badge = this.querySelector('.bg-danger');
+      if (badge) {
+       badge.remove();
+      }
+
+      // Close mobile chat list on selection
+      if (window.innerWidth < 1024) {
+       closeChatList();
+      }
+
+      console.log('Switched to chat:', chatId, name);
+     });
+    });
+
+    // Send message function
+    function sendMessage(text) {
+     if (!text.trim()) return;
+
+     const messagesDiv = messagesContainer.querySelector('.flex.flex-col');
+     const now = new Date();
+     const timeStr = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+     // Create message element
+     const messageHTML = `
+      <div class="flex gap-2 justify-end items-start group relative">
+       <div class="flex items-center gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 absolute right-14 top-0">
+        <button type="button" aria-label="複製訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+         <i class="ki-filled ki-copy text-sm text-secondary-foreground"></i>
+        </button>
+        <button type="button" aria-label="回覆訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+         <i class="ki-filled ki-reply text-sm text-secondary-foreground"></i>
+        </button>
+        <button type="button" aria-label="刪除訊息" class="size-8 rounded-full hover:bg-muted/50 flex items-center justify-center">
+         <i class="ki-filled ki-trash text-sm text-secondary-foreground"></i>
+        </button>
+       </div>
+       <div class="flex flex-col gap-1 max-w-full sm:max-w-md items-end">
+        <div class="rounded-2xl rounded-tr-none px-3 py-2 shadow-sm text-sm break-words" style="background-color: rgba(236, 72, 153, 0.9); color: white;">
+         <p class="text-sm">${text}</p>
+        </div>
+        <span class="text-xs text-secondary-foreground px-2">${timeStr}</span>
+       </div>
+       <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+        <i class="ki-filled ki-profile-circle text-lg text-primary"></i>
+       </div>
+      </div>
+     `;
+
+     messagesDiv.insertAdjacentHTML('beforeend', messageHTML);
+
+     // Clear input and reset height
+     messageInput.value = '';
+     messageInput.style.height = 'auto';
+
+     // Scroll to bottom
+     messagesContainer.scrollTo({
+      top: messagesContainer.scrollHeight,
+      behavior: 'smooth'
+     });
+
+     console.log('Message sent:', text);
+    }
+
+    // Send button click
+    sendMessageBtn.addEventListener('click', function() {
+     sendMessage(messageInput.value);
+    });
+
+    // Enter key to send
+    messageInput.addEventListener('keypress', function(e) {
+     if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(messageInput.value);
+     }
+    });
+
+    // Auto-expand textarea
+    function autoExpandTextarea() {
+     messageInput.style.height = 'auto';
+     const newHeight = Math.min(messageInput.scrollHeight, 200);
+     messageInput.style.height = newHeight + 'px';
+    }
+
+    messageInput.addEventListener('input', autoExpandTextarea);
+
+    // Quick reply buttons
+    quickReplyBtns.forEach(btn => {
+     btn.addEventListener('click', function() {
+      const text = this.textContent.trim();
+      messageInput.value = text;
+      autoExpandTextarea();
+      messageInput.focus();
+      const caret = messageInput.value.length;
+      messageInput.setSelectionRange(caret, caret);
+     });
+    });
+
+    // Upload image button click
+    uploadImageBtn.addEventListener('click', function() {
+     console.log('Upload image button clicked');
+     // TODO: Implement image upload functionality
+     alert('圖片上傳功能即將推出');
+    });
+
+    // Gift Dialog Functions
+    const giftDialog = document.getElementById('gift-dialog');
+    const giftDialogContent = document.getElementById('gift-dialog-content');
+    const closeGiftDialogBtn = document.getElementById('close-gift-dialog');
+    const cancelGiftDialogBtn = document.getElementById('cancel-gift-dialog');
+    const confirmGiftDialogBtn = document.getElementById('confirm-gift-dialog');
+
+    // Gift button click - show dialog
+    giftBtn.addEventListener('click', function() {
+     console.log('Gift button clicked');
+     giftDialog.classList.remove('opacity-0', 'invisible');
+     giftDialog.classList.add('opacity-100', 'visible');
+     giftDialogContent.classList.remove('scale-95');
+     giftDialogContent.classList.add('scale-100');
+     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Function to hide dialog
+    function hideGiftDialog() {
+     giftDialog.classList.remove('opacity-100', 'visible');
+     giftDialog.classList.add('opacity-0', 'invisible');
+     giftDialogContent.classList.remove('scale-100');
+     giftDialogContent.classList.add('scale-95');
+     document.body.style.overflow = '';
+    }
+
+    // Close dialog button
+    closeGiftDialogBtn.addEventListener('click', hideGiftDialog);
+
+    // Cancel button
+    cancelGiftDialogBtn.addEventListener('click', hideGiftDialog);
+
+    // Confirm button
+    confirmGiftDialogBtn.addEventListener('click', function() {
+     // TODO: Implement gift confirmation logic
+     alert('確認送禮功能即將實作');
+     hideGiftDialog();
+    });
+
+    // Click outside dialog to close
+    giftDialog.addEventListener('click', function(e) {
+     if (e.target === giftDialog) {
+      hideGiftDialog();
+     }
+    });
+
+    // Auto scroll to bottom on load
+    if (messagesContainer) {
+     messagesContainer.scrollTo({
+      top: messagesContainer.scrollHeight,
+      behavior: 'smooth'
+     });
+    }
+
+    // Message action buttons event delegation
+    messagesContainer.addEventListener('click', function(e) {
+     const button = e.target.closest('button[aria-label]');
+     if (!button) return;
+
+     const label = button.getAttribute('aria-label');
+     const messageGroup = button.closest('.group');
+     const messageText = messageGroup.querySelector('p').textContent;
+
+     if (label === '複製訊息') {
+      navigator.clipboard.writeText(messageText).then(() => {
+       alert('訊息已複製到剪貼簿');
+      }).catch(err => {
+       console.error('複製失敗:', err);
+      });
+     } else if (label === '回覆訊息') {
+      messageInput.value = '回覆: "' + messageText + '" \n';
+      messageInput.focus();
+      autoExpandTextarea();
+     } else if (label === '刪除訊息') {
+      if (confirm('確定要刪除此訊息嗎？')) {
+       messageGroup.remove();
+      }
+     }
+    });
+   });
+
+   // Quantity control functions for gift dialog
+   function increaseQuantity(button) {
+    const input = button.parentElement.querySelector('input[type="number"]');
+    const currentValue = parseInt(input.value) || 1;
+    const max = parseInt(input.getAttribute('max')) || 10;
+    if (currentValue < max) {
+     input.value = currentValue + 1;
+    }
+   }
+
+   function decreaseQuantity(button) {
+    const input = button.parentElement.querySelector('input[type="number"]');
+    const currentValue = parseInt(input.value) || 1;
+    const min = parseInt(input.getAttribute('min')) || 1;
+    if (currentValue > min) {
+     input.value = currentValue - 1;
+    }
+   }
+  </script>
+  <!-- Scripts -->
+  <script src="assets/js/core.bundle.js">
+  </script>
+  <script src="assets/vendors/ktui/ktui.min.js">
+  </script>
+  <script src="assets/vendors/apexcharts/apexcharts.min.js">
+  </script>
+  <script src="assets/js/widgets/general.js">
+  </script>
+  <!-- End of Scripts -->
+ </body>
+</html>
