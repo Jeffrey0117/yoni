@@ -403,7 +403,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
  <i class="ki-filled ki-notification-on text-2xl"></i>
       <!--End of Cart-->
       <!--Product Details Drawer-->
-      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
+      <div class="hidden kt-drawer kt-drawer-end kt-card flex-col max-w-[90%] w-[520px] top-5 bottom-5 end-5 rounded-xl border border-border" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-container="body" id="drawers_shop_product_details">
        <div class="kt-card-header px-5">
         <h3 class="kt-card-title">
          安娜寶貝
@@ -660,7 +660,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </header>
    <!-- End of Header -->
    <!-- Navbar -->
-   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+   <div class="hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
     <!-- Container -->
     <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
      <!-- Mega Menu -->
@@ -5964,7 +5964,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       }
       if (navbar) {
         navbar.style.setProperty('background', 'transparent', 'important');
-        navbar.classList.remove('bg-muted');
+        navbar.style.removeProperty('background-color');
         navbar.classList.add('backdrop-blur-sm');
       }
       // 讓 main-wrapper 也透明
@@ -6018,7 +6018,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       }
       if (navbar) {
         navbar.style.background = '';
-        navbar.classList.add('bg-muted');
+        navbar.style.setProperty('background-color', 'white', 'important');
         navbar.classList.remove('backdrop-blur-sm');
       }
       // 恢復 main-wrapper 背景
