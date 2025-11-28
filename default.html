@@ -2090,6 +2090,99 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
         <!-- 收益分頁內容 (預設隱藏) -->
         <div id="revenue-section" class="hidden flex-col w-full mb-12">
+         <!-- 收益狀態篩選分頁 -->
+         <div class="w-full mb-5">
+          <div class="overflow-x-auto">
+           <div class="flex items-center justify-center border-b border-border min-w-max px-2">
+            <button class="revenue-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-revenue-status="all">
+             全部
+            </button>
+            <button class="revenue-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-revenue-status="released">
+             已核發
+            </button>
+            <button class="revenue-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-revenue-status="pending">
+             未核發
+            </button>
+           </div>
+          </div>
+         </div>
+
+         <!-- 總收益 -->
+         <div class="w-full px-2 sm:px-4 mb-5">
+          <div class="kt-card p-5">
+           <div class="flex flex-col gap-1">
+            <span class="text-sm text-secondary-foreground">總收益</span>
+            <span class="text-2xl font-bold text-mono" id="total-revenue">5,600 P</span>
+           </div>
+          </div>
+         </div>
+
+         <!-- 收益紀錄 -->
+         <div class="w-full px-2 sm:px-4" id="revenue-list">
+          <div class="kt-card overflow-hidden">
+           <div class="kt-card-header p-5 border-b border-border">
+            <h3 class="text-base font-semibold text-mono">收益紀錄</h3>
+           </div>
+           <div class="overflow-x-auto">
+            <table class="w-full min-w-[800px]">
+             <thead class="bg-muted/70">
+              <tr>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">訂單編號</th>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">下單時間</th>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">結束時間</th>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">是否核發</th>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">核發時間</th>
+               <th class="text-left text-xs font-normal text-secondary-foreground p-4">核發鑽石</th>
+              </tr>
+             </thead>
+             <tbody>
+              <!-- 收益項目 1 - 已核發 -->
+              <tr class="border-b border-border hover:bg-muted/30" data-revenue-item data-is-released="true">
+               <td class="p-4 text-sm font-medium text-mono">20250626-00001</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-26 14:30</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-26 18:30</td>
+               <td class="p-4"><span class="kt-badge kt-badge-success kt-badge-sm">已核發</span></td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-27 18:30</td>
+               <td class="p-4 text-sm font-semibold text-primary"><i class="ki-solid ki-diamond"></i> 2400 P</td>
+              </tr>
+              <!-- 收益項目 2 - 已核發 -->
+              <tr class="border-b border-border hover:bg-muted/30" data-revenue-item data-is-released="true">
+               <td class="p-4 text-sm font-medium text-mono">20250625-00003</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-25 10:00</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-25 14:00</td>
+               <td class="p-4"><span class="kt-badge kt-badge-success kt-badge-sm">已核發</span></td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-26 14:00</td>
+               <td class="p-4 text-sm font-semibold text-primary"><i class="ki-solid ki-diamond"></i> 3200 P</td>
+              </tr>
+              <!-- 收益項目 3 - 未核發 (退單) -->
+              <tr class="border-b border-border hover:bg-muted/30 bg-warning/5" data-revenue-item data-is-released="false">
+               <td class="p-4 text-sm font-medium text-mono">20250624-00005</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-24 16:00</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-24 16:30</td>
+               <td class="p-4"><span class="kt-badge kt-badge-warning kt-badge-sm">未核發</span></td>
+               <td class="p-4 text-sm font-medium text-muted-foreground">-</td>
+               <td class="p-4">
+                <div class="text-sm font-semibold text-muted-foreground"><i class="ki-solid ki-diamond"></i> 0 P</div>
+                <div class="text-xs text-warning mt-1"><i class="ki-filled ki-information-2 me-1"></i>退單不核發</div>
+               </td>
+              </tr>
+              <!-- 收益項目 4 - 未核發 (等待中) -->
+              <tr class="border-b border-border hover:bg-muted/30 bg-info/5" data-revenue-item data-is-released="false">
+               <td class="p-4 text-sm font-medium text-mono">20250627-00002</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-27 09:00</td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-27 13:00</td>
+               <td class="p-4"><span class="kt-badge kt-badge-info kt-badge-sm">處理中</span></td>
+               <td class="p-4 text-sm font-medium text-mono">2025-06-28 13:00</td>
+               <td class="p-4">
+                <div class="text-sm font-semibold text-info"><i class="ki-solid ki-diamond"></i> 2800 P</div>
+                <div class="text-xs text-info mt-1"><i class="ki-filled ki-time me-1"></i>24hr後核發</div>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+           </div>
+          </div>
+         </div>
         </div>
 
       <!-- 儲存按鈕 (獨立於表單外,整個頁面置中,只在帳戶資料分頁顯示) -->
@@ -4207,6 +4300,45 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       
       // TODO: 根據選中的狀態篩選接單列表
       // 這裡可以添加接單篩選邏輯
+     });
+    });
+
+    // 收益狀態篩選分頁切換功能
+    const revenueStatusTabs = document.querySelectorAll('.revenue-status-tab');
+    const revenueItems = document.querySelectorAll('[data-revenue-item]');
+
+    revenueStatusTabs.forEach(tab => {
+     tab.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // 移除所有分頁的選中狀態
+      revenueStatusTabs.forEach(t => {
+       t.classList.remove('border-primary', 'text-primary');
+       t.classList.add('border-transparent', 'text-secondary-foreground');
+      });
+
+      // 添加當前分頁的選中狀態
+      this.classList.remove('border-transparent', 'text-secondary-foreground');
+      this.classList.add('border-primary', 'text-primary');
+
+      // 獲取選中的狀態
+      const selectedStatus = this.getAttribute('data-revenue-status');
+      console.log('選中的收益狀態:', selectedStatus);
+
+      // 根據選中的狀態篩選收益列表
+      revenueItems.forEach(item => {
+       const isReleased = item.getAttribute('data-is-released') === 'true';
+
+       if (selectedStatus === 'all') {
+        item.style.display = '';
+       } else if (selectedStatus === 'released' && isReleased) {
+        item.style.display = '';
+       } else if (selectedStatus === 'pending' && !isReleased) {
+        item.style.display = '';
+       } else {
+        item.style.display = 'none';
+       }
+      });
      });
     });
 
