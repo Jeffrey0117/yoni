@@ -2123,7 +2123,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            <div class="kt-card-header p-5 border-b border-border">
             <h3 class="text-base font-semibold text-mono">收益紀錄</h3>
            </div>
-           <div class="overflow-x-auto">
+
+           <!-- 桌面版表格 (lg 以上顯示) -->
+           <div class="hidden lg:block overflow-x-auto">
             <table class="w-full min-w-[800px]">
              <thead class="bg-muted/70">
               <tr>
@@ -2180,6 +2182,147 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
               </tr>
              </tbody>
             </table>
+           </div>
+
+           <!-- 手機版卡片 (lg 以下顯示) -->
+           <div class="lg:hidden divide-y divide-border">
+            <!-- 收益項目 1 - 已核發 -->
+            <div class="p-4 hover:bg-muted/30" data-revenue-item data-is-released="true">
+             <div class="space-y-3">
+              <div class="flex justify-between items-start">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">訂單編號</div>
+                <div class="text-sm font-medium text-mono">20250626-00001</div>
+               </div>
+               <span class="kt-badge kt-badge-success kt-badge-sm">已核發</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">下單時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-26 14:30</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">結束時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-26 18:30</div>
+               </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-27 18:30</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發鑽石</div>
+                <div class="text-sm font-semibold text-primary"><i class="ki-solid ki-diamond"></i> 2400 P</div>
+               </div>
+              </div>
+             </div>
+            </div>
+
+            <!-- 收益項目 2 - 已核發 -->
+            <div class="p-4 hover:bg-muted/30" data-revenue-item data-is-released="true">
+             <div class="space-y-3">
+              <div class="flex justify-between items-start">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">訂單編號</div>
+                <div class="text-sm font-medium text-mono">20250625-00003</div>
+               </div>
+               <span class="kt-badge kt-badge-success kt-badge-sm">已核發</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">下單時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-25 10:00</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">結束時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-25 14:00</div>
+               </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-26 14:00</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發鑽石</div>
+                <div class="text-sm font-semibold text-primary"><i class="ki-solid ki-diamond"></i> 3200 P</div>
+               </div>
+              </div>
+             </div>
+            </div>
+
+            <!-- 收益項目 3 - 未核發 (退單) -->
+            <div class="p-4 hover:bg-muted/30 bg-warning/5" data-revenue-item data-is-released="false">
+             <div class="space-y-3">
+              <div class="flex justify-between items-start">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">訂單編號</div>
+                <div class="text-sm font-medium text-mono">20250624-00005</div>
+               </div>
+               <span class="kt-badge kt-badge-warning kt-badge-sm">未核發</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">下單時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-24 16:00</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">結束時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-24 16:30</div>
+               </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發時間</div>
+                <div class="text-sm font-medium text-muted-foreground">-</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發鑽石</div>
+                <div>
+                 <div class="text-sm font-semibold text-muted-foreground"><i class="ki-solid ki-diamond"></i> 0 P</div>
+                 <div class="text-xs text-warning mt-1"><i class="ki-filled ki-information-2 me-1"></i>退單不核發</div>
+                </div>
+               </div>
+              </div>
+             </div>
+            </div>
+
+            <!-- 收益項目 4 - 未核發 (等待中) -->
+            <div class="p-4 hover:bg-muted/30 bg-info/5" data-revenue-item data-is-released="false">
+             <div class="space-y-3">
+              <div class="flex justify-between items-start">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">訂單編號</div>
+                <div class="text-sm font-medium text-mono">20250627-00002</div>
+               </div>
+               <span class="kt-badge kt-badge-info kt-badge-sm">處理中</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">下單時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-27 09:00</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">結束時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-27 13:00</div>
+               </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發時間</div>
+                <div class="text-sm font-medium text-mono">2025-06-28 13:00</div>
+               </div>
+               <div>
+                <div class="text-xs text-secondary-foreground mb-1">核發鑽石</div>
+                <div>
+                 <div class="text-sm font-semibold text-info"><i class="ki-solid ki-diamond"></i> 2800 P</div>
+                 <div class="text-xs text-info mt-1"><i class="ki-filled ki-time me-1"></i>24hr後核發</div>
+                </div>
+               </div>
+              </div>
+             </div>
+            </div>
            </div>
           </div>
          </div>
