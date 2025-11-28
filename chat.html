@@ -882,7 +882,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- End of Main -->
   <!-- Gift Dialog -->
   <div id="gift-dialog" class="fixed z-[2069] opacity-0 invisible transition-all duration-300 flex items-center justify-center p-2 md:p-4" style="background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; right: 0; bottom: 0;">
-   <div class="bg-white rounded-lg shadow-xl w-full max-w-[95vw] md:max-w-[800px] max-h-[90vh] md:max-h-[85vh] overflow-hidden relative transform scale-95 transition-transform duration-300 flex flex-col" id="gift-dialog-content" onclick="event.stopPropagation()">
+   <div class="bg-white rounded-lg shadow-xl max-w-[950px] max-h-[85vh] overflow-hidden relative transform scale-95 transition-transform duration-300" id="gift-dialog-content" onclick="event.stopPropagation()">
      <!-- Header -->
      <header class="flex items-center justify-between py-3 md:py-4 border-b border-border shrink-0 px-4 md:px-8">
       <h2 class="text-lg md:text-xl font-semibold text-mono">送禮方案</h2>
@@ -894,8 +894,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      </header>
 
      <!-- Body -->
-     <div id="gift-scroll-area" class="flex-1 overflow-y-auto overflow-x-hidden px-4 md:px-8 py-3 md:py-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 pt-2 pb-4">
+     <div id="gift-scroll-area" style="height: 450px; overflow-y: scroll !important; overflow-x: hidden !important; padding: 16px 32px 16px 32px;">
+      <div class="grid grid-cols-3 pt-4 pb-6" style="gap: 64px 24px;">
        <!-- Gift Card 1 -->
        <div class="gift-card border-2 border-[#f64696] rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg transition-shadow" data-selected="true">
                 <div class="flex items-center justify-center px-4">
