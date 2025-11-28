@@ -78,6 +78,21 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    background: #d63580;
   }
 
+  /* Gift Dialog RWD */
+  .gift-scroll-rwd {
+   height: 60vh;
+  }
+  @media (min-width: 640px) {
+   .gift-scroll-rwd {
+    height: 400px;
+   }
+  }
+  @media (min-width: 1024px) {
+   .gift-scroll-rwd {
+    height: 450px;
+   }
+  }
+
   /* Mobile Chat List Toggle */
   .chat-list-sidebar {
    transition: transform 0.3s ease-in-out;
@@ -881,11 +896,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   </div>
   <!-- End of Main -->
   <!-- Gift Dialog -->
-  <div id="gift-dialog" class="fixed z-[2069] opacity-0 invisible transition-all duration-300 flex items-center justify-center p-2 md:p-4" style="background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; right: 0; bottom: 0;">
-   <div class="bg-white rounded-lg shadow-xl max-w-[950px] max-h-[85vh] overflow-hidden relative transform scale-95 transition-transform duration-300" id="gift-dialog-content" onclick="event.stopPropagation()">
+  <div id="gift-dialog" class="fixed z-[2069] opacity-0 invisible transition-all duration-300 flex items-center justify-center p-2 sm:p-4" style="background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; right: 0; bottom: 0;">
+   <div class="bg-white rounded-lg shadow-xl w-[95vw] sm:w-[90vw] md:w-[85vw] lg:max-w-[950px] max-h-[90vh] sm:max-h-[85vh] overflow-hidden relative transform scale-95 transition-transform duration-300" id="gift-dialog-content" onclick="event.stopPropagation()">
      <!-- Header -->
-     <header class="flex items-center justify-between py-3 md:py-4 border-b border-border shrink-0 px-4 md:px-8">
-      <h2 class="text-lg md:text-xl font-semibold text-mono">送禮方案</h2>
+     <header class="flex items-center justify-between py-3 md:py-4 border-b border-border shrink-0 px-4 sm:px-6 md:px-8">
+      <h2 class="text-base sm:text-lg md:text-xl font-semibold text-mono">送禮方案</h2>
       <button type="button" class="text-gray-400 hover:text-gray-600 transition-colors" id="close-gift-dialog">
        <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
         <path d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"></path>
@@ -894,8 +909,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      </header>
 
      <!-- Body -->
-     <div id="gift-scroll-area" style="height: 450px; overflow-y: scroll !important; overflow-x: hidden !important; padding: 16px 32px 16px 32px;">
-      <div class="grid grid-cols-3 pt-4 pb-6" style="gap: 64px 24px;">
+     <div id="gift-scroll-area" class="gift-scroll-rwd" style="overflow-y: scroll !important; overflow-x: hidden !important;">
+      <div class="grid grid-cols-2 lg:grid-cols-3 pt-4 pb-6 gap-y-8 gap-x-4 sm:gap-y-12 sm:gap-x-6 lg:gap-y-16 lg:gap-x-6 px-4 sm:px-6 md:px-8">
        <!-- Gift Card 1 -->
        <div class="gift-card border-2 border-[#f64696] rounded-xl relative pt-6 pb-4 cursor-pointer hover:shadow-lg transition-shadow" data-selected="true">
                 <div class="flex items-center justify-center px-4">
