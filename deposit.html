@@ -71,7 +71,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- End of Theme Mode -->
   <!-- Page -->
   <!-- Main -->
-  <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
+  <div class="flex grow flex-col overflow-auto in-data-kt-[sticky-header=on]:pt-(--header-height)">
    <!-- Header -->
    <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
     <!-- Container -->
@@ -351,7 +351,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
    <!-- End of Navbar -->
    <!-- Main Content -->
-   <main class="flex flex-col grow" id="content" role="content">
+   <main class="flex flex-col grow pb-10" id="content" role="content">
     <!-- Container -->
     <div class="kt-container-fixed">
      <div class="flex flex-col gap-5 lg:gap-7.5">
@@ -371,7 +371,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          交易紀錄
         </button>
         <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="diamonds">
-         鑽石紀錄
+         提領紀錄
         </button>
         <button class="tab-btn pb-3 px-1 border-b-2 border-transparent text-secondary-foreground hover:text-foreground font-medium text-sm" data-tab="withdraw">
          提領
@@ -610,18 +610,27 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </div>
       <!-- End of Tab Content: Transactions -->
 
-      <!-- Tab Content: Diamonds -->
+      <!-- Tab Content: Diamonds (提領紀錄) -->
       <div class="tab-content hidden" id="diamonds-content">
        <div class="flex flex-col gap-4">
+        <!-- Sub Tabs -->
+        <div class="flex justify-center">
+         <div class="flex gap-6">
+          <button class="withdraw-record-tab text-sm font-medium text-primary border-b-2 border-primary pb-2" data-filter="all">全部</button>
+          <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="approved">已核發</button>
+          <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="pending">未核發</button>
+         </div>
+        </div>
+
         <!-- Account Info -->
-        <div class="flex flex-col gap-2 p-4 bg-muted/30 rounded-lg">
+        <div class="flex flex-col gap-1">
          <div class="flex items-center gap-2">
           <span class="text-sm text-secondary-foreground">帳號:</span>
-          <span class="text-sm font-medium text-mono">12432141231</span>
+          <span class="text-sm font-medium text-mono">107</span>
          </div>
          <div class="flex items-center gap-2">
           <span class="text-sm text-secondary-foreground">鑽石:</span>
-          <span class="text-xl font-bold text-primary">1000000 P</span>
+          <span class="text-lg font-bold text-primary">1,277,980 P</span>
          </div>
         </div>
 
@@ -630,135 +639,68 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <table class="w-full">
           <thead>
            <tr class="border-b border-border">
-            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易時間</th>
-            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">訂單編號</th>
-            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">交易編號</th>
-            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">鑽石數量</th>
-            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">剩餘鑽石</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">申請時間</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">提領鑽石</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">換算金額</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">手續費用</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">實領金額</th>
+            <th class="text-left py-3 px-4 text-sm font-semibold text-mono">提領方式</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">是否核發</th>
+            <th class="text-left py-3 px-4 text-sm font-medium text-secondary-foreground">核發時間</th>
            </tr>
           </thead>
           <tbody>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-15 14:23:45</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501151423</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501151423</td>
-            <td class="py-3 px-4 text-sm font-semibold text-success">+3,000 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">10,300 P</td>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="approved">
+            <td class="py-3 px-4 text-sm text-mono">2025-11-10 22:29:25</td>
+            <td class="py-3 px-4 text-sm text-mono">159,983 P</td>
+            <td class="py-3 px-4 text-sm text-mono">NT 9,998</td>
+            <td class="py-3 px-4 text-sm text-mono">NT -210</td>
+            <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 9,788</td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">匯款</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-success">已核發</span></td>
+            <td class="py-3 px-4 text-sm text-mono">2025-11-28 15:17</td>
            </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-14 09:15:22</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501140915</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501140915</td>
-            <td class="py-3 px-4 text-sm font-semibold text-danger">-500 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">7,300 P</td>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="approved">
+            <td class="py-3 px-4 text-sm text-mono">2025-11-10 22:29:25</td>
+            <td class="py-3 px-4 text-sm text-mono">159,983 P</td>
+            <td class="py-3 px-4 text-sm text-mono">NT 9,998</td>
+            <td class="py-3 px-4 text-sm text-mono">NT -210</td>
+            <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 9,788</td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">臨櫃</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-success">已核發</span></td>
+            <td class="py-3 px-4 text-sm text-mono">2025-11-28 15:17</td>
            </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-13 18:30:11</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501131830</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501131830</td>
-            <td class="py-3 px-4 text-sm font-semibold text-success">+1,000 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">7,800 P</td>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="pending">
+            <td class="py-3 px-4 text-sm text-mono">2025-11-29 10:15:30</td>
+            <td class="py-3 px-4 text-sm text-mono">80,000 P</td>
+            <td class="py-3 px-4 text-sm text-mono">NT 5,000</td>
+            <td class="py-3 px-4 text-sm text-mono">NT -105</td>
+            <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 4,895</td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">匯款</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">未核發</span></td>
+            <td class="py-3 px-4 text-sm text-mono">-</td>
            </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-12 16:45:33</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501121645</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501121645</td>
-            <td class="py-3 px-4 text-sm font-semibold text-success">+300 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">6,800 P</td>
-           </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-10 11:20:05</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501101120</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501101120</td>
-            <td class="py-3 px-4 text-sm font-semibold text-danger">-1,200 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">6,500 P</td>
-           </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-08 20:15:30</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501082015</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501082015</td>
-            <td class="py-3 px-4 text-sm font-semibold text-success">+5,000 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">7,700 P</td>
-           </tr>
-           <tr class="border-b border-border hover:bg-muted/30 transition-colors">
-            <td class="py-3 px-4 text-sm text-mono">2025-01-05 15:30:12</td>
-            <td class="py-3 px-4 text-sm text-mono">ORD202501051530</td>
-            <td class="py-3 px-4 text-sm text-mono">TXN202501051530</td>
-            <td class="py-3 px-4 text-sm font-semibold text-danger">-800 P</td>
-            <td class="py-3 px-4 text-sm font-medium text-mono">2,700 P</td>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="pending">
+            <td class="py-3 px-4 text-sm text-mono">2025-11-28 18:45:00</td>
+            <td class="py-3 px-4 text-sm text-mono">50,000 P</td>
+            <td class="py-3 px-4 text-sm text-mono">NT 3,125</td>
+            <td class="py-3 px-4 text-sm text-mono">NT -66</td>
+            <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 3,059</td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">臨櫃</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">未核發</span></td>
+            <td class="py-3 px-4 text-sm text-mono">-</td>
            </tr>
           </tbody>
          </table>
         </div>
-
-        <!-- Pagination -->
-        <div class="flex items-center justify-between">
-         <div class="text-sm text-secondary-foreground">
-          顯示 1-7 筆，共 35 筆鑽石紀錄
-         </div>
-         <div class="flex gap-2">
-          <button class="kt-btn kt-btn-sm kt-btn-outline" disabled>
-           <i class="ki-filled ki-left"></i>
-          </button>
-          <button class="kt-btn kt-btn-sm kt-btn-primary">1</button>
-          <button class="kt-btn kt-btn-sm kt-btn-outline">2</button>
-          <button class="kt-btn kt-btn-sm kt-btn-outline">3</button>
-          <button class="kt-btn kt-btn-sm kt-btn-outline">4</button>
-          <button class="kt-btn kt-btn-sm kt-btn-outline">5</button>
-          <button class="kt-btn kt-btn-sm kt-btn-outline">
-           <i class="ki-filled ki-right"></i>
-          </button>
-         </div>
-        </div>
        </div>
       </div>
-      <!-- End of Tab Content: Diamonds -->
+      <!-- End of Tab Content: Diamonds (提領紀錄) -->
 
       <!-- Tab Content: Withdraw -->
       <div class="tab-content hidden" id="withdraw-content">
        <div class="flex flex-col gap-6">
-        <!-- 第一區塊 - 審核狀態 -->
-        <div class="flex flex-col gap-4">
-         <h3 class="text-base font-semibold text-mono">審核狀態：</h3>
-         <div class="p-5 border border-border rounded-lg bg-muted/30">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">最新申請時間：</span>
-            <span class="font-medium text-mono">2025-11-10 22:29:25</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">審核狀態：</span>
-            <span class="font-medium text-success">審核通過</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">審核時間：</span>
-            <span class="font-medium text-mono">2025-11-12 22:29:25</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">提領點數：</span>
-            <span class="font-medium text-mono">180000 P</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">換算金額：</span>
-            <span class="font-medium text-mono">10000 NT</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">手續費用：</span>
-            <span class="font-medium text-mono">-211 NT</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">實領金額：</span>
-            <span class="font-medium text-primary">99789 NT</span>
-           </div>
-           <div class="flex items-center gap-2">
-            <span class="text-secondary-foreground">提領方式：</span>
-            <span class="font-medium text-mono">匯款</span>
-           </div>
-          </div>
-         </div>
-        </div>
-
-        <!-- 第二區塊 - 申請提領 -->
+        <!-- 申請提領 -->
         <div class="flex flex-col gap-4">
          <h3 class="text-base font-semibold text-mono">申請提領：</h3>
 
@@ -771,7 +713,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
           <div class="flex items-center gap-2">
            <span class="text-sm text-secondary-foreground">申請提領：</span>
-           <input type="number" id="withdraw_amount" class="kt-input" value="160000" style="max-width: 200px;">
+           <input type="number" id="withdraw_amount" class="kt-input" value="159983" style="max-width: 200px;">
            <span class="text-sm">P</span>
           </div>
          </div>
@@ -781,54 +723,46 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="flex flex-col gap-2 text-sm">
            <div class="flex items-center gap-2">
             <span class="text-secondary-foreground">提領點數：</span>
-            <span class="font-medium text-mono" id="withdraw_points">180000 P</span>
+            <span class="font-medium text-mono" id="withdraw_points">159,983 P</span>
            </div>
            <div class="flex items-center gap-2">
             <span class="text-secondary-foreground">換算金額：</span>
-            <span class="font-medium text-mono" id="withdraw_nt">10000 NT</span>
+            <span class="font-medium text-mono" id="withdraw_nt">9,998 NT</span>
            </div>
            <div class="flex items-center gap-2">
             <span class="text-secondary-foreground">手續費用：</span>
-            <span class="font-medium text-mono" id="withdraw_fee">-211 NT</span>
+            <span class="font-medium text-mono" id="withdraw_fee">-210 NT</span>
            </div>
            <div class="flex items-center gap-2">
             <span class="text-secondary-foreground">實領金額：</span>
-            <span class="font-medium text-primary text-base" id="withdraw_total">99789 NT</span>
+            <span class="font-medium text-primary text-base" id="withdraw_total">9,788 NT</span>
            </div>
           </div>
          </div>
 
-         <!-- 提領方式 -->
-         <div class="flex flex-col gap-3">
-          <div class="flex items-center gap-4">
-           <span class="text-sm font-medium text-mono">提領方式：</span>
-           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="radio" name="withdraw_method" value="cash" class="kt-radio">
-            <span class="text-sm">臨櫃</span>
-           </label>
-           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="radio" name="withdraw_method" value="bank" class="kt-radio" checked>
-            <span class="text-sm">匯款</span>
-           </label>
+         <!-- 銀行資訊欄位 -->
+         <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2">
+           <span class="text-sm text-secondary-foreground w-20">銀行別：</span>
+           <input type="text" id="bank_name" class="kt-input" placeholder="請輸入銀行名稱" style="max-width: 300px;">
           </div>
-
-          <!-- 匯款表單 -->
-          <div id="bank_form" class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+           <span class="text-sm text-secondary-foreground w-20">帳號：</span>
+           <input type="text" id="bank_account" class="kt-input" placeholder="請輸入銀行帳號" style="max-width: 300px;">
+          </div>
+          <div class="flex items-start gap-2">
+           <span class="text-sm text-secondary-foreground w-20 pt-2">存摺封面：</span>
            <div class="flex flex-col gap-2">
-            <label class="text-sm text-secondary-foreground">匯款：</label>
-            <textarea id="bank_info" class="kt-input" rows="3" placeholder="請輸入銀行資訊（銀行名稱、帳號、戶名等）"></textarea>
+            <div class="flex items-center gap-3">
+             <button class="kt-btn kt-btn-sm kt-btn-outline" type="button" id="upload_passbook_btn">檔案上傳</button>
+             <input type="file" id="bank_passbook" class="hidden" accept="image/*">
+             <span id="passbook_filename" class="text-xs text-secondary-foreground"></span>
+            </div>
+            <!-- 縮圖預覽區 -->
+            <div id="passbook_preview" class="hidden">
+             <img id="passbook_thumbnail" class="max-w-[200px] max-h-[150px] border border-border rounded-lg object-cover" alt="存摺封面預覽">
+            </div>
            </div>
-           <div class="flex items-center gap-2">
-            <button class="kt-btn kt-btn-sm kt-btn-outline" type="button">上傳封面存摺</button>
-            <span id="passbook_filename" class="text-xs text-secondary-foreground"></span>
-            <input type="file" id="bank_passbook" class="hidden" accept="image/*">
-           </div>
-          </div>
-
-          <!-- 臨櫃資訊 -->
-          <div id="cash_info" class="hidden flex items-start gap-2">
-           <span class="text-sm text-secondary-foreground">臨櫃：</span>
-           <span class="text-sm font-medium text-mono">台中市南屯區永春東七路883號( 請於上班時間前往 )</span>
           </div>
          </div>
 
@@ -850,7 +784,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </main>
    <!-- End of Main Content -->
    <!-- Footer -->
-   <footer class="footer">
+   <footer class="footer mt-auto">
     <!-- Container -->
     <div class="kt-container-fixed">
      <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
@@ -1039,42 +973,39 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     });
 
     // Withdraw functionality
-    const withdrawMethodRadios = document.querySelectorAll('input[name="withdraw_method"]');
-    const bankForm = document.getElementById('bank_form');
-    const cashInfo = document.getElementById('cash_info');
     const withdrawAmountInput = document.getElementById('withdraw_amount');
     const withdrawPointsDisplay = document.getElementById('withdraw_points');
     const withdrawNtDisplay = document.getElementById('withdraw_nt');
     const withdrawFeeDisplay = document.getElementById('withdraw_fee');
     const withdrawTotalDisplay = document.getElementById('withdraw_total');
     const passbookFileInput = document.getElementById('bank_passbook');
-
-    // Toggle between bank form and cash info
-    withdrawMethodRadios.forEach(radio => {
-     radio.addEventListener('change', function() {
-      if (this.value === 'bank') {
-       bankForm.classList.remove('hidden');
-       cashInfo.classList.add('hidden');
-      } else {
-       bankForm.classList.add('hidden');
-       cashInfo.classList.remove('hidden');
-      }
-     });
-    });
-
-    // Handle upload button click
-    const uploadBtn = bankForm.querySelector('.kt-btn-outline');
+    const uploadPassbookBtn = document.getElementById('upload_passbook_btn');
     const passbookFilename = document.getElementById('passbook_filename');
-    if (uploadBtn && passbookFileInput) {
-     uploadBtn.addEventListener('click', function() {
+    const passbookPreview = document.getElementById('passbook_preview');
+    const passbookThumbnail = document.getElementById('passbook_thumbnail');
+
+    // Handle upload button click and image preview
+    if (uploadPassbookBtn && passbookFileInput) {
+     uploadPassbookBtn.addEventListener('click', function() {
       passbookFileInput.click();
      });
 
      passbookFileInput.addEventListener('change', function() {
       if (this.files.length > 0) {
-       passbookFilename.textContent = '已選擇: ' + this.files[0].name;
+       const file = this.files[0];
+       passbookFilename.textContent = '已選擇: ' + file.name;
+
+       // Show image preview
+       const reader = new FileReader();
+       reader.onload = function(e) {
+        passbookThumbnail.src = e.target.result;
+        passbookPreview.classList.remove('hidden');
+       };
+       reader.readAsDataURL(file);
       } else {
        passbookFilename.textContent = '';
+       passbookPreview.classList.add('hidden');
+       passbookThumbnail.src = '';
       }
      });
     }
@@ -1107,37 +1038,72 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      calculateWithdraw();
     }
 
+    // Withdraw Record Sub-tabs (提領紀錄篩選)
+    const withdrawRecordTabs = document.querySelectorAll('.withdraw-record-tab');
+    const withdrawRecordRows = document.querySelectorAll('.withdraw-record-row');
+
+    withdrawRecordTabs.forEach(tab => {
+     tab.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+
+      // Update tab styles
+      withdrawRecordTabs.forEach(t => {
+       t.classList.remove('text-primary', 'border-b-2', 'border-primary');
+       t.classList.add('text-secondary-foreground');
+      });
+      this.classList.remove('text-secondary-foreground');
+      this.classList.add('text-primary', 'border-b-2', 'border-primary');
+
+      // Filter rows
+      withdrawRecordRows.forEach(row => {
+       const status = row.getAttribute('data-status');
+       if (filter === 'all') {
+        row.classList.remove('hidden');
+       } else if (filter === 'approved' && status === 'approved') {
+        row.classList.remove('hidden');
+       } else if (filter === 'pending' && status === 'pending') {
+        row.classList.remove('hidden');
+       } else {
+        row.classList.add('hidden');
+       }
+      });
+     });
+    });
+
     // Submit withdraw button
     const submitWithdrawBtn = document.getElementById('submit_withdraw');
     if (submitWithdrawBtn) {
      submitWithdrawBtn.addEventListener('click', function() {
       const withdrawAmount = parseInt(withdrawAmountInput.value) || 0;
-      const withdrawMethod = document.querySelector('input[name="withdraw_method"]:checked').value;
+      const bankNameInput = document.getElementById('bank_name');
+      const bankAccountInput = document.getElementById('bank_account');
 
       if (withdrawAmount <= 0) {
        alert('請輸入有效的提領點數');
        return;
       }
 
-      if (withdrawMethod === 'bank') {
-       // Validate bank form fields
-       const bankInfoTextarea = document.getElementById('bank_info');
-
-       if (!bankInfoTextarea.value.trim()) {
-        alert('請填寫匯款資訊');
-        return;
-       }
-
-       if (!passbookFileInput.files.length) {
-        alert('請上傳封面存摺');
-        return;
-       }
+      // Validate bank info fields
+      if (!bankNameInput.value.trim()) {
+       alert('請填寫銀行別');
+       return;
       }
 
-      alert('提領申請已提交！\n提領點數: ' + withdrawAmount.toLocaleString() + ' P\n提領方式: ' + (withdrawMethod === 'bank' ? '匯款' : '臨櫃'));
+      if (!bankAccountInput.value.trim()) {
+       alert('請填寫銀行帳號');
+       return;
+      }
+
+      if (!passbookFileInput.files.length) {
+       alert('請上傳存摺封面');
+       return;
+      }
+
+      alert('提領申請已提交！\n提領點數: ' + withdrawAmount.toLocaleString() + ' P\n銀行別: ' + bankNameInput.value + '\n帳號: ' + bankAccountInput.value);
       console.log('Withdraw submitted:', {
        amount: withdrawAmount,
-       method: withdrawMethod
+       bankName: bankNameInput.value,
+       bankAccount: bankAccountInput.value
       });
      });
     }
