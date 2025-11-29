@@ -617,8 +617,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         <div class="flex justify-center">
          <div class="flex gap-6">
           <button class="withdraw-record-tab text-sm font-medium text-primary border-b-2 border-primary pb-2" data-filter="all">全部</button>
+          <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="pending">待核發</button>
           <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="approved">已核發</button>
-          <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="pending">未核發</button>
+          <button class="withdraw-record-tab text-sm font-medium text-secondary-foreground hover:text-foreground pb-2" data-filter="cancelled">已取消</button>
          </div>
         </div>
 
@@ -677,7 +678,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <td class="py-3 px-4 text-sm text-mono">NT -105</td>
             <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 4,895</td>
             <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">匯款</span></td>
-            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">未核發</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">待核發</span></td>
             <td class="py-3 px-4 text-sm text-mono">-</td>
            </tr>
            <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="pending">
@@ -687,7 +688,17 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <td class="py-3 px-4 text-sm text-mono">NT -66</td>
             <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 3,059</td>
             <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">臨櫃</span></td>
-            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">未核發</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-warning">待核發</span></td>
+            <td class="py-3 px-4 text-sm text-mono">-</td>
+           </tr>
+           <tr class="border-b border-border hover:bg-muted/30 transition-colors withdraw-record-row" data-status="cancelled">
+            <td class="py-3 px-4 text-sm text-mono">2025-11-05 14:30:00</td>
+            <td class="py-3 px-4 text-sm text-mono">100,000 P</td>
+            <td class="py-3 px-4 text-sm text-mono">NT 6,250</td>
+            <td class="py-3 px-4 text-sm text-mono">NT -131</td>
+            <td class="py-3 px-4 text-sm font-semibold" style="color: #2563eb;">NT 6,119</td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm" style="background-color: #dbeafe; color: #1e40af;">匯款</span></td>
+            <td class="py-3 px-4"><span class="kt-badge kt-badge-sm kt-badge-danger">已取消</span></td>
             <td class="py-3 px-4 text-sm text-mono">-</td>
            </tr>
           </tbody>
@@ -744,7 +755,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <div class="flex flex-col gap-4">
           <div class="flex items-center gap-2">
            <span class="text-sm text-secondary-foreground w-20">銀行別：</span>
-           <input type="text" id="bank_name" class="kt-input" placeholder="請輸入銀行名稱" style="max-width: 300px;">
+           <input type="text" id="bank_name" class="kt-input" placeholder="請輸入銀行代碼" style="max-width: 300px;">
           </div>
           <div class="flex items-center gap-2">
            <span class="text-sm text-secondary-foreground w-20">帳號：</span>
@@ -1059,9 +1070,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        const status = row.getAttribute('data-status');
        if (filter === 'all') {
         row.classList.remove('hidden');
-       } else if (filter === 'approved' && status === 'approved') {
-        row.classList.remove('hidden');
-       } else if (filter === 'pending' && status === 'pending') {
+       } else if (filter === status) {
         row.classList.remove('hidden');
        } else {
         row.classList.add('hidden');
