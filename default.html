@@ -1736,16 +1736,26 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
            <input type="text" class="kt-input flex-1" placeholder="自動計算" style="max-width: 400px; background-color: #F5F7FA;" id="diamond-input" readonly />
           </div>
 
+
+
           <!-- 約會地點 -->
           <div class="flex items-center gap-4">
            <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">約會地點 <span style="color: #f64696;">*</span></label>
-           <select class="kt-select flex-1" style="max-width: 400px;">
-            <option value="">請選擇約會地點</option>
-            <option value="private">私人住所</option>
-            <option value="hotel">旅館飯店</option>
+           <select class="kt-select flex-1" style="max-width: 400px;" id="date-location-select" onchange="openLocationModal(this.value)">
+            <option value="">請選擇約會地點類型</option>
+            <option value="outdoor">戶外公共場所</option>
+            <option value="indoor">室內公共場所</option>
+            <option value="private">私人使用空間</option>
+            <option value="online">線上</option>
            </select>
           </div>
-
+          <!-- 已選擇項目顯示區 -->
+          <div id="selected-locations-display" class="hidden flex-wrap gap-1.5 text-sm" style="margin-left: 136px;">
+           <span class="text-secondary-foreground">已選擇：</span>
+           <div id="selected-locations-tags" class="flex flex-wrap gap-1"></div>
+          </div>
+          <!-- 隱藏的 input 用於表單提交 -->
+          <input type="hidden" id="date-location-input" name="dateLocations" value="" />
           <!-- 職業 -->
           <div class="flex items-center gap-4">
            <label class="text-sm font-semibold text-mono whitespace-nowrap" style="min-width: 120px;">職業</label>
@@ -3621,6 +3631,46 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   </div>
 
   <!-- End of Share Profile Modal -->
+
+  <!-- 約會地點選擇 Modal -->
+  <div id="location-select-modal" class="el-overlay" style="z-index: 2030; display: none;">
+   <div class="el-overlay-dialog" style="display: flex; justify-content: center; align-items: flex-start; padding-top: 5vh;">
+    <div class="el-dialog" style="width: 90%; max-width: 600px; background: var(--tw-card-background, #fff); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+     <!-- Modal Header -->
+     <header class="el-dialog__header" style="padding: 16px 20px; border-bottom: 1px solid var(--tw-border-color, #e5e7eb); display: flex; justify-content: space-between; align-items: center;">
+      <span class="el-dialog__title text-lg font-semibold" id="location-modal-title">選擇地點</span>
+      <button type="button" class="el-dialog__headerbtn" onclick="closeLocationModal()" style="background: none; border: none; cursor: pointer; font-size: 20px; color: #999;">
+       <i class="ki-filled ki-cross"></i>
+      </button>
+     </header>
+     <!-- Modal Body -->
+     <div class="el-dialog__body" style="padding: 20px; max-height: 60vh; overflow-y: auto;">
+      <div id="location-options-container" class="flex flex-col gap-3">
+       <!-- 全選選項 -->
+       <label class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border-2 border-primary cursor-pointer hover:bg-primary/20 transition-colors">
+        <input type="checkbox" id="location-select-all" class="kt-checkbox kt-checkbox-primary" onchange="toggleSelectAll(this)" />
+        <span class="font-semibold text-primary">☑ 全選</span>
+       </label>
+       <div class="border-b border-border my-2"></div>
+       <!-- 動態填充的選項列表 -->
+       <div id="location-items-list" class="grid grid-cols-2 gap-2">
+        <!-- 選項會由 JavaScript 動態填充 -->
+       </div>
+       <!-- 其他選項填空欄位 -->
+       <div id="other-input-container" class="hidden mt-3">
+        <label class="text-sm text-secondary-foreground mb-1 block">請填寫其他地點：</label>
+        <input type="text" id="other-location-input" class="kt-input w-full" placeholder="請輸入其他地點" />
+       </div>
+      </div>
+     </div>
+     <!-- Modal Footer -->
+     <footer class="el-dialog__footer" style="padding: 16px 20px; border-top: 1px solid var(--tw-border-color, #e5e7eb); display: flex; justify-content: flex-end; gap: 10px;">
+      <button type="button" class="kt-btn kt-btn-light" onclick="closeLocationModal()">取消</button>
+      <button type="button" class="kt-btn kt-btn-primary" onclick="confirmLocationSelection()">確認</button>
+     </footer>
+    </div>
+   </div>
+  </div>
   <div class="kt-modal" data-kt-modal="true" id="give_award_modal">
    <div class="kt-modal-content max-w-[500px] top-[15%]">
     <div class="kt-modal-header pr-2.5">
@@ -5615,6 +5665,9 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     });
   });
   </script>
+
+   <!-- 約會地點選擇器 -->
+  <script src="js/location-selector.js"></script>
 
  </body>
 </html>
