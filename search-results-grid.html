@@ -40,6 +40,26 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <link href="./assets/vendors/apexcharts/apexcharts.css" rel="stylesheet"/>
   <link href="./assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
   <link href="./assets/css/styles.css" rel="stylesheet"/>
+  <style>
+   /* Desktop styles - ensure normal display */
+   @media (min-width: 1024px) {
+    #navbar {
+     position: static !important;
+    }
+    #mega_menu .kt-menu-item {
+     text-align: left !important;
+     width: auto !important;
+    }
+    #mega_menu .kt-menu-link {
+     display: flex !important;
+     text-align: left !important;
+     width: auto !important;
+    }
+    #navbar .kt-container-fixed {
+     padding: 0 30px !important;
+    }
+   }
+  </style>
  </head>
  <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px]">
   <!-- Theme Mode -->
@@ -78,14 +98,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
      <!-- Logo -->
      <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
-      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
-       <i class="ki-filled ki-menu">
+      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden me-3" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu" style="font-size: 1.5rem; transform: scale(1.3);">
        </i>
       </button>
       <div class="flex items-center gap-2">
        <a class="flex items-center shrink-0" href="search-results-grid.html">
-        <img class="dark:hidden w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
-        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+        <img class="dark:hidden shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
        </a>
       </div>
      </div>
@@ -419,14 +439,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <span class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color:#43C268;color:#fff;min-width:40px;max-width:90px;padding:2px 6px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">我現在有空</span>
         </div>
 
-       <span class="text-base font-medium text-mono">自我介紹</span>
-        <span class="text-sm font-normal text-foreground block mb-7">
+       <span class="font-medium text-mono" style="font-size: 16px;">自我介紹</span>
+        <span class="font-normal text-foreground block mb-7" style="font-size: 14px;">
         大家好，我是安娜寶貝，我是一個模特兒，我喜歡唱歌、跳舞、畫畫、追劇
         </span>
 
         <!-- 影片 -->
         <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">影片</h4>
+         <h4 class="font-medium text-mono mb-3" style="font-size: 16px;">影片</h4>
          <div class="kt-card bg-accent/50 overflow-hidden shadow-none">
           <video class="w-full h-[520px] md:h-[620px] object-cover" controls style="height: 350px; display: block;">
            <source src="https://yoni.dinj.co/videos/main-video.mp4" type="video/mp4">
@@ -437,7 +457,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
         <!-- 生活照 -->
         <div class="mb-5">
-         <h4 class="text-sm font-medium text-mono mb-3">生活照</h4>
+         <h4 class="font-medium text-mono mb-3" style="font-size: 16px;">生活照</h4>
          <div class="kt-card bg-accent/50 overflow-hidden shadow-none cursor-pointer hover:opacity-80 transition-opacity mb-3" onclick="openMainPhoto()">
           <img id="mainPhoto" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg" alt="生活照" class="w-full h-auto object-cover">
          </div>
@@ -464,86 +484,86 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
          <!-- 個人資料區塊(靜態文字) -->
          <div class="flex flex-col gap-3 p-5 bg-accent/30 border border-border rounded-lg mb-5">
-          <h4 class="text-base font-semibold text-mono mb-2">個人資料</h4>
-          
-          <div class="grid grid-cols-2 gap-3 text-sm">
+          <h4 class="font-semibold text-mono mb-2" style="font-size: 16px;">個人資料</h4>
+
+          <div class="grid grid-cols-2 gap-3">
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">藝名</span>
-            <span class="text-sm font-medium text-mono">安娜寶貝</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">藝名</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">安娜寶貝</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">性別</span>
-            <span class="text-sm font-medium text-mono">女</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">性別</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">女</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">年齡</span>
-            <span class="text-sm font-medium text-mono">20</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">年齡</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">20</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">身高</span>
-            <span class="text-sm font-medium text-mono">162 CM</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">身高</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">162 CM</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">體重</span>
-            <span class="text-sm font-medium text-mono">40 KG</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">體重</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">40 KG</span>
            </div>
            <div class="flex flex-col col-span-2">
-            <span class="text-xs text-secondary-foreground mb-1">自我介紹</span>
-            <span class="text-sm font-medium text-mono">大家好,我是安娜寶貝,我是一個模特兒,我喜歡唱歌、跳舞、畫畫、追劇</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">自我介紹</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">大家好,我是安娜寶貝,我是一個模特兒,我喜歡唱歌、跳舞、畫畫、追劇</span>
            </div>
            <div class="flex flex-col col-span-2">
-            <span class="text-xs text-secondary-foreground mb-1">可接受類型</span>
-            <span class="text-sm font-medium text-mono">吃飯、看電影、運動</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">可接受類型</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">吃飯、看電影、運動</span>
            </div>
            <div class="flex flex-col col-span-2">
-            <span class="text-xs text-secondary-foreground mb-1">可接受場所</span>
-            <span class="text-sm font-medium text-mono">私人招待所、商旅飯局</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">可接受場所</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">私人招待所、商旅飯局</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">職業</span>
-            <span class="text-sm font-medium text-mono">模特兒</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">職業</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">模特兒</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">身材</span>
-            <span class="text-sm font-medium text-mono">一般</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">身材</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">一般</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">罩杯</span>
-            <span class="text-sm font-medium text-mono">C Cup</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">罩杯</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">C Cup</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">髮長</span>
-            <span class="text-sm font-medium text-mono">長髮</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">髮長</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">長髮</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">髮色</span>
-            <span class="text-sm font-medium text-mono">黑色</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">髮色</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">黑色</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">刺青</span>
-            <span class="text-sm font-medium text-mono">小圖(字)</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">刺青</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">小圖(字)</span>
            </div>
            <div class="flex flex-col">
-            <span class="text-xs text-secondary-foreground mb-1">星座</span>
-            <span class="text-sm font-medium text-mono">天蠍座</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">星座</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">天蠍座</span>
            </div>
            <div class="flex flex-col col-span-2">
-            <span class="text-xs text-secondary-foreground mb-1">興趣</span>
-            <span class="text-sm font-medium text-mono">唱歌、甜點、跳舞、畫畫、追劇</span>
+            <span class="text-secondary-foreground mb-1" style="font-size: 14px;">興趣</span>
+            <span class="font-medium text-mono" style="font-size: 16px;">唱歌、甜點、跳舞、畫畫、追劇</span>
            </div>
           </div>
 
           <!-- 專長區塊 -->
           <div class="flex flex-col gap-2 pt-3 border-t border-border">
-           <span class="text-xs text-secondary-foreground mb-1">專長</span>
-           <div class="flex flex-col gap-1 text-sm">
-            <div><span class="text-secondary-foreground">飲酒:</span> <span class="font-medium text-mono">可小酌</span></div>
-            <div><span class="text-secondary-foreground">唱歌:</span> <span class="font-medium text-mono">會唱歌</span></div>
-            <div><span class="text-secondary-foreground">休閒:</span> <span class="font-medium text-mono">逛借、吃飯</span></div>
-            <div><span class="text-secondary-foreground">運動:</span> <span class="font-medium text-mono">網球、瑜伽</span></div>
-            <div><span class="text-secondary-foreground">陪玩遊戲:</span> <span class="font-medium text-mono">傳說對決、楓之谷</span></div>
-            <div><span class="text-secondary-foreground">通告任務:</span> <span class="font-medium text-mono">可接受</span></div>
-            <div><span class="text-secondary-foreground">慢搖音樂:</span> <span class="font-medium text-mono">可接手可陪搖</span></div>
+           <span class="text-secondary-foreground mb-1" style="font-size: 14px;">專長</span>
+           <div class="flex flex-col gap-1">
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">飲酒:</span> <span class="font-medium text-mono" style="font-size: 16px;">可小酌</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">唱歌:</span> <span class="font-medium text-mono" style="font-size: 16px;">會唱歌</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">休閒:</span> <span class="font-medium text-mono" style="font-size: 16px;">逛借、吃飯</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">運動:</span> <span class="font-medium text-mono" style="font-size: 16px;">網球、瑜伽</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">陪玩遊戲:</span> <span class="font-medium text-mono" style="font-size: 16px;">傳說對決、楓之谷</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">通告任務:</span> <span class="font-medium text-mono" style="font-size: 16px;">可接受</span></div>
+            <div><span class="text-secondary-foreground" style="font-size: 14px;">慢搖音樂:</span> <span class="font-medium text-mono" style="font-size: 16px;">可接手可陪搖</span></div>
            </div>
           </div>
          </div>
@@ -660,44 +680,50 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </header>
    <!-- End of Header -->
    <!-- Navbar -->
-   <div class="hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+   <div class="hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full max-w-[100vw] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Mobile Close Button -->
+    <div class="flex lg:hidden justify-end mb-4" style="position: absolute; top: 15px; right: 15px;">
+     <button class="kt-btn kt-btn-icon kt-btn-ghost" data-kt-drawer-dismiss="true" style="transform: scale(1.3);">
+      <i class="ki-filled ki-cross text-xl"></i>
+     </button>
+    </div>
     <!-- Container -->
     <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
      <!-- Mega Menu -->
-     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
-      <div class="kt-menu-item">
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0 w-full lg:w-auto" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item w-full lg:w-auto">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          首頁
         </span>
        </a>
       </div>
-      <div class="kt-menu-item">
+      <div class="kt-menu-item w-full lg:w-auto">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="order.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          快速配對
         </span>
        </a>
       </div>
-      <div class="kt-menu-item">
+      <div class="kt-menu-item w-full lg:w-auto">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="deposit.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          儲值
         </span>
        </a>
       </div>
-      <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
-       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+      <div class="kt-menu-item w-full lg:w-auto" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
+       <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono cursor-pointer">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          FAQ
         </span>
-        <span class="kt-menu-arrow flex lg:hidden">
+        <span class="kt-menu-arrow flex lg:hidden ms-2">
          <span class="flex kt-menu-item-show:hidden">
-          <i class="ki-filled ki-plus text-xs text-secondary-foreground">
+          <i class="ki-filled ki-plus text-sm text-secondary-foreground" style="transform: scale(1.3);">
           </i>
          </span>
          <span class="hidden kt-menu-item-show:inline-flex">
-          <i class="ki-filled ki-minus text-xs text-secondary-foreground">
+          <i class="ki-filled ki-minus text-sm text-secondary-foreground" style="transform: scale(1.3);">
           </i>
          </span>
         </span>
@@ -705,87 +731,87 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        <div class="kt-menu-dropdown w-full gap-0 lg:max-w-[900px]">
         <div class="pt-4 pb-2 lg:p-7.5">
          <div class="grid lg:grid-cols-2 gap-5 lg:gap-10">
-          <div class="kt-menu kt-menu-default kt-menu-fit flex-col">
-           <h3 class="text-sm text-foreground font-semibold leading-none ps-2.5 mb-2 lg:mb-5">
+          <div class="kt-menu kt-menu-default kt-menu-fit flex-col w-full">
+           <h3 class="text-foreground font-semibold leading-none ps-2.5 mb-2 lg:mb-5 text-center lg:text-left" style="font-size: 16px;">
             常見問題
            </h3>
            <div class="grid lg:grid-cols-2 lg:gap-5">
-            <div class="flex flex-col gap-0.5">
+            <div class="flex flex-col gap-1">
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-question-2">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 如何使用平台?
                </span>
               </a>
              </div>
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-wallet">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 儲值相關問題
                </span>
               </a>
              </div>
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-shield-tick">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 安全與隱私
                </span>
               </a>
              </div>
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-calendar">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 約會流程
                </span>
               </a>
              </div>
             </div>
-            <div>
+            <div class="flex flex-col gap-1">
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-message-text">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 聯絡客服
                </span>
               </a>
              </div>
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-information">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 帳戶問題
                </span>
               </a>
              </div>
              <div class="kt-menu-item">
-              <a class="kt-menu-link" href="#" tabindex="0">
-               <span class="kt-menu-icon">
+              <a class="kt-menu-link py-2 px-3 hover:bg-gray-100 rounded-lg transition-colors justify-center lg:justify-start" href="#" tabindex="0">
+               <span class="kt-menu-icon" style="font-size: 16px; transform: scale(1.3);">
                 <i class="ki-filled ki-star">
                 </i>
                </span>
-               <span class="kt-menu-title grow-0">
+               <span class="kt-menu-title grow-0" style="font-size: 16px;">
                 評價系統
                </span>
               </a>
@@ -1038,7 +1064,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
        <!-- begin: toolbar -->
        <div class="flex flex-wrap items-center gap-5 justify-between mt-3">
-        <h3 class="text-sm text-mono font-medium">
+        <h3 class="text-mono font-medium" style="font-size: 24px;">
 所有服務商
         </h3>
         <div class="flex items-center gap-2.5">
@@ -1062,14 +1088,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           喜好設定
          </button>
 
-         <button class="kt-dropdown-toggle kt-btn" style="background-color: #8B2500; color: white;" data-kt-drawer-toggle="#drawers_work_schedule">
+         <button class="kt-dropdown-toggle kt-btn" style="background-color: #764bfb; color: white;" data-kt-drawer-toggle="#drawers_work_schedule">
           <i class="ki-filled ki-timer"></i>
           上班設定
          </button>
         </div>
        </div>
        <!-- end: toolbar -->
-        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-2">
+        <div class="grid grid-cols-2 xl:grid-cols-4 gap-5 mb-2">
          <!-- 卡片 1 - 廣告看板 -->
          <div class="kt-card" id="card-1">
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
@@ -1175,21 +1201,21 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </div>
          </div>
         </div>
-        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-2">
+        <div class="grid grid-cols-2 xl:grid-cols-4 gap-5 mb-2">
          <!-- 卡片 5 - 服務商 -->
          <div class="kt-card" id="card-5">
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full mb-4 shadow-none overflow-hidden" style="aspect-ratio: 1 / 1; max-height: 220px; margin-left: auto; margin-right: auto;">
-             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
+             <i class="ki-duotone ki-verify fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute; color: #764bfb;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1207,10 +1233,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1223,15 +1249,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full mb-4 shadow-none overflow-hidden" style="aspect-ratio: 1 / 1; max-height: 220px; margin-left: auto; margin-right: auto;">
-             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
+             <i class="ki-duotone ki-verify fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute; color: #764bfb;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1249,10 +1275,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1265,15 +1291,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full mb-4 shadow-none overflow-hidden" style="aspect-ratio: 1 / 1; max-height: 220px; margin-left: auto; margin-right: auto;">
-             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
+             <i class="ki-duotone ki-verify fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute; color: #764bfb;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1291,10 +1317,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1307,15 +1333,15 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           <div class="kt-card-content flex flex-col justify-between p-2.5 gap-4">
            <div class="mb-2.5">
             <div class="kt-card flex items-center justify-center relative bg-accent/50 w-full mb-4 shadow-none overflow-hidden" style="aspect-ratio: 1 / 1; max-height: 220px; margin-left: auto; margin-right: auto;">
-             <i class="ki-duotone ki-verify text-gray-900 fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute;"><span class="path1"></span><span class="path2"></span></i>
+             <i class="ki-duotone ki-verify fs-2tx z-[10]" style="left: 4px; top: 4px; position: absolute; color: #764bfb;"><span class="path1"></span><span class="path2"></span></i>
              <div class="absolute top-2 end-2 z-[5] rounded-sm text-center" style="background-color: #43C268; color: #fff; min-width: 40px; max-width: 60px; padding: 2px 4px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> 在線 </div>
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1333,10 +1359,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1353,10 +1379,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1374,10 +1400,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1394,10 +1420,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1415,10 +1441,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1439,10 +1465,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1460,10 +1486,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1480,10 +1506,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1501,10 +1527,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1521,10 +1547,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1542,10 +1568,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1562,10 +1588,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1583,10 +1609,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1603,10 +1629,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1624,10 +1650,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1644,10 +1670,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1665,10 +1691,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1685,10 +1711,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1706,10 +1732,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1726,10 +1752,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1747,10 +1773,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1767,10 +1793,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1788,10 +1814,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1812,10 +1838,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1833,10 +1859,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1853,10 +1879,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1874,10 +1900,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1894,10 +1920,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1915,10 +1941,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1935,10 +1961,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1956,10 +1982,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -1976,10 +2002,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -1997,10 +2023,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2017,10 +2043,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2038,10 +2064,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2058,10 +2084,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2079,10 +2105,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2099,10 +2125,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2120,10 +2146,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2140,10 +2166,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2161,10 +2187,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2185,10 +2211,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2206,10 +2232,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2226,10 +2252,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2247,10 +2273,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2267,10 +2293,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2288,10 +2314,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2308,10 +2334,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2329,10 +2355,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2349,10 +2375,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2370,10 +2396,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2390,10 +2416,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2411,10 +2437,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2431,10 +2457,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2452,10 +2478,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2472,10 +2498,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2493,10 +2519,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2513,10 +2539,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2534,10 +2560,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2558,10 +2584,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2579,10 +2605,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2599,10 +2625,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2620,10 +2646,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2640,10 +2666,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2661,10 +2687,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2681,10 +2707,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2702,10 +2728,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2722,10 +2748,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2743,10 +2769,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2763,10 +2789,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2784,10 +2810,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2804,10 +2830,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2825,10 +2851,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2845,10 +2871,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2866,10 +2892,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2886,10 +2912,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
             </div>
             <div class="flex items-center justify-between gap-2 px-2.5">
-             <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+             <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
               安娜寶貝
              </a>
-             <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+             <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
               <span>173cm</span>
               <span>,</span>
               <span>A cup</span>
@@ -2907,10 +2933,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <div class="flex items-center flex-wrap gap-1.5">
              <span class="text-xs font-normal text-secondary-foreground line-through pt-[1px]">
              </span>
-             <span class="text-sm font-medium text-mono">
+             <span class="font-medium" style="font-size: 16px; color: #320869;">
               <i class="ki-solid ki-tag"></i> 3000 P
              </span>
-             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fff;" data-kt-drawer-toggle="#drawers_shop_product_details">
+             <button class="kt-btn kt-btn-outline kt-btn-sm ms-1" style="background-color:#fce2e8; font-size: 16px; border-color: #fce2e8;" data-kt-drawer-toggle="#drawers_shop_product_details">
               <i class="ki-filled ki-handcart">
               </i>
               邀約
@@ -2931,10 +2957,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
            </div>
            <div class="flex items-center justify-between gap-2 px-2.5">
-            <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+            <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
              安娜寶貝
             </a>
-            <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+            <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
              <span>173cm</span>
              <span>,</span>
              <span>A cup</span>
@@ -2991,7 +3017,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Cloud Shift Lightweight Runner Pro Edition
               </a>
              </div>
@@ -3046,7 +3072,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Titan Edge High Impact Stability Lightweight Trainers
               </a>
              </div>
@@ -3101,7 +3127,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Wave Strike Dynamic Boost Sneaker
               </a>
              </div>
@@ -3156,7 +3182,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Wave Strike Dynamic Boost Sneaker
               </a>
               <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
@@ -3215,7 +3241,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Cloud Shift Lightweight Runner Pro Edition
               </a>
               <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
@@ -3274,7 +3300,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Titan Edge High Impact Stability Lightweight Trainers
               </a>
              </div>
@@ -3329,7 +3355,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Velocity Boost Xtreme High  Shock Absorbers
               </a>
               <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
@@ -3388,7 +3414,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Velocity Boost Xtreme High  Shock Absorbers
               </a>
              </div>
@@ -3443,7 +3469,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Cloud Shift Lightweight Runner Pro Edition
               </a>
              </div>
@@ -3498,7 +3524,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Titan Edge High Impact Stability Lightweight Trainers
               </a>
               <span class="kt-badge kt-badge-destructive kt-badge-sm uppercase">
@@ -3557,7 +3583,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Wave Strike Dynamic Boost Sneaker
               </a>
              </div>
@@ -3612,7 +3638,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </div>
             <div class="flex flex-col gap-2">
              <div class="flex items-center gap-2.5 -mt-1">
-              <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+              <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                Velocity Boost Xtreme High  Shock Absorbers
               </a>
              </div>
@@ -5759,10 +5785,10 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
                 <img alt="" class="w-full h-full object-cover cursor-pointer" data-kt-drawer-toggle="#drawers_shop_product_details" src="https://yoni.dinj.co/assets/sweet-2-WWnhKb-y.jpg">
               </div>
               <div class="flex items-center justify-between gap-2 px-2.5">
-                <a class="hover:text-primary text-sm font-medium text-mono leading-5.5" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
+                <a class="hover:text-primary font-medium leading-5.5" style="font-size: 18px; color: #320869;" data-kt-drawer-toggle="#drawers_shop_product_details" href="#">
                   ${name}
                 </a>
-                <div class="flex items-center gap-1.5 text-xs text-secondary-foreground">
+                <div class="flex items-center gap-1.5 text-secondary-foreground" style="font-size: 14px;">
                   <span>${height}cm</span>
                   <span>,</span>
                   <span>${cup}</span>
@@ -6116,5 +6142,62 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   });
   </script>
   <!-- End of Scripts -->
+ <!-- Force Mobile Menu Centering -->
+ <style>
+  @media (max-width: 1023px) {
+   /* Main menu items - only when drawer is shown */
+   .kt-drawer#navbar .kt-menu-item,
+   #navbar.kt-drawer .kt-menu-item {
+    width: 100% !important;
+    text-align: center !important;
+   }
+   .kt-drawer#navbar .kt-menu-link,
+   #navbar.kt-drawer .kt-menu-link {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+   }
+   .kt-drawer#navbar .kt-menu-title,
+   #navbar.kt-drawer .kt-menu-title {
+    display: inline !important;
+   }
+   /* Hide icons on mobile */
+   .kt-drawer#navbar .kt-menu-icon,
+   #navbar.kt-drawer .kt-menu-icon {
+    display: none !important;
+   }
+   /* FAQ dropdown styles */
+   .kt-drawer#navbar .kt-menu-dropdown,
+   #navbar.kt-drawer .kt-menu-dropdown {
+    width: 100% !important;
+    padding: 10px 0 !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 8px !important;
+   }
+   .kt-drawer#navbar .kt-menu-dropdown .grid,
+   #navbar.kt-drawer .kt-menu-dropdown .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+   }
+   .kt-drawer#navbar .kt-menu-dropdown h3,
+   #navbar.kt-drawer .kt-menu-dropdown h3 {
+    text-align: center !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+   }
+   .kt-drawer#navbar .kt-menu-dropdown .kt-menu-link,
+   #navbar.kt-drawer .kt-menu-dropdown .kt-menu-link {
+    padding: 10px !important;
+   }
+   /* Container top padding for close button */
+   .kt-drawer#navbar .kt-container-fixed,
+   #navbar.kt-drawer .kt-container-fixed {
+    padding-top: 50px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+   }
+  }
+ </style>
  </body>
 </html>
