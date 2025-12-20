@@ -186,9 +186,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     background-color: #f64696 !important;
     color: white;
    }
+   /* 修復 dropdown 右邊線消失 - 強制設定 border-style */
+   .kt-select {
+    border-style: solid !important;
+   }
   </style>
  </head>
- <body class="antialiased flex h-full text-base text-foreground bg-background [--header-height:78px] max-w-full overflow-x-hidden">
+ <body class="antialiased flex h-full text-base text-foreground [--header-height:78px] max-w-full overflow-x-hidden" style="background: linear-gradient(180deg, rgb(251, 248, 251) 0%, rgb(236, 216, 255) 100%); min-height: 100vh; background-attachment: fixed; overflow-y: auto;">
   <!-- Theme Mode -->
   <script>
    const defaultThemeMode = 'light'; // light|dark|system
@@ -220,7 +224,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- Main -->
   <div class="flex grow flex-col in-data-kt-[sticky-header=on]:pt-(--header-height)">
    <!-- Header -->
-   <header class="flex items-center transition-[height] shrink-0 bg-background h-(--header-height) z-20" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header">
+   <header class="flex items-center shrink-0 h-(--header-height) backdrop-blur-sm" data-kt-sticky="true" data-kt-sticky-class="transition-[height] fixed z-20 top-0 left-0 right-0 shadow-xs backdrop-blur-md bg-background/70 border border-border" data-kt-sticky-name="header" data-kt-sticky-offset="100px" id="header" style="background: transparent !important;">
     <!-- Container -->
     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
      <!-- Logo -->
@@ -231,8 +235,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </button>
       <div class="flex items-center gap-2">
        <a class="flex items-center shrink-0" href="search-results-grid.html">
-        <img class="dark:hidden w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
-        <img class="hidden dark:inline-block w-32 shrink-0" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+        <img class="dark:hidden shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
+        <img class="hidden dark:inline-block shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
        </a>
       </div>
      </div>
@@ -857,35 +861,35 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </header>
    <!-- End of Header -->
    <!-- Navbar -->
-   <div class="bg-muted hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+   <div class="hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false] backdrop-blur-sm" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
     <!-- Container -->
     <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
      <!-- Mega Menu -->
      <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
       <div class="kt-menu-item">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          首頁
         </span>
        </a>
       </div>
       <div class="kt-menu-item">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="order.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          快速配對
         </span>
        </a>
       </div>
       <div class="kt-menu-item">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="deposit.html">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          儲值
         </span>
        </a>
       </div>
       <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
        <div class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono">
-        <span class="kt-menu-title font-medium text-foreground text-sm">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          FAQ
         </span>
         <span class="kt-menu-arrow flex lg:hidden">
@@ -1007,11 +1011,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    <!-- Wrapper Container -->
    <div class="container-fixed w-full max-w-full flex px-0">
     <!-- Content -->
-    <main class="flex flex-col grow" id="content" role="content">
-    <!-- End of Navbar -->
-   <!-- Wrapper Container -->
-   <div class="container-fixed w-full max-w-full flex px-0">
-    <!-- Content -->
     <main class="flex flex-col grow max-w-full overflow-x-hidden" id="content" role="content">
      <style>
       .hero-bg {
@@ -1109,12 +1108,45 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
             </span>
            </a>
           </div>
-          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary">
+          <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary" data-kt-menu-item-trigger="click" data-kt-menu-item-toggle="dropdown" data-kt-menu-item-placement="bottom-start">
            <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="orders">
             <span class="kt-menu-title text-nowrap font-medium text-sm text-secondary-foreground kt-menu-item-active:text-primary kt-menu-item-active:font-semibold kt-menu-item-here:text-primary kt-menu-item-here:font-semibold kt-menu-item-show:text-primary kt-menu-link-hover:text-primary">
              訂單
             </span>
+            <i class="ki-filled ki-down text-xs ms-1"></i>
            </a>
+           <div class="kt-menu-dropdown kt-menu-default w-[150px] py-2" data-kt-menu-dismiss="true" style="z-index: 100;">
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="all" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">全部</span>
+             </a>
+            </div>
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="pending" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">待確認</span>
+             </a>
+            </div>
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="confirmed" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">待執行</span>
+             </a>
+            </div>
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="inprogress" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">進行中</span>
+             </a>
+            </div>
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="completed" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">已結束</span>
+             </a>
+            </div>
+            <div class="kt-menu-item">
+             <a class="kt-menu-link order-status-option" href="#" data-order-status="refunded" data-kt-menu-dismiss="true">
+              <span class="kt-menu-title">退單</span>
+             </a>
+            </div>
+           </div>
           </div>
           <div class="kt-menu-item border-b-2 border-b-transparent kt-menu-item-active:border-b-primary kt-menu-item-here:border-b-primary provider-only-tab" style="display: none;">
            <a class="kt-menu-link gap-1.5 pb-2 lg:pb-4 px-2" href="#" data-tab="receiving">
@@ -1220,7 +1252,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
 
        <!-- 邀請分頁內容 (預設隱藏) -->
-       <div id="invitation-section" class="hidden flex-col gap-5 w-full mb-12">
+       <div id="invitation-section" class="hidden flex-col gap-5 w-full mb-40">
         <!-- 按鈕群組 -->
         <div class="flex items-center gap-3 mb-4 flex-wrap">
          <button class="kt-btn flex items-center justify-center" style="background-color: #f64696; color: white; border-color: #f64696;" onclick="showJoinMemberModal()">
@@ -1241,22 +1273,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          <button class="kt-btn flex items-center justify-center" style="background-color: #f64696; color: white; border-color: #f64696;">
           加入軟體公司
          </button>
+         <button class="kt-btn flex items-center justify-center" style="background-color: #f64696; color: white; border-color: #f64696;">
+          我的夥伴
+         </button>
         </div>
 
-
         <!-- 底部統計資訊 -->
-        <div class="bg-white shadow-xl rounded-lg p-5 mt-5">
-         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-xl mt-3" style="background-color: #f3f4f6; padding: 24px 32px;">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="flex flex-col">
-           <div class="font-bold text-base mb-2">
+           <div class="font-bold text-base" style="margin-bottom: -2px;">
             邀請加入 <span class="text-secondary-foreground">(已邀請:3人)</span>
            </div>
           </div>
-          <div class="flex items-center">
+          <div class="flex items-start">
            <div class="w-px h-full bg-border mx-4 hidden md:block"></div>
            <div class="flex flex-col">
-            <div class="font-bold text-base mb-1">推薦人資訊</div>
-            <div class="text-sm text-secondary-foreground">無推薦人(您並非透過推薦連結註冊會員)</div>
+            <div class="font-bold text-base" style="margin-bottom: -2px;">推薦人資訊</div>
+            <div class="text-sm text-secondary-foreground mt-2">無推薦人(您並非透過推薦連結註冊會員)</div>
             <div class="text-sm text-secondary-foreground">2024-03-11 12:00:00 註冊</div>
            </div>
           </div>
@@ -1309,31 +1343,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
        <!-- 訂單分頁內容 (預設隱藏) -->
        <div id="orders-section" class="hidden flex-col w-full mb-12">
-        <!-- 訂單狀態篩選分頁 (全寬, 置中) -->
-        <div class="w-full mb-5">
-         <div class="overflow-x-auto">
-          <div class="flex items-center justify-center border-b border-border px-2">
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-primary text-primary whitespace-nowrap" data-order-status="all">
-            全部
-           </button>
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="pending">
-            待確認
-           </button>
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="confirmed">
-            待執行
-           </button>
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="inprogress">
-            進行中
-           </button>
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="completed">
-            已結束
-           </button>
-           <button class="order-status-tab px-3 sm:px-4 py-3 font-medium text-xs sm:text-sm border-b-2 border-transparent text-secondary-foreground hover:text-primary whitespace-nowrap" data-order-status="refunded">
-            退單
-           </button>
-          </div>
-         </div>
-        </div>
 
         <!-- 訂單列表容器 (全寬) -->
         <div class="w-full flex flex-col gap-4 px-2 sm:px-4" id="orders-list-container">
@@ -2337,6 +2346,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
           </div>
          </div>
         </div>
+       </div>
+       <!-- end: flex container -->
 
       <!-- 儲存按鈕 (獨立於表單外,整個頁面置中,只在帳戶資料分頁顯示) -->
       <div id="account-save-button" class="kt-container-fixed flex justify-center">
@@ -3633,8 +3644,8 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   <!-- End of Share Profile Modal -->
 
   <!-- 約會地點選擇 Modal -->
-  <div id="location-select-modal" class="el-overlay" style="z-index: 2030; display: none;">
-   <div class="el-overlay-dialog" style="display: flex; justify-content: center; align-items: flex-start; padding-top: 5vh;">
+  <div id="location-select-modal" class="el-overlay" style="z-index: 2030; display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); overflow: auto;">
+   <div class="el-overlay-dialog" style="display: flex; justify-content: center; align-items: flex-start; padding: 5vh 16px; min-height: 100%; box-sizing: border-box;">
     <div class="el-dialog" style="width: 90%; max-width: 600px; background: var(--tw-card-background, #fff); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
      <!-- Modal Header -->
      <header class="el-dialog__header" style="padding: 16px 20px; border-bottom: 1px solid var(--tw-border-color, #e5e7eb); display: flex; justify-content: space-between; align-items: center;">
@@ -4172,10 +4183,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      });
     });
     
-    // 訂單狀態篩選分頁切換功能
-     const orderStatusTabs = document.querySelectorAll('.order-status-tab');
-
-     // 當前角色（預設為客人）
+    // 當前角色（預設為客人）
      let currentRole = 'member';
 
      // 模擬訂單資料 (實際應從 API 獲取)
@@ -4445,31 +4453,32 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       });
 
       // 重新渲染訂單列表以更新按鈕
-      const activeTab = document.querySelector('.order-status-tab.border-primary');
-      const currentStatus = activeTab ? activeTab.getAttribute('data-order-status') : 'all';
-      renderOrdersList(currentStatus);
+      renderOrdersList(currentOrderStatus);
      });
     }
 
-    orderStatusTabs.forEach(tab => {
-     tab.addEventListener('click', function(e) {
+    // 訂單狀態 Dropdown 篩選功能
+    let currentOrderStatus = 'all';
+
+    function filterOrdersByStatus(status) {
+     currentOrderStatus = status;
+     renderOrdersList(status);
+    }
+
+    // 訂單狀態選項點擊事件
+    document.querySelectorAll('.order-status-option').forEach(option => {
+     option.addEventListener('click', function(e) {
       e.preventDefault();
-      
-      // 移除所有分頁的選中狀態
-      orderStatusTabs.forEach(t => {
-       t.classList.remove('border-primary', 'text-primary');
-       t.classList.add('border-transparent', 'text-secondary-foreground');
-      });
-      
-      // 添加當前分頁的選中狀態
-      this.classList.remove('border-transparent', 'text-secondary-foreground');
-      this.classList.add('border-primary', 'text-primary');
-      
-      // 獲取選中的狀態並重新渲染
-      const selectedStatus = this.getAttribute('data-order-status');
-      renderOrdersList(selectedStatus);
+      const status = this.getAttribute('data-order-status');
+      filterOrdersByStatus(status);
+
+      // 關閉 dropdown - 模擬點擊頁面其他地方
+      document.body.click();
      });
     });
+
+    // 頁面載入時初始化訂單列表
+    renderOrdersList('all');
     
     // 接單狀態篩選分頁切換功能
     const receivingStatusTabs = document.querySelectorAll('.receiving-status-tab');
@@ -4652,10 +4661,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 
        <!-- 點數計算顯示 -->
        <div class="flex flex-col gap-2 p-4 bg-card border border-border rounded-lg">
-        <div class="flex justify-between items-center">
-         <span class="text-sm font-medium text-secondary-foreground">現有點數</span>
-         <span class="text-base font-semibold text-mono" id="renewal-modal-current-points">10000 P</span>
-        </div>
         <div class="flex justify-between items-center">
          <span class="text-sm font-medium text-secondary-foreground">扣除點數</span>
          <span class="text-base font-semibold text-destructive" id="renewal-modal-deduct-points">-3000 P</span>
