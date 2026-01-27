@@ -97,11 +97,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <!-- Container -->
     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
      <!-- Logo -->
-     <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
-      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden me-3" data-kt-drawer-toggle="#navbar">
-       <i class="ki-filled ki-menu" style="font-size: 1.5rem; transform: scale(1.3);">
-       </i>
-      </button>
+     <div class="flex items-center gap-1 lg:w-[400px]">
       <div class="flex items-center gap-2">
        <a class="flex items-center shrink-0" href="search-results-grid.html">
         <img class="dark:hidden shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
@@ -111,7 +107,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
      </div>
      <!-- End of Logo -->
      <!-- Topbar -->
-     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end">
+     <div class="flex items-center gap-2 lg:gap-3.5 lg:w-[400px] justify-end grow lg:grow-0">
       <!-- User -->
       <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
        <button class="kt-btn kt-btn-icon kt-btn-ghost size-9 relative rounded-full hover:bg-primary/10 [&.active]:bg-primary/10 hover:[&_i]:text-primary [&.active]:[&_i]:text-primary" data-kt-dropdown-toggle="true">
@@ -673,6 +669,14 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
       </div>
       <!--End of Product Details Drawer-->
+
+      <!-- Mobile Menu Button -->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost lg:hidden -me-2" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu" style="font-size: 1.5rem; transform: scale(1.3);">
+       </i>
+      </button>
+      <!-- End Mobile Menu Button -->
+
       <!-- End of Topbar -->
      </div>
     </div>
@@ -1062,9 +1066,24 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </div>
         <!--End of Work Schedule Drawer-->
        </div>
+
+       <!-- Tab Navigation -->
+       <div class="flex border-b border-border mb-6 mt-5">
+        <button class="provider-tab flex-1 py-3 text-sm font-medium text-secondary-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary/30" data-tab="all">
+         所有成員
+        </button>
+        <button class="provider-tab flex-1 py-3 text-sm font-medium text-secondary-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary/30" data-tab="nearby">
+         在你附近
+        </button>
+        <button class="provider-tab flex-1 py-3 text-sm font-medium text-secondary-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary/30" data-tab="online">
+         最新在線
+        </button>
+       </div>
+       <!-- End Tab Navigation -->
+
        <!-- begin: toolbar -->
        <div class="flex flex-wrap items-center gap-5 justify-between mt-3">
-        <h3 class="text-mono font-medium" style="font-size: 24px;">
+        <h3 class="text-mono font-medium" style="font-size: 24px;" id="provider-list-title">
 所有服務商
         </h3>
         <div class="flex items-center gap-2.5">
@@ -6141,6 +6160,146 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     switchPhoto(0);
   });
   </script>
+
+  <!-- Provider Tab Switching & Infinite Scroll -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.provider-tab');
+    const listTitle = document.getElementById('provider-list-title');
+    const providerGrid = document.querySelector('.grid.grid-cols-2.xl\\:grid-cols-4');
+
+    // Tab configuration
+    const tabConfig = {
+      'all': {
+        title: '所有服務商',
+        filter: (card) => true // Show all
+      },
+      'nearby': {
+        title: '在你附近',
+        filter: (card) => {
+          // TODO: Filter by same city/county
+          // For now, show all with "nearby" badge
+          return true;
+        }
+      },
+      'online': {
+        title: '最新在線',
+        filter: (card) => {
+          // TODO: Filter by current work schedule
+          // For now, show cards with online status
+          return true;
+        }
+      }
+    };
+
+    // Current state
+    let currentTab = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 60;
+    let isLoading = false;
+    let allCards = [];
+
+    // Get URL param
+    function getUrlParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Set URL param
+    function setUrlParam(param, value) {
+      const url = new URL(window.location);
+      url.searchParams.set(param, value);
+      window.history.pushState({}, '', url);
+    }
+
+    // Switch tab
+    function switchTab(tabName) {
+      currentTab = tabName;
+      currentPage = 1;
+
+      // Update active state
+      tabButtons.forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('text-primary', 'border-primary');
+          btn.classList.remove('text-secondary-foreground', 'border-transparent');
+        } else {
+          btn.classList.remove('text-primary', 'border-primary');
+          btn.classList.add('text-secondary-foreground', 'border-transparent');
+        }
+      });
+
+      // Update title
+      if (tabConfig[tabName] && listTitle) {
+        listTitle.textContent = tabConfig[tabName].title;
+      }
+
+      // Load cards
+      loadCards();
+
+      // Update URL
+      setUrlParam('tab', tabName);
+    }
+
+    // Load cards based on current tab and page
+    function loadCards() {
+      if (!providerGrid) return;
+
+      if (currentPage === 1) {
+        // Reset: hide all cards first
+        allCards = Array.from(providerGrid.querySelectorAll('.kt-card'));
+        allCards.forEach(card => {
+          card.style.display = 'none';
+        });
+      }
+
+      // Filter cards based on tab
+      const filteredCards = allCards.filter(tabConfig[currentTab].filter);
+
+      // Show cards for current page
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = currentPage * itemsPerPage;
+      const cardsToShow = filteredCards.slice(0, endIndex);
+
+      cardsToShow.forEach(card => {
+        card.style.display = '';
+      });
+    }
+
+    // Infinite scroll
+    function handleScroll() {
+      if (isLoading) return;
+
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const threshold = document.documentElement.scrollHeight - 500;
+
+      if (scrollPosition >= threshold) {
+        isLoading = true;
+        currentPage++;
+        loadCards();
+
+        setTimeout(() => {
+          isLoading = false;
+        }, 500);
+      }
+    }
+
+    // Tab click handlers
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        switchTab(this.dataset.tab);
+      });
+    });
+
+    // Scroll event
+    window.addEventListener('scroll', handleScroll);
+
+    // Initialize from URL or default
+    const initialTab = getUrlParam('tab') || 'all';
+    switchTab(initialTab);
+  });
+  </script>
+  <!-- End Provider Tab Switching -->
+
   <!-- End of Scripts -->
  <!-- Force Mobile Menu Centering -->
  <style>
