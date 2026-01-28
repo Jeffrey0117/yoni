@@ -216,13 +216,165 @@
             background-color: #9ca3af;
             cursor: not-allowed;
         }
-        
+
+        /* 第三方註冊區域 */
+        .third-party-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .third-party-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .third-party-title .icon {
+            font-size: 20px;
+        }
+
+        .notification-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .notification-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: white;
+        }
+
+        .notification-option:hover {
+            border-color: #f64696;
+            background-color: #fff5f8;
+        }
+
+        .notification-option.active {
+            border-color: #f64696;
+            background-color: #fff0f5;
+        }
+
+        .notification-option .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .notification-option .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .notification-option.browser .icon-circle {
+            background-color: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .notification-option.line .icon-circle {
+            background-color: #dcfce7;
+            color: #06C755;
+        }
+
+        .notification-option .label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .notification-option .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 28px;
+        }
+
+        .notification-option .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .notification-option .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #d1d5db;
+            transition: 0.3s;
+            border-radius: 28px;
+        }
+
+        .notification-option .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .notification-option .toggle-switch input:checked + .slider {
+            background-color: #f64696;
+        }
+
+        .notification-option .toggle-switch input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .confirm-button {
+            width: 100%;
+            background-color: #f64696;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .confirm-button:hover {
+            background-color: #e03d85;
+        }
+
+        .confirm-button:active {
+            background-color: #c93576;
+        }
+
+        .confirm-button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
         @media (max-width: 640px) {
             .signup-container {
                 margin: 20px;
                 padding: 28px 24px;
             }
-            
+
             h2 {
                 font-size: 24px;
             }
@@ -249,40 +401,290 @@
         </div>
 
         <button class="signup-submit" onclick="handleSignup()">簡訊驗證登入</button>
+
+        <!-- 第三方註冊 - 訂閱通知 -->
+        <div class="third-party-section">
+            <div class="third-party-title">
+                <span class="icon">👤</span>
+                <span>第三方註冊 - 訂閱通知</span>
+            </div>
+
+            <div class="notification-options">
+                <!-- 瀏覽器推播選項 -->
+                <div class="notification-option browser" onclick="toggleNotification('browser')">
+                    <div class="left">
+                        <div class="icon-circle">
+                            <span>🔔</span>
+                        </div>
+                        <span class="label">瀏覽器推播</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="browser-notification">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <!-- LINE 推播選項 -->
+                <div class="notification-option line" onclick="toggleNotification('line')">
+                    <div class="left">
+                        <div class="icon-circle">
+                            <svg class="line-icon" style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#06C755" d="M18.28 4.5C18.28 2.01 16.27 0 13.78 0h-9c-2.49 0-4.5 2.01-4.5 4.5v9c0 2.49 2.01 4.5 4.5 4.5h5.5v5l1.66-1.24 4.34-3.76h2c2.49 0 4.5-2.01 4.5-4.5v-9zm-11.65 6c0 .29-.24.52-.52.52s-.52-.23-.52-.52V7.17c0-.29.24-.52.52-.52s.52.23.52.52V10.5zm2.82 0c0 .23-.15.44-.37.5-.04.01-.09.02-.13.02-.19 0-.36-.11-.45-.27l-1.4-2.59v2.35c0 .29-.24.52-.52.52s-.52-.23-.52-.52V7.17c0-.23.15-.43.37-.5.22-.06.46.02.57.22l1.41 2.59V7.17c0-.29.24-.52.52-.52s.52.23.52.52V10.5zm3.44 0c0 .29-.24.52-.52.52h-1.88c-.29 0-.52-.23-.52-.52V7.17c0-.29.24-.52.52-.52h1.88c.29 0 .52.23.52.52s-.24.52-.52.52h-1.36v.68h1.36c.29 0 .52.23.52.52s-.24.52-.52.52h-1.36v.68h1.36c.29 0 .52.23.52.52z"/>
+                            </svg>
+                        </div>
+                        <span class="label">LINE 推播</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="line-notification">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="confirm-button" onclick="confirmNotificationSettings()">✓ 確定</button>
+        </div>
     </div>
-    
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+
+    <!-- Firebase Config & Push Notification Manager -->
+    <script src="firebase-config.js"></script>
+    <script src="push-notification.js"></script>
+
     <script>
+        // 初始化推播管理器
+        let pushManager = null;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 初始化推播通知系統...');
+
+            // 初始化 Firebase 和推播管理器
+            if (window.pushNotificationManager) {
+                pushManager = window.pushNotificationManager;
+                await pushManager.initialize();
+
+                // 載入已儲存的設定
+                loadNotificationSettings();
+            }
+        });
+
+        /**
+         * 載入已儲存的通知設定
+         */
+        function loadNotificationSettings() {
+            const browserEnabled = pushManager.getSubscriptionStatus();
+            const lineEnabled = localStorage.getItem('line_notification_enabled') === 'true';
+
+            document.getElementById('browser-notification').checked = browserEnabled;
+            document.getElementById('line-notification').checked = lineEnabled;
+
+            if (browserEnabled) {
+                document.querySelector('.notification-option.browser').classList.add('active');
+            }
+            if (lineEnabled) {
+                document.querySelector('.notification-option.line').classList.add('active');
+            }
+        }
+
+        /**
+         * 切換通知選項
+         */
+        function toggleNotification(type) {
+            const checkbox = document.getElementById(`${type}-notification`);
+            const option = document.querySelector(`.notification-option.${type}`);
+
+            // 切換 checkbox
+            checkbox.checked = !checkbox.checked;
+
+            // 更新樣式
+            if (checkbox.checked) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+
+            // 阻止事件冒泡
+            event.stopPropagation();
+        }
+
+        /**
+         * 確認通知設定
+         */
+        async function confirmNotificationSettings() {
+            const browserEnabled = document.getElementById('browser-notification').checked;
+            const lineEnabled = document.getElementById('line-notification').checked;
+
+            console.log('📱 通知設定:', {
+                browser: browserEnabled,
+                line: lineEnabled
+            });
+
+            // 處理瀏覽器推播訂閱
+            if (browserEnabled) {
+                await subscribeToBrowserNotifications();
+            } else {
+                await unsubscribeFromBrowserNotifications();
+            }
+
+            // 處理 LINE 推播設定
+            if (lineEnabled) {
+                handleLineNotification();
+            } else {
+                localStorage.setItem('line_notification_enabled', 'false');
+            }
+
+            // 顯示成功訊息
+            showNotificationMessage('✅ 通知設定已更新');
+        }
+
+        /**
+         * 訂閱瀏覽器推播
+         */
+        async function subscribeToBrowserNotifications() {
+            if (!pushManager) {
+                alert('❌ 推播管理器未初始化');
+                return;
+            }
+
+            try {
+                const result = await pushManager.subscribe();
+
+                if (result.success) {
+                    console.log('✅ 已訂閱瀏覽器推播');
+                    console.log('FCM Token:', result.token);
+
+                    // 顯示成功訊息
+                    showNotificationMessage('✅ 已開啟瀏覽器推播通知');
+
+                    // TODO: 這裡可以發送 token 到後端
+                    // await sendTokenToBackend(result.token);
+                } else {
+                    console.error('❌ 訂閱失敗:', result.error);
+
+                    // 根據錯誤類型顯示不同訊息
+                    if (result.error === 'Permission denied') {
+                        alert('⛔ 推播權限被拒絕\n\n請在瀏覽器設定中允許本網站的通知權限。');
+                    } else if (result.error === 'Browser not supported') {
+                        alert('❌ 您的瀏覽器不支援推播通知\n\n請使用 Chrome、Firefox、Edge 或 Safari 最新版本。');
+                    } else {
+                        alert('❌ 開啟推播失敗: ' + result.error);
+                    }
+
+                    // 取消勾選
+                    document.getElementById('browser-notification').checked = false;
+                    document.querySelector('.notification-option.browser').classList.remove('active');
+                }
+            } catch (error) {
+                console.error('❌ 訂閱錯誤:', error);
+                alert('❌ 開啟推播時發生錯誤');
+
+                // 取消勾選
+                document.getElementById('browser-notification').checked = false;
+                document.querySelector('.notification-option.browser').classList.remove('active');
+            }
+        }
+
+        /**
+         * 取消訂閱瀏覽器推播
+         */
+        async function unsubscribeFromBrowserNotifications() {
+            if (!pushManager) return;
+
+            try {
+                const result = await pushManager.unsubscribe();
+
+                if (result.success) {
+                    console.log('✅ 已取消訂閱瀏覽器推播');
+                    showNotificationMessage('✅ 已關閉瀏覽器推播通知');
+                }
+            } catch (error) {
+                console.error('❌ 取消訂閱錯誤:', error);
+            }
+        }
+
+        /**
+         * 處理 LINE 推播設定
+         */
+        function handleLineNotification() {
+            // TODO: 實現 LINE 推播綁定邏輯
+            console.log('📱 LINE 推播設定已啟用');
+
+            // 儲存設定
+            localStorage.setItem('line_notification_enabled', 'true');
+
+            // 如果需要導向 LINE 綁定頁面，可以在這裡處理
+            // window.location.href = 'LINE_BIND_URL';
+
+            showNotificationMessage('✅ 已啟用 LINE 推播通知');
+        }
+
+        /**
+         * 顯示通知訊息
+         */
+        function showNotificationMessage(message) {
+            // 簡單的 alert（可以替換成更好看的 toast 通知）
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #10b981;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
+                font-size: 14px;
+                font-weight: 500;
+            `;
+
+            document.body.appendChild(toast);
+
+            // 3 秒後自動移除
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        /**
+         * 處理註冊
+         */
         function handleSignup() {
             const inviteInput = document.getElementById('invite');
             const phoneInput = document.getElementById('phone');
             const nicknameInput = document.getElementById('nickname');
             const agreeCheckbox = document.getElementById('agree');
-            
+
             if (!agreeCheckbox.checked) {
                 alert('請先閱讀並同意使用條款');
                 agreeCheckbox.focus();
                 return;
             }
-            
+
             if (!phoneInput.value || !phoneInput.value.match(/^09\d{8}$/)) {
                 alert('請輸入有效的手機號碼 (格式: 09XXXXXXXX)');
                 phoneInput.focus();
                 return;
             }
-            
+
             if (!nicknameInput.value || nicknameInput.value.trim() === '') {
                 alert('請輸入暱稱');
                 nicknameInput.focus();
                 return;
             }
-            
+
             // 這裡可以添加簡訊驗證邏輯
             console.log('註冊資料:', {
                 invite: inviteInput.value,
                 phone: phoneInput.value,
                 nickname: nicknameInput.value
             });
-            
+
             alert('驗證碼已發送至 ' + phoneInput.value);
         }
     </script>
