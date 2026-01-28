@@ -63,8 +63,9 @@ class PushNotificationManager {
    */
   async registerServiceWorker() {
     try {
-      const registration = await navigator.serviceWorker.register('/firebase-messaging-sw.js', {
-        scope: '/'
+      // 使用相對路徑，支援任何部署環境（包括 GitHub Pages）
+      const registration = await navigator.serviceWorker.register('./firebase-messaging-sw.js', {
+        scope: './'
       });
       console.log('✅ Service Worker registered:', registration);
       return registration;
@@ -112,6 +113,9 @@ class PushNotificationManager {
     }
 
     try {
+      console.log('🔑 Requesting FCM token...');
+      console.log('VAPID Key:', window.vapidKey ? 'Present' : 'Missing');
+
       const token = await this.messaging.getToken({
         vapidKey: window.vapidKey,
         serviceWorkerRegistration: await navigator.serviceWorker.ready
@@ -124,10 +128,22 @@ class PushNotificationManager {
         return token;
       } else {
         console.warn('⚠️ No FCM token available');
+        console.warn('可能原因：Service Worker 未正確註冊或 VAPID key 錯誤');
         return null;
       }
     } catch (error) {
       console.error('❌ Error getting FCM token:', error);
+      console.error('錯誤詳情:', error.code, error.message);
+
+      // 提供更友善的錯誤訊息
+      if (error.code === 'messaging/permission-blocked') {
+        console.error('🚫 通知權限被封鎖，請在瀏覽器設定中允許通知');
+      } else if (error.code === 'messaging/registration-token-not-found') {
+        console.error('🔍 Service Worker 註冊失敗或未找到');
+      } else if (error.code === 'messaging/token-subscribe-failed') {
+        console.error('📡 FCM 訂閱失敗，請檢查網路連線和 Firebase 配置');
+      }
+
       return null;
     }
   }
