@@ -80,10 +80,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <div class="kt-container-fixed flex lg:justify-between items-center gap-2.5">
      <!-- Logo -->
      <div class="flex items-center gap-1 lg:w-[400px] grow lg:grow-0">
-      <button class="kt-btn kt-btn-icon kt-btn-ghost -ms-2.5 lg:hidden" data-kt-drawer-toggle="#navbar">
-       <i class="ki-filled ki-menu">
-       </i>
-      </button>
       <div class="flex items-center gap-2">
        <a class="flex items-center shrink-0" href="search-results-grid.html">
         <img class="dark:hidden shrink-0" style="width: calc(8rem * 1.2); transform: scale(1.2);" src="https://yoni.dinj.co/assets/logo-WfWQfKK6.png"/>
@@ -203,6 +199,11 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       <!--Cart-->
  <i class="ki-filled ki-notification-on text-2xl"></i>
       <!--End of Cart-->
+      <!-- Mobile Menu Button -->
+      <button class="kt-btn kt-btn-icon kt-btn-ghost lg:hidden -me-2" data-kt-drawer-toggle="#navbar">
+       <i class="ki-filled ki-menu" style="font-size: 1.5rem; transform: scale(1.3);"></i>
+      </button>
+      <!-- End Mobile Menu Button -->
       <!-- End of Topbar -->
      </div>
     </div>
@@ -210,7 +211,13 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </header>
    <!-- End of Header -->
    <!-- Navbar -->
-   <div class="hidden lg:flex lg:items-stretch border-y border-input backdrop-blur-sm lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full me-5 max-w-[250px] p-5 lg:p-0 overflow-auto" id="navbar">
+   <div class="hidden lg:flex lg:items-stretch border-y border-input lg:mb-10 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" style="background-color: white !important;" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start fixed z-10 top-0 bottom-0 w-full max-w-[100vw] p-5 lg:p-0 overflow-auto" id="navbar">
+    <!-- Mobile Close Button -->
+    <div class="flex lg:hidden justify-end mb-4" style="position: absolute; top: 15px; right: 15px;">
+     <button class="kt-btn kt-btn-icon kt-btn-ghost" data-kt-drawer-dismiss="true" style="transform: scale(1.3);">
+      <i class="ki-filled ki-cross text-xl"></i>
+     </button>
+    </div>
     <!-- Container -->
     <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
      <!-- Mega Menu -->
@@ -343,21 +350,21 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
         </div>
        </div>
       </div>
-      <div class="kt-menu-item">
+      <div class="kt-menu-item lg:hidden">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="about.html">
         <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          品牌介紹
         </span>
        </a>
       </div>
-      <div class="kt-menu-item">
+      <div class="kt-menu-item lg:hidden">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="privacy.html">
         <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          隱私權政策
         </span>
        </a>
       </div>
-      <div class="kt-menu-item">
+      <div class="kt-menu-item lg:hidden">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="terms.html">
         <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          使用條款
