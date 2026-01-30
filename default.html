@@ -102,7 +102,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    .el-dialog__body {
     padding: 30px 20px;
     color: #606266;
-    font-size: 14px;
+    font-size: 16px;
     word-break: break-all;
    }
    .el-input-group {
@@ -162,7 +162,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     transition: 0.1s;
     font-weight: 500;
     padding: 8px 15px;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 4px;
     border: none;
    }
@@ -865,11 +865,16 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <!-- Container -->
     <div class="kt-container-fixed lg:flex lg:flex-wrap lg:justify-between lg:items-center gap-2 px-0 lg:px-7.5">
      <!-- Mega Menu -->
-     <div class="kt-menu items-stretch flex-col lg:flex-row gap-5 lg:gap-7.5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+     <div class="kt-menu items-stretch flex-col lg:flex-row gap-3 lg:gap-5 grow lg:grow-0" data-kt-menu="true" id="mega_menu">
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="chat.html">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">聊天</span>
+       </a>
+      </div>
       <div class="kt-menu-item">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="search-results-grid.html">
         <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
-         首頁
+         約會
         </span>
        </a>
       </div>
@@ -881,10 +886,22 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </a>
       </div>
       <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="javascript:void(0)" onclick="alert('功能未啟用')" style="position:relative;">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size:16px;">活動</span>
+        <span style="position:absolute;left:50%;transform:translateX(-50%);bottom:2px;font-size:9px;color:#ec4899;white-space:nowrap;">(即將上線)</span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
        <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="deposit.html">
         <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
          儲值
         </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="javascript:void(0)" onclick="alert('功能未啟用')" style="position:relative;">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size:16px;">直播</span>
+        <span style="position:absolute;left:50%;transform:translateX(-50%);bottom:2px;font-size:9px;color:#ec4899;white-space:nowrap;">(即將上線)</span>
        </a>
       </div>
       <div class="kt-menu-item" data-kt-menu-item-placement="bottom-start" data-kt-menu-item-placement-rtl="bottom-end" data-kt-menu-item-toggle="accordion|lg:dropdown" data-kt-menu-item-trigger="click|lg:hover">
@@ -915,45 +932,33 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-question-2">
-                </i>
+                <i class="ki-filled ki-question-2"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                如何使用平台?
-               </span>
+               <span class="kt-menu-title grow-0">如何使用平台?</span>
               </a>
              </div>
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-wallet">
-                </i>
+                <i class="ki-filled ki-wallet"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                儲值相關問題
-               </span>
+               <span class="kt-menu-title grow-0">儲值相關問題</span>
               </a>
              </div>
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-shield-tick">
-                </i>
+                <i class="ki-filled ki-shield-tick"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                安全與隱私
-               </span>
+               <span class="kt-menu-title grow-0">安全與隱私</span>
               </a>
              </div>
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-calendar">
-                </i>
+                <i class="ki-filled ki-calendar"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                約會流程
-               </span>
+               <span class="kt-menu-title grow-0">約會流程</span>
               </a>
              </div>
             </div>
@@ -961,34 +966,25 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-message-text">
-                </i>
+                <i class="ki-filled ki-message-text"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                聯絡客服
-               </span>
+               <span class="kt-menu-title grow-0">聯絡客服</span>
               </a>
              </div>
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-information">
-                </i>
+                <i class="ki-filled ki-information"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                帳戶問題
-               </span>
+               <span class="kt-menu-title grow-0">帳戶問題</span>
               </a>
              </div>
              <div class="kt-menu-item">
               <a class="kt-menu-link" href="#" tabindex="0">
                <span class="kt-menu-icon">
-                <i class="ki-filled ki-star">
-                </i>
+                <i class="ki-filled ki-star"></i>
                </span>
-               <span class="kt-menu-title grow-0">
-                評價系統
-               </span>
+               <span class="kt-menu-title grow-0">評價系統</span>
               </a>
              </div>
             </div>
@@ -997,6 +993,27 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
          </div>
         </div>
        </div>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="about.html">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
+         品牌介紹
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="privacy.html">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
+         隱私權政策
+        </span>
+       </a>
+      </div>
+      <div class="kt-menu-item">
+       <a class="kt-menu-link lg:py-3.5 border-b border-b-transparent kt-menu-item-active:border-b-mono text-foreground kt-menu-item-hover:text-mono kt-menu-item-active:text-mono kt-menu-item-here:border-b-mono kt-menu-item-here:text-mono" href="terms.html">
+        <span class="kt-menu-title font-medium text-foreground" style="font-size: 16px;">
+         使用條款
+        </span>
+       </a>
       </div>
      </div>
      <!-- End of Mega Menu -->
