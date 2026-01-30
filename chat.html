@@ -9,7 +9,7 @@ Follow: https://www.twitter.com/keenthemes
 License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
 -->
 <!DOCTYPE html>
-<html class="h-full" style="background: linear-gradient(180deg, #fff0f8 0%, #f2e6ff 100%) !important; min-height: 100vh !important; background-attachment: fixed !important;" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
+<html class="h-full" style="background: linear-gradient(180deg, #fff0f8 0%, #f2e6ff 100%) !important; min-height: 100vh !important; background-attachment: fixed !important; overflow: hidden;" data-kt-theme="true" data-kt-theme-mode="light" dir="ltr" lang="en">
  <head>
   <title>
    聊天室
@@ -144,7 +144,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
   }
   </style>
  </head>
- <body class="antialiased flex h-full text-base text-foreground [--header-height:78px]">
+ <body class="antialiased flex h-full text-base text-foreground [--header-height:78px]" style="overflow: hidden;">
   <!-- Theme Mode -->
   <script>
    const defaultThemeMode = 'light'; // light|dark|system
@@ -454,23 +454,23 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
    </div>
    <!-- End of Navbar -->
    <!-- Main Content -->
-   <main class="flex flex-col grow overflow-x-hidden" id="content" role="content">
+   <main class="flex flex-col grow overflow-hidden" id="content" role="content">
     <!-- Container -->
-    <div class="kt-container-fixed h-full overflow-x-hidden">
+    <div class="kt-container-fixed overflow-hidden" style="flex: 1; display: flex; flex-direction: column;">
      <!-- Mobile overlay for chat list -->
      <div class="chat-list-overlay lg:hidden" id="chat-list-overlay"></div>
 
-     <div class="flex h-full flex-col lg:flex-row gap-5 lg:gap-7.5">
+     <div class="flex flex-col lg:flex-row gap-5 lg:gap-7.5" style="flex: 1; overflow: hidden;">
 
       <!-- Left Sidebar: Chat List -->
-      <div class="chat-list-sidebar lg:flex lg:w-1/3 flex-col border border-border rounded-lg bg-card overflow-hidden" id="chat-list-sidebar">
+      <div class="chat-list-sidebar lg:flex lg:w-1/3 flex-col border border-border rounded-lg bg-card" style="overflow: hidden; min-height: 0;" id="chat-list-sidebar">
        <!-- Header -->
        <div class="p-5 border-b border-border">
         <h2 class="text-xl font-bold text-mono">聊天室</h2>
        </div>
 
        <!-- Chat List -->
-       <div style="height: calc(100vh - 200px); overflow-y: scroll !important;">
+       <div style="flex: 1; overflow-y: auto; min-height: 0;">
         <!-- Chat Item 1 -->
         <div class="chat-item p-4 border-b border-border hover:bg-muted/30 cursor-pointer active" data-chat-id="1">
          <div class="flex items-center gap-3">
@@ -669,7 +669,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
       </div>
 
       <!-- Right: Chat Area -->
-      <div class="flex flex-1 flex-col border border-border rounded-lg bg-card overflow-hidden" id="chat-area">
+      <div class="flex flex-1 flex-col border border-border rounded-lg bg-card" style="overflow: hidden; min-height: 0;" id="chat-area">
        <!-- Chat Header -->
        <div class="p-3 md:p-4 border-b border-border">
         <div class="flex items-center justify-between gap-2 mb-2 md:mb-0">
@@ -713,7 +713,7 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
        </div>
 
        <!-- Messages Area -->
-       <div class="overflow-y-auto overflow-x-hidden p-3 md:p-5 bg-muted/10" id="messages-container" style="height: calc(100vh - 350px);">
+       <div class="overflow-y-auto overflow-x-hidden p-3 md:p-5 bg-muted/10" id="messages-container" style="flex: 1; min-height: 0;">
         <div class="flex flex-col gap-4">
 
          <!-- Message from other (left) -->
@@ -864,35 +864,6 @@ License: https://keenthemes.com/metronic/tailwind/docs/getting-started/license
     <!-- End of Container -->
    </main>
    <!-- End of Main Content -->
-   <!-- Footer -->
-   <footer class="footer" style="margin-top: 60px !important;">
-    <!-- Container -->
-    <div class="kt-container-fixed">
-     <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 py-5">
-      <div class="flex order-2 md:order-1 gap-2 font-normal text-sm">
-       <span class="text-muted-foreground">
-        2025©
-       </span>
-       <a class="text-secondary-foreground hover:text-primary" href="https://keenthemes.com">
-        yoni Inc.
-       </a>
-      </div>
-      <nav class="flex order-1 md:order-2 gap-4 font-normal text-sm text-secondary-foreground">
-       <a class="hover:text-primary" href="about.html">
-        品牌介紹
-       </a>
-       <a class="hover:text-primary" href="terms.html">
-        使用條款
-       </a>
-       <a class="hover:text-primary" href="privacy.html">
-        隱私權政策
-       </a>
-      </nav>
-     </div>
-    </div>
-    <!-- End of Container -->
-   </footer>
-   <!-- End of Footer -->
   </div>
   <!-- End of Main -->
   <!-- Gift Dialog -->
