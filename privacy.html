@@ -15,6 +15,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="assets/vendors/keenicons/styles.bundle.css" rel="stylesheet"/>
   <link href="assets/css/styles.css" rel="stylesheet"/>
+ 
+  <style>
+   /* Force mobile menu left-align */
+   @media (max-width: 1023px) {
+    #mega_menu,
+    #mega_menu .kt-menu-item,
+    #mega_menu .kt-menu-link,
+    #mega_menu .kt-menu-title {
+     text-align: left !important;
+     justify-content: flex-start !important;
+     align-items: flex-start !important;
+    }
+    #mega_menu {
+     align-items: stretch !important;
+    }
+    #mega_menu .kt-menu-link {
+     display: flex !important;
+     padding-left: 0 !important;
+    }
+   }
+  </style>
  </head>
  <body class="antialiased flex h-full text-base text-foreground [--header-height:78px]">
   <script>
